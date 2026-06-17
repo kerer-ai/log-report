@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CI/CD 构建看板</title>
+<style>
+:root {
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --blue: #3b82f6;
+  --green: #22c55e;
+  --red: #ef4444;
+  --amber: #f59e0b;
+  --pre-build: #3b82f6;
+  --build: #22c55e;
+  --unattributed: #475569;
+  --radius: 8px;
+  --radius-sm: 4px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  padding: 16px 20px 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* === HEADER === */
+.header { margin-bottom: 20px; }
+.header-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px;
+}
+.header-title { font-size: 1.5rem; font-weight: 700; }
+.header-time { color: var(--text-muted); font-size: 0.85rem; }
+
+.header-stats {
+  display: flex; gap: 24px; margin-bottom: 12px;
+  font-size: 0.95rem; color: var(--text-secondary);
+}
+.header-stats .stat-value { font-weight: 700; font-size: 1.2rem; }
+.header-stats .stat-label { margin-left: 4px; }
+.stat-pass { color: var(--green); }
+.stat-fail { color: var(--red); }
+
+.header-controls {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.control-search, .control-select {
+  background: var(--card-bg); color: var(--text-primary);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 6px 12px; font-size: 0.9rem;
+}
+.control-search { min-width: 180px; }
+.control-search::placeholder { color: var(--text-muted); }
+.control-select { cursor: pointer; }
+
+/* === INSIGHTS === */
+.insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; margin-bottom: 24px;
+}
+.insight-card {
+  background: var(--card-bg); border-radius: var(--radius);
+  padding: 16px; border-left: 3px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.insight-card:nth-child(1) { border-left-color: var(--blue); }
+.insight-card:nth-child(2) { border-left-color: var(--red); }
+.insight-card:nth-child(3) { border-left-color: var(--amber); }
+.insight-card:nth-child(4) { border-left-color: #a855f7; }
+
+.insight-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.insight-value { font-size: 2rem; font-weight: 700; margin: 4px 0; }
+.insight-sub { font-size: 0.8rem; color: var(--text-secondary); }
+
+/* === RANKING TABLE === */
+.ranking { margin-bottom: 24px; }
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.section-title { font-size: 1.1rem; font-weight: 600; }
+.section-toggle { font-size: 0.8rem; color: var(--blue); cursor: pointer; background: none; border: none; }
+
+.ranking-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--card-bg); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+}
+.ranking-table th {
+  text-align: left; padding: 10px 12px; font-size: 0.8rem;
+  color: var(--text-muted); text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.ranking-table td {
+  padding: 8px 12px; font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.ranking-table tr:last-child td { border-bottom: none; }
+.ranking-table tr:hover { background: rgba(255,255,255,0.03); }
+
+.dot-red { color: var(--red); font-size: 1.2rem; }
+.dot-yellow { color: var(--amber); font-size: 1.2rem; }
+.dot-green { color: var(--green); font-size: 1.2rem; }
+
+.bottleneck-red { color: var(--red); font-weight: 700; }
+.bottleneck-amber { color: var(--amber); font-weight: 600; }
+.bottleneck-gray { color: var(--text-secondary); }
+
+.repo-link { color: var(--blue); text-decoration: none; }
+.repo-link:hover { text-decoration: underline; }
+.detail-arrow { color: var(--text-muted); text-decoration: none; font-size: 1.1rem; }
+.detail-arrow:hover { color: var(--blue); }
+
+.ranking-summary {
+  display: flex; gap: 20px; padding: 10px 12px;
+  font-size: 0.8rem; color: var(--text-muted);
+  background: rgba(0,0,0,0.2); border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* === REPO CARDS === */
+.repo-cards { display: flex; flex-direction: column; gap: 16px; }
+
+.repo-card {
+  background: var(--card-bg); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.repo-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  cursor: pointer; position: sticky; top: 0;
+  background: var(--card-bg); z-index: 10;
+}
+.repo-card-header:hover { background: rgba(255,255,255,0.03); }
+
+.repo-name { font-weight: 700; font-size: 1.05rem; }
+.repo-meta { font-size: 0.8rem; color: var(--text-secondary); }
+.repo-toggle { font-size: 0.8rem; color: var(--blue); background: none; border: none; cursor: pointer; }
+
+.build-item {
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: background 0.15s;
+}
+.build-item:last-child { border-bottom: none; }
+.build-item:hover { background: rgba(255,255,255,0.02); }
+
+.build-summary {
+  display: flex; align-items: center; gap: 12px;
+}
+.build-task-name { font-weight: 600; font-size: 0.9rem; min-width: 180px; }
+.build-total-time { font-size: 0.85rem; color: var(--text-secondary); min-width: 70px; }
+
+.build-bar-wrapper { flex: 1; display: flex; align-items: center; gap: 6px; }
+.build-bar {
+  height: 8px; border-radius: 4px; display: flex; overflow: hidden;
+  flex: 1; min-width: 100px; background: var(--unattributed);
+}
+.build-bar-pre { background: var(--pre-build); height: 100%; }
+.build-bar-build { background: var(--build); height: 100%; }
+
+.build-bar-label { font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; }
+
+.build-status { font-size: 0.8rem; font-weight: 600; }
+.build-status.passed { color: var(--green); }
+.build-status.failed { color: var(--red); }
+
+/* Expandable build detail */
+.build-detail {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.build-detail.open { max-height: 600px; }
+
+.build-detail-inner {
+  padding: 12px 0 0 0; margin-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.action-table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem;
+}
+.action-table th {
+  text-align: left; padding: 4px 8px; color: var(--text-muted);
+  font-weight: 500; font-size: 0.75rem; border-bottom: 1px solid var(--border);
+}
+.action-table td { padding: 4px 8px; }
+.action-warn { color: var(--red); font-weight: 600; }
+
+.repo-card-footer {
+  padding: 10px 16px; font-size: 0.8rem; color: var(--text-muted);
+  border-top: 1px solid var(--border); background: rgba(0,0,0,0.15);
+}
+
+/* Error state */
+.build-error {
+  color: var(--red); padding: 8px 16px; font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body { padding: 10px; }
+  .header-title { font-size: 1.2rem; }
+  .insights { grid-template-columns: repeat(2, 1fr); }
+  .build-summary { flex-wrap: wrap; }
+  .build-task-name { min-width: auto; flex: 1; }
+  .ranking-table { font-size: 0.8rem; }
+  .ranking-table th:nth-child(4),
+  .ranking-table td:nth-child(4) { display: none; }
+}
+
+@media (max-width: 480px) {
+  .insights { grid-template-columns: 1fr; }
+  .header-controls { flex-direction: column; }
+  .ranking-table th:nth-child(3),
+  .ranking-table td:nth-child(3) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Layer 1: Header -->
+<header class="header">
+  <div class="header-top">
+    <h1 class="header-title">🔧 CI/CD 环境准备 & 构建分析看板</h1>
+    <span class="header-time" id="updateTime">—</span>
+  </div>
+  <div class="header-stats" id="headerStats"></div>
+  <div class="header-controls">
+    <input type="text" id="searchInput" class="control-search" placeholder="🔍 搜索仓库...">
+    <select id="orchestratorFilter" class="control-select">
+      <option value="all">编排器: 全部</option>
+    </select>
+    <select id="sortSelect" class="control-select">
+      <option value="pre_build_desc">排序: pre_build 耗时 ↓</option>
+      <option value="total_desc">排序: 总耗时 ↓</option>
+      <option value="pre_build_pct_desc">排序: pre_build 占比 ↓</option>
+    </select>
+  </div>
+</header>
+
+<!-- Layer 2: Insight Cards -->
+<section class="insights" id="insights"></section>
+
+<!-- Layer 3: Pre-Build Ranking -->
+<section class="ranking" id="ranking"></section>
+
+<!-- Layer 4: Repository Detail Cards -->
+<section class="repo-cards" id="repoCards"></section>
+
+<!-- Embedded Data -->
+<script>
+const __EMBEDDED_DATA__ = {{DATA_JSON}};
+</script>
+
+</body>
+</html>
