@@ -7,8 +7,8 @@
     "pipeline_state": " [ commitID：de6a9d6a ] 已完成",
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=08b35c011fc6416894c462ead1434d87&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
-    "fetched_at": "2026-06-17T21:47:14.161558+08:00",
-    "analyzed_at": "2026-06-17T22:00:00+08:00",
+    "fetched_at": "2026-06-17T21:59:31.821120+08:00",
+    "analyzed_at": "2026-06-17T23:00:00+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
@@ -150,138 +150,127 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 205.13,
-        "pct_of_total": 43.7,
+        "total_seconds": 241.316,
+        "pct_of_total": 51.4,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.316,
             "start": "2026-06-12T16:10:02.224000+08:00",
             "end": "2026-06-12T16:10:07.119000+08:00",
-            "duration_seconds": 4.895,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:10:02.224000+08:00 -> 该步骤执行完成 at 2026-06-12T16:10:07.119000+08:00"
+            "evidence": "slave_create, 4.9s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 21.335,
             "start": "2026-06-12T16:10:08.816000+08:00",
-            "end": "2026-06-12T16:10:08.916000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:10:33.012000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.66,
             "start": "2026-06-12T16:10:12.315000+08:00",
             "end": "2026-06-12T16:10:13.064000+08:00",
-            "duration_seconds": 0.749,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:10:12.315000+08:00 -> complete 2026-06-12T16:10:13.064000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 7.973,
             "start": "2026-06-12T16:10:15.529000+08:00",
             "end": "2026-06-12T16:10:24.571000+08:00",
-            "duration_seconds": 9.042,
-            "evidence": "[2026/06/12 16:10:16.240 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:10:16.311 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 7.274,
             "start": "2026-06-12T16:10:34.429000+08:00",
-            "end": "2026-06-12T16:10:46.910000+08:00",
-            "duration_seconds": 12.481,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:10:34.429000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:10:46.910000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:10:42.678000+08:00",
-            "end": "2026-06-12T16:10:42.878000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:10:42.678000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:10:46.909000+08:00",
-            "end": "2026-06-12T16:10:47.109000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 3.732,
+            "start": "2026-06-12T16:10:42.678000+08:00",
+            "end": "2026-06-12T16:10:46.910000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:10:47.174000+08:00",
-            "end": "2026-06-12T16:10:47.474000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:10:47.174000+08:00",
+            "evidence": "[2026/06/12 16:10:47.174 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-zqt85"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 127.287,
             "start": "2026-06-12T16:10:47.174000+08:00",
             "end": "2026-06-12T16:13:11.529000+08:00",
-            "duration_seconds": 144.355,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:10:47.174000+08:00 -> Pod 状态: Running at 2026-06-12T16:13:11.529000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:13:11.530000+08:00",
-            "end": "2026-06-12T16:13:12.030000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:13:11.530000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:13:11.530000+08:00",
-            "end": "2026-06-12T16:13:11.530000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:13:11.530000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 144.4s"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 28.356,
             "start": "2026-06-12T16:13:11.542000+08:00",
             "end": "2026-06-12T16:13:43.700000+08:00",
-            "duration_seconds": 32.158,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:13:11.542000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
-            "start": "2026-06-12T16:13:43.700000+08:00",
-            "end": "2026-06-12T16:13:43.800000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:13:43.700000+08:00"
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 8.853,
+            "start": "2026-06-12T16:13:43.701000+08:00",
+            "end": "2026-06-12T16:13:53.741000+08:00",
+            "evidence": "unzip opensource -> python check"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "duration_seconds": 31.529,
+            "start": "2026-06-12T16:13:11.530000+08:00",
+            "end": "2026-06-12T16:14:29.484000+08:00",
+            "evidence": "CI clone, git merge, deps install, 35.8s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 186.396,
-        "pct_of_total": 39.7,
+        "total_seconds": 211.126,
+        "pct_of_total": 44.9,
         "actions": [
           {
+            "key": "cmake_configure",
+            "name": "CMake配置",
+            "duration_seconds": 27.591
+          },
+          {
             "key": "compilation",
-            "name": "kernel编译",
+            "name": "编译",
             "duration_seconds": 182.587
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 3.809
+            "duration_seconds": 0.948
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 205.13,
-        "build_seconds": 186.396,
-        "unattributed_seconds": 78.165,
+        "pre_build_seconds": 241.316,
+        "build_seconds": 211.126,
+        "unattributed_seconds": 17.249,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 144.355
+        "key_bottleneck_seconds": 127.287
       }
     },
     {
@@ -454,138 +443,122 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 207.265,
-        "pct_of_total": 39.0,
+        "total_seconds": 289.754,
+        "pct_of_total": 54.6,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 5.11,
             "start": "2026-06-12T16:09:57.484000+08:00",
             "end": "2026-06-12T16:10:02.706000+08:00",
-            "duration_seconds": 5.222,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:09:57.484000+08:00 -> 该步骤执行完成 at 2026-06-12T16:10:02.706000+08:00"
+            "evidence": "slave_create, 5.2s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 24.483,
             "start": "2026-06-12T16:10:04.590000+08:00",
-            "end": "2026-06-12T16:10:04.690000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:10:29.609000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.747,
             "start": "2026-06-12T16:10:08.279000+08:00",
             "end": "2026-06-12T16:10:09.042000+08:00",
-            "duration_seconds": 0.763,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:10:08.279000+08:00 -> complete 2026-06-12T16:10:09.042000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 9.32,
             "start": "2026-06-12T16:10:11.570000+08:00",
             "end": "2026-06-12T16:10:21.094000+08:00",
-            "duration_seconds": 9.524,
-            "evidence": "[2026/06/12 16:10:12.483 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:10:12.740 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 4.279,
             "start": "2026-06-12T16:10:31.256000+08:00",
-            "end": "2026-06-12T16:10:42.306000+08:00",
-            "duration_seconds": 11.05,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:10:31.256000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:10:42.306000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:10:35.629000+08:00",
-            "end": "2026-06-12T16:10:35.829000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:10:35.629000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:10:42.306000+08:00",
-            "end": "2026-06-12T16:10:42.506000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 6.534,
+            "start": "2026-06-12T16:10:35.629000+08:00",
+            "end": "2026-06-12T16:10:42.306000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:10:42.897000+08:00",
-            "end": "2026-06-12T16:10:43.197000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:10:42.897000+08:00",
+            "evidence": "[2026/06/12 16:10:42.897 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-rzf8d"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 128.691,
             "start": "2026-06-12T16:10:42.897000+08:00",
             "end": "2026-06-12T16:12:54.408000+08:00",
-            "duration_seconds": 131.511,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:10:42.897000+08:00 -> Pod 状态: Running at 2026-06-12T16:12:54.408000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:12:54.408000+08:00",
-            "end": "2026-06-12T16:12:54.908000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:12:54.408000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:12:54.409000+08:00",
-            "end": "2026-06-12T16:12:55.373000+08:00",
-            "duration_seconds": 0.964,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:12:54.409000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 131.5s"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 45.827,
             "start": "2026-06-12T16:12:59.307000+08:00",
             "end": "2026-06-12T16:13:46.138000+08:00",
-            "duration_seconds": 46.831,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:12:59.307000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 12.056,
             "start": "2026-06-12T16:13:46.138000+08:00",
-            "end": "2026-06-12T16:13:46.238000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:13:46.138000+08:00"
+            "end": "2026-06-12T16:13:58.458000+08:00",
+            "evidence": "unzip opensource -> python check"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "duration_seconds": 52.706,
+            "start": "2026-06-12T16:12:54.409000+08:00",
+            "end": "2026-06-12T16:14:47.420000+08:00",
+            "evidence": "CI clone, git merge, deps install, 53.9s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 225.561,
-        "pct_of_total": 42.5,
+        "total_seconds": 210.573,
+        "pct_of_total": 39.7,
         "actions": [
           {
             "key": "compilation",
-            "name": "kernel编译",
-            "duration_seconds": 216.003
+            "name": "编译",
+            "duration_seconds": 209.583
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 9.558
+            "duration_seconds": 0.99
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 207.265,
-        "build_seconds": 225.561,
-        "unattributed_seconds": 98.121,
+        "pre_build_seconds": 289.754,
+        "build_seconds": 210.573,
+        "unattributed_seconds": 30.62,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 131.511
+        "key_bottleneck_seconds": 128.691
       }
     },
     {
@@ -758,138 +731,122 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 58.997,
-        "pct_of_total": 17.8,
+        "total_seconds": 118.749,
+        "pct_of_total": 35.8,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.976,
             "start": "2026-06-12T16:09:57.524000+08:00",
             "end": "2026-06-12T16:10:02.701000+08:00",
-            "duration_seconds": 5.177,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:09:57.524000+08:00 -> 该步骤执行完成 at 2026-06-12T16:10:02.701000+08:00"
+            "evidence": "slave_create, 5.2s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 24.416,
             "start": "2026-06-12T16:10:04.651000+08:00",
-            "end": "2026-06-12T16:10:04.751000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:10:30.054000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.8,
             "start": "2026-06-12T16:10:08.644000+08:00",
             "end": "2026-06-12T16:10:09.476000+08:00",
-            "duration_seconds": 0.832,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:10:08.644000+08:00 -> complete 2026-06-12T16:10:09.476000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 8.742,
             "start": "2026-06-12T16:10:12.109000+08:00",
             "end": "2026-06-12T16:10:21.204000+08:00",
-            "duration_seconds": 9.095,
-            "evidence": "[2026/06/12 16:10:13.184 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:10:13.251 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 5.283,
             "start": "2026-06-12T16:10:31.958000+08:00",
-            "end": "2026-06-12T16:10:44.366000+08:00",
-            "duration_seconds": 12.408,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:10:31.958000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:10:44.366000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:10:37.455000+08:00",
-            "end": "2026-06-12T16:10:37.655000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:10:37.455000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:10:44.366000+08:00",
-            "end": "2026-06-12T16:10:44.566000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 6.642,
+            "start": "2026-06-12T16:10:37.455000+08:00",
+            "end": "2026-06-12T16:10:44.366000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:10:45.072000+08:00",
-            "end": "2026-06-12T16:10:45.372000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:10:45.072000+08:00",
+            "evidence": "[2026/06/12 16:10:45.072 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-9kccs"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 19.174,
             "start": "2026-06-12T16:10:45.072000+08:00",
             "end": "2026-06-12T16:11:05.021000+08:00",
-            "duration_seconds": 19.949,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:10:45.072000+08:00 -> Pod 状态: Running at 2026-06-12T16:11:05.021000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:11:05.613000+08:00",
-            "end": "2026-06-12T16:11:06.113000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:11:05.613000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:11:05.613000+08:00",
-            "end": "2026-06-12T16:11:05.613000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:11:05.613000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 19.9s"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 9.694,
             "start": "2026-06-12T16:11:05.624000+08:00",
             "end": "2026-06-12T16:11:15.710000+08:00",
-            "duration_seconds": 10.086,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:11:05.624000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 14.429,
             "start": "2026-06-12T16:11:15.710000+08:00",
-            "end": "2026-06-12T16:11:15.810000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:11:15.710000+08:00"
+            "end": "2026-06-12T16:11:30.722000+08:00",
+            "evidence": "unzip opensource -> python check"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "duration_seconds": 24.592,
+            "start": "2026-06-12T16:11:05.613000+08:00",
+            "end": "2026-06-12T16:11:55.705000+08:00",
+            "evidence": "CI clone, git merge, deps install, 25.6s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 197.654,
-        "pct_of_total": 59.6,
+        "total_seconds": 187.628,
+        "pct_of_total": 56.5,
         "actions": [
           {
             "key": "compilation",
-            "name": "kernel编译",
-            "duration_seconds": 192.742
+            "name": "编译",
+            "duration_seconds": 187.036
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 4.912
+            "duration_seconds": 0.592
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 58.997,
-        "build_seconds": 197.654,
-        "unattributed_seconds": 75.247,
-        "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 19.949
+        "pre_build_seconds": 118.749,
+        "build_seconds": 187.628,
+        "unattributed_seconds": 25.521,
+        "key_bottleneck": "环境配置",
+        "key_bottleneck_seconds": 24.592
       }
     },
     {
@@ -1038,133 +995,117 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 205.256,
-        "pct_of_total": 41.3,
+        "total_seconds": 264.553,
+        "pct_of_total": 53.2,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.566,
             "start": "2026-06-12T16:10:02.216000+08:00",
             "end": "2026-06-12T16:10:06.860000+08:00",
-            "duration_seconds": 4.644,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:10:02.216000+08:00 -> 该步骤执行完成 at 2026-06-12T16:10:06.860000+08:00"
+            "evidence": "slave_create, 4.6s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 22.745,
             "start": "2026-06-12T16:10:08.493000+08:00",
-            "end": "2026-06-12T16:10:08.593000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:10:31.628000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.803,
             "start": "2026-06-12T16:10:11.735000+08:00",
             "end": "2026-06-12T16:10:12.552000+08:00",
-            "duration_seconds": 0.817,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:10:11.735000+08:00 -> complete 2026-06-12T16:10:12.552000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 7.964,
             "start": "2026-06-12T16:10:14.917000+08:00",
             "end": "2026-06-12T16:10:23.017000+08:00",
-            "duration_seconds": 8.1,
-            "evidence": "[2026/06/12 16:10:15.627 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:10:15.699 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 4.308,
             "start": "2026-06-12T16:10:32.981000+08:00",
-            "end": "2026-06-12T16:10:44.266000+08:00",
-            "duration_seconds": 11.285,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:10:32.981000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:10:44.266000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:10:37.363000+08:00",
-            "end": "2026-06-12T16:10:37.563000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:10:37.363000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:10:44.004000+08:00",
-            "end": "2026-06-12T16:10:44.204000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 6.529,
+            "start": "2026-06-12T16:10:37.363000+08:00",
+            "end": "2026-06-12T16:10:44.004000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:10:44.848000+08:00",
-            "end": "2026-06-12T16:10:45.148000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:10:44.848000+08:00",
+            "evidence": "[2026/06/12 16:10:44.848 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-cvp2r"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 144.352,
             "start": "2026-06-12T16:10:44.848000+08:00",
             "end": "2026-06-12T16:13:11.674000+08:00",
-            "duration_seconds": 146.826,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:10:44.848000+08:00 -> Pod 状态: Running at 2026-06-12T16:13:11.674000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:13:11.674000+08:00",
-            "end": "2026-06-12T16:13:12.174000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:13:11.674000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:13:11.674000+08:00",
-            "end": "2026-06-12T16:13:11.675000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:13:11.674000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 146.8s"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 31.593,
             "start": "2026-06-12T16:13:11.687000+08:00",
             "end": "2026-06-12T16:13:43.821000+08:00",
-            "duration_seconds": 32.134,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:13:11.687000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 14.708,
             "start": "2026-06-12T16:13:43.821000+08:00",
-            "end": "2026-06-12T16:13:43.921000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:13:43.821000+08:00"
+            "end": "2026-06-12T16:13:58.781000+08:00",
+            "evidence": "unzip opensource -> python check"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "duration_seconds": 26.984,
+            "start": "2026-06-12T16:13:11.674000+08:00",
+            "end": "2026-06-12T16:14:26.214000+08:00",
+            "evidence": "CI clone, git merge, deps install, 27.4s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 220.856,
-        "pct_of_total": 44.4,
+        "total_seconds": 214.641,
+        "pct_of_total": 43.2,
         "actions": [
           {
             "key": "compilation",
-            "name": "kernel编译",
-            "duration_seconds": 220.856
+            "name": "编译",
+            "duration_seconds": 214.641
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 205.256,
-        "build_seconds": 220.856,
-        "unattributed_seconds": 70.772,
+        "pre_build_seconds": 264.553,
+        "build_seconds": 214.641,
+        "unattributed_seconds": 17.69,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 146.826
+        "key_bottleneck_seconds": 144.352
       }
     },
     {
@@ -1249,130 +1190,106 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 47.095,
-        "pct_of_total": 18.7,
+        "total_seconds": 62.563,
+        "pct_of_total": 24.9,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.48,
             "start": "2026-06-12T16:18:49.581000+08:00",
             "end": "2026-06-12T16:18:54.612000+08:00",
-            "duration_seconds": 5.031,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:18:49.581000+08:00 -> 该步骤执行完成 at 2026-06-12T16:18:54.612000+08:00"
+            "evidence": "slave_create, 5.0s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 20.985,
             "start": "2026-06-12T16:18:56.357000+08:00",
-            "end": "2026-06-12T16:18:56.457000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:19:19.923000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.66,
             "start": "2026-06-12T16:18:59.762000+08:00",
             "end": "2026-06-12T16:19:00.503000+08:00",
-            "duration_seconds": 0.741,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:18:59.762000+08:00 -> complete 2026-06-12T16:19:00.503000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 7.781,
             "start": "2026-06-12T16:19:03.278000+08:00",
             "end": "2026-06-12T16:19:12.016000+08:00",
-            "duration_seconds": 8.738,
-            "evidence": "[2026/06/12 16:19:04.074 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:19:04.152 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 6.036,
             "start": "2026-06-12T16:19:21.432000+08:00",
-            "end": "2026-06-12T16:19:32.432000+08:00",
-            "duration_seconds": 11.0,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:19:21.432000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:19:32.432000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:19:28.210000+08:00",
-            "end": "2026-06-12T16:19:28.410000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:19:28.210000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:19:32.431000+08:00",
-            "end": "2026-06-12T16:19:32.631000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 3.759,
+            "start": "2026-06-12T16:19:28.211000+08:00",
+            "end": "2026-06-12T16:19:32.432000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:19:33.005000+08:00",
-            "end": "2026-06-12T16:19:33.305000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:19:33.005000+08:00",
+            "evidence": "[2026/06/12 16:19:33.005 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-48mvp"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 12.501,
             "start": "2026-06-12T16:19:33.005000+08:00",
             "end": "2026-06-12T16:19:47.043000+08:00",
-            "duration_seconds": 14.038,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:19:33.005000+08:00 -> Pod 状态: Running at 2026-06-12T16:19:47.043000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:19:47.614000+08:00",
-            "end": "2026-06-12T16:19:48.114000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:19:47.614000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:19:47.615000+08:00",
-            "end": "2026-06-12T16:19:47.615000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:19:47.615000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 14.0s"
           },
           {
             "key": "pip_install",
-            "name": "Python依赖安装",
+            "name": "pip安装",
+            "duration_seconds": 6.36,
             "start": "2026-06-12T16:19:47.617000+08:00",
-            "end": "2026-06-12T16:19:53.814000+08:00",
-            "duration_seconds": 6.197,
-            "evidence": "pip install at 2026-06-12T16:19:47.617000+08:00"
+            "end": "2026-06-12T16:19:54.759000+08:00",
+            "evidence": "pip install -> Successfully installed"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 163.188,
-        "pct_of_total": 64.9,
+        "total_seconds": 171.765,
+        "pct_of_total": 68.3,
         "actions": [
           {
             "key": "compilation",
-            "name": "wheel构建",
+            "name": "编译",
             "duration_seconds": 156.687
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 6.501
+            "duration_seconds": 15.078
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 47.095,
-        "build_seconds": 163.188,
-        "unattributed_seconds": 41.033,
-        "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 14.038
+        "pre_build_seconds": 62.563,
+        "build_seconds": 171.765,
+        "unattributed_seconds": 16.988,
+        "key_bottleneck": "镜像拉取",
+        "key_bottleneck_seconds": 20.985
       }
     },
     {
@@ -1545,151 +1462,122 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 99.407,
-        "pct_of_total": 14.1,
+        "total_seconds": 107.894,
+        "pct_of_total": 15.3,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 3.891,
             "start": "2026-06-12T16:18:53.914000+08:00",
             "end": "2026-06-12T16:18:58.839000+08:00",
-            "duration_seconds": 4.925,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:18:53.914000+08:00 -> 该步骤执行完成 at 2026-06-12T16:18:58.839000+08:00"
+            "evidence": "slave_create, 4.9s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 18.701,
             "start": "2026-06-12T16:19:00.608000+08:00",
-            "end": "2026-06-12T16:19:00.708000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:19:24.280000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.605,
             "start": "2026-06-12T16:19:03.838000+08:00",
             "end": "2026-06-12T16:19:04.604000+08:00",
-            "duration_seconds": 0.766,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:19:03.838000+08:00 -> complete 2026-06-12T16:19:04.604000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 7.126,
             "start": "2026-06-12T16:19:07.113000+08:00",
             "end": "2026-06-12T16:19:16.133000+08:00",
-            "duration_seconds": 9.02,
-            "evidence": "[2026/06/12 16:19:07.937 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:19:08.002 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 3.339,
             "start": "2026-06-12T16:19:25.704000+08:00",
-            "end": "2026-06-12T16:19:36.661000+08:00",
-            "duration_seconds": 10.957,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:19:25.704000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:19:36.661000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:19:29.931000+08:00",
-            "end": "2026-06-12T16:19:30.131000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:19:29.931000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:19:36.661000+08:00",
-            "end": "2026-06-12T16:19:36.861000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 5.317,
+            "start": "2026-06-12T16:19:29.931000+08:00",
+            "end": "2026-06-12T16:19:36.661000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:19:36.923000+08:00",
-            "end": "2026-06-12T16:19:37.223000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:19:36.923000+08:00",
+            "evidence": "[2026/06/12 16:19:36.923 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-p7qf7"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 11.119,
             "start": "2026-06-12T16:19:36.923000+08:00",
             "end": "2026-06-12T16:19:50.997000+08:00",
-            "duration_seconds": 14.074,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:19:36.923000+08:00 -> Pod 状态: Running at 2026-06-12T16:19:50.997000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:19:51.263000+08:00",
-            "end": "2026-06-12T16:19:51.763000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:19:51.263000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:19:51.263000+08:00",
-            "end": "2026-06-12T16:19:51.263000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:19:51.263000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 14.1s"
           },
           {
             "key": "pip_install",
-            "name": "Python依赖安装",
+            "name": "pip安装",
+            "duration_seconds": 34.181,
             "start": "2026-06-12T16:19:51.266000+08:00",
             "end": "2026-06-12T16:20:34.532000+08:00",
-            "duration_seconds": 43.266,
-            "evidence": "[2026/06/12 16:20:34.532 GMT+08:00] Successfully installed cmake-3.28.1 ninja-1.13.0"
+            "evidence": "pip install -> Successfully installed"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 11.81,
             "start": "2026-06-12T16:19:53.246000+08:00",
             "end": "2026-06-12T16:20:08.195000+08:00",
-            "duration_seconds": 14.949,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:19:53.246000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 11.804,
             "start": "2026-06-12T16:20:08.195000+08:00",
-            "end": "2026-06-12T16:20:08.295000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:20:08.195000+08:00"
+            "end": "2026-06-12T16:20:23.137000+08:00",
+            "evidence": "unzip opensource -> python check"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 556.54,
-        "pct_of_total": 79.1,
+        "total_seconds": 567.129,
+        "pct_of_total": 80.6,
         "actions": [
           {
-            "key": "cmake_configure",
-            "name": "CMake配置",
-            "duration_seconds": 3.33
-          },
-          {
             "key": "compilation",
-            "name": "kernel编译",
-            "duration_seconds": 528.711
+            "name": "编译",
+            "duration_seconds": 521.608
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 24.499
+            "duration_seconds": 45.521
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 99.407,
-        "build_seconds": 556.54,
-        "unattributed_seconds": 47.939,
-        "key_bottleneck": "Python依赖安装",
-        "key_bottleneck_seconds": 43.266
+        "pre_build_seconds": 107.894,
+        "build_seconds": 567.129,
+        "unattributed_seconds": 28.863,
+        "key_bottleneck": "pip安装",
+        "key_bottleneck_seconds": 34.181
       }
     },
     {
@@ -1806,130 +1694,109 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 141.751,
-        "pct_of_total": 37.7,
+        "total_seconds": 162.883,
+        "pct_of_total": 43.3,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 12.147,
             "start": "2026-06-12T16:18:53.969000+08:00",
             "end": "2026-06-12T16:19:06.468000+08:00",
-            "duration_seconds": 12.499,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:18:53.969000+08:00 -> 该步骤执行完成 at 2026-06-12T16:19:06.468000+08:00"
+            "evidence": "slave_create, 12.5s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 24.144,
             "start": "2026-06-12T16:19:08.475000+08:00",
-            "end": "2026-06-12T16:19:08.575000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:19:33.318000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.72,
             "start": "2026-06-12T16:19:12.565000+08:00",
             "end": "2026-06-12T16:19:13.306000+08:00",
-            "duration_seconds": 0.741,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:19:12.565000+08:00 -> complete 2026-06-12T16:19:13.306000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 8.712,
             "start": "2026-06-12T16:19:15.709000+08:00",
             "end": "2026-06-12T16:19:24.673000+08:00",
-            "duration_seconds": 8.964,
-            "evidence": "[2026/06/12 16:19:16.643 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:19:16.753 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 4.122,
             "start": "2026-06-12T16:19:34.688000+08:00",
-            "end": "2026-06-12T16:19:42.500000+08:00",
-            "duration_seconds": 7.812,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:19:34.688000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:19:42.500000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:19:38.929000+08:00",
-            "end": "2026-06-12T16:19:39.129000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:19:38.929000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:19:42.238000+08:00",
-            "end": "2026-06-12T16:19:42.438000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 3.216,
+            "start": "2026-06-12T16:19:38.929000+08:00",
+            "end": "2026-06-12T16:19:42.238000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:19:43.074000+08:00",
-            "end": "2026-06-12T16:19:43.374000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:19:43.074000+08:00",
+            "evidence": "[2026/06/12 16:19:43.074 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-tznp7"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 96.029,
             "start": "2026-06-12T16:19:43.074000+08:00",
             "end": "2026-06-12T16:21:21.882000+08:00",
-            "duration_seconds": 98.808,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:19:43.074000+08:00 -> Pod 状态: Running at 2026-06-12T16:21:21.882000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:21:21.882000+08:00",
-            "end": "2026-06-12T16:21:22.382000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:21:21.882000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:21:21.882000+08:00",
-            "end": "2026-06-12T16:21:21.882000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:21:21.882000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 98.8s"
           },
           {
             "key": "pip_install",
-            "name": "Python依赖安装",
+            "name": "pip安装",
+            "duration_seconds": 11.251,
             "start": "2026-06-12T16:21:24.236000+08:00",
             "end": "2026-06-12T16:21:35.813000+08:00",
-            "duration_seconds": 11.577,
-            "evidence": "[2026/06/12 16:21:35.813 GMT+08:00] Successfully installed ninja-1.13.0"
+            "evidence": "pip install -> Successfully installed"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "duration_seconds": 2.541,
+            "start": "2026-06-12T16:21:21.882000+08:00",
+            "end": "2026-06-12T16:21:36.074000+08:00",
+            "evidence": "CI clone, git merge, deps install, 2.6s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 191.874,
+        "total_seconds": 191.872,
         "pct_of_total": 51.0,
         "actions": [
           {
             "key": "compilation",
-            "name": "wheel构建",
+            "name": "编译",
             "duration_seconds": 191.872
-          },
-          {
-            "key": "packaging",
-            "name": "打包上传",
-            "duration_seconds": 0.002
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 141.751,
-        "build_seconds": 191.874,
-        "unattributed_seconds": 42.532,
+        "pre_build_seconds": 162.883,
+        "build_seconds": 191.872,
+        "unattributed_seconds": 21.402,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 98.808
+        "key_bottleneck_seconds": 96.029
       }
     },
     {
@@ -2150,151 +2017,122 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 106.197,
-        "pct_of_total": 13.8,
+        "total_seconds": 117.356,
+        "pct_of_total": 15.3,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.08,
             "start": "2026-06-12T16:18:53.969000+08:00",
             "end": "2026-06-12T16:18:59.201000+08:00",
-            "duration_seconds": 5.232,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:18:53.969000+08:00 -> 该步骤执行完成 at 2026-06-12T16:18:59.201000+08:00"
+            "evidence": "slave_create, 5.2s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 18.49,
             "start": "2026-06-12T16:19:00.778000+08:00",
-            "end": "2026-06-12T16:19:00.878000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:19:24.487000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.897,
             "start": "2026-06-12T16:19:04.154000+08:00",
             "end": "2026-06-12T16:19:05.304000+08:00",
-            "duration_seconds": 1.15,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:19:04.154000+08:00 -> complete 2026-06-12T16:19:05.304000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 6.618,
             "start": "2026-06-12T16:19:07.834000+08:00",
             "end": "2026-06-12T16:19:16.320000+08:00",
-            "duration_seconds": 8.486,
-            "evidence": "[2026/06/12 16:19:08.644 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:19:08.714 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 4.139,
             "start": "2026-06-12T16:19:26.283000+08:00",
-            "end": "2026-06-12T16:19:37.082000+08:00",
-            "duration_seconds": 10.799,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:19:26.283000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:19:37.082000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:19:31.590000+08:00",
-            "end": "2026-06-12T16:19:31.790000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:19:31.590000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:19:37.082000+08:00",
-            "end": "2026-06-12T16:19:37.282000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 4.283,
+            "start": "2026-06-12T16:19:31.590000+08:00",
+            "end": "2026-06-12T16:19:37.082000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:19:37.082000+08:00",
-            "end": "2026-06-12T16:19:37.382000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:19:37.082000+08:00",
+            "evidence": "[2026/06/12 16:19:37.082 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-fxlhw"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 11.78,
             "start": "2026-06-12T16:19:37.082000+08:00",
             "end": "2026-06-12T16:19:52.187000+08:00",
-            "duration_seconds": 15.105,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:19:37.082000+08:00 -> Pod 状态: Running at 2026-06-12T16:19:52.187000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:19:52.449000+08:00",
-            "end": "2026-06-12T16:19:52.949000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:19:52.449000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:19:52.449000+08:00",
-            "end": "2026-06-12T16:19:52.449000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:19:52.449000+08:00; CI script setup"
+            "evidence": "等待 Pod -> Pod Running, 15.1s"
           },
           {
             "key": "pip_install",
-            "name": "Python依赖安装",
+            "name": "pip安装",
+            "duration_seconds": 38.194,
             "start": "2026-06-12T16:19:52.451000+08:00",
             "end": "2026-06-12T16:20:41.427000+08:00",
-            "duration_seconds": 48.976,
-            "evidence": "[2026/06/12 16:20:41.427 GMT+08:00] Successfully installed cmake-3.28.1 ninja-1.13.0"
+            "evidence": "pip install -> Successfully installed"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 11.697,
             "start": "2026-06-12T16:19:52.462000+08:00",
             "end": "2026-06-12T16:20:07.461000+08:00",
-            "duration_seconds": 14.999,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:19:52.462000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 17.177,
             "start": "2026-06-12T16:20:07.461000+08:00",
-            "end": "2026-06-12T16:20:07.561000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:20:07.461000+08:00"
+            "end": "2026-06-12T16:20:29.487000+08:00",
+            "evidence": "unzip opensource -> python check"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 611.62,
-        "pct_of_total": 79.7,
+        "total_seconds": 618.896,
+        "pct_of_total": 80.7,
         "actions": [
           {
-            "key": "cmake_configure",
-            "name": "CMake配置",
-            "duration_seconds": 5.293
-          },
-          {
             "key": "compilation",
-            "name": "kernel编译",
-            "duration_seconds": 582.953
+            "name": "编译",
+            "duration_seconds": 577.392
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 23.374
+            "duration_seconds": 41.504
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 106.197,
-        "build_seconds": 611.62,
-        "unattributed_seconds": 49.289,
-        "key_bottleneck": "Python依赖安装",
-        "key_bottleneck_seconds": 48.976
+        "pre_build_seconds": 117.356,
+        "build_seconds": 618.896,
+        "unattributed_seconds": 30.854,
+        "key_bottleneck": "pip安装",
+        "key_bottleneck_seconds": 38.194
       }
     },
     {
@@ -2387,130 +2225,106 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 185.783,
-        "pct_of_total": 47.3,
+        "total_seconds": 198.423,
+        "pct_of_total": 50.5,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.609,
             "start": "2026-06-12T16:18:49.589000+08:00",
             "end": "2026-06-12T16:18:54.459000+08:00",
-            "duration_seconds": 4.87,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:18:49.589000+08:00 -> 该步骤执行完成 at 2026-06-12T16:18:54.459000+08:00"
+            "evidence": "slave_create, 4.9s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 22.972,
             "start": "2026-06-12T16:18:56.074000+08:00",
-            "end": "2026-06-12T16:18:56.174000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:19:20.346000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.76,
             "start": "2026-06-12T16:18:59.539000+08:00",
             "end": "2026-06-12T16:19:00.342000+08:00",
-            "duration_seconds": 0.803,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:18:59.539000+08:00 -> complete 2026-06-12T16:19:00.342000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 8.925,
             "start": "2026-06-12T16:19:02.877000+08:00",
             "end": "2026-06-12T16:19:12.307000+08:00",
-            "duration_seconds": 9.43,
-            "evidence": "[2026/06/12 16:19:03.542 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:19:03.607 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 6.253,
             "start": "2026-06-12T16:19:21.831000+08:00",
-            "end": "2026-06-12T16:19:32.671000+08:00",
-            "duration_seconds": 10.84,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:19:21.831000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:19:32.671000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:19:28.438000+08:00",
-            "end": "2026-06-12T16:19:28.638000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:19:28.438000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:19:32.670000+08:00",
-            "end": "2026-06-12T16:19:32.870000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 4.005,
+            "start": "2026-06-12T16:19:28.438000+08:00",
+            "end": "2026-06-12T16:19:32.670000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:19:33.248000+08:00",
-            "end": "2026-06-12T16:19:33.548000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:19:33.248000+08:00",
+            "evidence": "[2026/06/12 16:19:33.248 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-9nzjt"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 147.284,
             "start": "2026-06-12T16:19:33.248000+08:00",
             "end": "2026-06-12T16:22:08.866000+08:00",
-            "duration_seconds": 155.618,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:19:33.248000+08:00 -> Pod 状态: Running at 2026-06-12T16:22:08.866000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:22:08.866000+08:00",
-            "end": "2026-06-12T16:22:09.366000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:22:08.866000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
+            "evidence": "等待 Pod -> Pod Running, 155.6s"
           },
           {
             "key": "env_setup",
-            "name": "环境变量+依赖安装",
+            "name": "环境配置",
+            "duration_seconds": 3.614,
             "start": "2026-06-12T16:22:08.866000+08:00",
-            "end": "2026-06-12T16:22:08.867000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:22:08.866000+08:00; CI script setup"
-          },
-          {
-            "key": "pip_install",
-            "name": "Python依赖安装",
-            "start": "2026-06-12T16:22:08.870000+08:00",
-            "end": "2026-06-12T16:22:11.742000+08:00",
-            "duration_seconds": 2.872,
-            "evidence": "pip install at 2026-06-12T16:22:08.870000+08:00"
+            "end": "2026-06-12T16:22:12.684000+08:00",
+            "evidence": "CI clone, git merge, deps install, 3.8s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 162.912,
-        "pct_of_total": 41.5,
+        "total_seconds": 177.832,
+        "pct_of_total": 45.3,
         "actions": [
           {
             "key": "compilation",
-            "name": "wheel构建",
+            "name": "编译",
             "duration_seconds": 156.319
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 6.593
+            "duration_seconds": 21.513
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 185.783,
-        "build_seconds": 162.912,
-        "unattributed_seconds": 44.17,
+        "pre_build_seconds": 198.423,
+        "build_seconds": 177.832,
+        "unattributed_seconds": 16.61,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 155.618
+        "key_bottleneck_seconds": 147.284
       }
     },
     {
@@ -2667,151 +2481,122 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 267.727,
-        "pct_of_total": 30.2,
+        "total_seconds": 260.269,
+        "pct_of_total": 29.4,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "节点分配",
+            "duration_seconds": 4.673,
             "start": "2026-06-12T16:18:49.639000+08:00",
             "end": "2026-06-12T16:18:54.701000+08:00",
-            "duration_seconds": 5.062,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 at 2026-06-12T16:18:49.639000+08:00 -> 该步骤执行完成 at 2026-06-12T16:18:54.701000+08:00"
+            "evidence": "slave_create, 5.1s"
           },
           {
             "key": "docker_pull",
-            "name": "Docker镜像拉取",
+            "name": "镜像拉取",
+            "duration_seconds": 21.106,
             "start": "2026-06-12T16:18:56.129000+08:00",
-            "end": "2026-06-12T16:18:56.229000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0 pulling, Status: Image is up to date"
+            "end": "2026-06-12T16:19:18.993000+08:00",
+            "evidence": "7 pulls"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
+            "duration_seconds": 0.831,
             "start": "2026-06-12T16:18:58.990000+08:00",
             "end": "2026-06-12T16:18:59.890000+08:00",
-            "duration_seconds": 0.9,
-            "evidence": "[Cache Check:external_cache_check] start 2026-06-12T16:18:58.990000+08:00 -> complete 2026-06-12T16:18:59.890000+08:00"
+            "evidence": "external_cache_check"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出(CI机)",
+            "name": "代码检出",
+            "duration_seconds": 8.173,
             "start": "2026-06-12T16:19:02.337000+08:00",
             "end": "2026-06-12T16:19:11.191000+08:00",
-            "duration_seconds": 8.854,
-            "evidence": "[2026/06/12 16:19:03.283 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-LLM.git; [2026/06/12 16:19:03.355 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-LLM.git"
+            "evidence": "external_pre_checkout -> post_checkout"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验(Volcano编排)",
+            "name": "提交前校验",
+            "duration_seconds": 6.088,
             "start": "2026-06-12T16:19:20.378000+08:00",
-            "end": "2026-06-12T16:19:31.178000+08:00",
-            "duration_seconds": 10.8,
-            "evidence": "'=== Pre-submit validation ===' at 2026-06-12T16:19:20.378000+08:00 -> '[DONE] Created validated workflow' at 2026-06-12T16:19:31.178000+08:00"
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": "2026-06-12T16:19:26.973000+08:00",
-            "end": "2026-06-12T16:19:27.173000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr... -> harbor-portal..."
+            "end": "2026-06-12T16:19:26.973000+08:00",
+            "evidence": "=== Pre-submit validation === -> Harbor"
           },
           {
             "key": "git_cache_injection",
             "name": "Git缓存注入",
-            "start": "2026-06-12T16:19:31.178000+08:00",
-            "end": "2026-06-12T16:19:31.378000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
+            "duration_seconds": 3.882,
+            "start": "2026-06-12T16:19:26.973000+08:00",
+            "end": "2026-06-12T16:19:31.178000+08:00",
+            "evidence": "Git-cache found -> injected"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
+            "name": "编排器提交",
+            "duration_seconds": 0.001,
             "start": "2026-06-12T16:19:32.119000+08:00",
-            "end": "2026-06-12T16:19:32.419000+08:00",
-            "duration_seconds": 0.3,
-            "evidence": "Volcano Job submitted: ascend-mindie-llm-*"
+            "end": "2026-06-12T16:19:32.119000+08:00",
+            "evidence": "[2026/06/12 16:19:32.119 GMT+08:00] Volcano Job submitted: ascend-mindie-llm-rcghw"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod调度",
+            "duration_seconds": 171.141,
             "start": "2026-06-12T16:19:32.119000+08:00",
             "end": "2026-06-12T16:22:37.514000+08:00",
-            "duration_seconds": 185.395,
-            "evidence": "Volcano Job submitted at 2026-06-12T16:19:32.119000+08:00 -> Pod 状态: Running at 2026-06-12T16:22:37.514000+08:00"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出(Pod内)",
-            "start": "2026-06-12T16:22:37.514000+08:00",
-            "end": "2026-06-12T16:22:38.014000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "Cloning into '/workspace' at 2026-06-12T16:22:37.514000+08:00; From http://git-cache-http-server.git-cache.svc.cluster.local (cache hit)"
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量+依赖安装",
-            "start": "2026-06-12T16:22:37.514000+08:00",
-            "end": "2026-06-12T16:22:37.514000+08:00",
-            "duration_seconds": 0.05,
-            "evidence": "Cloning into 'cie' at 2026-06-12T16:22:37.514000+08:00; CI script setup"
-          },
-          {
-            "key": "pip_install",
-            "name": "Python依赖安装",
-            "start": "2026-06-12T16:22:37.517000+08:00",
-            "end": "2026-06-12T16:23:17.898000+08:00",
-            "duration_seconds": 40.381,
-            "evidence": "pip install at 2026-06-12T16:22:37.517000+08:00"
+            "evidence": "等待 Pod -> Pod Running, 185.4s"
           },
           {
             "key": "artifact_download",
-            "name": "制品/OBS下载",
+            "name": "依赖下载",
+            "duration_seconds": 13.741,
             "start": "2026-06-12T16:22:37.527000+08:00",
             "end": "2026-06-12T16:22:52.412000+08:00",
-            "duration_seconds": 14.885,
-            "evidence": "wget opensource zip from OBS at 2026-06-12T16:22:37.527000+08:00"
+            "evidence": "wget opensource -> mkdir third_party"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
+            "key": "artifact_download",
+            "name": "依赖解压",
+            "duration_seconds": 20.482,
             "start": "2026-06-12T16:22:52.412000+08:00",
-            "end": "2026-06-12T16:22:52.512000+08:00",
-            "duration_seconds": 0.1,
-            "evidence": "mkdir third_party at 2026-06-12T16:22:52.412000+08:00"
+            "end": "2026-06-12T16:23:14.600000+08:00",
+            "evidence": "unzip opensource -> python check"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "duration_seconds": 10.151,
+            "start": "2026-06-12T16:22:37.514000+08:00",
+            "end": "2026-06-12T16:23:25.583000+08:00",
+            "evidence": "CI clone, git merge, deps install, 11.0s"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 593.086,
-        "pct_of_total": 66.9,
+        "total_seconds": 599.852,
+        "pct_of_total": 67.7,
         "actions": [
           {
-            "key": "cmake_configure",
-            "name": "CMake配置",
-            "duration_seconds": 5.244
-          },
-          {
             "key": "compilation",
-            "name": "kernel编译",
+            "name": "编译",
             "duration_seconds": 568.567
           },
           {
             "key": "packaging",
             "name": "打包上传",
-            "duration_seconds": 19.275
+            "duration_seconds": 31.285
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 267.727,
-        "build_seconds": 593.086,
-        "unattributed_seconds": 25.445,
+        "pre_build_seconds": 260.269,
+        "build_seconds": 599.852,
+        "unattributed_seconds": 26.137,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 185.395
+        "key_bottleneck_seconds": 171.141
       }
     }
   ]
