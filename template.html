@@ -311,6 +311,80 @@ function validBuilds(repos) {
   return allBuilds(repos).filter(({build}) => !build._error && build.time);
 }
 
+// ── Filter State ──
+
+let filterState = {
+  search: '',
+  orchestrator: 'all',
+  sort: 'pre_build_desc'
+};
+
+function getFilteredRepos() {
+  let repos = __EMBEDDED_DATA__;
+
+  // Apply orchestrator filter
+  if (filterState.orchestrator !== 'all') {
+    repos = repos.map(repo => {
+      const filteredBuilds = (repo.builds || []).filter(b => {
+        if (b._error) return true; // keep error builds
+        return (b.pre_build?.orchestrator || '') === filterState.orchestrator;
+      });
+      if (filteredBuilds.length === 0) return null;
+      return { ...repo, builds: filteredBuilds, _total_builds: filteredBuilds.length };
+    }).filter(Boolean);
+  }
+
+  // Apply search filter
+  if (filterState.search.trim()) {
+    const q = filterState.search.trim().toLowerCase();
+    repos = repos.filter(repo => {
+      const short = (repo._repo_short || '').toLowerCase();
+      const full = (repo.meta?.repo || '').toLowerCase();
+      return short.includes(q) || full.includes(q) || String(repo.meta?.pr || '').includes(q);
+    });
+  }
+
+  // Apply sort
+  repos = [...repos]; // shallow copy
+  if (filterState.sort === 'total_desc') {
+    repos.sort((a, b) => {
+      const maxA = Math.max(...(a.builds || []).filter(b => b.time).map(b => b.time.duration_seconds || 0));
+      const maxB = Math.max(...(b.builds || []).filter(b => b.time).map(b => b.time.duration_seconds || 0));
+      return maxB - maxA;
+    });
+  } else if (filterState.sort === 'pre_build_pct_desc') {
+    repos.sort((a, b) => {
+      const avgA = avgPreBuildPct(a);
+      const avgB = avgPreBuildPct(b);
+      return avgB - avgA;
+    });
+  } else {
+    // pre_build_desc: sort by max bottleneck seconds
+    repos.sort((a, b) => {
+      const maxA = maxBottleneck(a);
+      const maxB = maxBottleneck(b);
+      return maxB - maxA;
+    });
+  }
+
+  return repos;
+}
+
+function avgPreBuildPct(repo) {
+  const builds = (repo.builds || []).filter(b => b._pre_build_pct != null);
+  if (builds.length === 0) return 0;
+  return builds.reduce((s, b) => s + b._pre_build_pct, 0) / builds.length;
+}
+
+function maxBottleneck(repo) {
+  let max = 0;
+  (repo.builds || []).forEach(b => {
+    const s = b.summary?.key_bottleneck_seconds || 0;
+    if (s > max) max = s;
+  });
+  return max;
+}
+
 // ── Render Layer 1: Header ──
 
 function renderHeader(repos) {
@@ -519,7 +593,8 @@ function renderRanking(repos) {
 
 function toggleRanking() {
   rankingShowAll = !rankingShowAll;
-  renderRanking(__EMBEDDED_DATA__);
+  const repos = getFilteredRepos();
+  renderRanking(repos);
 }
 
 // ── Render Layer 4: Repository Detail Cards ──
@@ -651,18 +726,45 @@ function toggleRepoCard(repoId) {
   }
 }
 
-// ── Initialization ──
+// ── Event Binding ──
 
-function init() {
-  const repos = __EMBEDDED_DATA__;
-  if (!repos || repos.length === 0) {
-    document.body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">暂无数据</div>';
-    return;
-  }
-  renderHeader(repos);
+function bindControls() {
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    filterState.search = e.target.value;
+    rerender();
+  });
+
+  document.getElementById('orchestratorFilter').addEventListener('change', (e) => {
+    filterState.orchestrator = e.target.value;
+    rerender();
+  });
+
+  document.getElementById('sortSelect').addEventListener('change', (e) => {
+    filterState.sort = e.target.value;
+    rerender();
+  });
+}
+
+function rerender() {
+  const repos = getFilteredRepos();
   renderInsights(repos);
   renderRanking(repos);
   renderRepoCards(repos);
+}
+
+// ── Initialization ──
+
+function init() {
+  if (!__EMBEDDED_DATA__ || __EMBEDDED_DATA__.length === 0) {
+    document.body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">暂无数据</div>';
+    return;
+  }
+  const repos = getFilteredRepos();
+  renderHeader(__EMBEDDED_DATA__); // header always shows total
+  renderInsights(repos);
+  renderRanking(repos);
+  renderRepoCards(repos);
+  bindControls();
 }
 
 document.addEventListener('DOMContentLoaded', init);
