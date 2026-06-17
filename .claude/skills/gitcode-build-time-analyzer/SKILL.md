@@ -446,8 +446,18 @@ unattributed_seconds = max(0, total_duration - pre_build_seconds - build_seconds
 ### R3: 去重
 如果同一个 `task_name` 出现多条记录（来自不同流水线运行），**只保留最新的**（按 `time.start` 排序）。去重逻辑应写入分析脚本。
 
-### R4: 大间隙兜底识别
-如果 `unattributed_seconds > total * 0.15`（即超过 15% 的耗时未被归类），必须遍历 `significant_gaps` 中 **所有 >30s 的间隙**，逐一检查间隙前后的日志内容：
+### R4: 大间隙兜底识别（强制步骤，不可跳过）
+
+**触发条件**：`unattributed_seconds > total * 0.15`（超过 15% 未归类）**或** `unattributed_seconds > 60`（超过 60 秒）。
+
+**执行步骤**：
+1. 遍历 `significant_gaps` 中所有 >5s 的间隙
+2. 对每个间隙，检查 gap 前后的 `sample_before` / `sample_after` 日志内容
+3. **累计**同类型的间隙时间到对应动作或延长 build_seconds
+4. 重新计算 unattributed_seconds，如果仍 > 15%，继续第二轮分析（阈值降到 >20s 的间隙）
+5. 最终 unattributed_seconds 应 **< total * 0.10 且 < 60s**。如果达不到，在 `summary` 中标注 `_unattributed_note: "剩余未归类包含: <说明>"`
+
+**间隙分类规则**（按优先级）：
 - 间隙前后有 `Cloning into` / `git clone`（非 third_party 路径） → 添加 `pod_git_clone`
 - 间隙前后有 `Submodule` / `Cloning into '...third_party/...'` / `Submodule path` → 添加 `submodule_init`
 - 间隙前后有 `fatal: unable` / `Failed to connect` → 添加 `network_retry`
@@ -458,6 +468,8 @@ unattributed_seconds = max(0, total_duration - pre_build_seconds - build_seconds
 - 间隙前后是 `Building CXX object` / `Built target` → 这是编译阶段，应延长 `build_seconds`
 - 间隙前后有 `[0%] Building` / `cmake` / `-- Check for working` → 这是 CMake/编译，应延长 `build_seconds`
 - 间隙位于 `Pod 状态: Running` 之后且无 git clone 日志 → 可能是 `env_setup`（source env + ccache），检查间隙后的日志
+- 间隙前后有 `unzip` / `tar` / `unzip opensource` → 归入 `artifact_download` 或 `env_setup`（看上下文）
+- **编译中采样间隙**：如果间隙的 before/after 都是 `gcc`/`g++`/`Building CXX`/`Built target`/`[N%] Building`/`Compiling`/`Linking CXX`，间隙发生在编译阶段内部，**延长 `build_seconds`**（将 gap_seconds 累加到 build_phases.compilation）
 - 无法识别的间隙 → 留在 `unattributed_seconds` 中，并在 evidence 中标注"未识别的大间隙"
 
 ### R5: 空模板清理
@@ -644,6 +656,7 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON to the s
 □ build_phases is an OBJECT with "total_seconds" + "pct_of_total" + "actions[]" (NOT a bare list)
 □ Every action has "start"/"end" as REAL ISO-8601 timestamps (NOT "?" or empty string)
 □ Every action has "evidence" with actual log line excerpts
+□ R4: Ran gap analysis if unattributed > 15% or > 60s — classified all compilation gaps to build_seconds, all pod gaps to pre_build actions. unattributed now < 10% and < 60s
 □ R8: env_setup is NOT a catch-all — if >20s and evidence spans "Pod Running→编译开始", split into pod_git_clone/submodule_init/pip_install/etc
 □ summary values match pre_build.total_seconds / build_phases.total_seconds
 □ meta.analyzed_at is set to current time
@@ -651,10 +664,14 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON to the s
 
 ## Quality rules (verify for EVERY build before writing):
 - R1: unattributed = max(0, total - pre_build - build), must be >= 0
-- R5: Remove actions with duration==0 AND no evidence (image_proxy/git_cache_injection/orchestrator_submit with dur=0 → REMOVE)
+- **R4: MANDATORY GAP ANALYSIS. If unattributed > total*0.15 OR unattributed > 60s, iterate ALL significant_gaps >5s. For each gap:**
+  - Before/after both show gcc/g++/Building CXX/Linking CXX → ADD gap_seconds to build_phases.compilation
+  - Before/after show git clone/Submodule/pip/wget/unzip → add corresponding pre_build action
+  - Recalculate unattributed after gap analysis. Target: unattributed < total*0.10 AND < 60s
+- R5: Remove actions with duration==0 AND no evidence
 - R6: abs(pre_build + build + unattributed - total) < 1.0
-- R7: pre_build.total_seconds >= (last_action_end - first_action_start) - if not, there are missing actions between them
-- R8: env_setup MUST NOT be a catch-all. If env_setup.duration > 20s AND evidence spans "Pod Running → 编译开始" AND at least 2 of {pod_git_clone, submodule_init, pip_install, artifact_download, acl_headers} are missing → SPLIT env_setup into individual Pod-internal actions
+- R7: pre_build.total_seconds >= (last_action_end - first_action_start)
+- R8: env_setup MUST NOT be a catch-all. Split if >20s and missing >=2 pod actions
 - Docker repos: NO pod_scheduling, verify docker_pull covers multi-layer pulls
 - Set orchestrator: "argo"/"volcano"/"docker"
 - Set meta.analyzed_at
@@ -742,7 +759,11 @@ for i, b in enumerate(builds):
         pod_actions = [a['key'] for a in pb.get('actions',[])]
         missing_pod = [k for k in ['pod_git_clone', 'submodule_init', 'pip_install', 'artifact_download', 'acl_headers'] if k not in pod_actions]
         if len(missing_pod) >= 2:
-            errors.append(f'{name}: R8 FAIL — env_setup={env_action[\"duration_seconds\"]:.0f}s catch-all, missing {missing_pod}')
+            errors.append(f'{name}: R8 FAIL — env_setup={env_action["duration_seconds"]:.0f}s catch-all, missing {missing_pod}')
+    
+    # R4 target check
+    if unatt > 60 or (total > 0 and unatt / total > 0.10):
+        errors.append(f'{name}: R4 WARN — unattributed={unatt:.0f}s ({unatt/total*100:.0f}%) exceeds target (60s/10%). Run gap analysis on significant_gaps.')
 
 if not d['meta'].get('analyzed_at'):
     errors.append('META: analyzed_at NOT SET')
@@ -772,7 +793,8 @@ else:
 | **SCHEMA FAIL** | Agent 用了错误 JSON 结构 | **重分析**：prompt 必须包含完整 JSON SCHEMA 示例 |
 | **R5 FAIL** | 零时长动作未清理 | 手动清理或重分析 |
 | **R7 FAIL** | total_seconds < 动作跨度 | docker_pull 等动作间间隙未被捕获 |
-| **R8 FAIL** | env_setup >20s 合并了多个 Pod 内动作 | **重分析**：prompt 强调 "env_setup is NOT a catch-all. You MUST split it into pod_git_clone, submodule_init, pip_install, artifact_download, acl_headers as separate actions. Read every log line from Pod Running to 编译开始 carefully." |
+| **R8 FAIL** | env_setup >20s 合并了多个 Pod 内动作 | **重分析**：prompt 强调 "env_setup is NOT a catch-all." |
+| **R4 WARN** | unattributed > 60s 或 > 10% | **重分析**：prompt 强调 "Run MANDATORY gap analysis on ALL significant_gaps >5s. Compilation gaps must be added to build_seconds." |
 
 **重分析 Agent prompt 必须包含**：
 > "The current file has [具体校验错误]. This is WRONG and must be fixed. Re-read the log_sample and fill in EVERY action with actual timing data. Follow the EXACT JSON SCHEMA — pre_build.total_seconds (not 'seconds'), build_phases as object with total_seconds, real ISO timestamps."
