@@ -263,6 +263,409 @@ body {
 <!-- Embedded Data -->
 <script>
 const __EMBEDDED_DATA__ = {{DATA_JSON}};
+
+// ── Utility Functions ──
+
+function fmtDuration(seconds) {
+  if (seconds == null || isNaN(seconds)) return '—';
+  const s = Math.round(seconds);
+  if (s < 60) return s + 's';
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return sec > 0 ? m + 'm' + sec + 's' : m + 'm';
+}
+
+function fmtTime(isoStr) {
+  if (!isoStr) return '—';
+  try {
+    const d = new Date(isoStr);
+    return d.toLocaleString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
+  } catch { return '—'; }
+}
+
+function fmtDateTimeShort(isoStr) {
+  if (!isoStr) return '—';
+  try {
+    const d = new Date(isoStr);
+    return d.toLocaleString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  } catch { return '—'; }
+}
+
+function repoShortName(repo) {
+  return repo._repo_short || repo.meta.repo.split('/').pop();
+}
+
+// Flatten all builds with repo context
+function allBuilds(repos) {
+  const result = [];
+  repos.forEach(repo => {
+    (repo.builds || []).forEach(build => {
+      result.push({ repo, build });
+    });
+  });
+  return result;
+}
+
+// Get valid builds (no _error, has time)
+function validBuilds(repos) {
+  return allBuilds(repos).filter(({build}) => !build._error && build.time);
+}
+
+// ── Render Layer 1: Header ──
+
+function renderHeader(repos) {
+  const builds = validBuilds(repos);
+  const totalRepos = repos.length;
+  const totalBuilds = builds.length;
+  const failedCount = builds.filter(({build}) => build.status === 'failed').length;
+
+  // Update time
+  const times = repos.map(r => r.meta.fetched_at).filter(Boolean).sort();
+  const latest = times.length > 0 ? times[times.length - 1] : null;
+  document.getElementById('updateTime').textContent = latest
+    ? '更新于 ' + fmtTime(latest)
+    : '';
+
+  // Stats line
+  const passClass = failedCount === 0 ? 'stat-pass' : 'stat-fail';
+  const passText = failedCount === 0 ? '全部通过' : failedCount + ' 失败';
+  document.getElementById('headerStats').innerHTML =
+    `<span><span class="stat-value">${totalRepos}</span><span class="stat-label">仓库</span></span>` +
+    `<span><span class="stat-value">${totalBuilds}</span><span class="stat-label">构建任务</span></span>` +
+    `<span class="${passClass}"><span class="stat-value">${passText}</span></span>`;
+
+  // Orchestrator filter options
+  const orchestrators = new Set();
+  builds.forEach(({build}) => {
+    const o = build.pre_build?.orchestrator;
+    if (o) orchestrators.add(o);
+  });
+  const sel = document.getElementById('orchestratorFilter');
+  Array.from(orchestrators).sort().forEach(o => {
+    const opt = document.createElement('option');
+    opt.value = o;
+    opt.textContent = '编排器: ' + o;
+    sel.appendChild(opt);
+  });
+}
+
+// ── Render Layer 2: Insight Cards ──
+
+function renderInsights(repos) {
+  const builds = validBuilds(repos);
+  if (builds.length === 0) return;
+
+  // Card 2: top bottleneck
+  const bottleneckCounts = {};
+  builds.forEach(({build}) => {
+    const bn = build.summary?.key_bottleneck;
+    if (bn) bottleneckCounts[bn] = (bottleneckCounts[bn] || 0) + 1;
+  });
+  let topBottleneck = '';
+  let topBottleneckCount = 0;
+  let topBottleneckRepos = 0;
+  let topBottleneckMax = 0;
+  let topBottleneckMaxRepo = '';
+  for (const [bn, count] of Object.entries(bottleneckCounts)) {
+    if (count > topBottleneckCount) {
+      topBottleneck = bn;
+      topBottleneckCount = count;
+    }
+  }
+  // Count repos affected and find max
+  const affectedRepos = new Set();
+  builds.forEach(({repo, build}) => {
+    if (build.summary?.key_bottleneck === topBottleneck) {
+      affectedRepos.add(repo._repo_short);
+      const s = build.summary?.key_bottleneck_seconds || 0;
+      if (s > topBottleneckMax) {
+        topBottleneckMax = s;
+        topBottleneckMaxRepo = repo._repo_short;
+      }
+    }
+  });
+  topBottleneckRepos = affectedRepos.size;
+
+  const bnDisplay = topBottleneck.replace(/_/g, ' ');
+
+  // Card 3: Top 3 slowest pre-build actions
+  const allActions = [];
+  builds.forEach(({repo, build}) => {
+    const actions = build.pre_build?.actions || [];
+    actions.forEach(a => {
+      allActions.push({ repo: repo._repo_short, task: build.task_name, action: a.name, seconds: a.duration_seconds });
+    });
+  });
+  allActions.sort((a, b) => b.seconds - a.seconds);
+  const top3 = allActions.slice(0, 3);
+
+  // Card 4: ARM vs x86 comparison
+  const armBuilds = builds.filter(({build}) => build._arch === 'ARM');
+  const x86Builds = builds.filter(({build}) => build._arch === 'x86');
+  const armAvg = armBuilds.length > 0
+    ? Math.round(armBuilds.reduce((s, {build}) => s + (build.pre_build?.total_seconds || 0), 0) / armBuilds.length)
+    : 0;
+  const x86Avg = x86Builds.length > 0
+    ? Math.round(x86Builds.reduce((s, {build}) => s + (build.pre_build?.total_seconds || 0), 0) / x86Builds.length)
+    : 0;
+  const ratio = x86Avg > 0 ? (armAvg / x86Avg).toFixed(1) : '—';
+
+  document.getElementById('insights').innerHTML =
+    `<div class="insight-card">
+      <div class="insight-label">仓库 / 任务</div>
+      <div class="insight-value">${repos.length} <span style="font-size:0.7em;color:var(--text-muted)">/</span> ${builds.length}</div>
+      <div class="insight-sub">${builds.filter(({build}) => build.status === 'failed').length === 0 ? '🟢 全部通过' : '🔴 存在失败'}</div>
+    </div>` +
+    `<div class="insight-card">
+      <div class="insight-label">头号瓶颈</div>
+      <div class="insight-value" style="font-size:1.2rem;">${bnDisplay}</div>
+      <div class="insight-sub">覆盖 ${topBottleneckRepos}/${repos.length} 仓库 · 最长 ${fmtDuration(topBottleneckMax)} (${topBottleneckMaxRepo})</div>
+    </div>` +
+    `<div class="insight-card">
+      <div class="insight-label">最慢 Pre-Build Top 3</div>
+      <div class="insight-sub" style="margin-top:4px;">
+        ${top3.map((a, i) => `<div>${i+1}. ${a.repo} · ${a.action} <b>${fmtDuration(a.seconds)}</b></div>`).join('')}
+      </div>
+    </div>` +
+    `<div class="insight-card">
+      <div class="insight-label">ARM vs x86 Pre-Build</div>
+      <div class="insight-value" style="font-size:1.1rem;">ARM ${fmtDuration(armAvg)} / x86 ${fmtDuration(x86Avg)}</div>
+      <div class="insight-sub">ARM 比 x86 慢 ${ratio}x · ARM ${armBuilds.length}任务 x86 ${x86Builds.length}任务</div>
+    </div>`;
+}
+
+// ── Render Layer 3: Pre-Build Ranking Table ──
+
+let rankingShowAll = false;
+
+function dotClass(build) {
+  const pre = build.pre_build?.total_seconds || 0;
+  const pct = build._pre_build_pct || 0;
+  if (pre > 180 || pct > 50) return 'dot-red';
+  if (pre > 60 || pct > 30) return 'dot-yellow';
+  return 'dot-green';
+}
+
+function bottleneckClass(seconds) {
+  if (seconds > 100) return 'bottleneck-red';
+  if (seconds > 30) return 'bottleneck-amber';
+  return 'bottleneck-gray';
+}
+
+function renderRanking(repos) {
+  let builds = validBuilds(repos);
+  if (builds.length === 0) { document.getElementById('ranking').innerHTML = ''; return; }
+
+  // Filter: only slow ones by default
+  if (!rankingShowAll) {
+    builds = builds.filter(({build}) => {
+      const pre = build.pre_build?.total_seconds || 0;
+      const pct = build._pre_build_pct || 0;
+      return pre > 60 || pct > 30;
+    });
+  }
+
+  // Sort by bottleneck seconds descending
+  builds.sort((a, b) => {
+    const sa = a.build.summary?.key_bottleneck_seconds || 0;
+    const sb = b.build.summary?.key_bottleneck_seconds || 0;
+    if (sb !== sa) return sb - sa;
+    return (b.build._pre_build_pct || 0) - (a.build._pre_build_pct || 0);
+  });
+
+  const rows = builds.map(({repo, build}) => {
+    const dot = dotClass(build);
+    const pre = build.pre_build?.total_seconds || 0;
+    const pct = build._pre_build_pct || 0;
+    const bn = (build.summary?.key_bottleneck || '').replace(/_/g, ' ');
+    const bnSec = build.summary?.key_bottleneck_seconds || 0;
+    const bnCls = bottleneckClass(bnSec);
+    const dur = build.time?.duration_seconds || 0;
+    const url = build.detail_url || '';
+
+    return `<tr>
+      <td><span class="${dot}">●</span></td>
+      <td><span title="${repo.meta.repo}">${repo._repo_short}</span></td>
+      <td>${build.task_name}</td>
+      <td>${fmtDuration(dur)}</td>
+      <td>${pct}%</td>
+      <td class="${bnCls}">${bn}</td>
+      <td class="${bnCls}">${fmtDuration(bnSec)}</td>
+      <td>${url ? '<a href="' + url + '" target="_blank" class="detail-arrow" title="跳转流水线">→</a>' : ''}</td>
+    </tr>`;
+  }).join('');
+
+  const totalPre = builds.reduce((s, {build}) => s + (build.pre_build?.total_seconds || 0), 0);
+  const allCount = validBuilds(repos).length;
+  const affectedRepos = new Set(builds.map(({repo}) => repo._repo_short)).size;
+
+  document.getElementById('ranking').innerHTML = `
+    <div class="section-header">
+      <span class="section-title">⏱️ Pre-Build 环境准备耗时排行</span>
+      <button class="section-toggle" onclick="toggleRanking()">${rankingShowAll ? '仅显示慢构建' : '显示全部'}</button>
+    </div>
+    <table class="ranking-table">
+      <thead><tr>
+        <th></th><th>仓库</th><th>任务名</th><th>总耗时</th><th>Pre%</th><th>瓶颈动作</th><th>耗时</th><th></th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="ranking-summary">
+      <span>显示 ${builds.length}/${allCount} 条</span>
+      <span>Pre-Build 合计: ${fmtDuration(totalPre)}</span>
+      <span>瓶颈覆盖: ${affectedRepos}/${repos.length} 仓库</span>
+    </div>`;
+}
+
+function toggleRanking() {
+  rankingShowAll = !rankingShowAll;
+  renderRanking(__EMBEDDED_DATA__);
+}
+
+// ── Render Layer 4: Repository Detail Cards ──
+
+function renderRepoCards(repos) {
+  const cards = repos.map(repo => renderRepoCard(repo)).join('');
+  document.getElementById('repoCards').innerHTML = cards;
+}
+
+function renderRepoCard(repo) {
+  const builds = repo.builds || [];
+  const shortName = repo._repo_short;
+  const passedCount = repo._passed_builds || 0;
+  const totalCount = repo._total_builds || builds.length;
+  const state = repo.meta.pipeline_state || '';
+  const prUrl = repo.meta.pr_url || '#';
+  const pr = repo.meta.pr;
+
+  const buildItems = builds.map(b => renderBuildItem(b, repo)).join('');
+
+  // Footer summary
+  const validB = builds.filter(b => !b._error && b.time);
+  const totalPre = validB.reduce((s, b) => s + (b.pre_build?.total_seconds || 0), 0);
+  const totalBuild = validB.reduce((s, b) => s + (b.build_phases?.total_seconds || 0), 0);
+  const totalUnattr = validB.reduce((s, b) => s + (b.summary?.unattributed_seconds || 0), 0);
+  const totalAll = totalPre + totalBuild + totalUnattr;
+  const prePct = totalAll > 0 ? Math.round(totalPre / totalAll * 100) : 0;
+  const buildPct = totalAll > 0 ? Math.round(totalBuild / totalAll * 100) : 0;
+  const unattrPct = totalAll > 0 ? Math.round(totalUnattr / totalAll * 100) : 0;
+
+  const repoId = 'repo-' + shortName.replace(/[^a-zA-Z0-9]/g, '_');
+
+  return `<div class="repo-card" id="${repoId}">
+    <div class="repo-card-header" onclick="toggleRepoCard('${repoId}')">
+      <div>
+        <span class="repo-name">
+          <a href="${prUrl}" target="_blank" class="repo-link" onclick="event.stopPropagation()">${shortName} #${pr}</a>
+        </span>
+        <span class="repo-meta"> · ${passedCount}/${totalCount} passed · ${state}</span>
+      </div>
+      <button class="repo-toggle" id="${repoId}-toggle">收起 ▾</button>
+    </div>
+    <div class="repo-card-body" id="${repoId}-body">
+      ${buildItems}
+      ${validB.length > 0 ? `
+      <div class="repo-card-footer">
+        汇总: Pre-Build ${fmtDuration(totalPre)} (${prePct}%) ·
+        Build ${fmtDuration(totalBuild)} (${buildPct}%) ·
+        未归类 ${fmtDuration(totalUnattr)} (${unattrPct}%)
+      </div>` : ''}
+    </div>
+  </div>`;
+}
+
+function renderBuildItem(build, repo) {
+  if (build._error) {
+    return `<div class="build-error">⚠️ ${build.task_name}: ${build._error}</div>`;
+  }
+
+  const dur = build.time?.duration_seconds || 0;
+  const pre = build.pre_build?.total_seconds || 0;
+  const bld = build.build_phases?.total_seconds || 0;
+  const unattr = Math.max(0, dur - pre - bld);
+  const prePct = dur > 0 ? Math.round(pre / dur * 100) : 0;
+  const bldPct = dur > 0 ? Math.round(bld / dur * 100) : 0;
+  const statusCls = build.status === 'passed' ? 'passed' : 'failed';
+  const statusText = build.status === 'passed' ? '通过' : build.status;
+  const timeRange = build.time?.start ? fmtTime(build.time.start) + '~' + fmtTime(build.time.end) : '';
+
+  const buildId = 'build-' + (repo._repo_short + '_' + build.task_name).replace(/[^a-zA-Z0-9]/g, '_');
+
+  // Pre-build actions table
+  const preActions = (build.pre_build?.actions || []).map(a => {
+    const isBottleneck = build.summary?.key_bottleneck === a.key;
+    return `<tr>
+      <td>${a.name}</td>
+      <td>${fmtDateTimeShort(a.start)}</td>
+      <td>${fmtDateTimeShort(a.end)}</td>
+      <td class="${isBottleneck ? 'action-warn' : ''}">${fmtDuration(a.duration_seconds)}${isBottleneck ? ' ⚠️' : ''}</td>
+      <td>${dur > 0 ? Math.round(a.duration_seconds / dur * 100) + '%' : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  // Build phases
+  const buildActions = (build.build_phases?.actions || []).map(a =>
+    `<tr><td>${a.name}</td><td>${fmtDuration(a.duration_seconds)}</td><td>${dur > 0 ? Math.round(a.duration_seconds / dur * 100) + '%' : '—'}</td></tr>`
+  ).join('');
+
+  return `<div class="build-item" onclick="toggleBuildDetail('${buildId}')">
+    <div class="build-summary">
+      <span class="build-status ${statusCls}">${statusText}</span>
+      <span class="build-task-name">${build.task_name}</span>
+      <span class="build-total-time">${fmtDuration(dur)}</span>
+      <div class="build-bar-wrapper">
+        <div class="build-bar">
+          <div class="build-bar-pre" style="width:${prePct}%"></div>
+          <div class="build-bar-build" style="width:${bldPct}%"></div>
+        </div>
+        <span class="build-bar-label">pre ${fmtDuration(pre)} · build ${fmtDuration(bld)}</span>
+      </div>
+      <span style="font-size:0.75rem;color:var(--text-muted)">${timeRange}</span>
+      <span style="color:var(--text-muted)">▸</span>
+    </div>
+    <div class="build-detail" id="${buildId}-detail">
+      <div class="build-detail-inner">
+        ${preActions ? '<div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:6px;">Pre-Build 环境准备动作</div><table class="action-table"><thead><tr><th>动作</th><th>开始</th><th>结束</th><th>耗时</th><th>占比</th></tr></thead><tbody>' + preActions + '</tbody></table>' : ''}
+        ${buildActions ? '<div style="font-size:0.8rem;color:var(--text-muted);margin:10px 0 6px;">Build 构建阶段</div><table class="action-table"><thead><tr><th>阶段</th><th>耗时</th><th>占比</th></tr></thead><tbody>' + buildActions + '</tbody></table>' : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── Expand/Collapse ──
+
+function toggleBuildDetail(buildId) {
+  const detail = document.getElementById(buildId + '-detail');
+  detail.classList.toggle('open');
+}
+
+function toggleRepoCard(repoId) {
+  const body = document.getElementById(repoId + '-body');
+  const toggle = document.getElementById(repoId + '-toggle');
+  if (body.style.display === 'none') {
+    body.style.display = '';
+    toggle.textContent = '收起 ▾';
+  } else {
+    body.style.display = 'none';
+    toggle.textContent = '展开 ▸';
+  }
+}
+
+// ── Initialization ──
+
+function init() {
+  const repos = __EMBEDDED_DATA__;
+  if (!repos || repos.length === 0) {
+    document.body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">暂无数据</div>';
+    return;
+  }
+  renderHeader(repos);
+  renderInsights(repos);
+  renderRanking(repos);
+  renderRepoCards(repos);
+}
+
+document.addEventListener('DOMContentLoaded', init);
 </script>
 
 </body>
