@@ -209,16 +209,16 @@
           {
             "key": "packaging",
             "name": "打包与上传 (wheel output + OBS upload)",
-            "duration_seconds": 5.80,
+            "duration_seconds": 5.8,
             "evidence": "Successfully built mindspeed_mm @10:36:37.217 → [使用SWR公共镜像] → Finished: SUCCESS @10:36:43.019"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 149.84,
-        "build_seconds": 26.69,
-        "unattributed_seconds": 0.0,
-        "key_bottleneck": "pip 依赖安装与升级 (含 ReadTimeoutError 重试 15s)",
+        "pre_build_seconds": 149.8,
+        "build_seconds": 26.7,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "环境准备 (workspace prep + pip install build tools)",
         "key_bottleneck_seconds": 70.88
       }
     }

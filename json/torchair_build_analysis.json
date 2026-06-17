@@ -209,10 +209,10 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 100.813,
-        "build_seconds": 66.645,
-        "unattributed_seconds": 27.444,
-        "key_bottleneck": "pip_install",
+        "pre_build_seconds": 100.8,
+        "build_seconds": 66.6,
+        "unattributed_seconds": 27.4,
+        "key_bottleneck": "Python依赖安装",
         "key_bottleneck_seconds": 32.372
       }
     },
@@ -404,10 +404,10 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 130.001,
-        "build_seconds": 74.851,
-        "unattributed_seconds": 21.745,
-        "key_bottleneck": "pip_install",
+        "pre_build_seconds": 130.0,
+        "build_seconds": 74.9,
+        "unattributed_seconds": 21.7,
+        "key_bottleneck": "Python依赖安装",
         "key_bottleneck_seconds": 58.347
       }
     }

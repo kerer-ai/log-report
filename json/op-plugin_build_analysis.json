@@ -187,9 +187,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 79.577,
-        "build_seconds": 9.582,
-        "unattributed_seconds": 16.771,
+        "pre_build_seconds": 79.6,
+        "build_seconds": 9.6,
+        "unattributed_seconds": 16.8,
         "key_bottleneck": "Pod 调度等待",
         "key_bottleneck_seconds": 28.472
       }
@@ -473,9 +473,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 237.319,
-        "build_seconds": 55.334,
-        "unattributed_seconds": 68.456,
+        "pre_build_seconds": 237.3,
+        "build_seconds": 55.3,
+        "unattributed_seconds": 68.5,
         "key_bottleneck": "子模块初始化",
         "key_bottleneck_seconds": 45.876
       }
@@ -767,9 +767,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 245.258,
-        "build_seconds": 70.618,
-        "unattributed_seconds": 64.687,
+        "pre_build_seconds": 245.3,
+        "build_seconds": 70.6,
+        "unattributed_seconds": 64.7,
         "key_bottleneck": "子模块初始化",
         "key_bottleneck_seconds": 43.64
       }
@@ -1053,9 +1053,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 223.097,
-        "build_seconds": 109.734,
-        "unattributed_seconds": 88.916,
+        "pre_build_seconds": 223.1,
+        "build_seconds": 109.7,
+        "unattributed_seconds": 88.9,
         "key_bottleneck": "Pod 调度等待",
         "key_bottleneck_seconds": 53.015
       }
@@ -1347,9 +1347,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 239.234,
-        "build_seconds": 20.946,
-        "unattributed_seconds": 71.168,
+        "pre_build_seconds": 239.2,
+        "build_seconds": 20.9,
+        "unattributed_seconds": 71.2,
         "key_bottleneck": "Pod 调度等待",
         "key_bottleneck_seconds": 48.284
       }
@@ -1633,9 +1633,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 261.258,
-        "build_seconds": 22.912,
-        "unattributed_seconds": 68.188,
+        "pre_build_seconds": 261.3,
+        "build_seconds": 22.9,
+        "unattributed_seconds": 68.2,
         "key_bottleneck": "Pod 调度等待",
         "key_bottleneck_seconds": 62.269
       }
@@ -1799,9 +1799,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 95.599,
-        "build_seconds": 4.469,
-        "unattributed_seconds": 21.55,
+        "pre_build_seconds": 95.6,
+        "build_seconds": 4.5,
+        "unattributed_seconds": 21.5,
         "key_bottleneck": "Pod 调度等待",
         "key_bottleneck_seconds": 38.066
       }
@@ -2085,9 +2085,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 195.642,
-        "build_seconds": 45.482,
-        "unattributed_seconds": 163.778,
+        "pre_build_seconds": 195.6,
+        "build_seconds": 45.5,
+        "unattributed_seconds": 163.8,
         "key_bottleneck": "子模块初始化",
         "key_bottleneck_seconds": 49.256
       }
@@ -2387,9 +2387,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 210.163,
-        "build_seconds": 52.401,
-        "unattributed_seconds": 76.231,
+        "pre_build_seconds": 210.2,
+        "build_seconds": 52.4,
+        "unattributed_seconds": 76.2,
         "key_bottleneck": "子模块初始化",
         "key_bottleneck_seconds": 46.81
       }
@@ -2721,9 +2721,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 192.092,
-        "build_seconds": 83.154,
-        "unattributed_seconds": 73.763,
+        "pre_build_seconds": 192.1,
+        "build_seconds": 83.2,
+        "unattributed_seconds": 73.8,
         "key_bottleneck": "子模块初始化",
         "key_bottleneck_seconds": 53.024
       }
@@ -3007,9 +3007,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 240.653,
-        "build_seconds": 17.405,
-        "unattributed_seconds": 63.177,
+        "pre_build_seconds": 240.7,
+        "build_seconds": 17.4,
+        "unattributed_seconds": 63.2,
         "key_bottleneck": "Pod 调度等待",
         "key_bottleneck_seconds": 50.796
       }
@@ -3309,9 +3309,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 214.522,
-        "build_seconds": 19.239,
-        "unattributed_seconds": 68.019,
+        "pre_build_seconds": 214.5,
+        "build_seconds": 19.2,
+        "unattributed_seconds": 68.0,
         "key_bottleneck": "子模块初始化",
         "key_bottleneck_seconds": 65.22
       }

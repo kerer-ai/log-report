@@ -1,0 +1,881 @@
+---
+name: gitcode-build-time-analyzer
+description: "分析 GitCode PR 门禁流水线中构建前置环境准备的耗时。从 openLiBing 拉取完整构建日志，AI 语义识别环境准备动作及其耗时，输出结构化 JSON。聚焦于 slave_create、镜像拉取、代码检出、Pod 调度、依赖安装等构建前动作。触发词：构建耗时分析、门禁构建阶段时间、环境准备耗时、build time profiling。"
+---
+
+# GitCode Build Time Analyzer — 构建前置环境准备分析
+
+从 GitCode PR 流水线中拉取完整构建日志，使用 AI 语义分析识别**构建前置环境准备**动作，
+提取每个动作的耗时，输出结构化 JSON。
+
+关注点：**构建开始之前**的所有环境准备工作——节点分配、镜像拉取、代码检出、
+Pod 调度、依赖安装等。构建本身（cmake/编译/打包）仅做概要统计。
+
+## 架构
+
+单仓库模式：
+```
+Script (fetch_build_logs.py)           AI (Claude)
+─────────────────────────────         ───────────────────────────
+0. 发现最新 merged PR                    ←
+1. 拉取 PR comments (gc CLI)
+2. 解析流水线表格
+3. 找到 passed 构建任务
+4. 从 openLiBing 拉取完整日志             → 读取 log_sample
+5. 提取 log_sample + 时间间隙              → 理解日志语义
+6. 输出 raw JSON 模板                     → 识别每个环境准备动作
+                                           → 填充 pre_build.actions[]
+                                           → 填写完整 JSON，写回同路径
+```
+
+多 Agent 批量模式（≥3 个仓库）：
+```
+Phase 1: 批量 fetch (串行)              Phase 2: 并行 AI 分析 (Agent per repo)
+──────────────────────                 ──────────────────────────────────────
+for repo in repos:                     Agent("Analyze MindIE-Motor")  ─┐
+    fetch_build_logs.py --repo $repo   Agent("Analyze MindIE-SD")     ─┤ 并行
+                                      Agent("Analyze MindIE-LLM")    ─┤
+                                      Agent("Analyze torchair")      ─┘
+                                      
+Phase 3: 校验 + 补漏                    Phase 4: 跨仓库对比报告
+──────────────────────                 ──────────────────────
+for repo in success:                   汇总所有 JSON → 排名、瓶颈对比、
+    verify R1-R7                       编排器影响分析、Pod 调度对比
+    if empty/buggy → re-agent
+```
+
+## 快速开始
+
+```bash
+# 单仓库 — 分析最新 merged PR
+python3 scripts/fetch_build_logs.py --repo Ascend/pytorch --latest-merged -o pytorch_build_analysis.json
+
+# 单仓库 — 分析指定 PR
+python3 scripts/fetch_build_logs.py --repo Ascend/MindIE-Motor --pr 204 -o MindIE-Motor_build_analysis.json
+
+# 单仓库 — 单任务
+python3 scripts/fetch_build_logs.py --repo cann/ops-nn --pr 6193 --task Compile_Ascend_X86_ubuntu24 -o ops-nn_build_analysis.json
+
+# 多 Agent 批量模式（≥3 个仓库）
+/gitcode-build-time-analyzer 使用多Agent模式分析 MindIE 系列:
+  - Ascend/MindIE-Motor
+  - Ascend/MindIE-SD
+  - Ascend/MindIE-PyMotor
+  - Ascend/MindIE-LLM
+```
+
+选项：`--latest-merged` | `--pr <N>` | `--task <name>` | `--max-sample <N>` | `--full-log`
+
+### PR 回退发现策略（重要）
+
+`--latest-merged` 选取的是**最近合入的 PR**，但该 PR 可能是一个纯文档变更，
+其 Build 任务被跳过（🛑）、流水线中根本没有编译构建阶段，或者缺少流水线评论表。
+此时不能直接放弃该仓库——需要向后扫描最近的合入 PR，找到**第一个包含 passed 构建**的 PR。
+
+**自动回退流程**（Phase 1.5）：
+
+```bash
+# 从最新合入 PR 向后扫描，最多 20 个
+for pr_num in $(gc pr list -R "$repo" --state merged -L 20 2>&1 | grep -oP '#\d+' | tr -d '#'); do
+  result=$(python3 scripts/fetch_build_logs.py --repo "$repo" --pr "$pr_num" -o "/tmp/test_${name}.json" 2>&1)
+  if echo "$result" | grep -q "Template written"; then
+    cp "/tmp/test_${name}.json" "${name}_build_analysis.json"
+    echo "FOUND: PR #$pr_num has passed builds"
+    break
+  fi
+  rm -f "/tmp/test_${name}.json"
+done
+```
+
+**回退结果分类**：
+
+| 结果 | 含义 | 处理 |
+|------|------|------|
+| 找到含 passed 构建的 PR | 最新合入 PR 恰好是 docs-only | 使用该 PR，正常进入 Phase 2 |
+| 20 个 PR 全部 `no_pipeline` | 该仓库从未有过构建流水线 | 标记为不可分析 |
+| 20 个 PR 全部 `no_passed_builds` | 有流水线但 Build 从未通过 | 标记 `_error: "No passed build in last 20 PRs"` |
+| 混合但无 passed（如 MindSpeed-LLM） | 仅有代码检查无 Build 任务 | 标记 `_error: "No Build task in pipeline — code-quality-only repo"` |
+
+**区分两种"失败"**：
+- `"No pipeline table found"` → PR 评论中根本没有流水线表格
+- `"No passed build tasks found"` → 有流水线表格但 Build 任务状态非 passed（🛑/❌）
+
+## 产物位置
+
+JSON 文件写入**当前工作目录**，命名规则：`<仓库名>_build_analysis.json`
+（仓库名取自 `--repo` 路径最后一段，如 `Ascend/pytorch` → `pytorch`）。
+
+## AI 分析流程
+
+脚本运行后，读取输出 JSON 文件，其中包含：
+- `meta` — PR、仓库、流水线元信息
+- `builds[].log_sample` — 采样日志（含间隙标记）
+- `builds[].time` — 构建总耗时
+- `builds[].significant_gaps` — >5s 的时间间隙（定位阶段切换的线索）
+
+### Step 1 — 扫描 log_sample，定位环境准备动作
+
+逐行阅读 `log_sample`，按时间顺序识别以下动作的**起止时间戳**：
+
+动作分两大类：**外部 CI 调度机** 上的动作（节点分配、前置校验、Pod 提交），以及 **Pod 内部** 的动作（clone、依赖安装、子模块初始化等）。两类动作的时间线是连续的——Pod 内部动作在 `pod_scheduling` 结束之后开始。
+
+| 动作 key | 动作名称 | 阶段 | 日志中典型标志 |
+|---|---|---|---|
+| `node_assignment` | 执行节点分配 | 外部CI | `[PRE_ENV:slave_create]` 开始→完成，`create execution node` |
+| `docker_pull` | Docker 镜像拉取 | 外部CI | `Pulling from *****`, `Pull complete`, `Image is up to date` |
+| `cache_check` | 缓存检查 | 外部CI | `[Cache Check:external_cache_check]` 开始→完成 |
+| `git_checkout` | 代码检出(CI机) | 外部CI | `[代码检出:external_pre_checkout]` 开始 → `external_post_checkout` 完成，含 git fetch/clone/merge |
+| `network_retry` | 网络重试等待 | 外部CI | `fatal: unable to access`, `Failed to connect`, `Retrying in`，两次 clone 尝试之间的等待 |
+| `pre_submit_validation` | 前置校验 | 外部CI | `=== Pre-submit validation ===` |
+| `image_proxy` | 镜像代理替换 | 外部CI | `[OK] Harbor registry found`, `IMAGE Replaced: swr.` |
+| `git_cache_injection` | Git 缓存注入 | 外部CI | `[OK] Git-cache found`, `injecting git proxy` |
+| `orchestrator_submit` | 编排器任务提交 | 外部CI | Argo: `Workflow submitted`, `argo submit`；Volcano: `Volcano Job 提交`、`Job ... submitted`；Docker: 无 |
+| `pod_scheduling` | Pod调度等待 | 过渡 | **从 `orchestrator_submit` 结束到 `Pod 状态: Running` 的完整等待时间**。Volcano: `等待 Pod ... 开始运行` 起始 → `Pod 状态: Running`；Argo: `等待主 Pod (main-script) 出现` → `找到主 Pod`。⚠️ 关键是测量整个等待区间，不是只抓 Running 出现的那一瞬间 |
+| `pod_git_clone` | 代码检出(Pod内) | Pod内 | Pod Running 后的 `git clone`、`git fetch`、`Cloning into '...'`（clone 的是业务仓库 workspace，非 CI 脚本仓库）。如遇网络超时重试，将重试等待独立标记为 `network_retry` |
+| `env_setup` | 环境变量+ccache初始化 | Pod内 | `source set_env.sh`、`export`、`setenv_main`、`ccache` 初始化、`git merge`（在业务仓库内执行）、CI 脚本 clone（`git clone ... MindIE-CI.git` 或 `git clone ... cie.git`） |
+| `submodule_init` | Git子模块初始化 | Pod内 | `Submodule '...' registered`、`Cloning into '...third_party/...'`、`Submodule path '...' checked out`、git submodule update/init。⚠️ 子模块克隆通常很多（5-20个），需累计所有子模块的总耗时 |
+| `pip_install` | Python依赖安装 | Pod内 | `pip install`、`Collecting`、`Successfully installed`、pip wheel 下载 |
+| `conda_install` | Conda依赖安装 | Pod内 | `conda install`, `mamba install` |
+| `apt_install` | 系统包安装 | Pod内 | `apt-get install`, `apt install` |
+| `tool_download` | 构建工具下载 | Pod内 | 下载 cmake/ninja/gcc 的 pip wheel 或 wget |
+| `artifact_download` | 制品/OBS下载 | Pod内 | `wget`、`curl`、`obsutil cp` 下载（含 `https://...obs...` 或 `https://...myhuaweicloud.com/...` 的 wget）；第三方库解压 (`unzip opensource_*.zip`) |
+| `acl_headers` | ACL头文件准备 | Pod内 | `Copied ... acl headers`、`cp ... acl`、`acl header`、`ACL include` |
+| `workspace_prep` | 工作目录准备 | Pod内 | `rm -rf`、`mkdir -p`、`cd` 等目录清理/创建操作（不含 clone，clone 归入 `pod_git_clone` 或 `env_setup`） |
+| `codegen` | 代码生成+CMake配置 | Pod内 | `CMake configure`、`Generating build files`、protobuf 代码生成 (`Running protoc`)、`cmake -B build`。注意：cmake configure 发生在 Pod 内编译开始之前，属于前置动作。与 build_phases 中的 `cmake_configure` 区分——`codegen` 是 cmake 之前的代码生成步骤 |
+
+### Step 2 — 确定每个动作的起止时间
+
+对于每个识别到的动作：
+- `start` — 该动作第一条日志的时间戳
+- `end` — 该动作最后一条日志的时间戳
+- `duration_seconds` = end - start
+- 参考 `significant_gaps` 作为阶段切换线索
+- 如果动作未发生（如无 conda 安装），**跳过不填**
+
+**⚠️ Pod 调度耗时 (pod_scheduling) 的正确测量方式：**
+
+`pod_scheduling` 测量的是 **从编排器提交到 Pod 进入 Running 的完整等待时间**，不是 Pod 变为 Running 的瞬间：
+
+| 编排器 | start 标志 | end 标志 |
+|---|---|---|
+| **Volcano** | `Volcano Job 提交` 或 `Job ... submitted` 之后的第一条日志 | `Pod 状态: Running` |
+| **Argo** | `Workflow submitted` 或 `argo submit` 之后的第一条日志 | `找到主 Pod (main-script)` 或 `Pod 状态: Running` |
+| **Docker** | 无调度环节，跳过 | — |
+
+典型值：Argo 5-30s，Volcano 5-260s。如果测出来的 `pod_scheduling` < 1s，说明只抓了 Running 出现的瞬间而非完整等待——这是**错误**的。
+
+**⚠️ 两阶段时间线模型：**
+
+构建前环境准备分为两个连续阶段：
+
+```
+外部 CI 调度机                      Pod 内部
+─────────────────────              ─────────────────────────────
+node_assignment                    pod_git_clone
+git_checkout                       env_setup (含 CI脚本clone)
+pre_submit_validation              submodule_init
+image_proxy                        pip_install
+git_cache_injection                artifact_download
+orchestrator_submit ──┐            acl_headers
+pod_scheduling ───────┘            tool_download
+                      │            workspace_prep
+                   Pod Running     ...
+                                      │
+                                   CMake 开始 → 进入 build_phases
+```
+
+两个阶段之间由 `pod_scheduling` 连接。`pod_scheduling` 的 end 即为 Pod 内阶段的时间起点。
+
+### Step 3 — 划分"构建前"与"构建中"
+
+**构建开始的标志**（遇到任一个即视为环境准备结束）：
+- `cmake` 配置开始（`-- Check for working C compiler`）
+- `setup.py build/develop/install` 开始（`running build_ext`）
+- `ninja` / `make` 编译开始（`[0%] Building CXX object`）
+- pip wheel 构建开始（`Building wheel for <package> (pyproject.toml): started`）
+- 纯 Python 项目的 `running build_py`
+
+构建开始之后的动作（cmake configure、编译、wheel 打包、上传）归入 `build_phases` 概要统计，不需要逐个拆解。
+
+### Step 4 — 写入完成的分析
+
+1. 读入模板 JSON
+2. 为每个 build 填充 `pre_build.actions[]`
+3. 填充 `build_phases.actions[]`（仅概要）
+4. 设置 `meta.analyzed_at`
+5. **写回同一文件路径**
+6. 向用户报告文件路径和关键发现
+
+## 输出 JSON 结构
+
+```json
+{
+  "meta": {
+    "pr": 38696,
+    "repo": "Ascend/pytorch",
+    "pr_url": "https://gitcode.com/Ascend/pytorch/pull/38696",
+    "pipeline_name": "PR-pipeline_pytorch#32911",
+    "pipeline_state": "已完成",
+    "pipeline_url": "https://www.openlibing.com/...",
+    "fetched_at": "2026-06-17T11:00:00+08:00",
+    "analyzed_at": "2026-06-17T11:05:00+08:00",
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Build_X86",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/...",
+      "time": {
+        "start": "2026-06-16T23:55:51.573+08:00",
+        "end": "2026-06-17T00:01:11.721+08:00",
+        "duration_seconds": 320.1
+      },
+      "pre_build": {
+        "total_seconds": 175.1,
+        "pct_of_total": 55.4,
+        "orchestrator": "volcano",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-16T23:56:30.123+08:00",
+            "end": "2026-06-16T23:56:35.456+08:00",
+            "duration_seconds": 5.3,
+            "evidence": "slave_create: node cce-codeci-137585f332 assigned"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出(CI机)",
+            "start": "2026-06-16T23:56:35.500+08:00",
+            "end": "2026-06-16T23:56:54.789+08:00",
+            "duration_seconds": 19.3,
+            "evidence": "external_pre_checkout → git fetch PR #38696 → external_post_checkout"
+          },
+          {
+            "key": "pre_submit_validation",
+            "name": "前置校验",
+            "start": "2026-06-16T23:56:37.000+08:00",
+            "end": "2026-06-16T23:56:50.000+08:00",
+            "duration_seconds": 13.0,
+            "evidence": "=== Pre-submit validation === 23:56:37 → 前置校验完成 23:56:50"
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "Volcano Job 提交",
+            "start": "2026-06-16T23:56:52.000+08:00",
+            "end": "2026-06-16T23:56:52.500+08:00",
+            "duration_seconds": 0.5,
+            "evidence": "Volcano Job 提交 23:56:52"
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod调度等待(Volcano)",
+            "start": "2026-06-16T23:56:52.500+08:00",
+            "end": "2026-06-16T23:57:10.000+08:00",
+            "duration_seconds": 17.5,
+            "evidence": "Volcano Job submitted 23:56:52 → Pod 状态: Running 23:57:10 (等待了17.5s)"
+          },
+          {
+            "key": "pod_git_clone",
+            "name": "代码检出(Pod内)",
+            "start": "2026-06-16T23:57:10.000+08:00",
+            "end": "2026-06-16T23:57:27.100+08:00",
+            "duration_seconds": 17.1,
+            "evidence": "Pod Running 后 git clone workspace + cie + CODE 三个仓库 (23:57:10 → 23:57:27)"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量+ccache+merge",
+            "start": "2026-06-16T23:57:16.000+08:00",
+            "end": "2026-06-16T23:57:32.000+08:00",
+            "duration_seconds": 16.0,
+            "evidence": "source set_env.sh (23:57:16) → ccache 初始化 → git merge develop (23:57:27) → cd workspace (23:57:32)"
+          },
+          {
+            "key": "artifact_download",
+            "name": "OBS制品下载",
+            "start": "2026-06-16T23:57:32.000+08:00",
+            "end": "2026-06-16T23:57:35.000+08:00",
+            "duration_seconds": 3.0,
+            "evidence": "wget https://...obs.../torch-2.7.1+cpu-cp310-cp310-linux_x86_64.whl (192MB)"
+          },
+          {
+            "key": "pip_install",
+            "name": "Python依赖安装",
+            "start": "2026-06-16T23:57:33.000+08:00",
+            "end": "2026-06-16T23:57:35.500+08:00",
+            "duration_seconds": 2.5,
+            "evidence": "pip install torch-2.7.1+cpu-cp310-cp310-linux_x86_64.whl (23:57:33 → 23:57:35)"
+          },
+          {
+            "key": "submodule_init",
+            "name": "Git子模块初始化",
+            "start": "2026-06-16T23:57:34.000+08:00",
+            "end": "2026-06-16T23:58:08.000+08:00",
+            "duration_seconds": 34.0,
+            "evidence": "Submodule 'third_party/FastFormat' registered → 10个子模块全部检出 (23:57:34 → 23:58:08)"
+          },
+          {
+            "key": "acl_headers",
+            "name": "ACL头文件准备",
+            "start": "2026-06-16T23:58:05.000+08:00",
+            "end": "2026-06-16T23:58:33.000+08:00",
+            "duration_seconds": 28.0,
+            "evidence": "Copied ... acl headers (23:58:05 → 23:58:33)"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 137.0,
+        "pct_of_total": 42.8,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 12.0
+          },
+          {
+            "key": "compilation",
+            "name": "编译 (ninja/gcc)",
+            "duration_seconds": 95.0
+          },
+          {
+            "key": "packaging",
+            "name": "打包与上传",
+            "duration_seconds": 30.0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 175.1,
+        "build_seconds": 137.0,
+        "unattributed_seconds": 8.0,
+        "key_bottleneck": "submodule_init",
+        "key_bottleneck_seconds": 34.0
+      }
+    }
+  ]
+}
+```
+
+## 编排器识别
+
+不同仓库使用不同的容器编排器，影响环境准备流程：
+
+| 编排器 | 日志特征 | 典型 Pod 调度耗时 | 示例仓库 |
+|---|---|---|---|
+| **Argo Workflow** | `Workflow submitted`, `等待主 Pod (main-script) 出现`, `Argo Workflow YAML` | 5-30s | MindIE-Motor, MindIE-PyMotor |
+| **Volcano Job** | `Job xxx 的主 Pod`, `volcano.sh/job-name`, `[日志] 等待 Pod ... 开始运行` | 5-260s | pytorch, MindIE-LLM, MindIE-SD, torchair |
+| **Docker 原生** | `Pull complete` (多层), 无 Pod 调度日志 | 0s (无调度) | MindSpeed, MindSpeed-MM |
+
+`pre_build.orchestrator` 字段必须设为 `"argo"`、`"volcano"` 或 `"docker"`。
+
+## Pod 内环境准备阶段（重点）
+
+Pod 进入 Running 后到 CMake 开始前的这段时间是**最容易被漏分析的区域**。以下动作几乎在每个 Volcano/Argo 构建中都会出现，必须逐项识别：
+
+### 典型 Pod 内动作序列
+
+```
+Pod Running
+  ├─ git clone <workspace>           → pod_git_clone (5-30s)
+  ├─ source env.sh + ccache init     → env_setup (3-10s)
+  ├─ git clone <CI脚本> + <CODE>     → env_setup (合并入上一步)
+  ├─ git merge + submodule init      → submodule_init (10-60s)  ← 常是最大瓶颈
+  ├─ wget <torch wheel 192MB>        → artifact_download (1-5s)
+  ├─ pip install torch               → pip_install (1-5s)
+  ├─ git submodule clone ×N          → submodule_init (含在上面的累计中)
+  └─ cp acl headers                  → acl_headers (5-30s)
+CMake 开始
+```
+
+### 各动作识别要点
+
+- **pod_git_clone**: 只算业务仓库的 `git clone`（如 `Cloning into 'pytorch'`），不含 CI 脚本仓库（归入 `env_setup`）
+- **env_setup**: 合并了 source env.sh + ccache 初始化 + CI 脚本 clone（`git clone ... MindIE-CI.git` / `git clone ... cie.git`）+ `git merge`（在业务仓库内执行）+ `cd` 工作目录
+- **submodule_init**: 从第一个 `Submodule '...' registered` 到最后一个 `Submodule path '...' checked out`。子模块克隆通常是**最大的单一瓶颈**（10-60s），绝不能遗漏
+- **artifact_download**: 关注 wget 下载大文件（.whl, .tar.gz），尤其是来自 OBS/HuaweiCloud 的 URL
+- **acl_headers**: `Copied ... acl headers` 或类似的头文件复制操作，Ascend 构建特有
+- **pip_install**: 注意区分 wget 下载 wheel（归入 `artifact_download`）和 pip install 该 wheel（归入 `pip_install`）
+
+## 分析要点
+
+- **从日志语义理解，不依赖关键词匹配**。理解每一段日志在做什么。
+- **时间间隙是线索**：`significant_gaps` 指向阶段切换点，但必须结合日志内容确认。
+- **动作可能交织**：如 git clone 过程中穿插了网络超时，应将 clone 重试等待独立标记为 `network_retry`。
+- **网络问题单独标记**：如果 git clone 耗时异常（>60s），检查日志中是否有 `fatal: unable to access`、`Failed to connect`、`Retrying` 等标志。使用 `network_retry` 动作单独标记重试等待时间。
+- **Pod 调度耗时必须测量完整等待**：`pod_scheduling` 从 `orchestrator_submit` 结束开始，到 `Pod 状态: Running` 结束。**绝不能**只测 Running 出现的瞬间（<1s = 错误）。典型值: Volcano 5-260s, Argo 5-30s。如果测出 <1s 的 pod_scheduling，这是 bug——回去找提交时间戳。
+- **Pod 调度 vs Pod 内 clone 的划分**：`pod_scheduling.end` = Pod Running 时刻 = Pod 内阶段的起点。Pod Running **之后**的 git clone 归入 `pod_git_clone`（业务仓库）或 `env_setup`（CI 脚本仓库），**不能**混入 `pod_scheduling`。
+- **Docker 原生 CI** (MindSpeed 系列) 无 Pod 调度，`docker_pull` 的镜像拉取层就是主要的环境准备开销。
+- **提供 `evidence`**：每个动作都要附上起止日志的关键片段，使分析可审计。
+
+## 数据质量规则（MUST）
+
+以下规则在每次分析后必须逐条校验，不满足的要修正后再写入 JSON。
+
+### R1: 负数夹底
+```python
+unattributed_seconds = max(0, total_duration - pre_build_seconds - build_seconds)
+```
+`summary.unattributed_seconds` **不得为负数**。若计算值为负，说明 `pre_build` 或 `build_phases` 动作之间有重叠或高估，应缩减对应动作的 duration 直至 unattributed >= 0。
+
+### R2: 错误记录必须标记
+遇到无法分析的构建（如 API 参数缺失、日志拉取失败），必须在 JSON 中明确记录：
+```json
+{
+  "task_name": "...",
+  "_error": "Cannot extract API params from task link",
+  "pre_build": { "total_seconds": 0, "pct_of_total": 0, "orchestrator": "", "actions": [] },
+  "build_phases": { "total_seconds": 0, "pct_of_total": 0, "actions": [] },
+  "summary": { "pre_build_seconds": 0, "build_seconds": 0, "unattributed_seconds": 0, "key_bottleneck": "", "key_bottleneck_seconds": 0 }
+}
+```
+- 使用 `_error` 字段（下划线前缀）与正常构建区分
+- `time` 字段如果不可用，设为 `null`
+- 禁止把错误记录静默丢弃
+
+### R3: 去重
+如果同一个 `task_name` 出现多条记录（来自不同流水线运行），**只保留最新的**（按 `time.start` 排序）。去重逻辑应写入分析脚本。
+
+### R4: 大间隙兜底识别
+如果 `unattributed_seconds > total * 0.15`（即超过 15% 的耗时未被归类），必须遍历 `significant_gaps` 中 **所有 >30s 的间隙**，逐一检查间隙前后的日志内容：
+- 间隙前后有 `Cloning into` / `git clone`（非 third_party 路径） → 添加 `pod_git_clone`
+- 间隙前后有 `Submodule` / `Cloning into '...third_party/...'` / `Submodule path` → 添加 `submodule_init`
+- 间隙前后有 `fatal: unable` / `Failed to connect` → 添加 `network_retry`
+- 间隙前后有 `set_env.sh` / `source ...env` / `ccache` / `export` → 添加 `env_setup`
+- 间隙前后有 `wget` / `curl` / `obsutil cp` / `https://...obs...` → 添加 `artifact_download`
+- 间隙前后有 `pip install` / `Collecting` → 添加 `pip_install`
+- 间隙前后有 `Copied ... acl` / `acl header` / `ACL` → 添加 `acl_headers`
+- 间隙前后是 `Building CXX object` / `Built target` → 这是编译阶段，应延长 `build_seconds`
+- 间隙前后有 `[0%] Building` / `cmake` / `-- Check for working` → 这是 CMake/编译，应延长 `build_seconds`
+- 间隙位于 `Pod 状态: Running` 之后且无 git clone 日志 → 可能是 `env_setup`（source env + ccache），检查间隙后的日志
+- 无法识别的间隙 → 留在 `unattributed_seconds` 中，并在 evidence 中标注"未识别的大间隙"
+
+### R5: 空模板清理
+分析完成后，`pre_build.actions` 中所有 `duration_seconds == 0` 且无 `evidence` 的动作必须移除。禁止输出空动作列表。
+
+### R6: summary 一致性
+```python
+assert abs((pre_build_seconds + build_seconds + unattributed_seconds) - total_duration) < 1.0
+```
+三项之和必须约等于总耗时（允许 <1s 的浮点误差）。
+
+### R7: pre_build 总耗时与动作跨度一致性
+```python
+action_span = last_action_end - first_action_start
+assert pre_build.total_seconds >= action_span - 1.0, \
+    f"total_seconds ({pre_build.total_seconds}s) < action span ({action_span}s) — missing actions"
+```
+`pre_build.total_seconds` 必须 **>=** 第一个动作开始到最后一个动作结束的时间跨度（允许 <1s 误差）。如果小于跨度，说明动作之间存在未被识别的耗时（如 docker pull 检查开销、CI 脚本等待间隙），需要检查 `significant_gaps` 中未归类的间隙。
+
+## 跨仓库对比分析
+
+对多个仓库完成单仓分析后，可产出跨仓库对比洞察。直接从各仓库的 `*_build_analysis.json` 文件中提取数据汇总。
+
+对比维度：
+- 各仓库环境准备总耗时排名
+- 最耗时的准备动作（`pod_scheduling` / `submodule_init` / `git_checkout` / `pip_install` / `network_retry` / `acl_headers`）
+- 编排器对 Pod 调度耗时的影响（Argo vs Volcano vs Docker）
+- 网络问题（`network_retry`）影响哪些仓库
+- Pod 内阶段占 pre_build 的比例（Pod 内越重说明外部 CI 越轻）
+
+## 多 Agent 批量分析模式
+
+当需要同时分析多个仓库（≥3 个）时，使用多 Agent 并行模式可大幅缩短总耗时。每个仓库分配一个独立 Agent，Agent 之间完全无依赖，可并行执行。
+
+### 模式触发
+
+用户通过 `!` 前缀传递批量 repo 列表时自动进入多 Agent 模式：
+
+```
+/gitcode-build-time-analyzer 使用多Agent模式分析以下仓库:
+  - Ascend/pytorch
+  - Ascend/torchair
+  - Ascend/MindIE-Motor
+```
+
+或用户明确说"多Agent模式"、"并行分析"、"批量分析"。
+
+### 工作流程
+
+```
+Phase 1: 批量拉取（主进程串行，~10s/repo）
+─────────────────────────────────────────
+  for repo in repos:
+      python3 fetch_build_logs.py --repo $repo --latest-merged -o $name.json
+  → 汇总结果: {success: [...], errors: [...]}
+
+Phase 2: 并行 AI 分析（Agent.per repo）
+─────────────────────────────────────────
+  for repo in success_repos:
+      Agent(
+          subagent_type="general-purpose",
+          run_in_background=true,
+          description="Analyze $repo builds",
+          prompt=<标准分析 prompt>
+      )
+  → 等待所有 Agent completion notification
+
+Phase 3: 校验与补漏（主进程）
+─────────────────────────────────────────
+  for repo in success_repos:
+      python3 check_json.py $repo.json  # 验证 R1-R7
+      if 数据为空:
+          Agent(description="Re-analyze $repo", ...)  # 重分析
+  → 重复直至所有 repo 通过校验
+
+Phase 4: 跨仓库对比报告
+─────────────────────────────────────────
+  python3 cross_repo_report.py  # 汇总所有 JSON
+```
+
+### Phase 1 — 批量拉取脚本
+
+```bash
+for repo in Ascend/pytorch Ascend/torchair Ascend/MindIE-Motor Ascend/MindIE-SD \
+            Ascend/MindIE-LLM Ascend/MindSpeed Ascend/MindSpeed-MM; do
+  name=$(echo "$repo" | cut -d/ -f2)
+  python3 scripts/fetch_build_logs.py --repo "$repo" --latest-merged \
+    -o "${name}_build_analysis.json" 2>&1 | tail -3
+done
+```
+
+拉取结果分类：
+- **success**: JSON 中 `builds[]` 不含 `_error` 的记录 → 进入 Phase 2
+- **no_pipeline**: `"No pipeline table found"` → 执行 Phase 1.5 PR 回退扫描
+- **no_passed_builds**: `"No passed build tasks found"` → 执行 Phase 1.5 PR 回退扫描
+
+### Phase 2 Agent 分组限制（重要）
+
+Agent 处理能力有限，必须遵守以下限制避免数据遗漏：
+
+| 仓库规模 | 每 Agent 仓库数 | 说明 |
+|----------|----------------|------|
+| >4 builds | **1 repo 独占** | 如 MindIE-LLM (10 builds)、op-plugin (12 builds) |
+| 2-4 builds | **1 repo 独占** | 如 pytorch (4 builds)、MindIE-Motor (3 builds) |
+| 1 build | **最多 2 repos** | 极小仓库可合并，但绝不 >2 |
+
+> ⚠️ 教训：3-repo 合并 Agent 遗漏了 MindIE-PyMotor。2-repo 上限更安全。
+
+### Phase 2 — Agent 标准分析 Prompt 模板
+
+每个 Agent 必须收到包含以下要素的 prompt：
+
+```markdown
+Read `<repo>_build_analysis.json`. For EVERY build, read log_sample,
+identify and time ALL pre-build actions, then write back COMPLETED JSON.
+
+## Two-phase model:
+- Phase 1 (External CI): node_assignment, docker_pull, cache_check, git_checkout,
+  workspace_prep, pre_submit_validation, image_proxy, git_cache_injection,
+  orchestrator_submit
+- Phase 2 (Pod internal, AFTER Pod Running): pod_git_clone, env_setup,
+  submodule_init, pip_install, artifact_download, acl_headers, tool_download
+
+## Pod scheduling (CRITICAL - most common bug):
+- Start: after `Volcano Job submitted` / `Workflow submitted`
+- End: `Pod 状态: Running` / `找到主 Pod`
+- pod_scheduling MUST be >1s — if <1s you measured WRONG, go back
+
+## Action patterns:
+[List all action keys with their log patterns from the action table above]
+
+## Build start (pre_build ends at):
+- `[N%] Building CXX object`, `Building C object`
+- `-- Check for working C compiler`, `running build_ext`
+- `Building wheel for <name> (pyproject.toml): started` — Python wheel builds
+- `Successfully built <name>` — wheel build packaging complete
+
+## EXACT JSON SCHEMA (MUST follow — verify before writing):
+```json
+{
+  "pre_build": {
+    "total_seconds": <sum of all action durations>,
+    "pct_of_total": <pre_build / total_duration * 100>,
+    "orchestrator": "volcano" | "argo" | "docker",
+    "actions": [
+      {"key": "...", "name": "...", "start": "2026-06-17T...", "end": "2026-06-17T...", "duration_seconds": N, "evidence": "exact log excerpt"}
+    ]
+  },
+  "build_phases": {
+    "total_seconds": <sum of build action durations>,
+    "pct_of_total": <build / total_duration * 100>,
+    "actions": [
+      {"key": "cmake_configure", "name": "CMake 配置", "duration_seconds": N},
+      {"key": "compilation", "name": "编译", "duration_seconds": N},
+      {"key": "packaging", "name": "打包与上传", "duration_seconds": N}
+    ]
+  },
+  "summary": {
+    "pre_build_seconds": <same as pre_build.total_seconds>,
+    "build_seconds": <same as build_phases.total_seconds>,
+    "unattributed_seconds": <max(0, total - pre_build - build)>,
+    "key_bottleneck": "<largest pre_build action key>",
+    "key_bottleneck_seconds": <largest pre_build action duration>
+  }
+}
+```
+
+## SCHEMA VERIFICATION CHECKLIST (verify EVERY build before Write):
+□ pre_build uses "total_seconds" NOT "seconds"
+□ pre_build has "pct_of_total" field
+□ build_phases is an OBJECT with "total_seconds" + "pct_of_total" + "actions[]" (NOT a bare list)
+□ Every action has "start"/"end" as REAL ISO-8601 timestamps (NOT "?" or empty string)
+□ Every action has "evidence" with actual log line excerpts
+□ summary values match pre_build.total_seconds / build_phases.total_seconds
+□ meta.analyzed_at is set to current time
+□ orchestrator is one of: "argo", "volcano", "docker"
+
+## Quality rules (verify for EVERY build before writing):
+- R1: unattributed = max(0, total - pre_build - build), must be >= 0
+- R5: Remove actions with duration==0 AND no evidence (image_proxy/git_cache_injection/orchestrator_submit with dur=0 → REMOVE)
+- R6: abs(pre_build + build + unattributed - total) < 1.0
+- R7: pre_build.total_seconds >= (last_action_end - first_action_start) - if not, there are missing actions between them
+- Docker repos: NO pod_scheduling, verify docker_pull covers multi-layer pulls
+- Set orchestrator: "argo"/"volcano"/"docker"
+- Set meta.analyzed_at
+
+Write COMPLETED JSON to `<repo>_build_analysis.json`.
+```
+
+**关键规则**：
+- Agent prompt 必须包含完整的 R1-R7 校验指令
+- 必须包含 **SCHEMA VERIFICATION CHECKLIST** — Agent 写完 JSON 前必须逐项检查
+- 必须包含 `pod_scheduling > 1s` 的强制检查（最常见 bug）
+- **`build_phases` 必须是对象不是列表** — 这是最常见的 schema 错误
+- **Docker 镜像即使命中缓存也会消耗 10-25s 检查时间** — 不要遗漏 `docker_pull`
+- 必须要求 Agent "Write back" 到原文件路径
+- `run_in_background: true` 使 Agent 异步执行
+
+### Phase 3 — 校验与补漏
+
+每个 Agent 完成后，用以下综合验证脚本检查数据完整性：
+
+```bash
+python3 -c "
+import json, sys
+
+fname = '<repo>_build_analysis.json'
+d = json.load(open(fname))
+builds = d['builds']
+
+errors = []
+for i, b in enumerate(builds):
+    name = b.get('task_name', f'build_{i}')
+    if b.get('_error'):
+        print(f'  {name}: SKIPPED (_error={b[\"_error\"]})')
+        continue
+    
+    pb = b.get('pre_build', {})
+    bp = b.get('build_phases', {})
+    s = b.get('summary', {})
+    t = b.get('time', {})
+    total = t.get('duration_seconds', 0)
+    
+    pre = pb.get('total_seconds', pb.get('seconds', 0))  # both accepted
+    bld = bp.get('total_seconds', 0) if isinstance(bp, dict) else sum(a.get('duration_seconds',0) for a in bp)
+    unatt = s.get('unattributed_seconds', -1)
+    
+    # R6
+    r6 = abs(pre + bld + unatt - total)
+    if r6 >= 1.0:
+        errors.append(f'{name}: R6 FAIL — pre={pre:.1f}+build={bld:.1f}+unatt={unatt:.1f}={pre+bld+unatt:.1f} vs total={total:.1f} (gap={total-pre-bld-unatt:.1f}s)')
+    
+    # Schema checks
+    if isinstance(bp, list):
+        errors.append(f'{name}: SCHEMA FAIL — build_phases is list, must be object with total_seconds')
+    if 'seconds' in pb and 'total_seconds' not in pb:
+        errors.append(f'{name}: SCHEMA FAIL — pre_build uses \"seconds\" not \"total_seconds\"')
+    if not pb.get('pct_of_total'):
+        errors.append(f'{name}: SCHEMA FAIL — pre_build missing pct_of_total')
+    if pb.get('orchestrator','') not in ('argo','volcano','docker'):
+        errors.append(f'{name}: SCHEMA FAIL — orchestrator={pb.get(\"orchestrator\")}')
+    
+    # Timestamp check
+    for a in pb.get('actions', []):
+        if a.get('start','?') in ('?','') or a.get('end','?') in ('?',''):
+            errors.append(f'{name}: SCHEMA FAIL — action \"{a[\"key\"]}\" has \"?\" timestamp')
+            break
+    
+    # R5: empty actions
+    empty = [a['key'] for a in pb.get('actions',[]) if a.get('duration_seconds',0)==0]
+    if empty:
+        errors.append(f'{name}: R5 FAIL — {len(empty)} zero-duration actions: {empty}')
+    
+    # R7
+    if pb.get('actions'):
+        first_start = min(a.get('start','') for a in pb['actions'] if a.get('start','') not in ('?',''))
+        last_end = max(a.get('end','') for a in pb['actions'] if a.get('end','') not in ('?',''))
+        # Simple check: sum of durations >= span
+        actions_span = sum(a.get('duration_seconds',0) for a in pb['actions'])
+        if pre < actions_span - 1.0:
+            errors.append(f'{name}: R7 FAIL — total_seconds={pre:.1f}s < sum of action durations={actions_span:.1f}s')
+
+if not d['meta'].get('analyzed_at'):
+    errors.append('META: analyzed_at NOT SET')
+
+ok = sum(1 for b in builds if not b.get('_error') and b.get('pre_build',{}).get('total_seconds', b.get('pre_build',{}).get('seconds', 0)) > 0)
+empty_count = sum(1 for b in builds if not b.get('_error') and b.get('pre_build',{}).get('total_seconds', b.get('pre_build',{}).get('seconds', 0)) == 0)
+
+print(f'{ok} analyzed, {empty_count} empty, {len([b for b in builds if b.get(\"_error\")])} errors')
+if errors:
+    print('ISSUES:')
+    for e in errors:
+        print(f'  - {e}')
+    sys.exit(1)
+else:
+    print('ALL CHECKS PASSED ✓')
+"
+```
+
+校验失败的处理（更新）：
+
+| 症状 | 原因 | 处理 |
+|------|------|------|
+| `empty > 0` 且 `analyzed_at` 有值 | Agent 写了空模板 | **重分析**：prompt 开头强调 "The current data is WRONG — all actions are empty. You MUST fill in actual timing data" |
+| `analyzed_at` 为 null | Agent 未完成 | 等待或重启 Agent |
+| `pod_scheduling < 1s`（非 Docker） | 旧 bug 未修复 | **重分析**：prompt 中强调 pod_scheduling 完整等待测量 |
+| R6 校验失败 | 计算错误/漏动作 | **重分析**：指出具体 build 和缺少的秒数 |
+| **SCHEMA FAIL** | Agent 用了错误 JSON 结构 | **重分析**：prompt 必须包含完整 JSON SCHEMA 示例 |
+| **R5 FAIL** | 零时长动作未清理 | 手动清理或重分析 |
+| **R7 FAIL** | total_seconds < 动作跨度 | docker_pull 等动作间间隙未被捕获 |
+
+**重分析 Agent prompt 必须包含**：
+> "The current file has [具体校验错误]. This is WRONG and must be fixed. Re-read the log_sample and fill in EVERY action with actual timing data. Follow the EXACT JSON SCHEMA — pre_build.total_seconds (not 'seconds'), build_phases as object with total_seconds, real ISO timestamps."
+
+### Phase 4 — 跨仓库对比报告
+
+所有 Agent 完成后，生成对比报告：
+
+```bash
+python3 << 'PYEOF'
+import json, os
+
+workdir = '.'
+repos_data = {}
+files = [f for f in os.listdir(workdir) if f.endswith('_build_analysis.json')]
+
+for fname in files:
+    with open(os.path.join(workdir, fname)) as f:
+        d = json.load(f)
+    name = fname.replace('_build_analysis.json', '')
+    builds = [b for b in d.get('builds', []) if not b.get('_error') and b.get('pre_build', {}).get('total_seconds', 0) > 0]
+    if not builds:
+        continue
+    
+    pre = [b['pre_build']['total_seconds'] for b in builds]
+    bld = [b['build_phases']['total_seconds'] for b in builds]
+    orch = builds[0]['pre_build'].get('orchestrator', '?')
+    
+    # Collect per-action stats
+    actions = {}
+    for b in builds:
+        for a in b['pre_build'].get('actions', []):
+            k, dur = a['key'], a.get('duration_seconds', 0)
+            if dur > 0:
+                actions.setdefault(k, []).append(dur)
+    
+    repos_data[name] = {
+        'n': len(builds), 'orch': orch,
+        'pre_avg': sum(pre)/len(pre),
+        'pre_pct': sum(pre)/(sum(pre)+sum(bld))*100,
+        'top_actions': sorted(actions.items(), key=lambda x: sum(x[1])/len(x[1]), reverse=True)[:3],
+    }
+
+# Print comparison tables
+print(f"{'Repo':<20} {'N':>3} {'Orch':>8} {'PreAvg':>8} {'Pre%':>6} {'Top Bottlenecks'}")
+print("-" * 80)
+for name in sorted(repos_data):
+    r = repos_data[name]
+    tops = ' | '.join(f'{k}={sum(v)/len(v):.0f}s' for k,v in r['top_actions'])
+    print(f"{name:<20} {r['n']:>3} {r['orch']:>8} {r['pre_avg']:>7.1f}s {r['pre_pct']:>5.1f}% {tops}")
+
+# Pod scheduling comparison
+print("\nPod调度对比:")
+for name in sorted(repos_data):
+    ps = repos_data[name].get('actions', {}).get('pod_scheduling', []) if 'actions' in repos_data[name] else []
+    if ps:
+        print(f"  {name:<20} avg={sum(ps)/len(ps):.0f}s  min={min(ps):.0f}s  max={max(ps):.0f}s")
+PYEOF
+```
+
+### 批量分析完整示例
+
+用户输入：
+```
+/gitcode-build-time-analyzer 分析 MindIE 系列: MindIE-Motor, MindIE-SD, MindIE-PyMotor, MindIE-LLM
+```
+
+执行过程：
+1. 串行 fetch 4 个仓库（~40s）
+2. 并行启动 4 个 Agent（每个 ~5-8min，并行总耗时 ~8min）
+3. 校验 4 个 JSON，发现 MindIE-LLM 数据为空 → 重分析
+4. MindIE-LLM Agent 重跑（~9min）
+5. 生成跨仓库对比报告
+
+总耗时：约 15-20 分钟（vs 串行 40+ 分钟）。
+
+### 经验教训
+
+以下从 2026-06-17 的 10 仓库批量分析实战中总结，每次运行后持续更新。
+
+#### Agent Schema 合规性（最常见失败原因）
+
+- **Schema 偏差率 ~50%**：首轮 4 个 Agent 中 2 个写错了 JSON 结构
+  - `pre_build.seconds` 代替 `pre_build.total_seconds`
+  - `build_phases` 写成裸列表而非 `{total_seconds, pct_of_total, actions:[]}` 对象
+  - 所有 `start`/`end` 写为 `"?"` 字符串
+  - `summary` 全部字段为零
+- **对策**：Agent prompt 必须包含 **SCHEMA VERIFICATION CHECKLIST**，逐项自检后才能 Write
+- **R5 常被忽略**：`image_proxy`/`git_cache_injection`/`orchestrator_submit` 常被写为 duration=0 但保留在原位，务必删除
+
+#### R6 失败根因：缺失的 docker_pull
+
+- MindIE-SD 首轮 pre_build 只有 46s，R6 差 17-22s
+- 根因：Docker 镜像即使 `Image is up to date`（命中缓存），daemon 检查仍消耗 11-12s
+- 3 次镜像检查（shell + karmada + toolchain）分散在 CI 步骤间，容易被遗漏
+- **对策**：R7 规则（total_seconds >= action span）+ R4 大间隙兜底可捕获此问题
+
+#### PR 回退必要性
+
+- `--latest-merged` 在 6/10 仓库中选到了 docs-only PR
+- MindSpeed-LLM 30 个 PR 全部无 Build 任务——该仓库确实只有代码检查流水线
+- **对策**：Phase 1.5 自动回退扫描，最多 20 个 PR
+
+#### Agent 分组上限
+
+- 3-repo 合并 Agent 遗漏了 1 个仓库 (MindIE-PyMotor)
+- **对策**：1 build 仓库最多合并 2 个；>4 builds 仓库必须独占 Agent
+
+#### 各仓库特征
+
+- **MindIE-LLM (10 builds)**：最重仓库，~4000 行 log_sample，优先启动 Agent
+- **op-plugin (12 builds)**：12 个构建，注意区分 master（仅 artifact download）和 versioned（含 C++ 编译）
+- **Docker 原生仓库** (MindSpeed 系列)：无 pod_scheduling，关注 docker_pull 多层镜像拉取
+- **MindIE-PyMotor**：Volcano 调度，仅 1 个 ARM 构建任务
+- **pytorch**：4 个构建，子模块初始化是最大瓶颈（~32s），包含 LibTorch 独立构建
+- **Python wheel-only 构建**（MindIE-LLM linux builds）：注意 `Building wheel for ... (pyproject.toml): started` 作为构建开始标志
+- CANN 项目仓库（`cann/*`）：API 限制导致所有构建标记 `_error`，无法批量分析
+
+#### pod_scheduling 极端值
+
+- Volcano 调度波动可达 13 倍（14s ~ 185s）
+- MindIE-LLM arm_abi0 构建 Pod 调度 185s，是第二名（op-plugin 62s）的 3 倍
+- Argo 调度稳定在 15-17s，波动仅 1.1 倍
+- 校验时非 Docker 仓库强制检查 `pod_scheduling > 1s`
+
+## 前置条件
+
+- `gitcode` (或 `gc`) CLI 已登录且可用
+- 可访问 `www.openlibing.com` API
+- Python 3.9+ (仅标准库)
+
+## 局限
+
+- 仅分析 **passed** 构建任务
+- openLiBing API 偶尔对部分 job 返回 500
+- 时间戳硬编码为 `GMT+08:00`
+- 日志采样限制在 ~400 行；AI 可能看不到完整细节
+- 如果 PR 没有流水线评论，无法分析
+- `cann/ops-nn` 等仓库的 openLiBing 链接不含 job 级参数，无法拉取日志

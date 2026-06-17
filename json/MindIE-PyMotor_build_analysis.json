@@ -215,10 +215,10 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 100.45,
-        "build_seconds": 28.51,
+        "pre_build_seconds": 100.5,
+        "build_seconds": 28.5,
         "unattributed_seconds": 0.0,
-        "key_bottleneck": "pip install 依赖安装 (50+ packages in Pod)",
+        "key_bottleneck": "Python 依赖安装 (pip install -r requirements.txt)",
         "key_bottleneck_seconds": 33.11
       }
     }

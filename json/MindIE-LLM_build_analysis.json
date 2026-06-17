@@ -101,11 +101,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 231.517,
-        "build_seconds": 222.138,
-        "unattributed_seconds": 16.036,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 182.587
+        "pre_build_seconds": 231.5,
+        "build_seconds": 222.1,
+        "unattributed_seconds": 16.0,
+        "key_bottleneck": "Pod调度等待(Volcano)",
+        "key_bottleneck_seconds": 144.355
       }
     },
     {
@@ -197,11 +197,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 240.974,
-        "build_seconds": 268.102,
-        "unattributed_seconds": 21.871,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 214.433
+        "pre_build_seconds": 241.0,
+        "build_seconds": 268.1,
+        "unattributed_seconds": 21.9,
+        "key_bottleneck": "Pod调度等待(Volcano)",
+        "key_bottleneck_seconds": 131.51
       }
     },
     {
@@ -293,11 +293,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 93.198,
-        "build_seconds": 216.933,
-        "unattributed_seconds": 21.767,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 190.393
+        "pre_build_seconds": 93.2,
+        "build_seconds": 216.9,
+        "unattributed_seconds": 21.8,
+        "key_bottleneck": "Pod内环境准备",
+        "key_bottleneck_seconds": 25.701
       }
     },
     {
@@ -389,11 +389,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 236.565,
-        "build_seconds": 245.964,
-        "unattributed_seconds": 14.355,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 218.862
+        "pre_build_seconds": 236.6,
+        "build_seconds": 246.0,
+        "unattributed_seconds": 14.4,
+        "key_bottleneck": "Pod调度等待(Volcano)",
+        "key_bottleneck_seconds": 146.825
       }
     },
     {
@@ -485,11 +485,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 65.178,
-        "build_seconds": 185.964,
-        "unattributed_seconds": 0.174,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 156.687
+        "pre_build_seconds": 65.2,
+        "build_seconds": 186.0,
+        "unattributed_seconds": 0.2,
+        "key_bottleneck": "Docker镜像拉取",
+        "key_bottleneck_seconds": 23.566
       }
     },
     {
@@ -581,11 +581,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 117.759,
-        "build_seconds": 585.984,
-        "unattributed_seconds": 0.143,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 521.608
+        "pre_build_seconds": 117.8,
+        "build_seconds": 586.0,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "Pod内环境准备",
+        "key_bottleneck_seconds": 60.676
       }
     },
     {
@@ -677,11 +677,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 162.105,
-        "build_seconds": 213.892,
-        "unattributed_seconds": 0.16,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 191.872
+        "pre_build_seconds": 162.1,
+        "build_seconds": 213.9,
+        "unattributed_seconds": 0.2,
+        "key_bottleneck": "Pod调度等待(Volcano)",
+        "key_bottleneck_seconds": 98.807
       }
     },
     {
@@ -773,11 +773,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 124.921,
-        "build_seconds": 642.021,
-        "unattributed_seconds": 0.164,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 577.392
+        "pre_build_seconds": 124.9,
+        "build_seconds": 642.0,
+        "unattributed_seconds": 0.2,
+        "key_bottleneck": "Pod内环境准备",
+        "key_bottleneck_seconds": 66.703
       }
     },
     {
@@ -869,11 +869,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 203.095,
-        "build_seconds": 189.635,
-        "unattributed_seconds": 0.135,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 156.319
+        "pre_build_seconds": 203.1,
+        "build_seconds": 189.6,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "Pod调度等待(Volcano)",
+        "key_bottleneck_seconds": 155.617
       }
     },
     {
@@ -965,11 +965,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 275.944,
-        "build_seconds": 610.178,
-        "unattributed_seconds": 0.136,
-        "key_bottleneck": "compilation",
-        "key_bottleneck_seconds": 568.567
+        "pre_build_seconds": 275.9,
+        "build_seconds": 610.2,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "Pod调度等待(Volcano)",
+        "key_bottleneck_seconds": 185.394
       }
     }
   ]

@@ -226,9 +226,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 77.944,
-        "build_seconds": 139.443,
-        "unattributed_seconds": 25.52,
+        "pre_build_seconds": 77.9,
+        "build_seconds": 139.4,
+        "unattributed_seconds": 25.5,
         "key_bottleneck": "Docker镜像拉取",
         "key_bottleneck_seconds": 24.09
       }
@@ -439,9 +439,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 89.253,
-        "build_seconds": 143.524,
-        "unattributed_seconds": 34.384,
+        "pre_build_seconds": 89.3,
+        "build_seconds": 143.5,
+        "unattributed_seconds": 34.4,
         "key_bottleneck": "Docker镜像拉取",
         "key_bottleneck_seconds": 25.564
       }
@@ -668,9 +668,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 86.874,
-        "build_seconds": 130.952,
-        "unattributed_seconds": 35.415,
+        "pre_build_seconds": 86.9,
+        "build_seconds": 131.0,
+        "unattributed_seconds": 35.4,
         "key_bottleneck": "Docker镜像拉取",
         "key_bottleneck_seconds": 25.828
       }

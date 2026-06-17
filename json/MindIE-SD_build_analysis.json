@@ -264,9 +264,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 63.662,
-        "build_seconds": 131.496,
-        "unattributed_seconds": 24.289,
+        "pre_build_seconds": 63.7,
+        "build_seconds": 131.5,
+        "unattributed_seconds": 24.3,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 15.332
       }
@@ -552,9 +552,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 62.019,
-        "build_seconds": 158.081,
-        "unattributed_seconds": 27.611,
+        "pre_build_seconds": 62.0,
+        "build_seconds": 158.1,
+        "unattributed_seconds": 27.6,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 14.851
       }
@@ -829,9 +829,9 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 69.58,
-        "build_seconds": 149.443,
-        "unattributed_seconds": 27.396,
+        "pre_build_seconds": 69.6,
+        "build_seconds": 149.4,
+        "unattributed_seconds": 27.4,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 18.952
       }
