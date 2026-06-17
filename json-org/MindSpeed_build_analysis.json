@@ -145,7 +145,7 @@
       "summary": {
         "pre_build_seconds": 93.2,
         "build_seconds": 14.3,
-        "unattributed_seconds": 0.0,
+        "unattributed_seconds": 0,
         "key_bottleneck": "Docker 镜像拉取 (shell + pytorchx86gcc931)",
         "key_bottleneck_seconds": 79.67
       }

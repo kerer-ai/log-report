@@ -228,7 +228,7 @@
       "summary": {
         "pre_build_seconds": 77.9,
         "build_seconds": 139.4,
-        "unattributed_seconds": 25.6,
+        "unattributed_seconds": 25.5,
         "key_bottleneck": "Docker镜像拉取",
         "key_bottleneck_seconds": 24.09
       }
@@ -670,7 +670,7 @@
       "summary": {
         "pre_build_seconds": 86.9,
         "build_seconds": 131.0,
-        "unattributed_seconds": 35.3,
+        "unattributed_seconds": 35.4,
         "key_bottleneck": "Docker镜像拉取",
         "key_bottleneck_seconds": 25.828
       }

@@ -103,7 +103,7 @@
       "summary": {
         "pre_build_seconds": 231.5,
         "build_seconds": 222.1,
-        "unattributed_seconds": 16.1,
+        "unattributed_seconds": 16.0,
         "key_bottleneck": "Pod调度等待(Volcano)",
         "key_bottleneck_seconds": 144.355
       }
@@ -199,7 +199,7 @@
       "summary": {
         "pre_build_seconds": 241.0,
         "build_seconds": 268.1,
-        "unattributed_seconds": 21.8,
+        "unattributed_seconds": 21.9,
         "key_bottleneck": "Pod调度等待(Volcano)",
         "key_bottleneck_seconds": 131.51
       }
@@ -391,7 +391,7 @@
       "summary": {
         "pre_build_seconds": 236.6,
         "build_seconds": 246.0,
-        "unattributed_seconds": 14.3,
+        "unattributed_seconds": 14.4,
         "key_bottleneck": "Pod调度等待(Volcano)",
         "key_bottleneck_seconds": 146.825
       }
@@ -487,7 +487,7 @@
       "summary": {
         "pre_build_seconds": 65.2,
         "build_seconds": 186.0,
-        "unattributed_seconds": 0.1,
+        "unattributed_seconds": 0.2,
         "key_bottleneck": "Docker镜像拉取",
         "key_bottleneck_seconds": 23.566
       }
@@ -871,7 +871,7 @@
       "summary": {
         "pre_build_seconds": 203.1,
         "build_seconds": 189.6,
-        "unattributed_seconds": 0.2,
+        "unattributed_seconds": 0.1,
         "key_bottleneck": "Pod调度等待(Volcano)",
         "key_bottleneck_seconds": 155.617
       }
@@ -967,7 +967,7 @@
       "summary": {
         "pre_build_seconds": 275.9,
         "build_seconds": 610.2,
-        "unattributed_seconds": 0.2,
+        "unattributed_seconds": 0.1,
         "key_bottleneck": "Pod调度等待(Volcano)",
         "key_bottleneck_seconds": 185.394
       }

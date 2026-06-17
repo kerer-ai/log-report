@@ -266,7 +266,7 @@
       "summary": {
         "pre_build_seconds": 63.7,
         "build_seconds": 131.5,
-        "unattributed_seconds": 24.2,
+        "unattributed_seconds": 24.3,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 15.332
       }

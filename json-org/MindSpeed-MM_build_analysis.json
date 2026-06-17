@@ -217,7 +217,7 @@
       "summary": {
         "pre_build_seconds": 149.8,
         "build_seconds": 26.7,
-        "unattributed_seconds": 0.0,
+        "unattributed_seconds": 0,
         "key_bottleneck": "环境准备 (workspace prep + pip install build tools)",
         "key_bottleneck_seconds": 70.88
       }

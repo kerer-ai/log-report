@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "pr": 6193,
+    "repo": "cann/ops-nn",
+    "pr_url": "https://gitcode.com/cann/ops-nn/pull/6193",
+    "pipeline_name": "pipeline",
+    "pipeline_state": "triggered",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=a59f9587f5e54e438b19e63e4f5546e4&pipelineRunId=cfaf9d61bbcf48f1b0b53e6a5f9259e1&projectName=CANN",
+    "comment_time": "2026-06-17 10:54",
+    "fetched_at": "2026-06-17T14:47:25.290212+08:00",
+    "analyzed_at": null,
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Compile_Ascend_X86_ubuntu24",
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "",
+        "actions": []
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": []
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      },
+      "_error": "Cannot extract API params from task link"
+    }
+  ]
+}
