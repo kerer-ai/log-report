@@ -409,6 +409,7 @@ CMake 开始
 - **Pod 调度 vs Pod 内 clone 的划分**：`pod_scheduling.end` = Pod Running 时刻 = Pod 内阶段的起点。Pod Running **之后**的 git clone 归入 `pod_git_clone`（业务仓库）或 `env_setup`（CI 脚本仓库），**不能**混入 `pod_scheduling`。
 - **Docker 原生 CI** (MindSpeed 系列) 无 Pod 调度，`docker_pull` 的镜像拉取层就是主要的环境准备开销。
 - **提供 `evidence`**：每个动作都要附上起止日志的关键片段，使分析可审计。
+- **`env_setup` 不是垃圾桶**：`env_setup` 仅包含 source env.sh + ccache 初始化 + CI 脚本 clone + git merge 这类"设置类"操作。**绝不**把 `pod_git_clone`、`submodule_init`、`pip_install`、`artifact_download`、`acl_headers` 合并进 `env_setup`。如果 `env_setup` 的 evidence 是 "Pod Running → 编译开始" 且 duration > 20s，说明把整个 Pod 内阶段当成了一个动作——这是**严重错误**，必须拆分为独立动作。
 
 ## 数据质量规则（MUST）
 
@@ -468,6 +469,19 @@ assert pre_build.total_seconds >= action_span - 1.0, \
     f"total_seconds ({pre_build.total_seconds}s) < action span ({action_span}s) — missing actions"
 ```
 `pre_build.total_seconds` 必须 **>=** 第一个动作开始到最后一个动作结束的时间跨度（允许 <1s 误差）。如果小于跨度，说明动作之间存在未被识别的耗时（如 docker pull 检查开销、CI 脚本等待间隙），需要检查 `significant_gaps` 中未归类的间隙。
+
+### R8: env_setup 不得作为 Pod 内阶段的垃圾桶
+如果 `env_setup` 动作同时满足以下条件，说明整个 Pod 内阶段被错误合并，**必须拆分**：
+
+1. `env_setup.duration_seconds > 20`
+2. `env_setup.evidence` 中包含了 `Pod Running` 且跨越到 `编译开始` 或 `CMake` 或 `build_ext`
+3. `pre_build.actions` 中缺少以下至少 2 个 Pod 内动作：`pod_git_clone`、`submodule_init`、`pip_install`、`artifact_download`、`acl_headers`
+
+拆分方法：
+- 重新阅读 `log_sample` 中 Pod Running 到编译开始之间的所有日志行
+- 按动作 key 表（`pod_git_clone`、`submodule_init`、`pip_install` 等）逐一识别并分配时间
+- `env_setup` 本身只保留 source env.sh + ccache init + CI 脚本 clone 的时间
+- 拆分后，所有 Pod 内动作的 duration 之和必须接近原 `env_setup` 的 duration（允许 <5s 误差）
 
 ## 跨仓库对比分析
 
@@ -623,6 +637,7 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON.
 □ build_phases is an OBJECT with "total_seconds" + "pct_of_total" + "actions[]" (NOT a bare list)
 □ Every action has "start"/"end" as REAL ISO-8601 timestamps (NOT "?" or empty string)
 □ Every action has "evidence" with actual log line excerpts
+□ R8: env_setup is NOT a catch-all — if >20s and evidence spans "Pod Running→编译开始", split into pod_git_clone/submodule_init/pip_install/etc
 □ summary values match pre_build.total_seconds / build_phases.total_seconds
 □ meta.analyzed_at is set to current time
 □ orchestrator is one of: "argo", "volcano", "docker"
@@ -632,6 +647,7 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON.
 - R5: Remove actions with duration==0 AND no evidence (image_proxy/git_cache_injection/orchestrator_submit with dur=0 → REMOVE)
 - R6: abs(pre_build + build + unattributed - total) < 1.0
 - R7: pre_build.total_seconds >= (last_action_end - first_action_start) - if not, there are missing actions between them
+- R8: env_setup MUST NOT be a catch-all. If env_setup.duration > 20s AND evidence spans "Pod Running → 编译开始" AND at least 2 of {pod_git_clone, submodule_init, pip_install, artifact_download, acl_headers} are missing → SPLIT env_setup into individual Pod-internal actions
 - Docker repos: NO pod_scheduling, verify docker_pull covers multi-layer pulls
 - Set orchestrator: "argo"/"volcano"/"docker"
 - Set meta.analyzed_at
@@ -711,6 +727,15 @@ for i, b in enumerate(builds):
         actions_span = sum(a.get('duration_seconds',0) for a in pb['actions'])
         if pre < actions_span - 1.0:
             errors.append(f'{name}: R7 FAIL — total_seconds={pre:.1f}s < sum of action durations={actions_span:.1f}s')
+    
+    # R8: env_setup catch-all check
+    env_action = next((a for a in pb.get('actions',[]) if a['key'] == 'env_setup'), None)
+    if env_action and env_action.get('duration_seconds', 0) > 20:
+        ev = env_action.get('evidence', '')
+        pod_actions = [a['key'] for a in pb.get('actions',[])]
+        missing_pod = [k for k in ['pod_git_clone', 'submodule_init', 'pip_install', 'artifact_download', 'acl_headers'] if k not in pod_actions]
+        if len(missing_pod) >= 2:
+            errors.append(f'{name}: R8 FAIL — env_setup={env_action[\"duration_seconds\"]:.0f}s catch-all, missing {missing_pod}')
 
 if not d['meta'].get('analyzed_at'):
     errors.append('META: analyzed_at NOT SET')
@@ -740,6 +765,7 @@ else:
 | **SCHEMA FAIL** | Agent 用了错误 JSON 结构 | **重分析**：prompt 必须包含完整 JSON SCHEMA 示例 |
 | **R5 FAIL** | 零时长动作未清理 | 手动清理或重分析 |
 | **R7 FAIL** | total_seconds < 动作跨度 | docker_pull 等动作间间隙未被捕获 |
+| **R8 FAIL** | env_setup >20s 合并了多个 Pod 内动作 | **重分析**：prompt 强调 "env_setup is NOT a catch-all. You MUST split it into pod_git_clone, submodule_init, pip_install, artifact_download, acl_headers as separate actions. Read every log line from Pod Running to 编译开始 carefully." |
 
 **重分析 Agent prompt 必须包含**：
 > "The current file has [具体校验错误]. This is WRONG and must be fixed. Re-read the log_sample and fill in EVERY action with actual timing data. Follow the EXACT JSON SCHEMA — pre_build.total_seconds (not 'seconds'), build_phases as object with total_seconds, real ISO timestamps."
