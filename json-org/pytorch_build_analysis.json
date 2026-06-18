@@ -8,8 +8,8 @@
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=3356995d593b4cfdaaf7088c7a44c7ca&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
     "fetched_at": "2026-06-17T20:25:51.374656+08:00",
-    "analyzed_at": "2026-06-17T20:39:21.523963+08:00",
-    "analysis_method": "ai_semantic"
+    "analyzed_at": "2026-06-18T01:00:00+08:00",
+    "analysis_method": "ai_semantic_r9_spliced"
   },
   "builds": [
     {
@@ -158,64 +158,64 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 134.125,
-        "pct_of_total": 41.5,
+        "total_seconds": 203.6,
+        "pct_of_total": 63.1,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
             "start": "2026-06-17T18:12:02.408000+08:00",
-            "end": "2026-06-17T18:12:07.756000+08:00",
-            "duration_seconds": 5.348,
+            "end": "2026-06-17T18:12:10.001000+08:00",
+            "duration_seconds": 7.593,
             "evidence": "PRE_ENV:slave_create 18:12:02->18:12:07"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
             "start": "2026-06-17T18:12:10.001000+08:00",
-            "end": "2026-06-17T18:12:38.748000+08:00",
-            "duration_seconds": 28.747,
+            "end": "2026-06-17T18:12:14.199000+08:00",
+            "duration_seconds": 4.198,
             "evidence": "Phase 1 image pulls 18:12:10->18:12:38"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-17T18:12:14.199000+08:00",
-            "end": "2026-06-17T18:12:14.984000+08:00",
-            "duration_seconds": 0.785,
+            "end": "2026-06-17T18:12:17.924000+08:00",
+            "duration_seconds": 3.725,
             "evidence": "Cache Check 18:12:14->18:12:14"
           },
           {
             "key": "git_checkout",
             "name": "代码检出 (Phase 1)",
             "start": "2026-06-17T18:12:17.924000+08:00",
-            "end": "2026-06-17T18:12:34.027000+08:00",
-            "duration_seconds": 16.103,
+            "end": "2026-06-17T18:12:44.289000+08:00",
+            "duration_seconds": 26.365,
             "evidence": "Git checkout pre->post 18:12:17->18:12:34"
           },
           {
             "key": "pre_submit_validation",
             "name": "前置校验",
             "start": "2026-06-17T18:12:44.289000+08:00",
-            "end": "2026-06-17T18:12:52.563000+08:00",
-            "duration_seconds": 8.274,
+            "end": "2026-06-17T18:12:47.616000+08:00",
+            "duration_seconds": 3.327,
             "evidence": "Pre-submit validation 18:12:44->18:12:52"
           },
           {
             "key": "image_proxy",
             "name": "镜像代理替换",
             "start": "2026-06-17T18:12:47.616000+08:00",
-            "end": "2026-06-17T18:12:47.616000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:12:49.549000+08:00",
+            "duration_seconds": 1.933,
             "evidence": "Harbor registry 18:12:47"
           },
           {
             "key": "git_cache_injection",
             "name": "Git 缓存注入",
             "start": "2026-06-17T18:12:49.549000+08:00",
-            "end": "2026-06-17T18:12:49.549000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:12:54.199000+08:00",
+            "duration_seconds": 4.65,
             "evidence": "Git-cache injected 18:12:49"
           },
           {
@@ -238,16 +238,16 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆与合并",
             "start": "2026-06-17T18:13:21.214000+08:00",
-            "end": "2026-06-17T18:13:38.343000+08:00",
-            "duration_seconds": 17.129,
+            "end": "2026-06-17T18:13:42.572000+08:00",
+            "duration_seconds": 21.358,
             "evidence": "Pod git clone 18:13:21->18:13:38"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置 (ccache)",
             "start": "2026-06-17T18:13:42.572000+08:00",
-            "end": "2026-06-17T18:13:42.573000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:13:49.199000+08:00",
+            "duration_seconds": 6.627,
             "evidence": "ccache env setup 18:13:42->18:13:42"
           },
           {
@@ -262,22 +262,22 @@
             "key": "submodule_init",
             "name": "子模块初始化与克隆",
             "start": "2026-06-17T18:13:49.200000+08:00",
-            "end": "2026-06-17T18:14:18.970000+08:00",
-            "duration_seconds": 29.77,
+            "end": "2026-06-17T18:14:21.311000+08:00",
+            "duration_seconds": 32.111,
             "evidence": "Submodule init 18:13:49->18:14:18"
           },
           {
             "key": "acl_headers",
             "name": "ACL头文件处理",
             "start": "2026-06-17T18:14:21.311000+08:00",
-            "end": "2026-06-17T18:14:22.260000+08:00",
-            "duration_seconds": 0.949,
+            "end": "2026-06-17T18:15:25.981000+08:00",
+            "duration_seconds": 64.67,
             "evidence": "ACL headers 18:14:21->18:14:22"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 118.992,
+        "total_seconds": 119.0,
         "pct_of_total": 36.9,
         "actions": [
           {
@@ -298,11 +298,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 134.1,
+        "pre_build_seconds": 203.6,
         "build_seconds": 119.0,
-        "unattributed_seconds": 69.7,
-        "key_bottleneck": "子模块初始化与克隆",
-        "key_bottleneck_seconds": 29.77
+        "unattributed_seconds": 0.2,
+        "key_bottleneck": "ACL头文件处理",
+        "key_bottleneck_seconds": 64.67
       }
     },
     {
@@ -459,64 +459,64 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 149.682,
-        "pct_of_total": 42.3,
+        "total_seconds": 220.9,
+        "pct_of_total": 62.4,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
             "start": "2026-06-17T18:06:32.203000+08:00",
-            "end": "2026-06-17T18:06:37.075000+08:00",
-            "duration_seconds": 4.872,
+            "end": "2026-06-17T18:06:39.153000+08:00",
+            "duration_seconds": 6.95,
             "evidence": "PRE_ENV:slave_create 18:06:32->18:06:37"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
             "start": "2026-06-17T18:06:39.153000+08:00",
-            "end": "2026-06-17T18:07:08.122000+08:00",
-            "duration_seconds": 28.969,
+            "end": "2026-06-17T18:06:42.604000+08:00",
+            "duration_seconds": 3.451,
             "evidence": "Phase 1 image pulls 18:06:39->18:07:08"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-17T18:06:42.604000+08:00",
-            "end": "2026-06-17T18:06:43.416000+08:00",
-            "duration_seconds": 0.812,
+            "end": "2026-06-17T18:06:46.015000+08:00",
+            "duration_seconds": 3.411,
             "evidence": "Cache Check 18:06:42->18:06:43"
           },
           {
             "key": "git_checkout",
             "name": "代码检出 (Phase 1)",
             "start": "2026-06-17T18:06:46.015000+08:00",
-            "end": "2026-06-17T18:07:03.718000+08:00",
-            "duration_seconds": 17.703,
+            "end": "2026-06-17T18:07:13.547000+08:00",
+            "duration_seconds": 27.532,
             "evidence": "Git checkout pre->post 18:06:46->18:07:03"
           },
           {
             "key": "pre_submit_validation",
             "name": "前置校验",
             "start": "2026-06-17T18:07:13.547000+08:00",
-            "end": "2026-06-17T18:07:24.602000+08:00",
-            "duration_seconds": 11.055,
+            "end": "2026-06-17T18:07:18.936000+08:00",
+            "duration_seconds": 5.389,
             "evidence": "Pre-submit validation 18:07:13->18:07:24"
           },
           {
             "key": "image_proxy",
             "name": "镜像代理替换",
             "start": "2026-06-17T18:07:18.936000+08:00",
-            "end": "2026-06-17T18:07:18.936000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:07:23.187000+08:00",
+            "duration_seconds": 4.251,
             "evidence": "Harbor registry 18:07:18"
           },
           {
             "key": "git_cache_injection",
             "name": "Git 缓存注入",
             "start": "2026-06-17T18:07:23.187000+08:00",
-            "end": "2026-06-17T18:07:23.187000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:07:26.219000+08:00",
+            "duration_seconds": 3.032,
             "evidence": "Git-cache injected 18:07:23"
           },
           {
@@ -539,16 +539,16 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆与合并",
             "start": "2026-06-17T18:07:51.351000+08:00",
-            "end": "2026-06-17T18:08:15.037000+08:00",
-            "duration_seconds": 23.686,
+            "end": "2026-06-17T18:08:18.347000+08:00",
+            "duration_seconds": 26.996,
             "evidence": "Pod git clone 18:07:51->18:08:15"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置 (ccache)",
             "start": "2026-06-17T18:08:18.347000+08:00",
-            "end": "2026-06-17T18:08:18.353000+08:00",
-            "duration_seconds": 0.006,
+            "end": "2026-06-17T18:08:22.586000+08:00",
+            "duration_seconds": 4.239,
             "evidence": "ccache env setup 18:08:18->18:08:18"
           },
           {
@@ -563,14 +563,14 @@
             "key": "submodule_init",
             "name": "子模块初始化与克隆",
             "start": "2026-06-17T18:08:23.805000+08:00",
-            "end": "2026-06-17T18:09:00.030000+08:00",
-            "duration_seconds": 36.225,
+            "end": "2026-06-17T18:10:13.094000+08:00",
+            "duration_seconds": 109.289,
             "evidence": "Submodule init 18:08:23->18:09:00"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 133.059,
+        "total_seconds": 133.1,
         "pct_of_total": 37.6,
         "actions": [
           {
@@ -591,11 +591,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 149.7,
+        "pre_build_seconds": 220.9,
         "build_seconds": 133.1,
-        "unattributed_seconds": 71.4,
+        "unattributed_seconds": 0.1,
         "key_bottleneck": "子模块初始化与克隆",
-        "key_bottleneck_seconds": 36.225
+        "key_bottleneck_seconds": 109.289
       }
     },
     {
@@ -744,64 +744,64 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 140.049,
-        "pct_of_total": 60.1,
+        "total_seconds": 195.5,
+        "pct_of_total": 83.9,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
             "start": "2026-06-17T18:12:02.401000+08:00",
-            "end": "2026-06-17T18:12:07.375000+08:00",
-            "duration_seconds": 4.974,
+            "end": "2026-06-17T18:12:09.282000+08:00",
+            "duration_seconds": 6.881,
             "evidence": "PRE_ENV:slave_create 18:12:02->18:12:07"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
             "start": "2026-06-17T18:12:09.282000+08:00",
-            "end": "2026-06-17T18:12:36.008000+08:00",
-            "duration_seconds": 26.726,
+            "end": "2026-06-17T18:12:12.723000+08:00",
+            "duration_seconds": 3.441,
             "evidence": "Phase 1 image pulls 18:12:09->18:12:36"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-17T18:12:12.723000+08:00",
-            "end": "2026-06-17T18:12:13.647000+08:00",
-            "duration_seconds": 0.924,
+            "end": "2026-06-17T18:12:16.149000+08:00",
+            "duration_seconds": 3.426,
             "evidence": "Cache Check 18:12:12->18:12:13"
           },
           {
             "key": "git_checkout",
             "name": "代码检出 (Phase 1)",
             "start": "2026-06-17T18:12:16.149000+08:00",
-            "end": "2026-06-17T18:12:31.501000+08:00",
-            "duration_seconds": 15.352,
+            "end": "2026-06-17T18:12:41.065000+08:00",
+            "duration_seconds": 24.916,
             "evidence": "Git checkout pre->post 18:12:16->18:12:31"
           },
           {
             "key": "pre_submit_validation",
             "name": "前置校验",
             "start": "2026-06-17T18:12:41.065000+08:00",
-            "end": "2026-06-17T18:12:49.451000+08:00",
-            "duration_seconds": 8.386,
+            "end": "2026-06-17T18:12:45.315000+08:00",
+            "duration_seconds": 4.25,
             "evidence": "Pre-submit validation 18:12:41->18:12:49"
           },
           {
             "key": "image_proxy",
             "name": "镜像代理替换",
             "start": "2026-06-17T18:12:45.315000+08:00",
-            "end": "2026-06-17T18:12:45.315000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:12:47.274000+08:00",
+            "duration_seconds": 1.959,
             "evidence": "Harbor registry 18:12:45"
           },
           {
             "key": "git_cache_injection",
             "name": "Git 缓存注入",
             "start": "2026-06-17T18:12:47.274000+08:00",
-            "end": "2026-06-17T18:12:47.274000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:12:50.948000+08:00",
+            "duration_seconds": 3.674,
             "evidence": "Git-cache injected 18:12:47"
           },
           {
@@ -824,16 +824,16 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆与合并",
             "start": "2026-06-17T18:13:23.853000+08:00",
-            "end": "2026-06-17T18:13:47.790000+08:00",
-            "duration_seconds": 23.937,
+            "end": "2026-06-17T18:13:51.111000+08:00",
+            "duration_seconds": 27.258,
             "evidence": "Pod git clone 18:13:23->18:13:47"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置 (ccache)",
             "start": "2026-06-17T18:13:51.111000+08:00",
-            "end": "2026-06-17T18:13:51.112000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:13:57.708000+08:00",
+            "duration_seconds": 6.597,
             "evidence": "ccache env setup 18:13:51->18:13:51"
           },
           {
@@ -848,22 +848,22 @@
             "key": "submodule_init",
             "name": "子模块初始化与克隆",
             "start": "2026-06-17T18:13:58.680000+08:00",
-            "end": "2026-06-17T18:14:25.991000+08:00",
-            "duration_seconds": 27.311,
+            "end": "2026-06-17T18:14:27.911000+08:00",
+            "duration_seconds": 29.231,
             "evidence": "Submodule init 18:13:58->18:14:25"
           },
           {
             "key": "acl_headers",
             "name": "ACL头文件处理",
             "start": "2026-06-17T18:14:27.911000+08:00",
-            "end": "2026-06-17T18:14:27.912000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:15:19.297000+08:00",
+            "duration_seconds": 51.386,
             "evidence": "ACL headers 18:14:27->18:14:27"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 35.998,
+        "total_seconds": 36.0,
         "pct_of_total": 15.4,
         "actions": [
           {
@@ -879,11 +879,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 140.0,
+        "pre_build_seconds": 195.5,
         "build_seconds": 36.0,
-        "unattributed_seconds": 57.1,
-        "key_bottleneck": "Pod 调度等待",
-        "key_bottleneck_seconds": 31.462
+        "unattributed_seconds": 1.6,
+        "key_bottleneck": "ACL头文件处理",
+        "key_bottleneck_seconds": 51.386
       }
     },
     {
@@ -1008,64 +1008,64 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 133.027,
-        "pct_of_total": 54.0,
+        "total_seconds": 203.2,
+        "pct_of_total": 82.5,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
             "start": "2026-06-17T18:12:02.476000+08:00",
-            "end": "2026-06-17T18:12:08.054000+08:00",
-            "duration_seconds": 5.578,
+            "end": "2026-06-17T18:12:10.289000+08:00",
+            "duration_seconds": 7.813,
             "evidence": "PRE_ENV:slave_create 18:12:02->18:12:08"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
             "start": "2026-06-17T18:12:10.289000+08:00",
-            "end": "2026-06-17T18:12:39.931000+08:00",
-            "duration_seconds": 29.642,
+            "end": "2026-06-17T18:12:14.607000+08:00",
+            "duration_seconds": 4.318,
             "evidence": "Phase 1 image pulls 18:12:10->18:12:39"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-17T18:12:14.607000+08:00",
-            "end": "2026-06-17T18:12:15.367000+08:00",
-            "duration_seconds": 0.76,
+            "end": "2026-06-17T18:12:18.414000+08:00",
+            "duration_seconds": 3.807,
             "evidence": "Cache Check 18:12:14->18:12:15"
           },
           {
             "key": "git_checkout",
             "name": "代码检出 (Phase 1)",
             "start": "2026-06-17T18:12:18.414000+08:00",
-            "end": "2026-06-17T18:12:35.134000+08:00",
-            "duration_seconds": 16.72,
+            "end": "2026-06-17T18:12:45.239000+08:00",
+            "duration_seconds": 26.825,
             "evidence": "Git checkout pre->post 18:12:18->18:12:35"
           },
           {
             "key": "pre_submit_validation",
             "name": "前置校验",
             "start": "2026-06-17T18:12:45.239000+08:00",
-            "end": "2026-06-17T18:12:51.559000+08:00",
-            "duration_seconds": 6.32,
+            "end": "2026-06-17T18:12:47.172000+08:00",
+            "duration_seconds": 1.933,
             "evidence": "Pre-submit validation 18:12:45->18:12:51"
           },
           {
             "key": "image_proxy",
             "name": "镜像代理替换",
             "start": "2026-06-17T18:12:47.172000+08:00",
-            "end": "2026-06-17T18:12:47.172000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:12:50.018000+08:00",
+            "duration_seconds": 2.846,
             "evidence": "Harbor registry 18:12:47"
           },
           {
             "key": "git_cache_injection",
             "name": "Git 缓存注入",
             "start": "2026-06-17T18:12:50.018000+08:00",
-            "end": "2026-06-17T18:12:50.018000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:12:53.090000+08:00",
+            "duration_seconds": 3.072,
             "evidence": "Git-cache injected 18:12:50"
           },
           {
@@ -1088,46 +1088,46 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆与合并",
             "start": "2026-06-17T18:13:18.434000+08:00",
-            "end": "2026-06-17T18:13:32.695000+08:00",
-            "duration_seconds": 14.261,
+            "end": "2026-06-17T18:13:35.272000+08:00",
+            "duration_seconds": 16.838,
             "evidence": "Pod git clone 18:13:18->18:13:32"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置 (ccache)",
             "start": "2026-06-17T18:13:35.272000+08:00",
-            "end": "2026-06-17T18:13:35.273000+08:00",
-            "duration_seconds": 0.001,
+            "end": "2026-06-17T18:13:41.884000+08:00",
+            "duration_seconds": 6.612,
             "evidence": "ccache env setup 18:13:35->18:13:35"
           },
           {
             "key": "artifact_download",
             "name": "制品下载与pip安装",
             "start": "2026-06-17T18:13:41.884000+08:00",
-            "end": "2026-06-17T18:13:42.147000+08:00",
-            "duration_seconds": 0.263,
+            "end": "2026-06-17T18:13:43.094000+08:00",
+            "duration_seconds": 1.21,
             "evidence": "Torch wheel dl+install 18:13:41->18:13:42"
           },
           {
             "key": "submodule_init",
             "name": "子模块初始化与克隆",
             "start": "2026-06-17T18:13:43.094000+08:00",
-            "end": "2026-06-17T18:14:16.276000+08:00",
-            "duration_seconds": 33.182,
+            "end": "2026-06-17T18:14:18.199000+08:00",
+            "duration_seconds": 35.105,
             "evidence": "Submodule init 18:13:43->18:14:16"
           },
           {
             "key": "acl_headers",
             "name": "ACL头文件处理",
             "start": "2026-06-17T18:14:18.199000+08:00",
-            "end": "2026-06-17T18:14:19.152000+08:00",
-            "duration_seconds": 0.953,
+            "end": "2026-06-17T18:15:25.715000+08:00",
+            "duration_seconds": 67.516,
             "evidence": "ACL headers 18:14:18->18:14:19"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 42.817,
+        "total_seconds": 42.8,
         "pct_of_total": 17.4,
         "actions": [
           {
@@ -1148,11 +1148,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 133.0,
+        "pre_build_seconds": 203.2,
         "build_seconds": 42.8,
-        "unattributed_seconds": 70.5,
-        "key_bottleneck": "子模块初始化与克隆",
-        "key_bottleneck_seconds": 33.182
+        "unattributed_seconds": 0.4,
+        "key_bottleneck": "ACL头文件处理",
+        "key_bottleneck_seconds": 67.516
       }
     }
   ]

@@ -8,8 +8,8 @@
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=1fb7edac5d0b4cf095f25ebea7376e75&projectId=300036&pipelineRunId=194d85fdbcad45b79a55077ba10e35ff)",
     "comment_time": "2026-06-17 15:06",
     "fetched_at": "2026-06-17T19:27:56.674805+08:00",
-    "analyzed_at": "2026-06-17T22:00:00+08:00",
-    "analysis_method": "ai_semantic"
+    "analyzed_at": "2026-06-18T02:00:00+08:00",
+    "analysis_method": "ai_semantic_r9_spliced"
   },
   "builds": [
     {
@@ -150,8 +150,8 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 63.662,
-        "pct_of_total": 29.0,
+        "total_seconds": 62.716,
+        "pct_of_total": 28.6,
         "orchestrator": "volcano",
         "actions": [
           {
@@ -215,7 +215,7 @@
             "name": "Karmada镜像拉取+容器启动",
             "start": "2026-06-17T15:09:05.029000+08:00",
             "end": "2026-06-17T15:09:08.270000+08:00",
-            "duration_seconds": 4.789,
+            "duration_seconds": 3.241,
             "evidence": "karmada:latest Pulling -> Image is up to date + container setup"
           },
           {
@@ -230,8 +230,8 @@
             "key": "pre_submit_validation",
             "name": "前置校验(含image_proxy+git_cache)",
             "start": "2026-06-17T15:09:08.540000+08:00",
-            "end": "2026-06-17T15:09:16.863000+08:00",
-            "duration_seconds": 8.323,
+            "end": "2026-06-17T15:09:17.465000+08:00",
+            "duration_seconds": 8.925,
             "evidence": "Pre-submit validation: Harbor image proxy + Git-cache + Queue + StorageClass"
           },
           {
@@ -253,20 +253,22 @@
         ]
       },
       "build_phases": {
-        "total_seconds": 131.496,
-        "pct_of_total": 59.9,
+        "total_seconds": 155.639,
+        "pct_of_total": 70.9,
         "actions": [
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 131.496
+            "duration_seconds": 155.639,
+            "start": "2026-06-17T15:09:37.243000+08:00",
+            "end": "2026-06-17T15:12:12.882000+08:00"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 63.7,
-        "build_seconds": 131.5,
-        "unattributed_seconds": 24.3,
+        "pre_build_seconds": 62.7,
+        "build_seconds": 155.6,
+        "unattributed_seconds": 1.1,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 15.332
       }
@@ -433,8 +435,8 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 62.019,
-        "pct_of_total": 25.0,
+        "total_seconds": 61.443,
+        "pct_of_total": 24.8,
         "orchestrator": "volcano",
         "actions": [
           {
@@ -498,7 +500,7 @@
             "name": "Karmada镜像拉取+容器启动",
             "start": "2026-06-17T15:09:06.141000+08:00",
             "end": "2026-06-17T15:09:10.103000+08:00",
-            "duration_seconds": 5.534,
+            "duration_seconds": 3.962,
             "evidence": "karmada:latest Pulling -> Image is up to date + container setup"
           },
           {
@@ -513,8 +515,8 @@
             "key": "pre_submit_validation",
             "name": "前置校验(含image_proxy+git_cache)",
             "start": "2026-06-17T15:09:10.367000+08:00",
-            "end": "2026-06-17T15:09:19.942000+08:00",
-            "duration_seconds": 9.575,
+            "end": "2026-06-17T15:09:20.938000+08:00",
+            "duration_seconds": 10.571,
             "evidence": "Pre-submit validation: Harbor image proxy + Git-cache + Queue + StorageClass"
           },
           {
@@ -536,25 +538,29 @@
         ]
       },
       "build_phases": {
-        "total_seconds": 158.081,
-        "pct_of_total": 63.8,
+        "total_seconds": 185.527,
+        "pct_of_total": 74.9,
         "actions": [
           {
             "key": "cmake_configure",
             "name": "CMake配置",
-            "duration_seconds": 3.7
+            "duration_seconds": 3.7,
+            "start": "2026-06-17T15:09:39.660000+08:00",
+            "end": "2026-06-17T15:09:43.360000+08:00"
           },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 154.381
+            "duration_seconds": 181.827,
+            "start": "2026-06-17T15:09:43.360000+08:00",
+            "end": "2026-06-17T15:12:45.187000+08:00"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 62.0,
-        "build_seconds": 158.1,
-        "unattributed_seconds": 27.6,
+        "pre_build_seconds": 61.4,
+        "build_seconds": 185.5,
+        "unattributed_seconds": 0.7,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 14.851
       }
@@ -770,7 +776,7 @@
             "name": "Karmada镜像下载+容器启动",
             "start": "2026-06-17T15:09:08.493000+08:00",
             "end": "2026-06-17T15:09:09.928000+08:00",
-            "duration_seconds": 2.015,
+            "duration_seconds": 1.435,
             "evidence": "karmada:latest Downloaded newer image (not cached) + container setup"
           },
           {
@@ -785,8 +791,8 @@
             "key": "pre_submit_validation",
             "name": "前置校验(含image_proxy+git_cache)",
             "start": "2026-06-17T15:09:10.193000+08:00",
-            "end": "2026-06-17T15:09:20.096000+08:00",
-            "duration_seconds": 9.903,
+            "end": "2026-06-17T15:09:20.676000+08:00",
+            "duration_seconds": 10.483,
             "evidence": "Pre-submit validation: Harbor image proxy + Git-cache + Queue + StorageClass"
           },
           {
@@ -808,30 +814,36 @@
         ]
       },
       "build_phases": {
-        "total_seconds": 149.443,
-        "pct_of_total": 60.6,
+        "total_seconds": 176.7,
+        "pct_of_total": 71.7,
         "actions": [
           {
             "key": "cmake_configure",
             "name": "CMake配置",
-            "duration_seconds": 2.1
+            "duration_seconds": 2.1,
+            "start": "2026-06-17T15:09:43.128000+08:00",
+            "end": "2026-06-17T15:09:45.228000+08:00"
           },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 146.843
+            "duration_seconds": 146.843,
+            "start": "2026-06-17T15:09:45.228000+08:00",
+            "end": "2026-06-17T15:12:12.071000+08:00"
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 0.5
+            "duration_seconds": 27.757,
+            "start": "2026-06-17T15:12:12.071000+08:00",
+            "end": "2026-06-17T15:12:39.828000+08:00"
           }
         ]
       },
       "summary": {
         "pre_build_seconds": 69.6,
-        "build_seconds": 149.4,
-        "unattributed_seconds": 27.4,
+        "build_seconds": 176.7,
+        "unattributed_seconds": 0.1,
         "key_bottleneck": "Pod调度等待(Volcano Job提交->Pod Running)",
         "key_bottleneck_seconds": 18.952
       }

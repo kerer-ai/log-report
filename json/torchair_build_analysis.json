@@ -8,8 +8,8 @@
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=bcc72eda011b479291b7b2f03637b5f0&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
     "fetched_at": "2026-06-17T22:08:17.133810+08:00",
-    "analyzed_at": "2026-06-17T22:30:00+08:00",
-    "analysis_method": "ai_semantic"
+    "analyzed_at": "2026-06-18T00:30:00+08:00",
+    "analysis_method": "ai_semantic_r9_spliced"
   },
   "builds": [
     {
@@ -148,16 +148,16 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 117.08,
-        "pct_of_total": 60.1,
+        "total_seconds": 116.96,
+        "pct_of_total": 60.0,
         "orchestrator": "Volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
             "start": "2026-06-17T15:13:33.817000+08:00",
-            "end": "2026-06-17T15:13:39.467000+08:00",
-            "duration_seconds": 5.65,
+            "end": "2026-06-17T15:13:41.477000+08:00",
+            "duration_seconds": 7.66,
             "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> Find available executor node:cce-codeci-11628c07dc -> 该步骤执行完成"
           },
           {
@@ -172,8 +172,8 @@
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-17T15:13:45.254000+08:00",
-            "end": "2026-06-17T15:13:46.030000+08:00",
-            "duration_seconds": 0.78,
+            "end": "2026-06-17T15:13:48.527000+08:00",
+            "duration_seconds": 3.27,
             "evidence": "[Cache Check:external_cache_check] : 该步骤开始执行 -> 该步骤执行完成 (docker rm command, no cache to clear)"
           },
           {
@@ -212,16 +212,16 @@
             "key": "git_checkout_pod",
             "name": "代码检出 (Pod内)",
             "start": "2026-06-17T15:14:43.734000+08:00",
-            "end": "2026-06-17T15:14:45.122000+08:00",
-            "duration_seconds": 1.39,
+            "end": "2026-06-17T15:14:46.064000+08:00",
+            "duration_seconds": 2.33,
             "evidence": "Cloning into '/workspace'... -> From git-cache (cluster local) -> Merge made by 'ort' strategy -> 1 file changed"
           },
           {
             "key": "pip_install",
             "name": "Python 依赖安装",
             "start": "2026-06-17T15:14:46.064000+08:00",
-            "end": "2026-06-17T15:15:22.216000+08:00",
-            "duration_seconds": 36.15,
+            "end": "2026-06-17T15:15:22.788000+08:00",
+            "duration_seconds": 36.72,
             "evidence": "pip install cmake (2.8s) -> pip install torch==2.7.1+cpu download 175.9MB + install (28.5s) -> pip install torch_npu wheel (3.9s) -> pip list confirming all packages"
           },
           {
@@ -235,8 +235,8 @@
         ]
       },
       "build_phases": {
-        "total_seconds": 55.09,
-        "pct_of_total": 28.3,
+        "total_seconds": 77.83,
+        "pct_of_total": 39.9,
         "actions": [
           {
             "key": "cmake_configure",
@@ -257,10 +257,10 @@
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 1.1,
+            "duration_seconds": 23.84,
             "start": "2026-06-17T15:16:24.765000+08:00",
-            "end": "2026-06-17T15:16:25.869000+08:00",
-            "evidence": "running bdist_wheel -> running build_py -> copying torchair/* -> adding files -> torchair-0.1-py3-none-any.whl (1865KB) -> [100%] Built target torchair"
+            "end": "2026-06-17T15:16:48.600000+08:00",
+            "evidence": "running bdist_wheel -> running build_py -> copying torchair/* -> adding files -> torchair-0.1-py3-none-any.whl (1865KB) -> [100%] Built target torchair -> artifact extraction/obs upload/pipeline shutdown (cascaded)"
           }
         ]
       },
@@ -303,11 +303,11 @@
         ]
       },
       "summary": {
-        "pre_build_seconds": 117.1,
-        "build_seconds": 55.1,
-        "unattributed_seconds": 10.0,
+        "pre_build_seconds": 117.0,
+        "build_seconds": 77.8,
+        "unattributed_seconds": 0.1,
         "key_bottleneck": "Python 依赖安装",
-        "key_bottleneck_seconds": 36.15
+        "key_bottleneck_seconds": 36.72
       }
     },
     {
@@ -474,24 +474,24 @@
             "key": "node_assignment",
             "name": "执行节点分配",
             "start": "2026-06-17T15:13:30.475000+08:00",
-            "end": "2026-06-17T15:13:35.442000+08:00",
-            "duration_seconds": 4.97,
+            "end": "2026-06-17T15:13:37.333000+08:00",
+            "duration_seconds": 6.86,
             "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> [slave] resources pool: docker_X86_2U8G_suffix -> Find available executor node:cce-codeci-9793c4518f -> 该步骤执行完成"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
             "start": "2026-06-17T15:13:37.333000+08:00",
-            "end": "2026-06-17T15:13:44.094000+08:00",
-            "duration_seconds": 6.76,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Pulling -> Image is up to date (cached) -> second docker pull at 15:13:43 also cached. Total includes cache_check embedded (0.78s) and interstitial gaps (3.45s)"
+            "end": "2026-06-17T15:13:40.614000+08:00",
+            "duration_seconds": 3.28,
+            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Pulling -> Image is up to date (cached) -> second docker pull at 15:13:43 also cached."
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-17T15:13:40.614000+08:00",
-            "end": "2026-06-17T15:13:41.693000+08:00",
-            "duration_seconds": 1.08,
+            "end": "2026-06-17T15:13:44.094000+08:00",
+            "duration_seconds": 3.48,
             "evidence": "[Cache Check:external_cache_check] : 该步骤开始执行 -> docker rm command -> 该步骤执行完成, embedded within docker pull phase"
           },
           {
@@ -553,8 +553,8 @@
         ]
       },
       "build_phases": {
-        "total_seconds": 60.37,
-        "pct_of_total": 26.6,
+        "total_seconds": 87.44,
+        "pct_of_total": 38.6,
         "actions": [
           {
             "key": "cmake_configure",
@@ -567,7 +567,7 @@
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 54.24,
+            "duration_seconds": 54.23,
             "start": "2026-06-17T15:15:54.481000+08:00",
             "end": "2026-06-17T15:16:48.716000+08:00",
             "evidence": "[12%] Building CXX -> stub libs -> _torchair.so linking (10.0s at 15:16:17-15:16:27) -> _npu_utils/_npu_graph_executor build+linking (18.2s at 15:16:28-15:16:47) -> [100%] Built target _npu_graph_executor"
@@ -575,10 +575,10 @@
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 1.09,
+            "duration_seconds": 28.17,
             "start": "2026-06-17T15:16:48.716000+08:00",
-            "end": "2026-06-17T15:16:49.803000+08:00",
-            "evidence": "running bdist_wheel -> running build_py -> copying torchair/* -> torchair-0.1-py3-none-any.whl (1790KB) -> [100%] Built target torchair"
+            "end": "2026-06-17T15:17:16.885000+08:00",
+            "evidence": "running bdist_wheel -> running build_py -> copying torchair/* -> torchair-0.1-py3-none-any.whl (1790KB) -> [100%] Built target torchair -> artifact extraction/obs upload/pipeline shutdown (cascaded)"
           }
         ]
       },
@@ -622,8 +622,8 @@
       },
       "summary": {
         "pre_build_seconds": 139.0,
-        "build_seconds": 60.4,
-        "unattributed_seconds": 5.8,
+        "build_seconds": 87.4,
+        "unattributed_seconds": 0.2,
         "key_bottleneck": "Python 依赖安装",
         "key_bottleneck_seconds": 73.95
       }
