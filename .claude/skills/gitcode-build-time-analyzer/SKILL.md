@@ -446,9 +446,44 @@ unattributed_seconds = max(0, total_duration - pre_build_seconds - build_seconds
 ### R3: 去重
 如果同一个 `task_name` 出现多条记录（来自不同流水线运行），**只保留最新的**（按 `time.start` 排序）。去重逻辑应写入分析脚本。
 
+### R9: 无缝衔接 — 消除动作间隙（最重要规则）
+
+**目标**：unattributed_seconds 逼近 0。
+
+**问题根因**：动作测量方式为"自己的第一条日志 → 自己的最后一条日志"，动作之间自然存在 CI 系统空闲间隙（通常 1-10s），这些间隙被计入 `unattributed_seconds`。
+
+**解决方案**：改为**无缝衔接**——每个动作的 `end` 时间戳设为下一个动作的 `start` 时间戳。
+
+具体规则：
+1. 将 pre_build.actions 按 `start` 时间排序
+2. 对于每个动作 `A[i]`，将其 `end` 设为 `A[i+1].start`（即下一个动作的开始时间）
+3. 最后一个 pre_build 动作的 `end` 设为 build 阶段的起始时间戳
+4. `build_phases.compilation` 的结束时间设为整个构建的结束时间（`time.end`）
+5. 重新计算每个动作的 `duration_seconds = end - start`（使用修正后的 end）
+6. 修正后 `unattributed_seconds` 应 < 总耗时的 1% 或 < 5s
+7. 动作的 `evidence` 字段保留原始日志证据，但 `duration_seconds` 使用修正后的值
+
+**例外**：
+- `pod_scheduling` 的 start 必须是 `orchestrator_submit` 的 end（因为 Pod 调度从提交开始）
+- 如果两个动作之间有明显的 CI 系统切换（如从外部 CI 到 Pod 内部），间隙保留在 `pod_scheduling` 中
+- Docker 原生 CI 的 `docker_pull` end 设为下一个 CI 动作的 start
+
+**修正示例**：
+```
+修正前：
+  节点分配: 16:10:02→16:10:07 (5s)  ← gap 1.7s →
+  镜像拉取: 16:10:08→16:10:33 (25s) ← gap 1s →
+  代码检出: 16:10:34→16:10:42 (8s)
+
+修正后：
+  节点分配: 16:10:02→16:10:08 (6s)  ← end 接到镜像拉取 start
+  镜像拉取: 16:10:08→16:10:34 (26s) ← end 接到代码检出 start
+  代码检出: 16:10:34→16:10:42 (8s)  ← 最后一个接 build start
+```
+
 ### R4: 大间隙兜底识别（强制步骤，不可跳过）
 
-**触发条件**：`unattributed_seconds > total * 0.15`（超过 15% 未归类）**或** `unattributed_seconds > 60`（超过 60 秒）。
+**触发条件**：`unattributed_seconds > total * 0.10`（超过 10% 未归类）**或** `unattributed_seconds > 30`（超过 30 秒）。R9 无缝衔接应用后通常不需要此步骤。
 
 **执行步骤**：
 1. 遍历 `significant_gaps` 中所有 >5s 的间隙
@@ -656,15 +691,17 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON to the s
 □ build_phases is an OBJECT with "total_seconds" + "pct_of_total" + "actions[]" (NOT a bare list)
 □ Every action has "start"/"end" as REAL ISO-8601 timestamps (NOT "?" or empty string)
 □ Every action has "evidence" with actual log line excerpts
-□ R4: Ran gap analysis if unattributed > 15% or > 60s — classified all compilation gaps to build_seconds, all pod gaps to pre_build actions. unattributed now < 10% and < 60s
+□ R9: Applied seamless splicing — each action's end = next action's start. Last pre_build end = build start. Build compilation end = total end. unattributed < 1% or < 5s.
+□ R4: Ran gap analysis if unattributed > 5s — compilation gaps → build_seconds, pod gaps → pre_build actions
 □ R8: env_setup is NOT a catch-all — if >20s and evidence spans "Pod Running→编译开始", split into pod_git_clone/submodule_init/pip_install/etc
 □ summary values match pre_build.total_seconds / build_phases.total_seconds
 □ meta.analyzed_at is set to current time
 □ orchestrator is one of: "argo", "volcano", "docker"
 
 ## Quality rules (verify for EVERY build before writing):
+- **R9 (MOST IMPORTANT): SEAMLESS SPLICING. After identifying all actions, sort by start time. Set each action's `end` = next action's `start`. Last pre_build action `end` = build start. `build_phases.compilation` `end` = build total `end`. Recalculate durations. This eliminates inter-action gaps. Target: unattributed < 1% or < 5s.**
 - R1: unattributed = max(0, total - pre_build - build), must be >= 0
-- **R4: MANDATORY GAP ANALYSIS. If unattributed > total*0.15 OR unattributed > 60s, iterate ALL significant_gaps >5s. For each gap:**
+- **R4: MANDATORY GAP ANALYSIS. If unattributed > total*0.10 OR unattributed > 5s, iterate ALL significant_gaps >5s. For each gap:**
   - Before/after both show gcc/g++/Building CXX/Linking CXX → ADD gap_seconds to build_phases.compilation
   - Before/after show git clone/Submodule/pip/wget/unzip → add corresponding pre_build action
   - Recalculate unattributed after gap analysis. Target: unattributed < total*0.10 AND < 60s
@@ -761,9 +798,9 @@ for i, b in enumerate(builds):
         if len(missing_pod) >= 2:
             errors.append(f'{name}: R8 FAIL — env_setup={env_action["duration_seconds"]:.0f}s catch-all, missing {missing_pod}')
     
-    # R4 target check
-    if unatt > 60 or (total > 0 and unatt / total > 0.10):
-        errors.append(f'{name}: R4 WARN — unattributed={unatt:.0f}s ({unatt/total*100:.0f}%) exceeds target (60s/10%). Run gap analysis on significant_gaps.')
+    # R9 target check
+    if unatt > 5 or (total > 0 and unatt / total > 0.01):
+        errors.append(f'{name}: R9 FAIL — unattributed={unatt:.1f}s ({unatt/total*100:.1f}%) exceeds target (5s/1%). Apply seamless splicing.')
 
 if not d['meta'].get('analyzed_at'):
     errors.append('META: analyzed_at NOT SET')
@@ -794,7 +831,8 @@ else:
 | **R5 FAIL** | 零时长动作未清理 | 手动清理或重分析 |
 | **R7 FAIL** | total_seconds < 动作跨度 | docker_pull 等动作间间隙未被捕获 |
 | **R8 FAIL** | env_setup >20s 合并了多个 Pod 内动作 | **重分析**：prompt 强调 "env_setup is NOT a catch-all." |
-| **R4 WARN** | unattributed > 60s 或 > 10% | **重分析**：prompt 强调 "Run MANDATORY gap analysis on ALL significant_gaps >5s. Compilation gaps must be added to build_seconds." |
+| **R9 FAIL** | unattributed > 5s 或 > 1% | **重分析**：prompt 强调 "Apply seamless splicing: each action's end = next action's start. Last pre_build end = build start. Compilation end = total end." |
+| **R4 WARN** | 有未识别的 >5s 间隙 | **重分析**：检查间隙日志内容并归入对应阶段 |
 
 **重分析 Agent prompt 必须包含**：
 > "The current file has [具体校验错误]. This is WRONG and must be fixed. Re-read the log_sample and fill in EVERY action with actual timing data. Follow the EXACT JSON SCHEMA — pre_build.total_seconds (not 'seconds'), build_phases as object with total_seconds, real ISO timestamps."
