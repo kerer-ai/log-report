@@ -182,11 +182,11 @@ body {
   max-height: 0; overflow: hidden;
   transition: max-height 0.3s ease;
 }
-.build-detail.open { max-height: 600px; }
-
+.build-detail.open { max-height: none; overflow: visible; }
 .build-detail-inner {
   padding: 12px 0 0 0; margin-top: 10px;
   border-top: 1px solid var(--border);
+  max-height: 600px; overflow-y: auto;
 }
 
 .action-table {
@@ -676,8 +676,10 @@ function renderBuildItem(build, repo) {
 
   const buildId = 'build-' + (repo._repo_short + '_' + build.task_name).replace(/[^a-zA-Z0-9]/g, '_');
 
-  // Pre-build actions table
-  const preActions = (build.pre_build?.actions || []).map(a => {
+  // Pre-build actions table (skip zero-duration — they didn't occur)
+  const preActions = (build.pre_build?.actions || [])
+    .filter(a => a.duration_seconds > 0)
+    .map(a => {
     const isBottleneck = build.summary?.key_bottleneck === a.key;
     return `<tr>
       <td>${a.name}</td>
@@ -688,8 +690,10 @@ function renderBuildItem(build, repo) {
     </tr>`;
   }).join('');
 
-  // Build phases
-  const buildActions = (build.build_phases?.actions || []).map(a =>
+  // Build phases (skip zero-duration)
+  const buildActions = (build.build_phases?.actions || [])
+    .filter(a => a.duration_seconds > 0)
+    .map(a =>
     `<tr><td>${a.name}</td><td>${fmtDuration(a.duration_seconds)}</td><td>${dur > 0 ? Math.round(a.duration_seconds / dur * 100) + '%' : '—'}</td></tr>`
   ).join('');
 
