@@ -11,3 +11,4 @@ https://gitcode.com/Ascend/MindIE-PyMotor
 https://gitcode.com/Ascend/MindSpeed
 https://gitcode.com/Ascend/MindSpeed-MM
 https://gitcode.com/Ascend/op-plugin
+https://gitcode.com/kunpengcompute/kupl
