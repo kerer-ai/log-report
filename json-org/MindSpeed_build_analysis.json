@@ -8,8 +8,8 @@
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=baddd3989ead4da4a892aec23193542c&pipelineRunId=1abf39244d6844abab4339b6674e5163&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
     "fetched_at": "2026-06-18T09:22:48.444626+08:00",
-    "analyzed_at": null,
-    "analysis_method": "ai_semantic"
+    "analyzed_at": "2026-06-18T10:00:00.000000+08:00",
+    "analysis_method": "ai_semantic_r9_spliced"
   },
   "builds": [
     {
@@ -78,183 +78,80 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 0,
-        "pct_of_total": 0,
-        "orchestrator": "",
+        "total_seconds": 89.365,
+        "pct_of_total": 83.11,
+        "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T19:53:32.174000+08:00",
+            "end": "2026-06-16T19:53:41.611000+08:00",
+            "duration_seconds": 9.437,
+            "evidence": "[PRE_ENV:slave_create] 19:53:32.174 -> Find available executor node at 19:53:36.699 -> Complete 19:53:36.752"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T19:53:41.611000+08:00",
+            "end": "2026-06-16T19:53:44.942000+08:00",
+            "duration_seconds": 3.331,
+            "evidence": "[Cache Check:external_cache_check] 19:53:41.611 -> 19:53:42.416"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T19:53:44.942000+08:00",
+            "end": "2026-06-16T19:53:54.407000+08:00",
+            "duration_seconds": 9.465,
+            "evidence": "[代码检出:external_pre_checkout] 19:53:44.942 -> git clone+merge -> [external_post_checkout] 19:53:52.825"
           },
           {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (Pod内)",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "network_retry",
-            "name": "网络重试等待",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "pre_submit_validation",
-            "name": "前置校验",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "git_cache_injection",
-            "name": "Git 缓存注入",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "pod_scheduling",
-            "name": "Pod 调度等待",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "artifact_download",
-            "name": "制品/依赖包下载",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "tool_download",
-            "name": "构建工具下载",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "conda_install",
-            "name": "Conda 依赖安装",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量设置",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-16T19:53:54.407000+08:00",
+            "end": "2026-06-16T19:55:01.539000+08:00",
+            "duration_seconds": 67.132,
+            "evidence": "pytorchx86gcc931:v_02 pulling 19:53:54.407 -> Downloaded newer image 19:54:58.056 -> first shell command 19:55:01.539"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 0,
-        "pct_of_total": 0,
+        "total_seconds": 18.014,
+        "pct_of_total": 16.75,
         "actions": [
           {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 0
+            "key": "workspace_prep",
+            "name": "工作目录准备",
+            "start": "2026-06-16T19:55:01.539000+08:00",
+            "end": "2026-06-16T19:55:05.238000+08:00",
+            "duration_seconds": 3.699,
+            "evidence": "mkdir + rm + git clone cie + merge.sh 19:55:01.539 -> MindSpeed_build.sh 19:55:04.979"
           },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 0
+            "start": "2026-06-16T19:55:05.238000+08:00",
+            "end": "2026-06-16T19:55:14.417000+08:00",
+            "duration_seconds": 9.179,
+            "evidence": "running build_py 19:55:05.238 -> setup.py bdist_wheel -> wheel built 19:55:14.391"
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 0
+            "start": "2026-06-16T19:55:14.417000+08:00",
+            "end": "2026-06-16T19:55:19.553000+08:00",
+            "duration_seconds": 5.136,
+            "evidence": "[使用SWR公共镜像:user_properties] 19:55:14.417 -> Finished: SUCCESS 19:55:19.553"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 0,
-        "build_seconds": 0,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "",
-        "key_bottleneck_seconds": 0
+        "pre_build_seconds": 89.365,
+        "build_seconds": 18.014,
+        "unattributed_seconds": 0.151,
+        "key_bottleneck": "docker_pull",
+        "key_bottleneck_seconds": 67.132
       }
     }
   ]

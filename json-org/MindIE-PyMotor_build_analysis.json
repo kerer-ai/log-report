@@ -8,8 +8,8 @@
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=bfe2600c422a4c288f72532f84a656af&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
     "fetched_at": "2026-06-18T09:22:35.991909+08:00",
-    "analyzed_at": null,
-    "analysis_method": "ai_semantic"
+    "analyzed_at": "2026-06-18T10:00:00.000000+08:00",
+    "analysis_method": "ai_semantic_r9_spliced"
   },
   "builds": [
     {
@@ -94,183 +94,120 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 0,
-        "pct_of_total": 0,
-        "orchestrator": "",
+        "total_seconds": 64.284,
+        "pct_of_total": 49.86,
+        "orchestrator": "argo",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T20:31:42.738000+08:00",
+            "end": "2026-06-16T20:31:52.892000+08:00",
+            "duration_seconds": 10.154,
+            "evidence": "[PRE_ENV:slave_create] 20:31:42.738 -> Find available executor node at 20:31:47.770"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T20:31:52.892000+08:00",
+            "end": "2026-06-16T20:31:56.201000+08:00",
+            "duration_seconds": 3.309,
+            "evidence": "[Cache Check:external_cache_check] 20:31:52.892 -> 20:31:53.740"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (Pod内)",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "network_retry",
-            "name": "网络重试等待",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "pre_submit_validation",
-            "name": "前置校验",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "image_proxy",
-            "name": "镜像代理替换",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "git_cache_injection",
-            "name": "Git 缓存注入",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "pod_scheduling",
-            "name": "Pod 调度等待",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T20:31:56.201000+08:00",
+            "end": "2026-06-16T20:32:11.467000+08:00",
+            "duration_seconds": 15.266,
+            "evidence": "[代码检出:external_pre_checkout] 20:31:56.201 -> git clone+merge -> [external_post_checkout] 20:32:05.434"
           },
           {
             "key": "artifact_download",
             "name": "制品/依赖包下载",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "start": "2026-06-16T20:32:11.467000+08:00",
+            "end": "2026-06-16T20:32:13.069000+08:00",
+            "duration_seconds": 1.602,
+            "evidence": "[下载文件管理的文件:external_download_file] download kubeconfig_karmada.key end 20:32:11.467 -> 20:32:11.470"
           },
           {
-            "key": "tool_download",
-            "name": "构建工具下载",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-16T20:32:13.069000+08:00",
+            "end": "2026-06-16T20:32:15.357000+08:00",
+            "duration_seconds": 2.288,
+            "evidence": "karmada:latest pull 20:32:13.069 -> Image is up to date at 20:32:13.641"
           },
           {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "key": "pre_submit_validation",
+            "name": "前置校验",
+            "start": "2026-06-16T20:32:15.357000+08:00",
+            "end": "2026-06-16T20:32:28.508000+08:00",
+            "duration_seconds": 13.151,
+            "evidence": "=== Pre-submit validation === 20:32:15.357 -> [DONE] Created validated workflow 20:32:27.914"
           },
           {
-            "key": "conda_install",
-            "name": "Conda 依赖安装",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": "2026-06-16T20:32:28.508000+08:00",
+            "end": "2026-06-16T20:32:28.508000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Volcano Job submitted: ascend-mindie-pymotor-sxjn5 at 20:32:28.508"
           },
           {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
-          },
-          {
-            "key": "env_setup",
-            "name": "环境变量设置",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": ""
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": "2026-06-16T20:32:28.508000+08:00",
+            "end": "2026-06-16T20:32:47.022000+08:00",
+            "duration_seconds": 18.514,
+            "evidence": "Volcano Job submitted 20:32:28.508 -> Pod Running 20:32:46.445 -> First pod log 20:32:47.022"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 0,
-        "pct_of_total": 0,
+        "total_seconds": 64.547,
+        "pct_of_total": 50.06,
         "actions": [
           {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 0
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-16T20:32:47.022000+08:00",
+            "end": "2026-06-16T20:32:49.944000+08:00",
+            "duration_seconds": 2.922,
+            "evidence": "Pod内 git clone into /workspace + merge PR at 20:32:47.022"
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": "2026-06-16T20:32:49.944000+08:00",
+            "end": "2026-06-16T20:33:23.056000+08:00",
+            "duration_seconds": 33.112,
+            "evidence": "pip install -r requirements.txt 20:32:49.944 -> Successfully installed at 20:33:23.056"
           },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 0
+            "start": "2026-06-16T20:33:23.056000+08:00",
+            "end": "2026-06-16T20:33:33.484000+08:00",
+            "duration_seconds": 10.428,
+            "evidence": "sh build.sh 20:33:23.056 -> protobuf gen + pip wheel -> final copy at 20:33:32.003"
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 0
+            "start": "2026-06-16T20:33:33.484000+08:00",
+            "end": "2026-06-16T20:33:51.569000+08:00",
+            "duration_seconds": 18.085,
+            "evidence": "Artifact extraction 20:33:33.484 -> OBS upload 20:33:44.598 -> Finished: SUCCESS"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 0,
-        "build_seconds": 0,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "",
-        "key_bottleneck_seconds": 0
+        "pre_build_seconds": 64.284,
+        "build_seconds": 64.547,
+        "unattributed_seconds": 0.131,
+        "key_bottleneck": "pod_scheduling",
+        "key_bottleneck_seconds": 18.514
       }
     }
   ]
