@@ -66,6 +66,23 @@ python3 scripts/fetch_build_logs.py --repo cann/ops-nn --pr 6193 --task Compile_
 
 选项：`--latest-merged` | `--pr <N>` | `--task <name>` | `--max-sample <N>` | `--full-log`
 
+### Fetch 缓存策略（避免重复拉取）
+
+如果 `json-org/<repo>_build_analysis.json` 已存在且 `meta.pr` 与最新 merged PR 相同，**跳过 fetch**，直接进入 AI 分析。判断逻辑：
+
+```bash
+# 检查是否需要重新 fetch
+latest_pr=$(gc pr list -R "$repo" --state merged -L 1 2>&1 | grep -oP '#\d+' | tr -d '#')
+existing_pr=$(python3 -c "import json; print(json.load(open('json-org/${name}_build_analysis.json'))['meta']['pr'])" 2>/dev/null)
+if [ "$latest_pr" = "$existing_pr" ] && [ -f "json-org/${name}_build_analysis.json" ]; then
+  echo "SKIP fetch: PR #$latest_pr unchanged, reusing existing data"
+else
+  python3 scripts/fetch_build_logs.py --repo "$repo" --latest-merged -o "json-org/${name}_build_analysis.json"
+fi
+```
+
+注意：用户明确要求 `--pr <N>` 时忽略缓存，强制重新 fetch。
+
 ### PR 回退发现策略（重要）
 
 `--latest-merged` 选取的是**最近合入的 PR**，但该 PR 可能是一个纯文档变更，
@@ -149,6 +166,7 @@ gitcode-build-time-analyzer → json-org/*.json → build-log-normalizer → jso
 | `acl_headers` | ACL头文件准备 | Pod内 | `Copied ... acl headers`、`cp ... acl`、`acl header`、`ACL include` |
 | `workspace_prep` | 工作目录准备 | Pod内 | `rm -rf`、`mkdir -p`、`cd` 等目录清理/创建操作（不含 clone，clone 归入 `pod_git_clone` 或 `env_setup`） |
 | `codegen` | 代码生成+CMake配置 | Pod内 | `CMake configure`、`Generating build files`、protobuf 代码生成 (`Running protoc`)、`cmake -B build`。注意：cmake configure 发生在 Pod 内编译开始之前，属于前置动作。与 build_phases 中的 `cmake_configure` 区分——`codegen` 是 cmake 之前的代码生成步骤 |
+| `cmake_configure` | CMake配置 | Build | `-- The C compiler identification is GNU`、`-- Check for working C compiler`、`-- Configuring done`、`-- Generating done`、`-- Build files have been written to`。属于 build_phases，不归入 pre_build |
 
 ### Step 2 — 确定每个动作的起止时间
 
@@ -192,6 +210,34 @@ pod_scheduling ───────┘            tool_download
 ```
 
 两个阶段之间由 `pod_scheduling` 连接。`pod_scheduling` 的 end 即为 Pod 内阶段的时间起点。
+
+**⚠️ Docker 原生 CI 单阶段模型：**
+
+Docker 仓库（MindSpeed 系列）无 K8s 编排器，所有操作在 CI 执行机上串行完成：
+
+```
+CI 执行机（单阶段，无 Pod 调度）
+────────────────────────────────────────
+node_assignment          (执行节点分配，3-8s)
+docker_pull              (Docker 镜像拉取，多层，20-60s) ← 最大开销
+cache_check              (缓存检查，<1s)
+git_checkout             (代码检出，8-30s)
+pre_submit_validation    (前置校验，5-15s)
+  ├─ image_proxy         (Harbor 镜像代理替换)
+  └─ git_cache_injection (Git 缓存注入)
+orchestrator_submit      (跳过 — 无 K8s 编排器)
+pod_scheduling           (跳过 — 无 Pod)
+pip_install              (Python 依赖安装，15-70s)
+workspace_prep           (工作目录准备)
+  ↓
+setup.py 构建 / CMake 开始 → 进入 build_phases
+```
+
+关键差异：
+- `orchestrator = "docker"`（不是 argo/volcano）
+- 无 `pod_scheduling`、无 `pod_git_clone`（没有 Pod 概念）
+- `docker_pull` 是主要环境准备开销（多层镜像拉取，即使命中缓存也需 10-25s 检查）
+- Pod 内动作（如 pip_install、workspace_prep）直接在 CI 执行机上运行，归入 pre_build
 
 ### Step 3 — 划分"构建前"与"构建中"
 
@@ -483,7 +529,7 @@ unattributed_seconds = max(0, total_duration - pre_build_seconds - build_seconds
 
 ### R4: 大间隙兜底识别（强制步骤，不可跳过）
 
-**触发条件**：`unattributed_seconds > total * 0.10`（超过 10% 未归类）**或** `unattributed_seconds > 30`（超过 30 秒）。R9 无缝衔接应用后通常不需要此步骤。
+**触发条件**：R9 无缝衔接应用后，如果 `unattributed_seconds` 仍 > 5s，运行 R4 作为兜底扫描。
 
 **执行步骤**：
 1. 遍历 `significant_gaps` 中所有 >5s 的间隙
@@ -656,34 +702,13 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON to the s
 - `Successfully built <name>` — wheel build packaging complete
 
 ## EXACT JSON SCHEMA (MUST follow — verify before writing):
-```json
-{
-  "pre_build": {
-    "total_seconds": <sum of all action durations>,
-    "pct_of_total": <pre_build / total_duration * 100>,
-    "orchestrator": "volcano" | "argo" | "docker",
-    "actions": [
-      {"key": "...", "name": "...", "start": "2026-06-17T...", "end": "2026-06-17T...", "duration_seconds": N, "evidence": "exact log excerpt"}
-    ]
-  },
-  "build_phases": {
-    "total_seconds": <sum of build action durations>,
-    "pct_of_total": <build / total_duration * 100>,
-    "actions": [
-      {"key": "cmake_configure", "name": "CMake 配置", "duration_seconds": N},
-      {"key": "compilation", "name": "编译", "duration_seconds": N},
-      {"key": "packaging", "name": "打包与上传", "duration_seconds": N}
-    ]
-  },
-  "summary": {
-    "pre_build_seconds": <same as pre_build.total_seconds>,
-    "build_seconds": <same as build_phases.total_seconds>,
-    "unattributed_seconds": <max(0, total - pre_build - build)>,
-    "key_bottleneck": "<largest pre_build action key>",
-    "key_bottleneck_seconds": <largest pre_build action duration>
-  }
-}
-```
+
+Required structure for each build in the JSON file:
+
+- `pre_build`: object with `total_seconds` (number), `pct_of_total` (number), `orchestrator` ("volcano"|"argo"|"docker"), `actions[]` (array of action objects)
+- Each action: `key`, `name`, `start` (ISO-8601), `end` (ISO-8601), `duration_seconds` (number), `evidence` (string with log excerpts)
+- `build_phases`: object with `total_seconds` (number), `pct_of_total` (number), `actions[]` (array with keys: cmake_configure, compilation, packaging)
+- `summary`: `pre_build_seconds`, `build_seconds`, `unattributed_seconds` (must be >=0), `key_bottleneck` (string, name of longest pre_build action), `key_bottleneck_seconds` (number)
 
 ## SCHEMA VERIFICATION CHECKLIST (verify EVERY build before Write):
 □ pre_build uses "total_seconds" NOT "seconds"
@@ -698,20 +723,22 @@ identify and time ALL pre-build actions, then write back COMPLETED JSON to the s
 □ meta.analyzed_at is set to current time
 □ orchestrator is one of: "argo", "volcano", "docker"
 
-## Quality rules (verify for EVERY build before writing):
-- **R9 (MOST IMPORTANT): SEAMLESS SPLICING. After identifying all actions, sort by start time. Set each action's `end` = next action's `start`. Last pre_build action `end` = build start. `build_phases.compilation` `end` = build total `end`. Recalculate durations. This eliminates inter-action gaps. Target: unattributed < 1% or < 5s.**
-- R1: unattributed = max(0, total - pre_build - build), must be >= 0
-- **R4: MANDATORY GAP ANALYSIS. If unattributed > total*0.10 OR unattributed > 5s, iterate ALL significant_gaps >5s. For each gap:**
-  - Before/after both show gcc/g++/Building CXX/Linking CXX → ADD gap_seconds to build_phases.compilation
-  - Before/after show git clone/Submodule/pip/wget/unzip → add corresponding pre_build action
-  - Recalculate unattributed after gap analysis. Target: unattributed < total*0.10 AND < 60s
-- R5: Remove actions with duration==0 AND no evidence
-- R6: abs(pre_build + build + unattributed - total) < 1.0
-- R7: pre_build.total_seconds >= (last_action_end - first_action_start)
-- R8: env_setup MUST NOT be a catch-all. Split if >20s and missing >=2 pod actions
-- Docker repos: NO pod_scheduling, verify docker_pull covers multi-layer pulls
-- Set orchestrator: "argo"/"volcano"/"docker"
-- Set meta.analyzed_at
+## Quality rules (execute in this order for EVERY build):
+
+**Step 1 — R9 SEAMLESS SPLICING (ALWAYS do this first):**
+Sort pre_build actions by start time. Set each A[i].end = A[i+1].start. Last pre_build end = build start time. Last build_phases action end = time.end. Recalculate all durations. Target: unattributed < 5s and < 1%.
+
+**Step 2 — R4 GAP ANALYSIS (only if R9 left unattributed > 5s):**
+Iterate ALL significant_gaps >5s. Compilation gaps (gcc/g++/Building CXX) → add to build_phases.compilation. Missing pod actions (git clone/Submodule/pip/wget) → add as pre_build actions. Recalculate.
+
+**Step 3 — Remaining rules:**
+- R1: unattributed = max(0, total - pre_build - build), >= 0
+- R5: Remove zero-duration actions without evidence
+- R6: abs(pre + build + unattributed - total) < 1.0
+- R7: pre_build.total_seconds >= action span
+- R8: env_setup NOT catch-all (split if >20s spanning Pod Running→build start)
+- Docker repos: NO pod_scheduling, docker_pull covers multi-layer pulls
+- Set orchestrator + meta.analyzed_at
 
 Write COMPLETED JSON to `json-org/<repo>_build_analysis.json`.
 ```
@@ -727,97 +754,13 @@ Write COMPLETED JSON to `json-org/<repo>_build_analysis.json`.
 
 ### Phase 3 — 校验与补漏
 
-每个 Agent 完成后，用以下综合验证脚本检查数据完整性：
+每个 Agent 完成后，运行校验脚本验证数据完整性：
 
 ```bash
-python3 -c "
-import json, sys
-
-fname = 'json-org/<repo>_build_analysis.json'
-d = json.load(open(fname))
-builds = d['builds']
-
-errors = []
-for i, b in enumerate(builds):
-    name = b.get('task_name', f'build_{i}')
-    if b.get('_error'):
-        print(f'  {name}: SKIPPED (_error={b[\"_error\"]})')
-        continue
-    
-    pb = b.get('pre_build', {})
-    bp = b.get('build_phases', {})
-    s = b.get('summary', {})
-    t = b.get('time', {})
-    total = t.get('duration_seconds', 0)
-    
-    pre = pb.get('total_seconds', pb.get('seconds', 0))  # both accepted
-    bld = bp.get('total_seconds', 0) if isinstance(bp, dict) else sum(a.get('duration_seconds',0) for a in bp)
-    unatt = s.get('unattributed_seconds', -1)
-    
-    # R6
-    r6 = abs(pre + bld + unatt - total)
-    if r6 >= 1.0:
-        errors.append(f'{name}: R6 FAIL — pre={pre:.1f}+build={bld:.1f}+unatt={unatt:.1f}={pre+bld+unatt:.1f} vs total={total:.1f} (gap={total-pre-bld-unatt:.1f}s)')
-    
-    # Schema checks
-    if isinstance(bp, list):
-        errors.append(f'{name}: SCHEMA FAIL — build_phases is list, must be object with total_seconds')
-    if 'seconds' in pb and 'total_seconds' not in pb:
-        errors.append(f'{name}: SCHEMA FAIL — pre_build uses \"seconds\" not \"total_seconds\"')
-    if not pb.get('pct_of_total'):
-        errors.append(f'{name}: SCHEMA FAIL — pre_build missing pct_of_total')
-    if pb.get('orchestrator','') not in ('argo','volcano','docker'):
-        errors.append(f'{name}: SCHEMA FAIL — orchestrator={pb.get(\"orchestrator\")}')
-    
-    # Timestamp check
-    for a in pb.get('actions', []):
-        if a.get('start','?') in ('?','') or a.get('end','?') in ('?',''):
-            errors.append(f'{name}: SCHEMA FAIL — action \"{a[\"key\"]}\" has \"?\" timestamp')
-            break
-    
-    # R5: empty actions
-    empty = [a['key'] for a in pb.get('actions',[]) if a.get('duration_seconds',0)==0]
-    if empty:
-        errors.append(f'{name}: R5 FAIL — {len(empty)} zero-duration actions: {empty}')
-    
-    # R7
-    if pb.get('actions'):
-        first_start = min(a.get('start','') for a in pb['actions'] if a.get('start','') not in ('?',''))
-        last_end = max(a.get('end','') for a in pb['actions'] if a.get('end','') not in ('?',''))
-        # Simple check: sum of durations >= span
-        actions_span = sum(a.get('duration_seconds',0) for a in pb['actions'])
-        if pre < actions_span - 1.0:
-            errors.append(f'{name}: R7 FAIL — total_seconds={pre:.1f}s < sum of action durations={actions_span:.1f}s')
-    
-    # R8: env_setup catch-all check
-    env_action = next((a for a in pb.get('actions',[]) if a['key'] == 'env_setup'), None)
-    if env_action and env_action.get('duration_seconds', 0) > 20:
-        ev = env_action.get('evidence', '')
-        pod_actions = [a['key'] for a in pb.get('actions',[])]
-        missing_pod = [k for k in ['pod_git_clone', 'submodule_init', 'pip_install', 'artifact_download', 'acl_headers'] if k not in pod_actions]
-        if len(missing_pod) >= 2:
-            errors.append(f'{name}: R8 FAIL — env_setup={env_action["duration_seconds"]:.0f}s catch-all, missing {missing_pod}')
-    
-    # R9 target check
-    if unatt > 5 or (total > 0 and unatt / total > 0.01):
-        errors.append(f'{name}: R9 FAIL — unattributed={unatt:.1f}s ({unatt/total*100:.1f}%) exceeds target (5s/1%). Apply seamless splicing.')
-
-if not d['meta'].get('analyzed_at'):
-    errors.append('META: analyzed_at NOT SET')
-
-ok = sum(1 for b in builds if not b.get('_error') and b.get('pre_build',{}).get('total_seconds', b.get('pre_build',{}).get('seconds', 0)) > 0)
-empty_count = sum(1 for b in builds if not b.get('_error') and b.get('pre_build',{}).get('total_seconds', b.get('pre_build',{}).get('seconds', 0)) == 0)
-
-print(f'{ok} analyzed, {empty_count} empty, {len([b for b in builds if b.get(\"_error\")])} errors')
-if errors:
-    print('ISSUES:')
-    for e in errors:
-        print(f'  - {e}')
-    sys.exit(1)
-else:
-    print('ALL CHECKS PASSED ✓')
-"
+python3 scripts/validate.py json-org/<repo>_build_analysis.json
 ```
+
+脚本检查 R1/R5/R6/R7/R8/R9 全部规则，以及 schema 合规性、时间戳有效性、pod_scheduling 最小值。退出码 0 = 全部通过，1 = 发现错误。
 
 校验失败的处理（更新）：
 
