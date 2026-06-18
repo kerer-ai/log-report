@@ -1,631 +1,425 @@
 {
   "meta": {
-    "pr": 3233,
+    "pr": 3236,
     "repo": "Ascend/torchair",
-    "pr_url": "https://gitcode.com/Ascend/torchair/pull/3233",
-    "pipeline_name": "PR-pipeline_torchair#3112",
-    "pipeline_state": " [ commitID：f4adc524 ] 已终止运行",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=bcc72eda011b479291b7b2f03637b5f0&codeHostingPlatformFlag=gitcode",
+    "pr_url": "https://gitcode.com/Ascend/torchair/pull/3236",
+    "pipeline_name": "PR-pipeline_torchair#3120",
+    "pipeline_state": "（重试第1次） [ commitID：517531df ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=2520a18319bb48fe8c9feed1b3750a6c&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
-    "fetched_at": "2026-06-17T22:08:17.133810+08:00",
-    "analyzed_at": "2026-06-18T00:30:00+08:00",
-    "analysis_method": "ai_semantic_r9_spliced"
+    "fetched_at": "2026-06-18T12:09:14.729447+08:00",
+    "analyzed_at": "2026-06-18T17:30:00.000000+08:00",
+    "analysis_method": "ai_semantic"
   },
   "builds": [
     {
       "task_name": "Build_x86",
       "stage": "编译构建",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=977c8ebb3a564e4e8e697de3b0d513ba&stepId=19da1405451540f2aaa6e2a180623023&jobRunId=117681fdd76a42ed9d68f3500442bd19&stepRunId=18387c26837e4445a6600e68b088efe4&codeHostingPlatformFlag=gitcode",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=2520a18319bb48fe8c9feed1b3750a6c&stepId=7d2bf8c7f5624d11b87712f8c71bd438&jobRunId=4ec72c20285a4ff99967833aa4106285&stepRunId=5e5656e1edd140c9839a26e593d66ecb&codeHostingPlatformFlag=gitcode",
       "time": {
-        "start": "2026-06-17T15:13:33.698000+08:00",
-        "end": "2026-06-17T15:16:48.600000+08:00",
-        "duration_seconds": 194.902
+        "start": "2026-06-18T09:38:00.456000+08:00",
+        "end": "2026-06-18T09:41:28.620000+08:00",
+        "duration_seconds": 208.164
       },
-      "log_sample": "[2026/06/17 15:13:33.698 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_0i81cVaI #1\n[2026/06/17 15:13:33.700 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/17 15:13:33.817 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/17 15:13:33.819 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/17 15:13:39.467 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/17 15:13:41.477 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/17 15:13:45.254 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/17 15:13:46.030 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/17 15:13:48.527 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/17 15:14:01.390 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/17 15:14:06.971 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤开始执行\n[2026/06/17 15:14:07.922 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/17 15:14:11.259 GMT+08:00] + /workspace/workflowtool/entrypoint.sh\n[2026/06/17 15:14:24.215 GMT+08:00] Volcano Job submitted: ascend-torchair-jqz9h\n[2026/06/17 15:14:43.734 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/17 15:15:22.216 GMT+08:00] Successfully installed torch-npu-2.7.1.post5.dev20260617\n[2026/06/17 15:15:30.775 GMT+08:00] Building torchair with no ascend-sdk specified\n[2026/06/17 15:15:35.157 GMT+08:00] [ 12%] Building CXX object CMakeFiles/graph.dir/_fake.cc.o\n[2026/06/17 15:16:24.765 GMT+08:00] [100%] Built target _npu_graph_executor\n[2026/06/17 15:16:25.869 GMT+08:00] [100%] Built target torchair\n[2026/06/17 15:16:31.426 GMT+08:00] Job ascend-torchair-jqz9h 成功完成\n[2026/06/17 15:16:41.802 GMT+08:00] [INFO] [上传文件到OBS:external_obs_uploader] : 该步骤执行完成\n[2026/06/17 15:16:48.600 GMT+08:00] Finished: SUCCESS",
+      "log_sample": "[2026/06/18 09:38:00.456 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_Vfcjm24n #1\n[2026/06/18 09:38:00.458 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 09:38:00.578 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 09:38:00.580 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 09:38:00.582 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 09:38:00.582 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 09:38:01.619 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 09:38:01.817 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-c770b31eef ok, waiting for connection...\n[2026/06/18 09:38:05.134 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-c770b31eef\n[2026/06/18 09:38:05.176 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 09:38:06.817 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 09:38:06.817 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 09:38:06.817 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 09:38:10.086 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 09:38:10.805 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 09:38:10.805 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 09:38:10.805 GMT+08:00] \n[2026/06/18 09:38:10.805 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/18 09:38:10.805 GMT+08:00] \n[2026/06/18 09:38:10.805 GMT+08:00] Remove one or more containers\n[2026/06/18 09:38:10.846 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 09:38:13.222 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 09:38:13.224 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/18 09:38:13.407 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/18 09:38:13.408 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/18 09:38:13.408 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 09:38:13.976 GMT+08:00] Cloning the remote Git repository\n[2026/06/18 09:38:14.007 GMT+08:00] Cloning repository https://gitcode.com/Ascend/torchair.git\n[2026/06/18 09:38:14.084 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/torchair.git +517531df8c702008bdd3625246566311ec52f019:refs/remotes/fork/eager_limit_core_26.1.0 # timeout=120\n[2026/06/18 09:38:19.661 GMT+08:00] fork MR gitcode from eager_limit_core_26.1.0(517531df8c702008bdd3625246566311ec52f019) to 26.1.0(989557d5552b433e5eb541554881c99bd88e08c0).\n[2026/06/18 09:38:24.858 GMT+08:00] Commit message: \"Merge commit '517531df8c702008bdd3625246566311ec52f019' into eager_limit_core_26.1.0\"\n[2026/06/18 09:38:24.888 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 09:38:24.948 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 09:38:30.243 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤开始执行\n[2026/06/18 09:38:31.343 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : download file result: SUCCESS\n[2026/06/18 09:38:31.344 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/18 09:38:34.291 GMT+08:00] 环境变量数量: 70\n[2026/06/18 09:38:34.554 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 09:38:41.143 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 09:38:41.143 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 09:38:47.761 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 09:38:47.761 GMT+08:00] [GIT] Injected git proxy config into main-script\n[2026/06/18 09:38:48.711 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 09:38:49.290 GMT+08:00] Volcano Job submitted: ascend-torchair-8fxrs\n[2026/06/18 09:38:49.864 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-8fxrs' 的 pod\n[2026/06/18 09:38:56.508 GMT+08:00] Job ascend-torchair-8fxrs 的主 Pod: ascend-torchair-8fxrs-main-script-0\n[2026/06/18 09:39:03.265 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 09:39:03.265 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 09:39:06.574 GMT+08:00] Merge made by the 'ort' strategy.\n[2026/06/18 09:39:06.575 GMT+08:00] Looking in indexes: https://mirrors.huaweicloud.com/repository/pypi/simple\n[2026/06/18 09:39:06.575 GMT+08:00] Collecting cmake\n[2026/06/18 09:39:09.713 GMT+08:00] Successfully installed cmake-4.3.2\n[2026/06/18 09:39:10.290 GMT+08:00] Collecting torch==2.7.1+cpu\n[2026/06/18 09:39:17.828 GMT+08:00]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 175.9/175.9 MB 28.7 MB/s eta 0:00:00\n[2026/06/18 09:40:11.216 GMT+08:00] Successfully installed MarkupSafe-3.0.3 filelock-3.29.4 fsspec-2026.6.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 sympy-1.14.0 torch-2.7.1+cpu typing-extensions-4.15.0\n[2026/06/18 09:40:12.156 GMT+08:00] Processing ./torch_npu-2.7.1.post5.dev20260618-cp310-cp310-manylinux_2_28_x86_64.whl\n[2026/06/18 09:40:15.459 GMT+08:00] Successfully installed torch-npu-2.7.1.post5.dev20260618\n[2026/06/18 09:40:15.459 GMT+08:00] Cloning into 'cie'...\n[2026/06/18 09:40:21.258 GMT+08:00] /workspace\n[2026/06/18 09:40:21.258 GMT+08:00] Building torchair with no ascend-sdk specified\n[2026/06/18 09:40:23.178 GMT+08:00] Configuration finished\n[2026/06/18 09:40:24.563 GMT+08:00] -- Check for working C compiler: /opt/rh/gcc-toolset-11/root/usr/bin/cc - skipped\n[2026/06/18 09:40:25.505 GMT+08:00] [ 12%] Building CXX object CMakeFiles/graph.dir/_fake.cc.o\n[2026/06/18 09:41:04.344 GMT+08:00] [100%] Built target _npu_graph_executor\n[2026/06/18 09:41:04.344 GMT+08:00] running bdist_wheel\n[2026/06/18 09:41:05.440 GMT+08:00] [100%] Built target torchair\n[2026/06/18 09:41:11.100 GMT+08:00] 开始提取 artifacts 到 ***/ ...\n[2026/06/18 09:41:11.671 GMT+08:00] Artifacts 提取成功\n[2026/06/18 09:41:19.597 GMT+08:00] [INFO] [上传文件到OBS:external_obs_uploader] : 该步骤开始执行\n[2026/06/18 09:41:21.738 GMT+08:00] [INFO] [上传文件到OBS:external_obs_uploader] : 该步骤执行完成",
       "log_stats": {
-        "total_timestamped_lines": 4915,
+        "total_timestamped_lines": 4752,
         "sample_lines": 400,
-        "raw_chars": 654569
+        "raw_chars": 637013
       },
       "timestamp_summary": {
-        "first": "2026-06-17T15:13:33.698000+08:00",
-        "last": "2026-06-17T15:16:48.600000+08:00",
-        "duration_seconds": 194.902,
-        "total_timestamped_lines": 4915,
+        "first": "2026-06-18T09:38:00.456000+08:00",
+        "last": "2026-06-18T09:41:28.620000+08:00",
+        "duration_seconds": 208.164,
+        "total_timestamped_lines": 4752,
         "sample_lines_included": 400
       },
       "significant_gaps": [
         {
           "after_line": 44,
-          "gap_seconds": 5.985,
-          "before_ts": "2026-06-17T15:13:49.465000+08:00",
-          "after_ts": "2026-06-17T15:13:55.450000+08:00",
-          "sample_before": "[2026/06/17 15:13:49.465 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/torchair.git +5a5479f2434ef5eb91703cf6e8caa2caa2f3a915:refs/remotes/fork/add_zeros_pa",
-          "sample_after": "[2026/06/17 15:13:55.450 GMT+08:00] fork MR gitcode from add_zeros_pass_fix(5a5479f2434ef5eb91703cf6e8caa2caa2f3a915) to master(672dbc80edd2f3f8cc57fe454d5f89900abd742c).",
-          "attribution": "git_checkout",
-          "notes": "Git fetch over network, internal to code checkout phase"
+          "gap_seconds": 5.574,
+          "before_ts": "2026-06-18T09:38:14.087000+08:00",
+          "after_ts": "2026-06-18T09:38:19.661000+08:00",
+          "sample_before": "[2026/06/18 09:38:14.087 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/torchair.git +517531df8c702008bdd3625246566311ec52f019:refs/remotes/fork/eager_limit_",
+          "sample_after": "[2026/06/18 09:38:19.661 GMT+08:00] fork MR gitcode from eager_limit_core_26.1.0(517531df8c702008bdd3625246566311ec52f019) to 26.1.0(989557d5552b433e5eb541554881c99bd88e08c0)."
+        },
+        {
+          "after_line": 113,
+          "gap_seconds": 6.589,
+          "before_ts": "2026-06-18T09:38:34.554000+08:00",
+          "after_ts": "2026-06-18T09:38:41.143000+08:00",
+          "sample_before": "[2026/06/18 09:38:34.554 GMT+08:00] === Pre-submit validation ===",
+          "sample_after": "[2026/06/18 09:38:41.143 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement"
         },
         {
           "after_line": 115,
-          "gap_seconds": 6.631,
-          "before_ts": "2026-06-17T15:14:15.750000+08:00",
-          "after_ts": "2026-06-17T15:14:22.381000+08:00",
-          "sample_before": "[2026/06/17 15:14:15.750 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
-          "sample_after": "[2026/06/17 15:14:22.381 GMT+08:00] [OK] Git-cache found, injecting git proxy config",
-          "attribution": "orchestrator_submit",
-          "notes": "Pre-submit validation checks (git-cache, queue, StorageClass), internal to orchestrator submit phase"
-        },
-        {
-          "after_line": 125,
-          "gap_seconds": 5.297,
-          "before_ts": "2026-06-17T15:14:24.215000+08:00",
-          "after_ts": "2026-06-17T15:14:29.512000+08:00",
-          "sample_before": "[2026/06/17 15:14:24.215 GMT+08:00] 等待主 Pod (main-script) 出现...",
-          "sample_after": "[2026/06/17 15:14:29.512 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-jqz9h' 的 pod",
-          "attribution": "pod_scheduling",
-          "notes": "Volcano scheduler waiting for main Pod to be created, polling loop finding no matching pod"
+          "gap_seconds": 6.618,
+          "before_ts": "2026-06-18T09:38:41.143000+08:00",
+          "after_ts": "2026-06-18T09:38:47.761000+08:00",
+          "sample_before": "[2026/06/18 09:38:41.143 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
+          "sample_after": "[2026/06/18 09:38:47.761 GMT+08:00] [OK] Git-cache found, injecting git proxy config"
         },
         {
           "after_line": 126,
-          "gap_seconds": 8.347,
-          "before_ts": "2026-06-17T15:14:29.512000+08:00",
-          "after_ts": "2026-06-17T15:14:37.859000+08:00",
-          "sample_before": "[2026/06/17 15:14:29.512 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-jqz9h' 的 pod",
-          "sample_after": "[2026/06/17 15:14:37.859 GMT+08:00] Job ascend-torchair-jqz9h 的主 Pod: ascend-torchair-jqz9h-main-script-0",
-          "attribution": "pod_scheduling",
-          "notes": "Volcano scheduler creating and assigning Pod to node, 8.3s from 'no pod found' to pod identified"
+          "gap_seconds": 6.644,
+          "before_ts": "2026-06-18T09:38:49.864000+08:00",
+          "after_ts": "2026-06-18T09:38:56.508000+08:00",
+          "sample_before": "[2026/06/18 09:38:49.864 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-8fxrs' 的 pod",
+          "sample_after": "[2026/06/18 09:38:56.508 GMT+08:00] Job ascend-torchair-8fxrs 的主 Pod: ascend-torchair-8fxrs-main-script-0"
+        },
+        {
+          "after_line": 128,
+          "gap_seconds": 6.757,
+          "before_ts": "2026-06-18T09:38:56.508000+08:00",
+          "after_ts": "2026-06-18T09:39:03.265000+08:00",
+          "sample_before": "[2026/06/18 09:38:56.508 GMT+08:00] 等待 Job ascend-torchair-8fxrs 的 Pod 启动...",
+          "sample_after": "[2026/06/18 09:39:03.265 GMT+08:00] [日志] 等待 Pod ascend-torchair-8fxrs-main-script-0 开始运行..."
         },
         {
           "after_line": 155,
-          "gap_seconds": 5.292,
-          "before_ts": "2026-06-17T15:14:49.844000+08:00",
-          "after_ts": "2026-06-17T15:14:55.136000+08:00",
-          "sample_before": "[2026/06/17 15:14:49.844 GMT+08:00]   Downloading https://pytorch-package.obs.cn-north-4.myhuaweicloud.com/pta/torch/v2.7.1/torch-2.7.1%2Bcpu-cp310-cp310-manylinux_2_28_x86_64.whl (175.9 MB)",
-          "sample_after": "[2026/06/17 15:14:55.136 GMT+08:00]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 175.9/175.9 MB 39.5 MB/s eta 0:00:00",
-          "attribution": "pip_install",
-          "notes": "Torch 2.7.1 wheel download (175.9 MB at 39.5 MB/s), internal to pip install phase"
-        },
-        {
-          "after_line": 176,
-          "gap_seconds": 18.22,
-          "before_ts": "2026-06-17T15:15:00.122000+08:00",
-          "after_ts": "2026-06-17T15:15:18.342000+08:00",
-          "sample_before": "[2026/06/17 15:15:00.122 GMT+08:00] Installing collected packages: mpmath, typing-extensions, sympy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch",
-          "sample_after": "[2026/06/17 15:15:18.342 GMT+08:00] Successfully installed MarkupSafe-3.0.3 filelock-3.29.4 fsspec-2026.6.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 sympy-1.14.0 torch-2.7.1+cpu typing-extensions-4.15",
-          "attribution": "pip_install",
-          "notes": "Pip wheel installation of torch and all transitive dependencies, internal to pip install phase"
-        },
-        {
-          "after_line": 365,
-          "gap_seconds": 10.023,
-          "before_ts": "2026-06-17T15:15:53.746000+08:00",
-          "after_ts": "2026-06-17T15:16:03.769000+08:00",
-          "sample_before": "[2026/06/17 15:15:53.746 GMT+08:00] [ 81%] Built target torch_npu",
-          "sample_after": "[2026/06/17 15:16:03.769 GMT+08:00] [ 83%] Linking CXX shared library ../dist/torchair/core/_torchair.so",
-          "attribution": "compilation",
-          "notes": "Main _torchair.so linking step (C++ compilation + linking), internal to compilation phase"
-        },
-        {
-          "after_line": 377,
-          "gap_seconds": 18.157,
-          "before_ts": "2026-06-17T15:16:06.337000+08:00",
-          "after_ts": "2026-06-17T15:16:24.494000+08:00",
-          "sample_before": "[2026/06/17 15:16:06.337 GMT+08:00] [ 97%] Building CXX object torchair/npu_graph_executor/CMakeFiles/_npu_graph_executor.dir/wrapper.cpp.o",
-          "sample_after": "[2026/06/17 15:16:24.494 GMT+08:00] [ 98%] Linking CXX shared library ../../dist/torchair/core/_npu_utils.so",
-          "attribution": "compilation",
-          "notes": "Final C++ compilation and linking of _npu_utils and _npu_graph_executor, internal to compilation phase"
-        },
-        {
-          "after_line": 4887,
-          "gap_seconds": 5.296,
-          "before_ts": "2026-06-17T15:16:25.869000+08:00",
-          "after_ts": "2026-06-17T15:16:31.165000+08:00",
-          "sample_before": "[2026/06/17 15:16:25.869 GMT+08:00] -rw-r--r--  1 root root 1864952 Jun 17 15:16 torchair-0.1-py3-none-any.whl",
-          "sample_after": "[2026/06/17 15:16:31.165 GMT+08:00] 检测到 artifact Volcano Job，准备从 copy-artifact 容器提取 artifacts...",
-          "attribution": "artifact_extraction",
-          "notes": "Waiting period between packaging completion and Volcano artifact extraction start, pipeline orchestration overhead"
-        },
-        {
-          "after_line": 4893,
-          "gap_seconds": 5.302,
-          "before_ts": "2026-06-17T15:16:31.426000+08:00",
-          "after_ts": "2026-06-17T15:16:36.728000+08:00",
-          "sample_before": "[2026/06/17 15:16:31.426 GMT+08:00] [日志] tail 错误: signal: killed",
-          "sample_after": "[2026/06/17 15:16:36.728 GMT+08:00] 清理 copy-artifact 容器...",
-          "attribution": "container_cleanup",
-          "notes": "Waiting period between artifact extraction and copy-artifact container cleanup, tail log signal handling"
-        },
-        {
-          "after_line": 4913,
-          "gap_seconds": 5.285,
-          "before_ts": "2026-06-17T15:16:43.192000+08:00",
-          "after_ts": "2026-06-17T15:16:48.477000+08:00",
-          "sample_before": "[2026/06/17 15:16:43.192 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_0i81cVaI #1",
-          "sample_after": "[2026/06/17 15:16:48.477 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker",
-          "attribution": "pipeline_shutdown",
-          "notes": "Pipeline job completion workflow, Kafka event propagation and final status reporting"
+          "gap_seconds": 6.593,
+          "before_ts": "2026-06-18T09:39:11.235000+08:00",
+          "after_ts": "2026-06-18T09:39:17.828000+08:00",
+          "sample_before": "[2026/06/18 09:39:11.235 GMT+08:00]   Downloading https://pytorch-package.obs.cn-north-4.myhuaweicloud.com/pta/torch/v2.7.1/torch-2.7.1%2Bcpu-cp310-cp310-manylinux_2_28_x86_64.whl (175.9 MB)",
+          "sample_after": "[2026/06/18 09:39:17.828 GMT+08:00]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 175.9/175.9 MB 28.7 MB/s eta 0:00:00"
         }
       ],
       "pre_build": {
-        "total_seconds": 116.96,
-        "pct_of_total": 60.0,
-        "orchestrator": "Volcano",
+        "total_seconds": 140.802,
+        "pct_of_total": 67.64,
+        "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-17T15:13:33.817000+08:00",
-            "end": "2026-06-17T15:13:41.477000+08:00",
-            "duration_seconds": 7.66,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> Find available executor node:cce-codeci-11628c07dc -> 该步骤执行完成"
+            "start": "2026-06-18T09:38:00.578000+08:00",
+            "end": "2026-06-18T09:38:05.176000+08:00",
+            "duration_seconds": 4.598,
+            "evidence": "[PRE_ENV:slave_create] start → finish; executor node cce-codeci-c770b31eef created and connected"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-17T15:13:41.477000+08:00",
-            "end": "2026-06-17T15:13:45.254000+08:00",
-            "duration_seconds": 3.78,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Pulling from ***** -> Status: Image is up to date (cached). Additional pulls at 15:14:03 and 15:14:06 also cached."
+            "start": "2026-06-18T09:38:06.817000+08:00",
+            "end": "2026-06-18T09:38:06.817000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "shell4.2.46-git2.23-zip-1.1.0 Pulling from ***** → Status: Image is up to date (cached); karmada image at 09:38:33.187 also cached"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": "2026-06-17T15:13:45.254000+08:00",
-            "end": "2026-06-17T15:13:48.527000+08:00",
-            "duration_seconds": 3.27,
-            "evidence": "[Cache Check:external_cache_check] : 该步骤开始执行 -> 该步骤执行完成 (docker rm command, no cache to clear)"
+            "start": "2026-06-18T09:38:10.086000+08:00",
+            "end": "2026-06-18T09:38:10.846000+08:00",
+            "duration_seconds": 0.76,
+            "evidence": "[Cache Check:external_cache_check] start → finish; docker rm check (no containers to remove)"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-17T15:13:48.527000+08:00",
-            "end": "2026-06-17T15:14:01.390000+08:00",
-            "duration_seconds": 12.86,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 -> Cloning repository gitcode.com/Ascend/torchair.git -> fork MR merge -> [external_post_checkout] 该步骤执行完成"
+            "start": "2026-06-18T09:38:13.222000+08:00",
+            "end": "2026-06-18T09:38:24.948000+08:00",
+            "duration_seconds": 11.726,
+            "evidence": "[代码检出:external_pre_checkout] start → [代码检出:external_post_checkout] finish; git clone + fetch + merge of fork/eager_limit_core_26.1.0 into origin/26.1.0; commit 517531df"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
-            "start": "2026-06-17T15:14:01.390000+08:00",
-            "end": "2026-06-17T15:14:11.259000+08:00",
-            "duration_seconds": 9.87,
-            "evidence": "Docker pulls (shell4.2.46-git2.23-zip-1.1.0 cached), shell script execution (+ cat), kubeconfig download (0.95s internal), karmada image pull (cached), durable workspace checks"
+            "key": "artifact_download",
+            "name": "制品/配置文件下载",
+            "start": "2026-06-18T09:38:30.243000+08:00",
+            "end": "2026-06-18T09:38:31.344000+08:00",
+            "duration_seconds": 1.101,
+            "evidence": "[下载文件管理的文件:external_download_file] download kubeconfig_karmada.key result: SUCCESS"
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": "2026-06-18T09:38:34.554000+08:00",
+            "end": "2026-06-18T09:38:41.143000+08:00",
+            "duration_seconds": 6.589,
+            "evidence": "=== Pre-submit validation === start → [OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ → harbor-portal.osinfra.cn/north4-myhuaweicloud/"
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": "2026-06-18T09:38:41.143000+08:00",
+            "end": "2026-06-18T09:38:47.761000+08:00",
+            "duration_seconds": 6.618,
+            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
           },
           {
             "key": "orchestrator_submit",
             "name": "编排器任务提交",
-            "start": "2026-06-17T15:14:11.259000+08:00",
-            "end": "2026-06-17T15:14:24.215000+08:00",
-            "duration_seconds": 12.96,
-            "evidence": "/workspace/workflowtool/entrypoint.sh -> YAML生成 -> Pre-submit validation (Harbor registry, image proxy replace, Git-cache inject, queue/StorageClass check) -> Volcano Job submitted: ascend-torchair-jqz9h"
+            "start": "2026-06-18T09:38:49.290000+08:00",
+            "end": "2026-06-18T09:38:49.290000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Volcano Job submitted: ascend-torchair-8fxrs (instant)"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod 调度等待",
-            "start": "2026-06-17T15:14:24.215000+08:00",
-            "end": "2026-06-17T15:14:43.734000+08:00",
-            "duration_seconds": 19.52,
-            "evidence": "Volcano Job submitted -> 等待主Pod出现 -> 未找到pod (5.3s) -> Pod identified: ascend-torchair-jqz9h-main-script-0 (8.3s) -> Pod Running, kubectl logs connected"
+            "start": "2026-06-18T09:38:49.290000+08:00",
+            "end": "2026-06-18T09:39:03.265000+08:00",
+            "duration_seconds": 13.975,
+            "evidence": "Volcano Job submitted → Pod ascend-torchair-8fxrs-main-script-0 found → Pod 状态: Running; full scheduling wait includes pod discovery + start"
           },
           {
             "key": "git_checkout_pod",
             "name": "代码检出 (Pod内)",
-            "start": "2026-06-17T15:14:43.734000+08:00",
-            "end": "2026-06-17T15:14:46.064000+08:00",
-            "duration_seconds": 2.33,
-            "evidence": "Cloning into '/workspace'... -> From git-cache (cluster local) -> Merge made by 'ort' strategy -> 1 file changed"
+            "start": "2026-06-18T09:39:03.265000+08:00",
+            "end": "2026-06-18T09:39:06.574000+08:00",
+            "duration_seconds": 3.309,
+            "evidence": "Pod Running → Cloning into '/workspace'... → git clone from git-cache-http-server; Merge made by 'ort' strategy"
           },
           {
             "key": "pip_install",
             "name": "Python 依赖安装",
-            "start": "2026-06-17T15:14:46.064000+08:00",
-            "end": "2026-06-17T15:15:22.788000+08:00",
-            "duration_seconds": 36.72,
-            "evidence": "pip install cmake (2.8s) -> pip install torch==2.7.1+cpu download 175.9MB + install (28.5s) -> pip install torch_npu wheel (3.9s) -> pip list confirming all packages"
+            "start": "2026-06-18T09:39:06.575000+08:00",
+            "end": "2026-06-18T09:40:15.459000+08:00",
+            "duration_seconds": 67.367,
+            "evidence": "Session 1 (09:39:06.575→09:39:09.713, 3.138s): pip install cmake-4.3.2 | Session 2 (09:39:10.290→09:40:11.216, 60.926s): pip install torch==2.7.1+cpu (175.9MB wheel) + sympy/networkx/jinja2/fsspec/filelock/typing-extensions/mpmath/MarkupSafe | Session 3 (09:40:12.156→09:40:15.459, 3.303s): pip install torch_npu-2.7.1.post5.dev20260618 from local .whl"
           },
           {
-            "key": "git_checkout_pod_2",
-            "name": "代码检出 (构建仓库)",
-            "start": "2026-06-17T15:15:22.788000+08:00",
-            "end": "2026-06-17T15:15:30.775000+08:00",
-            "duration_seconds": 7.99,
-            "evidence": "Cloning 'cie' repo -> Cloning 'torchair' repo -> git fetch merge-requests/3233/head -> checkout new_3233 branch -> /workspace ready"
+            "key": "env_setup",
+            "name": "环境变量设置与仓库克隆",
+            "start": "2026-06-18T09:40:15.459000+08:00",
+            "end": "2026-06-18T09:40:21.258000+08:00",
+            "duration_seconds": 5.799,
+            "evidence": "Cloning into 'cie'... → Cloning into 'torchair'... → git fetch from cache → Switched to branch 'new_3236' → cp to /workspace → Building torchair with no ascend-sdk specified"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 77.83,
-        "pct_of_total": 39.9,
+        "total_seconds": 60.48,
+        "pct_of_total": 29.05,
         "actions": [
           {
             "key": "cmake_configure",
             "name": "CMake 配置",
-            "duration_seconds": 4.38,
-            "start": "2026-06-17T15:15:30.775000+08:00",
-            "end": "2026-06-17T15:15:35.157000+08:00",
-            "evidence": "Building torchair with no ascend-sdk specified -> Configuration finished -> gcc version 11.2.1 -> [INFO] Trying to initialize submodules -> [INFO] CMake Args"
+            "duration_seconds": 4.247
           },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 49.61,
-            "start": "2026-06-17T15:15:35.157000+08:00",
-            "end": "2026-06-17T15:16:24.765000+08:00",
-            "evidence": "[12%] Building CXX -> stub libs (graph, hccl, acl, ascendcl, ge) -> _torchair.so linking (10.0s) -> _npu_utils/_npu_graph_executor compilation+linking (18.2s) -> [100%] Built target _npu_graph_executor"
+            "duration_seconds": 38.839
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 23.84,
-            "start": "2026-06-17T15:16:24.765000+08:00",
-            "end": "2026-06-17T15:16:48.600000+08:00",
-            "evidence": "running bdist_wheel -> running build_py -> copying torchair/* -> adding files -> torchair-0.1-py3-none-any.whl (1865KB) -> [100%] Built target torchair -> artifact extraction/obs upload/pipeline shutdown (cascaded)"
-          }
-        ]
-      },
-      "post_build": {
-        "total_seconds": 22.73,
-        "pct_of_total": 11.7,
-        "actions": [
-          {
-            "key": "artifact_extraction",
-            "name": "制品提取",
-            "start": "2026-06-17T15:16:31.165000+08:00",
-            "end": "2026-06-17T15:16:31.426000+08:00",
-            "duration_seconds": 5.56,
-            "evidence": "检测到 artifact Volcano Job -> kubectl cp from copy-artifact container -> Artifacts 提取成功 -> Job ascend-torchair-jqz9h 成功完成. 5.3s pre-extraction wait + 0.26s extraction."
-          },
-          {
-            "key": "container_cleanup",
-            "name": "容器清理",
-            "start": "2026-06-17T15:16:36.728000+08:00",
-            "end": "2026-06-17T15:16:36.989000+08:00",
-            "duration_seconds": 5.56,
-            "evidence": "清理 copy-artifact 容器... -> 工作流处理完成. 5.3s post-extraction wait + 0.26s cleanup."
-          },
-          {
-            "key": "obs_upload",
-            "name": "OBS 上传",
-            "start": "2026-06-17T15:16:39.496000+08:00",
-            "end": "2026-06-17T15:16:41.802000+08:00",
-            "duration_seconds": 2.31,
-            "evidence": "[上传文件到OBS:external_obs_uploader] 该步骤开始执行 -> 获取临时凭证 -> 上传torchair-0.1-py3-none-any.whl -> outputs SHA256 -> 该步骤执行完成"
-          },
-          {
-            "key": "pipeline_shutdown",
-            "name": "流水线关闭",
-            "start": "2026-06-17T15:16:43.192000+08:00",
-            "end": "2026-06-17T15:16:48.600000+08:00",
-            "duration_seconds": 5.41,
-            "evidence": "[JobStatusPlugin] onCompleted -> find empty location by state -> [frame] current slave-type: k8sdockerondocker -> Finished: SUCCESS"
+            "duration_seconds": 17.394
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 117.0,
-        "build_seconds": 77.8,
-        "unattributed_seconds": 0.1,
+        "pre_build_seconds": 140.8,
+        "build_seconds": 60.5,
+        "unattributed_seconds": 6.9,
         "key_bottleneck": "Python 依赖安装",
-        "key_bottleneck_seconds": 36.72
+        "key_bottleneck_seconds": 67.367
       }
     },
     {
       "task_name": "Build_ARM",
       "stage": "编译构建",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=977c8ebb3a564e4e8e697de3b0d513ba&stepId=19da1405451540f2aaa6e2a180623023&jobRunId=313bdbb1855d40af8d38c6f51c44a3cd&stepRunId=b19029934a0b4ad491e4517c97cbfbd1&codeHostingPlatformFlag=gitcode",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=2520a18319bb48fe8c9feed1b3750a6c&stepId=7d2bf8c7f5624d11b87712f8c71bd438&jobRunId=aa0a7bad9fbb4d59ab7bce43963d17b8&stepRunId=a86fd4f29abe4f24aff1c0a02859931e&codeHostingPlatformFlag=gitcode",
       "time": {
-        "start": "2026-06-17T15:13:30.288000+08:00",
-        "end": "2026-06-17T15:17:16.885000+08:00",
-        "duration_seconds": 226.597
+        "start": "2026-06-18T09:38:00.473000+08:00",
+        "end": "2026-06-18T09:41:38.875000+08:00",
+        "duration_seconds": 218.402
       },
-      "log_sample": "[2026/06/17 15:13:30.288 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_Gw0aet66 #1\n[2026/06/17 15:13:30.475 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/17 15:13:35.442 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/17 15:13:37.333 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/17 15:13:41.693 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/17 15:13:44.094 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/17 15:13:56.893 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/17 15:14:02.270 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤开始执行\n[2026/06/17 15:14:03.239 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/17 15:14:06.200 GMT+08:00] + /workspace/workflowtool/entrypoint.sh\n[2026/06/17 15:14:13.577 GMT+08:00] Volcano Job submitted: ascend-torchair-qbvbq\n[2026/06/17 15:14:29.824 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/17 15:15:38.707 GMT+08:00] Successfully installed torch-npu-2.7.1.post5.dev20260617\n[2026/06/17 15:15:49.442 GMT+08:00] Building torchair with no ascend-sdk specified\n[2026/06/17 15:16:48.716 GMT+08:00] [100%] Built target _npu_graph_executor\n[2026/06/17 15:16:49.803 GMT+08:00] [100%] Built target torchair\n[2026/06/17 15:17:00.266 GMT+08:00] Job ascend-torchair-qbvbq 成功完成\n[2026/06/17 15:17:10.272 GMT+08:00] [INFO] [上传文件到OBS:external_obs_uploader] : 该步骤执行完成\n[2026/06/17 15:17:16.885 GMT+08:00] Finished: SUCCESS",
+      "log_sample": "[2026/06/18 09:38:00.473 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_6cyrJQ3a #1\n[2026/06/18 09:38:00.622 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 09:38:00.624 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: docker_X86_2U8G_suffix\n[2026/06/18 09:38:00.626 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 09:38:01.628 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 09:38:01.840 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-666dc4866e ok, waiting for connection...\n[2026/06/18 09:38:05.464 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-666dc4866e\n[2026/06/18 09:38:05.504 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 09:38:07.485 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 09:38:07.485 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 09:38:10.569 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 09:38:11.426 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 09:38:13.922 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 09:38:14.187 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 09:38:14.899 GMT+08:00] Cloning repository https://gitcode.com/Ascend/torchair.git\n[2026/06/18 09:38:15.001 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/torchair.git +517531df8c702008bdd3625246566311ec52f019:refs/remotes/fork/eager_limit_core_26.1.0 # timeout=120\n[2026/06/18 09:38:20.641 GMT+08:00] fork MR gitcode from eager_limit_core_26.1.0(517531df8c702008bdd3625246566311ec52f019) to 26.1.0(989557d5552b433e5eb541554881c99bd88e08c0).\n[2026/06/18 09:38:26.538 GMT+08:00] Commit message: \"Merge commit '517531df8c702008bdd3625246566311ec52f019' into eager_limit_core_26.1.0\"\n[2026/06/18 09:38:26.582 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 09:38:26.636 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 09:38:32.036 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤开始执行\n[2026/06/18 09:38:32.945 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/18 09:38:36.071 GMT+08:00] CP_runs_on: arm64-cpu-32-mem-80G\n[2026/06/18 09:38:36.334 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 09:38:43.009 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 09:38:43.009 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 09:38:48.289 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 09:38:48.554 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 09:38:49.492 GMT+08:00] Volcano Job submitted: ascend-torchair-mpdpr\n[2026/06/18 09:38:49.751 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-mpdpr' 的 pod\n[2026/06/18 09:38:56.325 GMT+08:00] Job ascend-torchair-mpdpr 的主 Pod: ascend-torchair-mpdpr-main-script-0\n[2026/06/18 09:39:04.821 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 09:39:05.400 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 09:39:07.312 GMT+08:00] Merge made by the 'ort' strategy.\n[2026/06/18 09:39:08.251 GMT+08:00] Collecting cmake\n[2026/06/18 09:39:11.540 GMT+08:00] Successfully installed cmake-4.3.2\n[2026/06/18 09:39:12.483 GMT+08:00] Collecting torch==2.7.1\n[2026/06/18 09:39:17.768 GMT+08:00]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 MB 19.4 MB/s eta 0:00:00\n[2026/06/18 09:40:03.667 GMT+08:00] Successfully installed MarkupSafe-3.0.3 filelock-3.29.4 fsspec-2026.6.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 sympy-1.14.0 torch-2.7.1 typing-extensions-4.15.0\n[2026/06/18 09:40:04.234 GMT+08:00] Processing ./torch_npu-2.7.1.post5.dev20260618-cp310-cp310-manylinux_2_28_aarch64.whl\n[2026/06/18 09:40:07.563 GMT+08:00] Successfully installed torch-npu-2.7.1.post5.dev20260618\n[2026/06/18 09:40:07.563 GMT+08:00] Cloning into 'cie'...\n[2026/06/18 09:40:12.416 GMT+08:00] /workspace\n[2026/06/18 09:40:12.416 GMT+08:00] Building torchair with no ascend-sdk specified\n[2026/06/18 09:40:17.262 GMT+08:00] -- The C compiler identification is GNU 11.2.1\n[2026/06/18 09:40:20.236 GMT+08:00] [ 47%] Linking CXX shared library stubs/libge_local_stub.so\n[2026/06/18 09:41:11.303 GMT+08:00] [100%] Built target _npu_graph_executor\n[2026/06/18 09:41:11.303 GMT+08:00] running bdist_wheel\n[2026/06/18 09:41:12.405 GMT+08:00] [100%] Built target torchair\n[2026/06/18 09:41:21.986 GMT+08:00] 开始提取 artifacts 到 ***/ ...\n[2026/06/18 09:41:21.986 GMT+08:00] Artifacts 提取成功\n[2026/06/18 09:41:30.001 GMT+08:00] [INFO] [上传文件到OBS:external_obs_uploader] : 该步骤开始执行\n[2026/06/18 09:41:32.149 GMT+08:00] [INFO] [上传文件到OBS:external_obs_uploader] : 该步骤执行完成",
       "log_stats": {
-        "total_timestamped_lines": 4921,
+        "total_timestamped_lines": 4767,
         "sample_lines": 400,
-        "raw_chars": 656082
+        "raw_chars": 639294
       },
       "timestamp_summary": {
-        "first": "2026-06-17T15:13:30.288000+08:00",
-        "last": "2026-06-17T15:17:16.885000+08:00",
-        "duration_seconds": 226.597,
-        "total_timestamped_lines": 4921,
+        "first": "2026-06-18T09:38:00.473000+08:00",
+        "last": "2026-06-18T09:41:38.875000+08:00",
+        "duration_seconds": 218.402,
+        "total_timestamped_lines": 4767,
         "sample_lines_included": 400
       },
       "significant_gaps": [
         {
           "after_line": 44,
-          "gap_seconds": 6.186,
-          "before_ts": "2026-06-17T15:13:45.198000+08:00",
-          "after_ts": "2026-06-17T15:13:51.384000+08:00",
-          "sample_before": "[2026/06/17 15:13:45.198 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/torchair.git +5a5479f2434ef5eb91703cf6e8caa2caa2f3a915:refs/remotes/fork/add_zeros_pa",
-          "sample_after": "[2026/06/17 15:13:51.384 GMT+08:00] fork MR gitcode from add_zeros_pass_fix(5a5479f2434ef5eb91703cf6e8caa2caa2f3a915) to master(672dbc80edd2f3f8cc57fe454d5f89900abd742c).",
-          "attribution": "git_checkout",
-          "notes": "Git fetch over network for fork branch, internal to code checkout phase"
+          "gap_seconds": 5.64,
+          "before_ts": "2026-06-18T09:38:15.001000+08:00",
+          "after_ts": "2026-06-18T09:38:20.641000+08:00",
+          "sample_before": "[2026/06/18 09:38:15.001 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/torchair.git +517531df8c702008bdd3625246566311ec52f019:refs/remotes/fork/eager_limit_",
+          "sample_after": "[2026/06/18 09:38:20.641 GMT+08:00] fork MR gitcode from eager_limit_core_26.1.0(517531df8c702008bdd3625246566311ec52f019) to 26.1.0(989557d5552b433e5eb541554881c99bd88e08c0)."
+        },
+        {
+          "after_line": 113,
+          "gap_seconds": 6.675,
+          "before_ts": "2026-06-18T09:38:36.334000+08:00",
+          "after_ts": "2026-06-18T09:38:43.009000+08:00",
+          "sample_before": "[2026/06/18 09:38:36.334 GMT+08:00] === Pre-submit validation ===",
+          "sample_after": "[2026/06/18 09:38:43.009 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement"
+        },
+        {
+          "after_line": 115,
+          "gap_seconds": 5.28,
+          "before_ts": "2026-06-18T09:38:43.009000+08:00",
+          "after_ts": "2026-06-18T09:38:48.289000+08:00",
+          "sample_before": "[2026/06/18 09:38:43.009 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
+          "sample_after": "[2026/06/18 09:38:48.289 GMT+08:00] [OK] Git-cache found, injecting git proxy config"
         },
         {
           "after_line": 126,
-          "gap_seconds": 8.143,
-          "before_ts": "2026-06-17T15:14:16.134000+08:00",
-          "after_ts": "2026-06-17T15:14:24.277000+08:00",
-          "sample_before": "[2026/06/17 15:14:16.134 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-qbvbq' 的 pod",
-          "sample_after": "[2026/06/17 15:14:24.277 GMT+08:00] Job ascend-torchair-qbvbq 的主 Pod: ascend-torchair-qbvbq-main-script-0",
-          "attribution": "pod_scheduling",
-          "notes": "Volcano scheduler polling for Pod, 8.1s from first poll to Pod identified"
+          "gap_seconds": 6.574,
+          "before_ts": "2026-06-18T09:38:49.751000+08:00",
+          "after_ts": "2026-06-18T09:38:56.325000+08:00",
+          "sample_before": "[2026/06/18 09:38:49.751 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-torchair-mpdpr' 的 pod",
+          "sample_after": "[2026/06/18 09:38:56.325 GMT+08:00] Job ascend-torchair-mpdpr 的主 Pod: ascend-torchair-mpdpr-main-script-0"
         },
         {
           "after_line": 128,
-          "gap_seconds": 5.287,
-          "before_ts": "2026-06-17T15:14:24.277000+08:00",
-          "after_ts": "2026-06-17T15:14:29.564000+08:00",
-          "sample_before": "[2026/06/17 15:14:24.277 GMT+08:00] 等待 Job ascend-torchair-qbvbq 的 Pod 启动...",
-          "sample_after": "[2026/06/17 15:14:29.564 GMT+08:00] [日志] 等待 Pod ascend-torchair-qbvbq-main-script-0 开始运行...",
-          "attribution": "pod_scheduling",
-          "notes": "Waiting for Pod to transition to Running state, internal to pod scheduling"
+          "gap_seconds": 6.577,
+          "before_ts": "2026-06-18T09:38:56.325000+08:00",
+          "after_ts": "2026-06-18T09:39:02.902000+08:00",
+          "sample_before": "[2026/06/18 09:38:56.325 GMT+08:00] 等待 Job ascend-torchair-mpdpr 的 Pod 启动...",
+          "sample_after": "[2026/06/18 09:39:02.902 GMT+08:00] [日志] 等待 Pod ascend-torchair-mpdpr-main-script-0 开始运行..."
         },
         {
-          "after_line": 149,
-          "gap_seconds": 5.301,
-          "before_ts": "2026-06-17T15:14:35.059000+08:00",
-          "after_ts": "2026-06-17T15:14:40.360000+08:00",
-          "sample_before": "[2026/06/17 15:14:35.059 GMT+08:00] 等待 Job ascend-torchair-qbvbq 的主容器 (ascend) 完成...",
-          "sample_after": "[2026/06/17 15:14:40.360 GMT+08:00] Looking in indexes: https://mirrors.huaweicloud.com/repository/pypi/simple",
-          "attribution": "pip_install",
-          "notes": "Job status check printed between cmake install end and torch pip download start, internal to pip install phase"
-        },
-        {
-          "after_line": 168,
-          "gap_seconds": 21.987,
-          "before_ts": "2026-06-17T15:14:47.910000+08:00",
-          "after_ts": "2026-06-17T15:15:09.897000+08:00",
-          "sample_before": "[2026/06/17 15:14:47.910 GMT+08:00] Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.7.1)",
-          "sample_after": "[2026/06/17 15:15:09.897 GMT+08:00]   Downloading https://mirrors.huaweicloud.com/repository/pypi/packages/43/e3/7d92a15f894aa0c9c4b49b8ee9ac9850d6e63b03c9c32c0367a13ae62209/mpmath-1.3.0-py3-none-any.",
-          "attribution": "pip_install",
-          "notes": "Long 22s gap during pip dependency resolution for torch on ARM (mpmath/MarkupSafe transitive dep resolution), internal to pip install"
-        },
-        {
-          "after_line": 173,
-          "gap_seconds": 18.18,
-          "before_ts": "2026-06-17T15:15:11.832000+08:00",
-          "after_ts": "2026-06-17T15:15:30.012000+08:00",
-          "sample_before": "[2026/06/17 15:15:11.832 GMT+08:00] Installing collected packages: mpmath, typing-extensions, sympy, networkx, MarkupSafe, fsspec, filelock, jinja2, torch",
-          "sample_after": "[2026/06/17 15:15:30.012 GMT+08:00] Successfully installed MarkupSafe-3.0.3 filelock-3.29.4 fsspec-2026.6.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.4.2 sympy-1.14.0 torch-2.7.1 typing-extensions-4.15.0",
-          "attribution": "pip_install",
-          "notes": "Torch wheel installation on ARM (99.1MB wheel), includes all transitive dependencies, internal to pip install phase"
-        },
-        {
-          "after_line": 175,
-          "gap_seconds": 5.301,
-          "before_ts": "2026-06-17T15:15:30.012000+08:00",
-          "after_ts": "2026-06-17T15:15:35.313000+08:00",
-          "sample_before": "[2026/06/17 15:15:30.012 GMT+08:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system u",
-          "sample_after": "[2026/06/17 15:15:35.313 GMT+08:00] 2026-06-17 15:15:33 URL:https://pytorch-package.obs.cn-north-4.myhuaweicloud.com/cache/v2.7.1/pytorchv2.7.1_3.10_aarch64.tar.gz [38245917/38245917] -> \"pytorchv2.7.",
-          "attribution": "pip_install",
-          "notes": "Torch_npu cache tarball download (38MB) and pip install preparation, internal to pip install phase"
-        },
-        {
-          "after_line": 199,
-          "gap_seconds": 6.589,
-          "before_ts": "2026-06-17T15:15:38.707000+08:00",
-          "after_ts": "2026-06-17T15:15:45.296000+08:00",
-          "sample_before": "[2026/06/17 15:15:38.707 GMT+08:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system u",
-          "sample_after": "[2026/06/17 15:15:45.296 GMT+08:00] Package           Version",
-          "attribution": "pip_install",
-          "notes": "Pip list output and Python package verification between pip install end and git checkout pod start, attributed to pip install phase cleanup"
-        },
-        {
-          "after_line": 371,
-          "gap_seconds": 10.006,
-          "before_ts": "2026-06-17T15:16:17.596000+08:00",
-          "after_ts": "2026-06-17T15:16:27.602000+08:00",
-          "sample_before": "[2026/06/17 15:16:17.596 GMT+08:00] [ 81%] Built target torch_npu",
-          "sample_after": "[2026/06/17 15:16:27.602 GMT+08:00] [ 83%] Linking CXX shared library ../dist/torchair/core/_torchair.so",
-          "attribution": "compilation",
-          "notes": "Main _torchair.so linking on ARM64, internal to compilation phase"
-        },
-        {
-          "after_line": 383,
-          "gap_seconds": 18.219,
-          "before_ts": "2026-06-17T15:16:28.544000+08:00",
-          "after_ts": "2026-06-17T15:16:46.763000+08:00",
-          "sample_before": "[2026/06/17 15:16:28.544 GMT+08:00] [ 97%] Building CXX object torchair/npu_graph_executor/CMakeFiles/_npu_graph_executor.dir/wrapper.cpp.o",
-          "sample_after": "[2026/06/17 15:16:46.763 GMT+08:00] [ 98%] Linking CXX shared library ../../dist/torchair/core/_npu_utils.so",
-          "attribution": "compilation",
-          "notes": "Final compilation + linking of _npu_utils.so and _npu_graph_executor.so on ARM64, internal to compilation phase"
-        },
-        {
-          "after_line": 4893,
-          "gap_seconds": 6.601,
-          "before_ts": "2026-06-17T15:16:49.803000+08:00",
-          "after_ts": "2026-06-17T15:16:56.404000+08:00",
-          "sample_before": "[2026/06/17 15:16:49.803 GMT+08:00] -rw-r--r--  1 root root 1832923 Jun 17 15:16 torchair-0.1-py3-none-any.whl",
-          "sample_after": "[2026/06/17 15:16:56.404 GMT+08:00] [日志] tail 错误: signal: killed",
-          "attribution": "artifact_extraction",
-          "notes": "Waiting period between packaging completion and Volcano job tail signal, pre-artifact extraction orchestration gap"
-        },
-        {
-          "after_line": 4899,
-          "gap_seconds": 5.315,
-          "before_ts": "2026-06-17T15:17:00.266000+08:00",
-          "after_ts": "2026-06-17T15:17:05.581000+08:00",
-          "sample_before": "[2026/06/17 15:17:00.266 GMT+08:00] Job ascend-torchair-qbvbq 成功完成",
-          "sample_after": "[2026/06/17 15:17:05.581 GMT+08:00] 清理 copy-artifact 容器...",
-          "attribution": "container_cleanup",
-          "notes": "Post-artifact extraction wait before container cleanup, pipeline orchestration overhead"
-        },
-        {
-          "after_line": 4919,
-          "gap_seconds": 5.102,
-          "before_ts": "2026-06-17T15:17:11.651000+08:00",
-          "after_ts": "2026-06-17T15:17:16.753000+08:00",
-          "sample_before": "[2026/06/17 15:17:11.651 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_Gw0aet66 #1",
-          "sample_after": "[2026/06/17 15:17:16.753 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker",
-          "attribution": "pipeline_shutdown",
-          "notes": "Pipeline job completion reporting and Kafka event dispatch, final shutdown overhead"
+          "after_line": 155,
+          "gap_seconds": 5.285,
+          "before_ts": "2026-06-18T09:39:12.483000+08:00",
+          "after_ts": "2026-06-18T09:39:17.768000+08:00",
+          "sample_before": "[2026/06/18 09:39:12.483 GMT+08:00]   Downloading https://pytorch-package.obs.cn-north-4.myhuaweicloud.com/pta/torch/v2.7.1/torch-2.7.1-cp310-cp310-manylinux_2_28_aarch64.whl (99.1 MB)",
+          "sample_after": "[2026/06/18 09:39:17.768 GMT+08:00]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 MB 19.4 MB/s eta 0:00:00"
         }
       ],
       "pre_build": {
-        "total_seconds": 138.97,
-        "pct_of_total": 61.3,
-        "orchestrator": "Volcano",
+        "total_seconds": 131.943,
+        "pct_of_total": 60.41,
+        "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-17T15:13:30.475000+08:00",
-            "end": "2026-06-17T15:13:37.333000+08:00",
-            "duration_seconds": 6.86,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> [slave] resources pool: docker_X86_2U8G_suffix -> Find available executor node:cce-codeci-9793c4518f -> 该步骤执行完成"
+            "start": "2026-06-18T09:38:00.622000+08:00",
+            "end": "2026-06-18T09:38:05.504000+08:00",
+            "duration_seconds": 4.882,
+            "evidence": "[PRE_ENV:slave_create] start → finish; executor node cce-codeci-666dc4866e created and connected; pool: docker_X86_2U8G_suffix (ARM build runs on x86 coordinator)"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-17T15:13:37.333000+08:00",
-            "end": "2026-06-17T15:13:40.614000+08:00",
-            "duration_seconds": 3.28,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Pulling -> Image is up to date (cached) -> second docker pull at 15:13:43 also cached."
+            "start": "2026-06-18T09:38:07.485000+08:00",
+            "end": "2026-06-18T09:38:07.485000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "shell4.2.46-git2.23-zip-1.1.0 Pulling from ***** → Status: Image is up to date (cached); karmada image at 09:38:34.862 also cached"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": "2026-06-17T15:13:40.614000+08:00",
-            "end": "2026-06-17T15:13:44.094000+08:00",
-            "duration_seconds": 3.48,
-            "evidence": "[Cache Check:external_cache_check] : 该步骤开始执行 -> docker rm command -> 该步骤执行完成, embedded within docker pull phase"
+            "start": "2026-06-18T09:38:10.569000+08:00",
+            "end": "2026-06-18T09:38:11.426000+08:00",
+            "duration_seconds": 0.857,
+            "evidence": "[Cache Check:external_cache_check] start → finish; docker rm check (no containers to remove)"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-17T15:13:44.094000+08:00",
-            "end": "2026-06-17T15:13:56.893000+08:00",
-            "duration_seconds": 12.8,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 -> Cloning repository -> fork MR merge add_zeros_pass_fix -> [external_post_checkout] 该步骤执行完成"
+            "start": "2026-06-18T09:38:13.922000+08:00",
+            "end": "2026-06-18T09:38:26.636000+08:00",
+            "duration_seconds": 12.714,
+            "evidence": "[代码检出:external_pre_checkout] start → [代码检出:external_post_checkout] finish; git clone + fetch + merge of fork/eager_limit_core_26.1.0 into origin/26.1.0; commit 517531df"
           },
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
-            "start": "2026-06-17T15:13:56.893000+08:00",
-            "end": "2026-06-17T15:14:06.200000+08:00",
-            "duration_seconds": 9.31,
-            "evidence": "Docker pulls (shell4.2.46 cached) -> + cat shell script -> kubeconfig download (15:14:02-15:14:03, 0.97s) -> karmada image pull (cached) -> durable workspace checks"
+            "key": "artifact_download",
+            "name": "制品/配置文件下载",
+            "start": "2026-06-18T09:38:32.036000+08:00",
+            "end": "2026-06-18T09:38:32.945000+08:00",
+            "duration_seconds": 0.909,
+            "evidence": "[下载文件管理的文件:external_download_file] download kubeconfig_karmada.key result: SUCCESS"
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": "2026-06-18T09:38:36.334000+08:00",
+            "end": "2026-06-18T09:38:43.009000+08:00",
+            "duration_seconds": 6.675,
+            "evidence": "=== Pre-submit validation === start → [OK] Harbor registry found, applying image proxy replacement; [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ → harbor-portal.osinfra.cn/north4-myhuaweicloud/"
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": "2026-06-18T09:38:43.009000+08:00",
+            "end": "2026-06-18T09:38:48.289000+08:00",
+            "duration_seconds": 5.28,
+            "evidence": "[OK] Git-cache found, injecting git proxy config; [GIT] Injected git proxy config into main-script"
           },
           {
             "key": "orchestrator_submit",
             "name": "编排器任务提交",
-            "start": "2026-06-17T15:14:06.200000+08:00",
-            "end": "2026-06-17T15:14:13.577000+08:00",
-            "duration_seconds": 7.38,
-            "evidence": "entrypoint.sh -> YAML生成 -> Pre-submit validation (Harbor registry, image proxy, Git-cache, queue, StorageClass) -> Volcano Job submitted: ascend-torchair-qbvbq"
+            "start": "2026-06-18T09:38:49.492000+08:00",
+            "end": "2026-06-18T09:38:49.492000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Volcano Job submitted: ascend-torchair-mpdpr (instant)"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod 调度等待",
-            "start": "2026-06-17T15:14:13.577000+08:00",
-            "end": "2026-06-17T15:14:29.824000+08:00",
-            "duration_seconds": 16.25,
-            "evidence": "Volcano Job submitted -> 等待主Pod出现 -> 未找到pod (2.6s) -> Pod identified: ascend-torchair-qbvbq-main-script-0 (8.1s) -> Pod Running (5.3s) -> kubectl logs connected"
+            "start": "2026-06-18T09:38:49.492000+08:00",
+            "end": "2026-06-18T09:39:04.821000+08:00",
+            "duration_seconds": 15.329,
+            "evidence": "Volcano Job submitted → Pod ascend-torchair-mpdpr-main-script-0 found → Pod 状态: Running; full scheduling wait includes pod discovery + start"
           },
           {
             "key": "git_checkout_pod",
             "name": "代码检出 (Pod内)",
-            "start": "2026-06-17T15:14:29.824000+08:00",
-            "end": "2026-06-17T15:14:31.344000+08:00",
-            "duration_seconds": 1.52,
-            "evidence": "Cloning into '/workspace'... -> From git-cache (cluster local) -> Merge made by 'ort' strategy -> /usr/local/bin/python3 Python 3.10.16, near-instantaneous cached clone"
+            "start": "2026-06-18T09:39:04.821000+08:00",
+            "end": "2026-06-18T09:39:07.312000+08:00",
+            "duration_seconds": 2.491,
+            "evidence": "Pod Running → Cloning into '/workspace'... → git clone from git-cache-http-server; Merge made by 'ort' strategy"
           },
           {
             "key": "pip_install",
             "name": "Python 依赖安装",
-            "start": "2026-06-17T15:14:31.344000+08:00",
-            "end": "2026-06-17T15:15:45.297000+08:00",
-            "duration_seconds": 73.95,
-            "evidence": "pip install cmake (3.1s) -> pip install torch==2.7.1 ARM wheel download 99.1MB + install (49.7s, with 22s dep resolution gap) -> torch_npu cache download 38MB + install (3.4s) -> pip list verification"
+            "start": "2026-06-18T09:39:08.251000+08:00",
+            "end": "2026-06-18T09:40:07.563000+08:00",
+            "duration_seconds": 57.802,
+            "evidence": "Session 1 (09:39:08.251→09:39:11.540, 3.289s): pip install cmake-4.3.2 | Session 2 (09:39:12.483→09:40:03.667, 51.184s): pip install torch==2.7.1 (99.1MB wheel, aarch64) + sympy/networkx/jinja2/fsspec/filelock/typing-extensions/mpmath/MarkupSafe | Session 3 (09:40:04.234→09:40:07.563, 3.329s): pip install torch_npu-2.7.1.post5.dev20260618 from local .whl (aarch64)"
           },
           {
-            "key": "git_checkout_pod_2",
-            "name": "代码检出 (构建仓库)",
-            "start": "2026-06-17T15:15:45.297000+08:00",
-            "end": "2026-06-17T15:15:49.442000+08:00",
-            "duration_seconds": 4.15,
-            "evidence": "Cloning 'cie' repo -> Cloning 'torchair' repo -> git fetch merge-requests/3233/head -> checkout new_3233 -> /workspace ready, ls showing workspace contents"
+            "key": "env_setup",
+            "name": "环境变量设置与仓库克隆",
+            "start": "2026-06-18T09:40:07.563000+08:00",
+            "end": "2026-06-18T09:40:12.416000+08:00",
+            "duration_seconds": 4.853,
+            "evidence": "Cloning into 'cie'... → Cloning into 'torchair'... → git fetch from cache → Switched to branch 'new_3236' → cp to /workspace → Building torchair with no ascend-sdk specified"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 87.44,
-        "pct_of_total": 38.6,
+        "total_seconds": 79.733,
+        "pct_of_total": 36.51,
         "actions": [
           {
             "key": "cmake_configure",
             "name": "CMake 配置",
-            "duration_seconds": 5.04,
-            "start": "2026-06-17T15:15:49.442000+08:00",
-            "end": "2026-06-17T15:15:54.481000+08:00",
-            "evidence": "Building torchair with no ascend-sdk specified -> Configuration finished -> gcc version 11.2.1 -> submodules init -> [INFO] CMake Args"
+            "duration_seconds": 7.82
           },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 54.23,
-            "start": "2026-06-17T15:15:54.481000+08:00",
-            "end": "2026-06-17T15:16:48.716000+08:00",
-            "evidence": "[12%] Building CXX -> stub libs -> _torchair.so linking (10.0s at 15:16:17-15:16:27) -> _npu_utils/_npu_graph_executor build+linking (18.2s at 15:16:28-15:16:47) -> [100%] Built target _npu_graph_executor"
+            "duration_seconds": 51.067
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 28.17,
-            "start": "2026-06-17T15:16:48.716000+08:00",
-            "end": "2026-06-17T15:17:16.885000+08:00",
-            "evidence": "running bdist_wheel -> running build_py -> copying torchair/* -> torchair-0.1-py3-none-any.whl (1790KB) -> [100%] Built target torchair -> artifact extraction/obs upload/pipeline shutdown (cascaded)"
-          }
-        ]
-      },
-      "post_build": {
-        "total_seconds": 27.05,
-        "pct_of_total": 11.9,
-        "actions": [
-          {
-            "key": "artifact_extraction",
-            "name": "制品提取",
-            "start": "2026-06-17T15:16:59.696000+08:00",
-            "end": "2026-06-17T15:17:00.266000+08:00",
-            "duration_seconds": 10.46,
-            "evidence": "检测到 artifact Volcano Job -> kubectl cp from copy-artifact -> Artifacts 提取成功 -> Job ascend-torchair-qbvbq 成功完成. 9.89s pre-extraction wait + 0.57s extraction."
-          },
-          {
-            "key": "container_cleanup",
-            "name": "容器清理",
-            "start": "2026-06-17T15:17:05.581000+08:00",
-            "end": "2026-06-17T15:17:05.840000+08:00",
-            "duration_seconds": 5.57,
-            "evidence": "清理 copy-artifact 容器... -> 工作流处理完成. 5.32s post-extraction wait + 0.26s cleanup."
-          },
-          {
-            "key": "obs_upload",
-            "name": "OBS 上传",
-            "start": "2026-06-17T15:17:08.221000+08:00",
-            "end": "2026-06-17T15:17:10.272000+08:00",
-            "duration_seconds": 2.05,
-            "evidence": "[上传文件到OBS:external_obs_uploader] 该步骤开始执行 -> 获取临时凭证 -> 上传torchair-0.1-py3-none-any.whl (ARM) -> outputs SHA256 -> 该步骤执行完成"
-          },
-          {
-            "key": "pipeline_shutdown",
-            "name": "流水线关闭",
-            "start": "2026-06-17T15:17:11.651000+08:00",
-            "end": "2026-06-17T15:17:16.885000+08:00",
-            "duration_seconds": 5.23,
-            "evidence": "[JobStatusPlugin] onCompleted: j_Gw0aet66 -> find empty location by state -> [frame] current slave-type: k8sdockerondocker -> Finished: SUCCESS"
+            "duration_seconds": 20.846
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 139.0,
-        "build_seconds": 87.4,
-        "unattributed_seconds": 0.2,
+        "pre_build_seconds": 131.9,
+        "build_seconds": 79.7,
+        "unattributed_seconds": 6.7,
         "key_bottleneck": "Python 依赖安装",
-        "key_bottleneck_seconds": 73.95
+        "key_bottleneck_seconds": 57.802
       }
     }
   ]
