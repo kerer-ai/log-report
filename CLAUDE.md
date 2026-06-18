@@ -6,13 +6,25 @@
 ## 数据流水线
 
 ```
-gitcode-build-time-analyzer    build-log-normalizer    generate.py
-        ↓                            ↓                    ↓
-   json-org/*.json      →       json/*.json      →    index.html
-   (AI 分析日志)              (归一化标准格式)        (看板页面)
-                                                          ↓
-                                                   GitHub Pages
+repos.txt → sync-deploy (全流程编排)
+                ├─ gitcode-build-time-analyzer (fetch + AI分析)
+                ├─ build-log-normalizer (归一化)
+                ├─ generate.py (渲染)
+                └─ git push (发布到 GitHub Pages)
                                               kerer-ai.github.io/log-report
+```
+
+### 一键更新看板
+
+```bash
+/sync-deploy               # 增量：只更新有变化的仓库
+/sync-deploy --force-fetch # 全量：强制重新拉取所有仓库
+```
+
+### 单仓库分析
+
+```bash
+/gitcode-build-time-analyzer https://gitcode.com/Ascend/pytorch
 ```
 
 ### 步骤 1: 获取构建数据
@@ -63,6 +75,7 @@ GitHub Pages 自动部署到 `https://kerer-ai.github.io/log-report/`
 
 ```
 log_analyze/
+├── repos.txt                # 仓库列表（sync-deploy 读取）
 ├── generate.py              # 构建脚本：嵌入 JSON 数据到模板，输出 index.html
 ├── template.html            # HTML 模板：{{DATA_JSON}} 占位符 + 内联 CSS/JS
 ├── index.html               # 生成的看板页面（git tracked，供 Pages 部署）
@@ -76,6 +89,7 @@ log_analyze/
 │
 ├── .claude/
 │   └── skills/
+│       ├── sync-deploy/                   # 全流程编排：采集→分析→归一化→渲染→发布
 │       ├── gitcode-build-time-analyzer/   # 获取+AI分析构建日志
 │       └── build-log-normalizer/          # 归一化 JSON 格式
 │

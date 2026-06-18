@@ -1,0 +1,13 @@
+# CI/CD 构建分析仓库列表
+# 一行一个 GitCode 仓库 URL，# 开头为注释
+# 由 sync-deploy skill 读取，按顺序处理
+
+https://gitcode.com/Ascend/pytorch
+https://gitcode.com/Ascend/torchair
+https://gitcode.com/Ascend/MindIE-LLM
+https://gitcode.com/Ascend/MindIE-Motor
+https://gitcode.com/Ascend/MindIE-SD
+https://gitcode.com/Ascend/MindIE-PyMotor
+https://gitcode.com/Ascend/MindSpeed
+https://gitcode.com/Ascend/MindSpeed-MM
+https://gitcode.com/Ascend/op-plugin
