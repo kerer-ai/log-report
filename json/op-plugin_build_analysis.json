@@ -270,9 +270,9 @@
       "summary": {
         "pre_build_seconds": 79.6,
         "build_seconds": 26.4,
-        "unattributed_seconds": 0.0,
+        "unattributed_seconds": 0,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 28.5
+        "key_bottleneck_seconds": 28.472
       }
     },
     {
@@ -605,9 +605,9 @@
       "summary": {
         "pre_build_seconds": 237.3,
         "build_seconds": 123.8,
-        "unattributed_seconds": 0,
+        "unattributed_seconds": 0.0,
         "key_bottleneck": "环境配置",
-        "key_bottleneck_seconds": 147.4
+        "key_bottleneck_seconds": 147.401
       }
     },
     {
@@ -950,7 +950,7 @@
         "build_seconds": 135.3,
         "unattributed_seconds": 0,
         "key_bottleneck": "环境配置",
-        "key_bottleneck_seconds": 156.1
+        "key_bottleneck_seconds": 156.128
       }
     },
     {
@@ -1292,8 +1292,8 @@
         "pre_build_seconds": 223.1,
         "build_seconds": 198.7,
         "unattributed_seconds": 0,
-        "key_bottleneck": "编译",
-        "key_bottleneck_seconds": 198.7
+        "key_bottleneck": "环境配置",
+        "key_bottleneck_seconds": 120.959
       }
     },
     {
@@ -1634,9 +1634,9 @@
       "summary": {
         "pre_build_seconds": 239.2,
         "build_seconds": 92.1,
-        "unattributed_seconds": 0,
+        "unattributed_seconds": 0.0,
         "key_bottleneck": "环境配置",
-        "key_bottleneck_seconds": 143.9
+        "key_bottleneck_seconds": 143.893
       }
     },
     {
@@ -1971,7 +1971,7 @@
         "build_seconds": 91.1,
         "unattributed_seconds": 0,
         "key_bottleneck": "环境配置",
-        "key_bottleneck_seconds": 152.0
+        "key_bottleneck_seconds": 151.997
       }
     },
     {
@@ -2216,9 +2216,9 @@
       "summary": {
         "pre_build_seconds": 95.6,
         "build_seconds": 26.0,
-        "unattributed_seconds": 0,
+        "unattributed_seconds": 0.0,
         "key_bottleneck": "Pod调度",
-        "key_bottleneck_seconds": 38.1
+        "key_bottleneck_seconds": 38.066
       }
     },
     {
@@ -2551,9 +2551,9 @@
       "summary": {
         "pre_build_seconds": 195.6,
         "build_seconds": 209.3,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "编译",
-        "key_bottleneck_seconds": 209.3
+        "unattributed_seconds": 0.0,
+        "key_bottleneck": "环境配置",
+        "key_bottleneck_seconds": 120.179
       }
     },
     {
@@ -2895,8 +2895,8 @@
         "pre_build_seconds": 210.2,
         "build_seconds": 128.6,
         "unattributed_seconds": 0,
-        "key_bottleneck": "编译",
-        "key_bottleneck_seconds": 128.6
+        "key_bottleneck": "环境配置",
+        "key_bottleneck_seconds": 120.337
       }
     },
     {
@@ -3270,8 +3270,8 @@
         "pre_build_seconds": 192.1,
         "build_seconds": 156.9,
         "unattributed_seconds": 0.0,
-        "key_bottleneck": "编译",
-        "key_bottleneck_seconds": 156.9
+        "key_bottleneck": "环境配置",
+        "key_bottleneck_seconds": 125.761
       }
     },
     {
@@ -3614,7 +3614,7 @@
         "build_seconds": 80.6,
         "unattributed_seconds": 0,
         "key_bottleneck": "环境配置",
-        "key_bottleneck_seconds": 140.6
+        "key_bottleneck_seconds": 140.555
       }
     },
     {
@@ -3973,7 +3973,7 @@
         "build_seconds": 87.3,
         "unattributed_seconds": 0,
         "key_bottleneck": "环境配置",
-        "key_bottleneck_seconds": 148.2
+        "key_bottleneck_seconds": 148.236
       }
     }
   ]
