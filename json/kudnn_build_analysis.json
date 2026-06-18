@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "pr": 12,
+    "repo": "kunpengcompute/kudnn",
+    "pr_url": "https://gitcode.com/kunpengcompute/kudnn/pull/12",
+    "pipeline_name": "PR-pipeline_kudnn#14",
+    "pipeline_state": " [ commitID：51804964 ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=5c889e9dec5a41c6b190eb535c6d2efb&pipelineRunId=d736328d9aa24eb08b5ce0d6fd88a617&codeHostingPlatformFlag=gitcode",
+    "comment_time": "",
+    "fetched_at": "2026-06-18T11:08:46.747569+08:00",
+    "analyzed_at": "2026-06-18T11:15:00.000000+08:00",
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Build_gcc",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=5c889e9dec5a41c6b190eb535c6d2efb&pipelineRunId=d736328d9aa24eb08b5ce0d6fd88a617&stepId=2e4f9966c51140bd8d1741405703e7c3&jobRunId=8fd7d5809c66454ca955d410a806e873&stepRunId=8e2a5b1edae34b5d9cdd8ca5cf8c2574&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-17T14:50:08.818000+08:00",
+        "end": "2026-06-17T14:53:05.556000+08:00",
+        "duration_seconds": 176.738
+      },
+      "pre_build": {
+        "total_seconds": 7.184,
+        "pct_of_total": 4.1,
+        "orchestrator": "docker",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-17T14:50:08.924+08:00",
+            "end": "2026-06-17T14:50:09.072+08:00",
+            "duration_seconds": 0.148,
+            "evidence": "[PRE_ENV:slave_create] 开始 14:50:08.924 -> Find available executor node -> 执行完成 14:50:09.072"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-17T14:50:09.448+08:00",
+            "end": "2026-06-17T14:50:13.526+08:00",
+            "duration_seconds": 4.078,
+            "evidence": "arm-shell (CI runner): Image is up to date 14:50:09.448; hpckit_openeuler_22.03_lts_sp2_arm (build container): Image is up to date 14:50:13.526. Both images cached; 4.1s interval is CI overhead between checks (git_checkout occurs within this span)."
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出(CI机)",
+            "start": "2026-06-17T14:50:10.327+08:00",
+            "end": "2026-06-17T14:50:11.895+08:00",
+            "duration_seconds": 1.568,
+            "evidence": "[代码检出:external_pre_checkout] 开始 14:50:10.327 -> git clone kunpengcompute/kudnn.git -> fork MR merge 51804964 -> [代码检出:external_post_checkout] 完成 14:50:11.895"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量+编译器模块加载",
+            "start": "2026-06-17T14:50:13.526+08:00",
+            "end": "2026-06-17T14:50:16.002+08:00",
+            "duration_seconds": 2.476,
+            "evidence": "swr build image check 14:50:13.526 -> container start -> set -ex, export LC_ALL=C/LANG=C, module use /usr1/HPCKit, module load gcc/kml26.0.RC1/kml -> sh build.sh -> cmake --check-build-system 14:50:16.002"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 164.5,
+        "pct_of_total": 93.1,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0.003
+          },
+          {
+            "key": "compilation",
+            "name": "编译 (make/gcc, 4668 log lines)",
+            "duration_seconds": 164.5
+          }
+        ],
+        "_note": "Log sample only covers 400/4668 lines. Completion markers ([100%] Built target, Install, Finished) not in sample. build_seconds estimated as total - pre_build - estimated_teardown(5s)."
+      },
+      "summary": {
+        "pre_build_seconds": 7.2,
+        "build_seconds": 164.5,
+        "unattributed_seconds": 5.1,
+        "key_bottleneck": "Docker 镜像拉取",
+        "key_bottleneck_seconds": 4.078
+      }
+    },
+    {
+      "task_name": "Build_bisheng",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=5c889e9dec5a41c6b190eb535c6d2efb&pipelineRunId=d736328d9aa24eb08b5ce0d6fd88a617&stepId=2e4f9966c51140bd8d1741405703e7c3&jobRunId=6f1fbd9e444a4055a91d3ef230b9d6be&stepRunId=0ae7a4b0cb7c473ab761238f6f86be7d&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-17T14:50:09.297000+08:00",
+        "end": "2026-06-17T14:56:48.612000+08:00",
+        "duration_seconds": 399.315
+      },
+      "pre_build": {
+        "total_seconds": 6.593,
+        "pct_of_total": 1.7,
+        "orchestrator": "docker",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-17T14:50:09.434+08:00",
+            "end": "2026-06-17T14:50:09.594+08:00",
+            "duration_seconds": 0.16,
+            "evidence": "[PRE_ENV:slave_create] 开始 14:50:09.434 -> Find available executor node -> 执行完成 14:50:09.594"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-17T14:50:09.981+08:00",
+            "end": "2026-06-17T14:50:13.580+08:00",
+            "duration_seconds": 3.599,
+            "evidence": "arm-shell (CI runner): Image is up to date 14:50:09.981; hpckit_openeuler_22.03_lts_sp2_arm (build container): Image is up to date 14:50:13.580. Both images cached; interval includes CI overhead and git_checkout overlap."
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出(CI机)",
+            "start": "2026-06-17T14:50:10.857+08:00",
+            "end": "2026-06-17T14:50:11.924+08:00",
+            "duration_seconds": 1.067,
+            "evidence": "[代码检出:external_pre_checkout] 开始 14:50:10.857 -> git clone kudnn -> fork MR merge 51804964 -> [代码检出:external_post_checkout] 完成 14:50:11.924"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量+编译器模块加载",
+            "start": "2026-06-17T14:50:13.580+08:00",
+            "end": "2026-06-17T14:50:15.890+08:00",
+            "duration_seconds": 2.31,
+            "evidence": "swr build image check 14:50:13.580 -> container start -> set -ex, export LC_ALL=C, module use /usr1/HPCKit, module load bisheng/compiler (clang 19.1.7) -> cmake --check-build-system 14:50:15.890"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 387.7,
+        "pct_of_total": 97.1,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0.002
+          },
+          {
+            "key": "compilation",
+            "name": "编译 (make/clang, 4971 log lines)",
+            "duration_seconds": 387.7
+          }
+        ],
+        "_note": "Log sample only covers 400/4971 lines. Completion markers ([100%] Built target, Install, Finished) not in sample. build_seconds estimated as total - pre_build - estimated_teardown(5s)."
+      },
+      "summary": {
+        "pre_build_seconds": 6.6,
+        "build_seconds": 387.7,
+        "unattributed_seconds": 5.0,
+        "key_bottleneck": "Docker 镜像拉取",
+        "key_bottleneck_seconds": 3.599
+      }
+    }
+  ]
+}

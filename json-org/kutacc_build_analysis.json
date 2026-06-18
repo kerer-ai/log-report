@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "pr": 11,
+    "repo": "kunpengcompute/kutacc",
+    "pr_url": "https://gitcode.com/kunpengcompute/kutacc/pull/11",
+    "pipeline_name": "PR-pipeline_kutacc#18",
+    "pipeline_state": " [ commitID：124c1d20 ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=cd3bcab42c04485db820260f4bb17e3e&pipelineRunId=29ce1e1722b543b9b357beb6aafe22bc&codeHostingPlatformFlag=gitcode",
+    "comment_time": "",
+    "fetched_at": "2026-06-18T11:04:28.524311+08:00",
+    "analyzed_at": "2026-06-18T11:10:00.000000+08:00",
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Build构建",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=cd3bcab42c04485db820260f4bb17e3e&pipelineRunId=29ce1e1722b543b9b357beb6aafe22bc&stepId=8ce3d93fdd7b4fb7ad574db37cb62c19&jobRunId=3adc2b92eb80448da01cd76da75b9c04&stepRunId=eb8e65d37db04abab0effe5643bef027&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-11T16:37:40.708000+08:00",
+        "end": "2026-06-11T16:37:55.866000+08:00",
+        "duration_seconds": 15.158
+      },
+      "pre_build": {
+        "total_seconds": 5.525,
+        "pct_of_total": 36.4,
+        "orchestrator": "docker",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-11T16:37:40.809+08:00",
+            "end": "2026-06-11T16:37:40.956+08:00",
+            "duration_seconds": 0.147,
+            "evidence": "[PRE_ENV:slave_create] 开始 16:37:40.809 → Find available executor node:agent_CI_MR_01-r3bi6bVINp 16:37:40.916 → 执行完成 16:37:40.956"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-11T16:37:41.305+08:00",
+            "end": "2026-06-11T16:37:45.117+08:00",
+            "duration_seconds": 3.812,
+            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0 (CI runner): Image is up to date 16:37:41.305; v1.0 cloud-hpckit/hpckit_openeuler_22.03_lts_sp2_arm (build container): Image is up to date 16:37:45.117. Both images cached; 3.8s interval is CI overhead between checks (git checkout occurs within this span)."
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出(CI机)",
+            "start": "2026-06-11T16:37:42.152+08:00",
+            "end": "2026-06-11T16:37:43.483+08:00",
+            "duration_seconds": 1.331,
+            "evidence": "[代码检出:external_pre_checkout] 开始 16:37:42.152 → git clone kunpengcompute/kutacc.git → fork MR merge 124c1d20 → [代码检出:external_post_checkout] 完成 16:37:43.483"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量+编译器模块加载",
+            "start": "2026-06-11T16:37:45.117+08:00",
+            "end": "2026-06-11T16:37:46.233+08:00",
+            "duration_seconds": 1.116,
+            "evidence": "swr build image check 16:37:45.117 → container start → set -ex, export LC_ALL=C, export LANG=C, module use /usr1/HPCKit/latest/modulefiles, module load bisheng/compiler (clang 19.1.7) → sh build.sh 16:37:46.222 → cmake starting check 16:37:46.233"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 4.05,
+        "pct_of_total": 26.7,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0.619
+          },
+          {
+            "key": "compilation",
+            "name": "编译 (make/clang)",
+            "duration_seconds": 3.43
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 5.525,
+        "build_seconds": 4.05,
+        "unattributed_seconds": 5.583,
+        "key_bottleneck": "git_checkout",
+        "key_bottleneck_seconds": 1.331
+      }
+    }
+  ]
+}

@@ -12,3 +12,5 @@ https://gitcode.com/Ascend/MindSpeed
 https://gitcode.com/Ascend/MindSpeed-MM
 https://gitcode.com/Ascend/op-plugin
 https://gitcode.com/kunpengcompute/kupl
+https://gitcode.com/kunpengcompute/kudnn
+https://gitcode.com/kunpengcompute/kutacc
