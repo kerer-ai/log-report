@@ -7,8 +7,8 @@
     "pipeline_state": "运行失败",
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=baddd3989ead4da4a892aec23193542c&pipelineRunId=1abf39244d6844abab4339b6674e5163&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
-    "fetched_at": "2026-06-17T20:23:37.795090+08:00",
-    "analyzed_at": "2026-06-17T21:00:00.000000+08:00",
+    "fetched_at": "2026-06-18T09:22:48.444626+08:00",
+    "analyzed_at": null,
     "analysis_method": "ai_semantic"
   },
   "builds": [
@@ -22,7 +22,7 @@
         "end": "2026-06-16T19:55:19.553000+08:00",
         "duration_seconds": 107.53
       },
-      "log_sample": "[2026/06/16 19:53:32.023 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_ldx7dmLJ #1\n[2026/06/16 19:53:32.025 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/16 19:53:32.174 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/16 19:53:32.176 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: docker_X86_2U8G_suffix\n[2026/06/16 19:53:32.178 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/16 19:53:32.178 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/16 19:53:33.180 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/16 19:53:33.288 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-cf4b55cc1d ok, waiting for connection...\n[2026/06/16 19:53:36.699 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-cf4b55cc1d\n[2026/06/16 19:53:36.752 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/16 19:53:38.382 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/16 19:53:38.382 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/16 19:53:38.382 GMT+08:00] Status: Image is up to date for************\n[2026/06/16 19:53:38.390 GMT+08:00] starting check in ***/@tmp/durable-64dd3934\n[2026/06/16 19:53:41.611 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/16 19:53:42.390 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/16 19:53:42.390 GMT+08:00] See 'docker rm --help'.\n[2026/06/16 19:53:42.390 GMT+08:00] \n[2026/06/16 19:53:42.390 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/16 19:53:42.390 GMT+08:00] \n[2026/06/16 19:53:42.390 GMT+08:00] Remove one or more containers\n[2026/06/16 19:53:42.416 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/16 19:53:44.026 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/16 19:53:44.026 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/16 19:53:44.026 GMT+08:00] Status: Image is up to date for************\n[2026/06/16 19:53:44.942 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/16 19:53:44.944 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/16 19:53:44.975 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/16 19:53:45.149 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/16 19:53:45.149 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/16 19:53:45.149 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/16 19:53:45.666 GMT+08:00] No credentials specified\n[2026/06/16 19:53:45.666 GMT+08:00] set customize username password****           \n[2026/06/16 19:53:45.696 GMT+08:00] addDefaultCredentials\n[2026/06/16 19:53:45.698 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/16 19:53:45.701 GMT+08:00] Cloning the remote Git repository\n[2026/06/16 19:53:45.701 GMT+08:00] Avoid fetching tags\n[2026/06/16 19:53:45.701 GMT+08:00] Honoring refspec on initial clone\n[2026/06/16 19:53:45.724 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:45.758 GMT+08:00]  > git init ******/j_ldx7dmLJ # timeout=10\n[2026/06/16 19:53:45.790 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:45.790 GMT+08:00]  > git --version # timeout=10\n[2026/06/16 19:53:45.800 GMT+08:00]  > git --version # 'git version 2.27.0'\n[2026/06/16 19:53:45.807 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:45.809 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:45.812 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed.git +432f6a4e96f87b5a2f13267429d65661daedc149:refs/remotes/fork/0615-016 # timeout=120\n[2026/06/16 19:53:47.469 GMT+08:00] fork MR gitcode from 0615-016(432f6a4e96f87b5a2f13267429d65661daedc149) to core_r0.16.0(376e9cc302a2c00bfcc84e49a557b47fec941c87).\n[2026/06/16 19:53:47.469 GMT+08:00] Merging Revision 432f6a4e96f87b5a2f13267429d65661daedc149 (fork/0615-016) to origin/core_r0.16.0, UserMergeOptions{mergeRemote='origin', mergeTarget='core_r0.16.0', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/16 19:53:47.476 GMT+08:00] Disable Git LFS pull\n[2026/06/16 19:53:47.377 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindSpeed.git # timeout=10\n[2026/06/16 19:53:47.384 GMT+08:00]  > git config --add remote.fork.fetch +432f6a4e96f87b5a2f13267429d65661daedc149:refs/remotes/fork/0615-016 # timeout=10\n[2026/06/16 19:53:47.389 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindSpeed.git # timeout=10\n[2026/06/16 19:53:47.398 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:47.398 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:47.399 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:47.399 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed.git +432f6a4e96f87b5a2f13267429d65661daedc149:refs/remotes/fork/0615-016 # timeout=120\n[2026/06/16 19:53:47.408 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/MindSpeed.git # timeout=10\n[2026/06/16 19:53:47.428 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:47.428 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:47.429 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:47.429 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed.git +376e9cc302a2c00bfcc84e49a557b47fec941c87:refs/remotes/origin/core_r0.16.0 # timeout=120\n[2026/06/16 19:53:47.440 GMT+08:00]  > git rev-parse fork/0615-016^{commit} # timeout=10\n[2026/06/16 19:53:47.447 GMT+08:00]  > git rev-parse origin/0615-016^{commit} # timeout=10\n[2026/06/16 19:53:47.471 GMT+08:00]  > git rev-parse origin/core_r0.16.0^{commit} # timeout=10\n[2026/06/16 19:53:47.481 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/16 19:53:47.487 GMT+08:00]  > git checkout -f origin/core_r0.16.0 # timeout=120\n[2026/06/16 19:53:47.709 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/16 19:53:47.713 GMT+08:00]  > git checkout -b 0615-016 origin/core_r0.16.0 # timeout=120\n[2026/06/16 19:53:47.854 GMT+08:00]  > git remote # timeout=10\n[2026/06/16 19:53:47.858 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/16 19:53:47.860 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:47.861 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:47.861 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/16 19:53:48.219 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/16 19:53:51.998 GMT+08:00] Seen branch in repository fork/0615-016\n[2026/06/16 19:53:51.998 GMT+08:00] Seen branch in repository origin/core_r0.16.0\n[2026/06/16 19:53:51.998 GMT+08:00] Seen 2 remote branches\n[2026/06/16 19:53:52.076 GMT+08:00] Checking out Revision 6d98314cedb2fd1c59b6bc77fcb5ccea64272a63 (origin/core_r0.16.0)\n[2026/06/16 19:53:52.076 GMT+08:00] Disable Git LFS pull\n[2026/06/16 19:53:52.715 GMT+08:00] Commit message: \"Merge commit '432f6a4e96f87b5a2f13267429d65661daedc149' into 0615-016\"\n[2026/06/16 19:53:52.715 GMT+08:00] First time build. Skipping changelog.\n[2026/06/16 19:53:52.749 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/16 19:53:52.825 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/16 19:53:52.057 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/16 19:53:52.077 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/16 19:53:52.103 GMT+08:00]  > git checkout -f 6d98314cedb2fd1c59b6bc77fcb5ccea64272a63 # timeout=120\n[2026/06/16 19:53:52.128 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/16 19:53:52.147 GMT+08:00]  > git branch -D 0615-016 # timeout=10\n[2026/06/16 19:53:52.173 GMT+08:00]  > git checkout -b 0615-016 6d98314cedb2fd1c59b6bc77fcb5ccea64272a63 # timeout=120\n[2026/06/16 19:53:54.407 GMT+08:00] v_02: Pulling from pytorch_images_x86/pytorchx86gcc931\n[2026/06/16 19:53:54.407 GMT+08:00] 2d473b07cdd5: Already exists\n[2026/06/16 19:53:54.407 GMT+08:00] 12a4b808ab95: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 2ab99da8a97c: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 88650c580bde: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] f96ae0fe9f0c: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 24bf89bed126: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] b32c543fbe37: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] daaa6dcdde04: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] e50c0d7b9f2e: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 717a0d6d47a7: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] d26d92471a65: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 7ddd4160a37a: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 953ddaf8fdd2: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 0dd057253404: Pulling fs layer\n[2026/06/16 19:54:58.056 GMT+08:00] Status: Downloaded newer image for swr.cn-north-4.myhuaweicloud.com/pytorch_images_x86/pytorchx86gcc931:v_02\n[2026/06/16 19:55:01.539 GMT+08:00] + mkdir ***//../output/\n[2026/06/16 19:55:04.979 GMT+08:00] + bash cie/common/build/MindSpeed_build.sh core_r0.16.0 3552 ***/\n[2026/06/16 19:55:05.238 GMT+08:00] running build_py",
+      "log_sample": "[2026/06/16 19:53:32.023 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_ldx7dmLJ #1\n[2026/06/16 19:53:32.025 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/16 19:53:32.174 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/16 19:53:32.176 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: docker_X86_2U8G_suffix\n[2026/06/16 19:53:32.178 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/16 19:53:32.178 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/16 19:53:33.180 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/16 19:53:33.288 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-cf4b55cc1d ok, waiting for connection...\n[2026/06/16 19:53:36.699 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-cf4b55cc1d\n[2026/06/16 19:53:36.752 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/16 19:53:38.382 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/16 19:53:38.382 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/16 19:53:38.382 GMT+08:00] Status: Image is up to date for************\n[2026/06/16 19:53:38.390 GMT+08:00] starting check in ***/@tmp/durable-64dd3934\n[2026/06/16 19:53:41.611 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/16 19:53:42.390 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/16 19:53:42.390 GMT+08:00] See 'docker rm --help'.\n[2026/06/16 19:53:42.390 GMT+08:00] \n[2026/06/16 19:53:42.390 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/16 19:53:42.390 GMT+08:00] \n[2026/06/16 19:53:42.390 GMT+08:00] Remove one or more containers\n[2026/06/16 19:53:42.416 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/16 19:53:44.026 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/16 19:53:44.026 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/16 19:53:44.026 GMT+08:00] Status: Image is up to date for************\n[2026/06/16 19:53:44.942 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/16 19:53:44.944 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/16 19:53:44.975 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/16 19:53:45.149 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/16 19:53:45.149 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/16 19:53:45.149 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/16 19:53:45.666 GMT+08:00] No credentials specified\n[2026/06/16 19:53:45.666 GMT+08:00] set customize username password****           \n[2026/06/16 19:53:45.696 GMT+08:00] addDefaultCredentials\n[2026/06/16 19:53:45.698 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/16 19:53:45.701 GMT+08:00] Cloning the remote Git repository\n[2026/06/16 19:53:45.701 GMT+08:00] Avoid fetching tags\n[2026/06/16 19:53:45.701 GMT+08:00] Honoring refspec on initial clone\n[2026/06/16 19:53:45.724 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:45.758 GMT+08:00]  > git init ******/j_ldx7dmLJ # timeout=10\n[2026/06/16 19:53:45.790 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:45.790 GMT+08:00]  > git --version # timeout=10\n[2026/06/16 19:53:45.800 GMT+08:00]  > git --version # 'git version 2.27.0'\n[2026/06/16 19:53:45.807 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:45.809 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:45.812 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed.git +432f6a4e96f87b5a2f13267429d65661daedc149:refs/remotes/fork/0615-016 # timeout=120\n[2026/06/16 19:53:47.469 GMT+08:00] fork MR gitcode from 0615-016(432f6a4e96f87b5a2f13267429d65661daedc149) to core_r0.16.0(376e9cc302a2c00bfcc84e49a557b47fec941c87).\n[2026/06/16 19:53:47.469 GMT+08:00] Merging Revision 432f6a4e96f87b5a2f13267429d65661daedc149 (fork/0615-016) to origin/core_r0.16.0, UserMergeOptions{mergeRemote='origin', mergeTarget='core_r0.16.0', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/16 19:53:47.476 GMT+08:00] Disable Git LFS pull\n[2026/06/16 19:53:47.377 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindSpeed.git # timeout=10\n[2026/06/16 19:53:47.384 GMT+08:00]  > git config --add remote.fork.fetch +432f6a4e96f87b5a2f13267429d65661daedc149:refs/remotes/fork/0615-016 # timeout=10\n[2026/06/16 19:53:47.389 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindSpeed.git # timeout=10\n[2026/06/16 19:53:47.398 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:47.398 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:47.399 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:47.399 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed.git +432f6a4e96f87b5a2f13267429d65661daedc149:refs/remotes/fork/0615-016 # timeout=120\n[2026/06/16 19:53:47.408 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/MindSpeed.git # timeout=10\n[2026/06/16 19:53:47.428 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:53:47.428 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:47.429 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:47.429 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed.git +376e9cc302a2c00bfcc84e49a557b47fec941c87:refs/remotes/origin/core_r0.16.0 # timeout=120\n[2026/06/16 19:53:47.440 GMT+08:00]  > git rev-parse fork/0615-016^{commit} # timeout=10\n[2026/06/16 19:53:47.447 GMT+08:00]  > git rev-parse origin/0615-016^{commit} # timeout=10\n[2026/06/16 19:53:47.471 GMT+08:00]  > git rev-parse origin/core_r0.16.0^{commit} # timeout=10\n[2026/06/16 19:53:47.481 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/16 19:53:47.487 GMT+08:00]  > git checkout -f origin/core_r0.16.0 # timeout=120\n[2026/06/16 19:53:47.709 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/16 19:53:47.713 GMT+08:00]  > git checkout -b 0615-016 origin/core_r0.16.0 # timeout=120\n[2026/06/16 19:53:47.854 GMT+08:00]  > git remote # timeout=10\n[2026/06/16 19:53:47.858 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/16 19:53:47.860 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/16 19:53:47.861 GMT+08:00] scmType is gitcode\n[2026/06/16 19:53:47.861 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/16 19:53:48.219 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/16 19:53:51.998 GMT+08:00] Seen branch in repository fork/0615-016\n[2026/06/16 19:53:51.998 GMT+08:00] Seen branch in repository origin/core_r0.16.0\n[2026/06/16 19:53:51.998 GMT+08:00] Seen 2 remote branches\n[2026/06/16 19:53:52.076 GMT+08:00] Checking out Revision 6d98314cedb2fd1c59b6bc77fcb5ccea64272a63 (origin/core_r0.16.0)\n[2026/06/16 19:53:52.076 GMT+08:00] Disable Git LFS pull\n[2026/06/16 19:53:52.715 GMT+08:00] Commit message: \"Merge commit '432f6a4e96f87b5a2f13267429d65661daedc149' into 0615-016\"\n[2026/06/16 19:53:52.715 GMT+08:00] First time build. Skipping changelog.\n[2026/06/16 19:53:52.749 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/16 19:53:52.825 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/16 19:53:52.057 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/16 19:53:52.077 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/16 19:53:52.103 GMT+08:00]  > git checkout -f 6d98314cedb2fd1c59b6bc77fcb5ccea64272a63 # timeout=120\n[2026/06/16 19:53:52.128 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/16 19:53:52.147 GMT+08:00]  > git branch -D 0615-016 # timeout=10\n[2026/06/16 19:53:52.173 GMT+08:00]  > git checkout -b 0615-016 6d98314cedb2fd1c59b6bc77fcb5ccea64272a63 # timeout=120\n[2026/06/16 19:53:54.407 GMT+08:00] v_02: Pulling from pytorch_images_x86/pytorchx86gcc931\n[2026/06/16 19:53:54.407 GMT+08:00] 2d473b07cdd5: Already exists\n[2026/06/16 19:53:54.407 GMT+08:00] 12a4b808ab95: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 2ab99da8a97c: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 88650c580bde: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] f96ae0fe9f0c: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 24bf89bed126: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] b32c543fbe37: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] daaa6dcdde04: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] e50c0d7b9f2e: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 717a0d6d47a7: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] d26d92471a65: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 7ddd4160a37a: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 953ddaf8fdd2: Pulling fs layer\n[2026/06/16 19:53:54.407 GMT+08:00] 0dd057253404: Pulling fs layer\n... [skipped 138 lines] ...\n[2026/06/16 19:54:00.544 GMT+08:00] e9b7a02c1f8f: Verifying Checksum\n[2026/06/16 19:54:00.544 GMT+08:00] e9b7a02c1f8f: Download complete\n[2026/06/16 19:54:00.544 GMT+08:00] df9f048c9636: Verifying Checksum\n[2026/06/16 19:54:00.544 GMT+08:00] df9f048c9636: Download complete\n[2026/06/16 19:54:00.806 GMT+08:00] 2f965a2cb8c8: Verifying Checksum\n[2026/06/16 19:54:00.806 GMT+08:00] 2f965a2cb8c8: Download complete\n[2026/06/16 19:54:00.806 GMT+08:00] e1f11a8d79ea: Verifying Checksum\n[2026/06/16 19:54:00.806 GMT+08:00] e1f11a8d79ea: Download complete\n[2026/06/16 19:54:00.806 GMT+08:00] e52dea2a5767: Verifying Checksum\n[2026/06/16 19:54:00.806 GMT+08:00] e52dea2a5767: Download complete\n[2026/06/16 19:54:01.071 GMT+08:00] f8212bcf4f6d: Verifying Checksum\n[2026/06/16 19:54:01.071 GMT+08:00] f8212bcf4f6d: Download complete\n[2026/06/16 19:54:01.071 GMT+08:00] 16164d7f9e3b: Verifying Checksum\n[2026/06/16 19:54:01.071 GMT+08:00] 16164d7f9e3b: Download complete\n[2026/06/16 19:54:01.071 GMT+08:00] 979880259207: Verifying Checksum\n[2026/06/16 19:54:01.071 GMT+08:00] 979880259207: Download complete\n[2026/06/16 19:54:02.543 GMT+08:00] dadad8ca4141: Verifying Checksum\n[2026/06/16 19:54:02.543 GMT+08:00] dadad8ca4141: Download complete\n[2026/06/16 19:54:04.446 GMT+08:00] 12a4b808ab95: Pull complete\n[2026/06/16 19:54:04.446 GMT+08:00] 2ab99da8a97c: Pull complete\n[2026/06/16 19:54:07.734 GMT+08:00] 88650c580bde: Pull complete\n[2026/06/16 19:54:07.734 GMT+08:00] f96ae0fe9f0c: Pull complete\n[2026/06/16 19:54:07.734 GMT+08:00] 24bf89bed126: Pull complete\n[2026/06/16 19:54:07.734 GMT+08:00] b32c543fbe37: Pull complete\n[2026/06/16 19:54:14.310 GMT+08:00] daaa6dcdde04: Pull complete\n[2026/06/16 19:54:14.310 GMT+08:00] e50c0d7b9f2e: Pull complete\n[2026/06/16 19:54:22.479 GMT+08:00] 717a0d6d47a7: Pull complete\n[2026/06/16 19:54:24.388 GMT+08:00] d26d92471a65: Pull complete\n[2026/06/16 19:54:24.388 GMT+08:00] 7ddd4160a37a: Pull complete\n[2026/06/16 19:54:24.388 GMT+08:00] 953ddaf8fdd2: Pull complete\n[2026/06/16 19:54:24.388 GMT+08:00] 0dd057253404: Pull complete\n[2026/06/16 19:54:24.388 GMT+08:00] 3433bff080ec: Pull complete\n[2026/06/16 19:54:24.388 GMT+08:00] 4f4fb700ef54: Pull complete\n[2026/06/16 19:54:24.646 GMT+08:00] 7f12b9c6c39b: Pull complete\n[2026/06/16 19:54:24.646 GMT+08:00] 17b2ef8a3448: Pull complete\n[2026/06/16 19:54:24.904 GMT+08:00] fe840ff234ad: Pull complete\n[2026/06/16 19:54:24.904 GMT+08:00] 98465518e3a4: Pull complete\n[2026/06/16 19:54:27.448 GMT+08:00] 1492d7827cb3: Pull complete\n[2026/06/16 19:54:27.448 GMT+08:00] 7f916f3ea0df: Pull complete\n[2026/06/16 19:54:29.998 GMT+08:00] 9a20d6795b47: Pull complete\n[2026/06/16 19:54:29.998 GMT+08:00] dac2ead719b6: Pull complete\n[2026/06/16 19:54:31.374 GMT+08:00] 094ac1fcb5e3: Pull complete\n[2026/06/16 19:54:32.254 GMT+08:00] 9c76935db4c5: Pull complete\n[2026/06/16 19:54:37.528 GMT+08:00] 43323816a30e: Pull complete\n[2026/06/16 19:54:40.821 GMT+08:00] 16f6474fc129: Pull complete\n[2026/06/16 19:54:40.821 GMT+08:00] fb244095bbd5: Pull complete\n[2026/06/16 19:54:40.821 GMT+08:00] 0641237a3c59: Pull complete\n[2026/06/16 19:54:40.821 GMT+08:00] ab8377a1a71c: Pull complete\n[2026/06/16 19:54:41.081 GMT+08:00] 0cf5428a5cda: Pull complete\n[2026/06/16 19:54:41.081 GMT+08:00] d8bc0b53e58b: Pull complete\n[2026/06/16 19:54:41.081 GMT+08:00] db25812c00d6: Pull complete\n[2026/06/16 19:54:41.081 GMT+08:00] de5421322b76: Pull complete\n[2026/06/16 19:54:42.299 GMT+08:00] df9f048c9636: Pull complete\n[2026/06/16 19:54:43.240 GMT+08:00] e9b7a02c1f8f: Pull complete\n[2026/06/16 19:54:44.633 GMT+08:00] 2f965a2cb8c8: Pull complete\n[2026/06/16 19:54:45.572 GMT+08:00] f8212bcf4f6d: Pull complete\n[2026/06/16 19:54:45.832 GMT+08:00] e1f11a8d79ea: Pull complete\n[2026/06/16 19:54:45.832 GMT+08:00] e52dea2a5767: Pull complete\n[2026/06/16 19:54:58.056 GMT+08:00] dadad8ca4141: Pull complete\n[2026/06/16 19:54:58.056 GMT+08:00] 16164d7f9e3b: Pull complete\n[2026/06/16 19:54:58.056 GMT+08:00] 979880259207: Pull complete\n[2026/06/16 19:54:58.056 GMT+08:00] Digest: sha256:00103480fb557f8a5c7e611f78659e12de525db406712447b08c0f9176c86221\n[2026/06/16 19:54:58.056 GMT+08:00] Status: Downloaded newer image for swr.cn-north-4.myhuaweicloud.com/pytorch_images_x86/pytorchx86gcc931:v_02\n[2026/06/16 19:55:01.539 GMT+08:00] + mkdir ***//../output/\n[2026/06/16 19:55:01.539 GMT+08:00] + rm -rf ci docs LICENSE mindspeed OWNERS README.md requirements.txt SECURITYNOTE.md setup.py sources tests_extend Third_Party_Open_Source_Software_Notice tools\n[2026/06/16 19:55:01.539 GMT+08:00] + git clone https://codehub.devcloud.cn-north-4.huaweicloud.com/a9b188a62f334fc0963bcfb523426d17/ci_gitcode.git cie\n[2026/06/16 19:55:01.539 GMT+08:00] Cloning into 'cie'...\n[2026/06/16 19:55:01.543 GMT+08:00] starting check in ***/@tmp/durable-e39be520\n[2026/06/16 19:55:02.492 GMT+08:00] + bash cie/common/common/merge.sh core_r0.16.0 https://gitcode.com/Ascend/MindSpeed.git 3552 ***/\n[2026/06/16 19:55:02.492 GMT+08:00] https://gitcode.com/Ascend/MindSpeed.git\n[2026/06/16 19:55:02.492 GMT+08:00] Cloning into 'CODE'...\n[2026/06/16 19:55:04.409 GMT+08:00] Command executed successfully\n[2026/06/16 19:55:04.978 GMT+08:00] From https://gitcode.com/Ascend/MindSpeed\n[2026/06/16 19:55:04.979 GMT+08:00]  * [new ref]           refs/merge-requests/3552/head -> new_3552\n[2026/06/16 19:55:04.979 GMT+08:00] Switched to branch 'new_3552'\n[2026/06/16 19:55:04.979 GMT+08:00] Already up to date.\n[2026/06/16 19:55:04.979 GMT+08:00] ***/\n[2026/06/16 19:55:04.979 GMT+08:00] + mkdir ***//../output/3552\n[2026/06/16 19:55:04.979 GMT+08:00] + cd ./CODE\n[2026/06/16 19:55:04.979 GMT+08:00] + '[' Generic == Note ']'\n[2026/06/16 19:55:04.979 GMT+08:00] + cd -\n[2026/06/16 19:55:04.979 GMT+08:00] ***/\n[2026/06/16 19:55:04.979 GMT+08:00] + bash cie/common/build/MindSpeed_build.sh core_r0.16.0 3552 ***/\n[2026/06/16 19:55:05.238 GMT+08:00] running build_py\n... [skipped 752 lines] ...\n[2026/06/16 19:55:05.512 GMT+08:00] copying mindspeed/features_manager/transformer/flash_attention/generate_mask_feature.py -> build/lib/mindspeed/features_manager/transformer/flash_attention\n[2026/06/16 19:55:05.512 GMT+08:00] creating build/lib/mindspeed/features_manager/transformer/experimental_attention_variant\n[2026/06/16 19:55:05.512 GMT+08:00] copying mindspeed/features_manager/transformer/experimental_attention_variant/__init__.py -> build/lib/mindspeed/features_manager/transformer/experimental_attention_variant\n[2026/06/16 19:55:05.512 GMT+08:00] copying mindspeed/features_manager/transformer/experimental_attention_variant/dsa.py -> build/lib/mindspeed/features_manager/transformer/experimental_attention_variant\n[2026/06/16 19:55:05.512 GMT+08:00] creating build/lib/mindspeed/features_manager/transformer/multi_head_latent_attention\n[2026/06/16 19:55:05.512 GMT+08:00] copying mindspeed/features_manager/transformer/multi_head_latent_attention/__init__.py -> build/lib/mindspeed/features_manager/transformer/multi_head_latent_attention\n[2026/06/16 19:55:05.512 GMT+08:00] copying mindspeed/features_manager/transformer/multi_head_latent_attention/mla_feature.py -> build/lib/mindspeed/features_manager/transformer/multi_head_latent_attention\n[2026/06/16 19:55:05.512 GMT+08:00] creating build/lib/tests_extend/unit_tests\n[2026/06/16 19:55:05.512 GMT+08:00] copying tests_extend/unit_tests/__init__.py -> build/lib/tests_extend/unit_tests\n[2026/06/16 19:55:05.512 GMT+08:00] copying tests_extend/unit_tests/common.py -> build/lib/tests_extend/unit_tests\n[2026/06/16 19:55:05.512 GMT+08:00] running egg_info\n[2026/06/16 19:55:05.512 GMT+08:00] creating mindspeed.egg-info\n[2026/06/16 19:55:05.512 GMT+08:00] writing mindspeed.egg-info/PKG-INFO\n[2026/06/16 19:55:05.512 GMT+08:00] writing dependency_links to mindspeed.egg-info/dependency_links.txt\n[2026/06/16 19:55:05.512 GMT+08:00] writing entry points to mindspeed.egg-info/entry_points.txt\n[2026/06/16 19:55:05.512 GMT+08:00] writing requirements to mindspeed.egg-info/requires.txt\n[2026/06/16 19:55:05.512 GMT+08:00] writing top-level names to mindspeed.egg-info/top_level.txt\n[2026/06/16 19:55:05.512 GMT+08:00] writing manifest file 'mindspeed.egg-info/SOURCES.txt'\n[2026/06/16 19:55:05.512 GMT+08:00] reading manifest file 'mindspeed.egg-info/SOURCES.txt'\n[2026/06/16 19:55:05.512 GMT+08:00] writing manifest file 'mindspeed.egg-info/SOURCES.txt'\n[2026/06/16 19:55:08.804 GMT+08:00] creating build/lib/mindspeed/core/distributed/custom_fsdp\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/custom_fsdp/param_and_grad_buffer.py -> build/lib/mindspeed/core/distributed/custom_fsdp\n[2026/06/16 19:55:08.804 GMT+08:00] creating build/lib/mindspeed/core/distributed/layerzero/comm\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/comm/hookwrap.py -> build/lib/mindspeed/core/distributed/layerzero/comm\n[2026/06/16 19:55:08.804 GMT+08:00] creating build/lib/mindspeed/core/distributed/layerzero/debug\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/debug/sum.py -> build/lib/mindspeed/core/distributed/layerzero/debug\n[2026/06/16 19:55:08.804 GMT+08:00] creating build/lib/mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer/zero.py -> build/lib/mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer/misc.py -> build/lib/mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer/clip.py -> build/lib/mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer/sharded_grad_scaler.py -> build/lib/mindspeed/core/distributed/layerzero/megatron_adaptor/optimizer\n[2026/06/16 19:55:08.804 GMT+08:00] creating build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/_forward.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/_utils.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/_root_forward.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/_initialize.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/_grad.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/_shard.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] copying mindspeed/core/distributed/layerzero/runtime/hook.py -> build/lib/mindspeed/core/distributed/layerzero/runtime\n[2026/06/16 19:55:08.804 GMT+08:00] creating build/lib/mindspeed/core/data_parallel\n... [skipped 282 lines] ...\n[2026/06/16 19:55:08.810 GMT+08:00] copying mindspeed/mindspore/ops/npu_moe_token_permute.py -> build/lib/mindspeed/mindspore/ops\n[2026/06/16 19:55:08.810 GMT+08:00] copying mindspeed/mindspore/ops/npu_rotary_position_embedding.py -> build/lib/mindspeed/mindspore/ops\n[2026/06/16 19:55:08.810 GMT+08:00] copying mindspeed/mindspore/ops/npu_ring_attention_update.py -> build/lib/mindspeed/mindspore/ops\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/mindspore/ops/npu_matmul_add.py -> build/lib/mindspeed/mindspore/ops\n[2026/06/16 19:55:08.811 GMT+08:00] creating build/lib/mindspeed/mindspore/optimizer\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/mindspore/optimizer/__init__.py -> build/lib/mindspeed/mindspore/optimizer\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/mindspore/optimizer/adamw.py -> build/lib/mindspeed/mindspore/optimizer\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/mindspore/optimizer/distrib_optimizer.py -> build/lib/mindspeed/mindspore/optimizer\n[2026/06/16 19:55:08.811 GMT+08:00] creating build/lib/mindspeed/mindspore/op_builder\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/mindspore/op_builder/__init__.py -> build/lib/mindspeed/mindspore/op_builder\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/mindspore/op_builder/algorithm_builder.py -> build/lib/mindspeed/mindspore/op_builder\n[2026/06/16 19:55:08.811 GMT+08:00] creating build/lib/mindspeed/run\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/run/initialize.patch -> build/lib/mindspeed/run\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/run/gpt_dataset.patch -> build/lib/mindspeed/run\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/run/run.py -> build/lib/mindspeed/run\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/run/helpers.patch -> build/lib/mindspeed/run\n[2026/06/16 19:55:08.811 GMT+08:00] creating build/lib/mindspeed/multi_modal\n[2026/06/16 19:55:08.811 GMT+08:00] creating build/lib/mindspeed/multi_modal/conv3d\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/multi_modal/conv3d/__init__.py -> build/lib/mindspeed/multi_modal/conv3d\n[2026/06/16 19:55:08.811 GMT+08:00] copying mindspeed/multi_modal/conv3d/conv3d_depth_parallel.py -> build/lib/mindspeed/multi_modal/conv3d\n[2026/06/16 19:55:14.083 GMT+08:00] running bdist_wheel\n[2026/06/16 19:55:14.083 GMT+08:00] installing to build/bdist.linux-x86_64/wheel\n[2026/06/16 19:55:14.083 GMT+08:00] running install\n[2026/06/16 19:55:14.083 GMT+08:00] running install_lib\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64/wheel\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64/wheel/mindspeed\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/arguments.py -> build/bdist.linux-x86_64/wheel/mindspeed\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/deprecate.py -> build/bdist.linux-x86_64/wheel/mindspeed\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64/wheel/mindspeed/functional\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/__init__.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64/wheel/mindspeed/functional/npu_deterministic\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/npu_deterministic/__init__.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional/npu_deterministic\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/npu_deterministic/npu_deterministic.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional/npu_deterministic\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64/wheel/mindspeed/functional/profile\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/profile/adaptor.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional/profile\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/profile/__init__.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional/profile\n[2026/06/16 19:55:14.083 GMT+08:00] creating build/bdist.linux-x86_64/wheel/mindspeed/functional/profiler\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/profiler/__init__.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional/profiler\n[2026/06/16 19:55:14.083 GMT+08:00] copying build/lib/mindspeed/functional/profiler/profiler_info.py -> build/bdist.linux-x86_64/wheel/mindspeed/functional/profiler\n... [skipped 1914 lines] ...\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/state_manager.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/block_scaling_recipe.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/current_scaling_recipe.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/delayed_scaling_recipe.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/groupwise_scaling_recipe.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/mxfp8_scaling_recipe.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/recipes/recipe.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/tensor/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/tensor/float8_tensor.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/tensor/float8_tensor_cpu.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/tensor/groupwise_tensor.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/tensor/mxfp8_tensor.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/fp8/tensor/mxfp8_tensor_cpu.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/TE_dot_product_attention.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/grouped_linear.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/layernorm.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/layernorm_column_parallel_linear.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/linear.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/ops/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/ops/comm_overlap_ops.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/ops/default_ops.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/te/pytorch/module/ops/mc2_ops.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/tokenizer/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/tokenizer/tokenizer.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/tokenizer/build_tokenizer/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'mindspeed/tokenizer/build_tokenizer/adaptor.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'tests_extend/__init__.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'tests_extend/commons.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'tests_extend/conftest.py'\n[2026/06/16 19:55:14.390 GMT+08:00] adding 'tests_extend/unit_tests/__init__.py'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'tests_extend/unit_tests/common.py'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'mindspeed-0.16.0.dist-info/LICENSE'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'mindspeed-0.16.0.dist-info/METADATA'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'mindspeed-0.16.0.dist-info/WHEEL'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'mindspeed-0.16.0.dist-info/entry_points.txt'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'mindspeed-0.16.0.dist-info/top_level.txt'\n[2026/06/16 19:55:14.391 GMT+08:00] adding 'mindspeed-0.16.0.dist-info/RECORD'\n[2026/06/16 19:55:14.391 GMT+08:00] removing build/bdist.linux-x86_64/wheel\n[2026/06/16 19:55:14.391 GMT+08:00] /opt/_internal/cpython-3.8.1/lib/python3.8/distutils/dist.py:274: UserWarning: Unknown distribution option: 'install_package_data'\n[2026/06/16 19:55:14.391 GMT+08:00]   warnings.warn(msg)\n[2026/06/16 19:55:14.391 GMT+08:00] /opt/_internal/cpython-3.8.1/lib/python3.8/distutils/dist.py:274: UserWarning: Unknown distribution option: 'bug_data'\n[2026/06/16 19:55:14.391 GMT+08:00]   warnings.warn(msg)\n[2026/06/16 19:55:14.417 GMT+08:00] [INFO] [使用SWR公共镜像:user_properties] : 该步骤开始执行\n[2026/06/16 19:55:14.446 GMT+08:00] [INFO] [使用SWR公共镜像:user_properties] : 该步骤执行完成\n[2026/06/16 19:55:15.732 GMT+08:00] [INFO]  : find empty location by state: GJ08uZuH\n[2026/06/16 19:55:15.768 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_ldx7dmLJ #1\n[2026/06/16 19:55:19.434 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker\n[2026/06/16 19:55:19.553 GMT+08:00] Finished: SUCCESS",
       "log_stats": {
         "total_timestamped_lines": 3401,
         "sample_lines": 314,
@@ -78,76 +78,183 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 93.22,
-        "pct_of_total": 86.69,
-        "orchestrator": "docker",
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-16T19:53:32.023000+08:00",
-            "end": "2026-06-16T19:53:36.752000+08:00",
-            "duration_seconds": 4.73,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 ... Find available executor node:cce-codeci-cf4b55cc1d ... 该步骤执行完成"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "docker_pull",
-            "name": "Docker 镜像拉取 (shell + pytorchx86gcc931)",
-            "start": "2026-06-16T19:53:38.382000+08:00",
-            "end": "2026-06-16T19:54:58.056000+08:00",
-            "duration_seconds": 79.67,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Pulling... (cached); v_02: Pulling from pytorch_images_x86/pytorchx86gcc931 @19:53:54.407 → Downloaded newer image @19:54:58.056, 34+ layers pulled"
+            "name": "Docker 镜像拉取",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": "2026-06-16T19:53:41.611000+08:00",
-            "end": "2026-06-16T19:53:42.416000+08:00",
-            "duration_seconds": 0.81,
-            "evidence": "[Cache Check:external_cache_check] 该步骤开始执行 ... 该步骤执行完成"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-16T19:53:44.942000+08:00",
-            "end": "2026-06-16T19:53:52.825000+08:00",
-            "duration_seconds": 7.88,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 ... git clone + merge fork/0615-016 to core_r0.16.0 ... [external_post_checkout] 该步骤执行完成"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "network_retry",
+            "name": "网络重试等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "workspace_prep",
+            "name": "工作目录准备",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pre_submit_validation",
+            "name": "前置校验",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "conda_install",
+            "name": "Conda 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apt_install",
+            "name": "系统包安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "env_setup",
-            "name": "环境准备 (clone CI tools, merge, workspace)",
-            "start": "2026-06-16T19:55:01.539000+08:00",
-            "end": "2026-06-16T19:55:05.238000+08:00",
-            "duration_seconds": 3.7,
-            "evidence": "mkdir output, rm -rf, git clone cie, bash merge.sh, bash MindSpeed_build.sh 启动构建"
+            "name": "环境变量设置",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 14.32,
-        "pct_of_total": 13.31,
+        "total_seconds": 0,
+        "pct_of_total": 0,
         "actions": [
           {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0
+          },
+          {
             "key": "compilation",
-            "name": "编译 (python setup.py build_py + install)",
-            "duration_seconds": 8.85,
-            "evidence": "running build_py @19:55:05.238 → running bdist_wheel @19:55:14.083"
+            "name": "编译",
+            "duration_seconds": 0
           },
           {
             "key": "packaging",
-            "name": "打包与上传 (bdist_wheel + OBS upload)",
-            "duration_seconds": 5.47,
-            "evidence": "running bdist_wheel @19:55:14.083 → Finished: SUCCESS @19:55:19.553"
+            "name": "打包与上传",
+            "duration_seconds": 0
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 93.2,
-        "build_seconds": 14.3,
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
         "unattributed_seconds": 0,
-        "key_bottleneck": "Docker 镜像拉取 (shell + pytorchx86gcc931)",
-        "key_bottleneck_seconds": 79.67
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
       }
     }
   ]
