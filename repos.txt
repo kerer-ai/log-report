@@ -14,3 +14,7 @@ https://gitcode.com/Ascend/op-plugin
 https://gitcode.com/kunpengcompute/kupl
 https://gitcode.com/kunpengcompute/kudnn
 https://gitcode.com/kunpengcompute/kutacc
+https://gitcode.com/kunpengcompute/hmpi
+https://gitcode.com/kunpengcompute/kuqcd
+https://gitcode.com/kunpengcompute/hucx
+https://gitcode.com/kunpengcompute/xucg
