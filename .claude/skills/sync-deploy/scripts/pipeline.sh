@@ -1,9 +1,9 @@
 #!/bin/bash
 # CI/CD Build Analysis Pipeline — mechanical steps
-# Usage: bash pipeline.sh [--force-fetch] [--skip-push]
+# Usage: bash pipeline.sh [--force-fetch] [--quick] [--skip-push]
 #
-# Reads repos.txt, fetches new data, normalizes, generates, pushes.
-# AI analysis is handled by Claude via the sync-deploy skill.
+# Reads repos.txt, fetches new data (only for changed PRs),
+# AI analysis handled by Claude, then normalize → generate → push.
 
 set -euo pipefail
 
@@ -11,13 +11,18 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 REPOS_FILE="$PROJECT_DIR/repos.txt"
 JSON_ORG="$PROJECT_DIR/json-org"
+FETCH_SCRIPT="$SCRIPT_DIR/../../gitcode-build-time-analyzer/scripts/fetch_build_logs.py"
+NORMALIZE_SCRIPT="$SCRIPT_DIR/../../build-log-normalizer/scripts/normalize.py"
+
 FORCE_FETCH=false
 SKIP_PUSH=false
+QUICK_MODE=false
 
 for arg in "$@"; do
   case $arg in
     --force-fetch) FORCE_FETCH=true ;;
-    --skip-push) SKIP_PUSH=true ;;
+    --skip-push)   SKIP_PUSH=true ;;
+    --quick)       QUICK_MODE=true ;;
   esac
 done
 
@@ -36,12 +41,34 @@ mkdir -p "$JSON_ORG"
 
 echo "=== Pipeline Start: $(date) ==="
 echo "Repos file: $REPOS_FILE"
-echo "Force fetch: $FORCE_FETCH"
+echo "Mode: force_fetch=$FORCE_FETCH quick=$QUICK_MODE skip_push=$SKIP_PUSH"
 echo ""
 
-# ── Step 1: Fetch changed repos ──
+# ── Quick mode: skip fetch & AI analysis ──
+if [ "$QUICK_MODE" = true ]; then
+  echo "=== Quick mode: normalize + generate + push only ==="
+  python3 "$NORMALIZE_SCRIPT"
+  python3 generate.py
+  if [ "$SKIP_PUSH" = false ]; then
+    git add -A
+    git commit -m "sync: quick refresh ($(date +%Y-%m-%d))" || echo "  Nothing to commit"
+    git push
+    echo ""
+    echo "=== Pipeline Complete ==="
+    echo "Page: https://kerer-ai.github.io/log-report/"
+  fi
+  exit 0
+fi
+
+# ── Step 1: Check PR changes & fetch ──
 FETCH_COUNT=0
 SKIP_COUNT=0
+FAIL_COUNT=0
+declare -A CHANGED_REPOS  # repos that need AI re-analysis
+
+echo "=== Phase 1: Checking PR changes ==="
+echo ""
+
 while IFS= read -r line; do
   # Skip comments and empty lines
   [[ "$line" =~ ^#.*$ ]] && continue
@@ -51,86 +78,147 @@ while IFS= read -r line; do
   REPO_PATH=$(echo "$REPO_URL" | sed 's|https://gitcode.com/||')
   REPO_NAME=$(echo "$REPO_PATH" | cut -d'/' -f2)
   OUTPUT_FILE="$JSON_ORG/${REPO_NAME}_build_analysis.json"
+  WORK_FILE="$PROJECT_DIR/${REPO_NAME}_build_analysis.json"
 
+  # ── Check if PR changed (unless --force-fetch) ──
+  NEED_FETCH=true
   if [ "$FORCE_FETCH" = false ] && [ -f "$OUTPUT_FILE" ]; then
     EXISTING_PR=$(python3 -c "import json; print(json.load(open('$OUTPUT_FILE'))['meta']['pr'])" 2>/dev/null || echo "0")
-    LATEST_PR=$(gc pr list -R "$REPO_PATH" --state merged -L 1 2>&1 | grep -oP '#\d+' | tr -d '#' || echo "0")
+    # Lightweight PR check without full fetch
+    LATEST_PR=$(gc pr list -R "$REPO_PATH" --state merged -L 1 2>/dev/null | grep -oP '#\d+' | tr -d '#' || echo "0")
     if [ "$EXISTING_PR" = "$LATEST_PR" ] && [ "$LATEST_PR" != "0" ]; then
-      echo "SKIP $REPO_NAME: PR #$LATEST_PR unchanged"
+      echo "  SKIP $REPO_NAME: PR #$LATEST_PR unchanged"
       SKIP_COUNT=$((SKIP_COUNT + 1))
-      continue
+      # Ensure working dir has analyzed copy
+      if [ -f "$OUTPUT_FILE" ] && [ ! -f "$WORK_FILE" ]; then
+        cp "$OUTPUT_FILE" "$WORK_FILE"
+      fi
+      NEED_FETCH=false
+    else
+      echo "  CHANGED $REPO_NAME: PR #$EXISTING_PR → #$LATEST_PR"
     fi
-    echo "UPDATE $REPO_NAME: PR #$EXISTING_PR → #$LATEST_PR"
+  elif [ "$FORCE_FETCH" = true ]; then
+    echo "  FORCE $REPO_NAME: re-fetching (--force-fetch)"
+  else
+    echo "  NEW $REPO_NAME: first fetch"
   fi
 
-  echo "FETCH $REPO_NAME from $REPO_PATH"
-  RESULT=$(python3 .claude/skills/gitcode-build-time-analyzer/scripts/fetch_build_logs.py \
-    --repo "$REPO_PATH" --latest-merged -o "$OUTPUT_FILE" 2>&1) || true
+  if [ "$NEED_FETCH" = false ]; then
+    continue
+  fi
 
-  if echo "$RESULT" | grep -q "Template written"; then
-    echo "  OK: $(echo "$RESULT" | grep 'Template written')"
+  # ── Fetch with PR-preserving logic ──
+  echo "  Fetching $REPO_PATH ..."
+
+  # Fetch to temp file first to avoid overwriting with bad data
+  TMP_FILE="/tmp/sync_${REPO_NAME}_$$.json"
+  RESULT=$(python3 "$FETCH_SCRIPT" \
+    --repo "$REPO_PATH" --latest-merged -o "$TMP_FILE" 2>&1) || true
+
+  if echo "$RESULT" | grep -q '"status": "ok"'; then
+    # Compare PR with existing to decide if re-analysis needed
+    NEW_PR=$(python3 -c "import json; print(json.load(open('$TMP_FILE'))['meta']['pr'])" 2>/dev/null || echo "0")
+    OLD_PR=0
+    [ -f "$OUTPUT_FILE" ] && OLD_PR=$(python3 -c "import json; print(json.load(open('$OUTPUT_FILE'))['meta']['pr'])" 2>/dev/null || echo "0")
+
+    if [ "$NEW_PR" != "$OLD_PR" ] || [ ! -f "$OUTPUT_FILE" ]; then
+      # PR changed or new repo — need fresh analysis
+      cp "$TMP_FILE" "$OUTPUT_FILE"
+      cp "$TMP_FILE" "$WORK_FILE"
+      CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
+      echo "    OK: PR #$NEW_PR ($(python3 -c "import json; print(len(json.load(open('$TMP_FILE'))['builds']))" 2>/dev/null || echo "?") builds) — NEEDS ANALYSIS"
+    else
+      # PR unchanged despite force-fetch — restore cached analysis
+      if [ -f "$OUTPUT_FILE" ]; then
+        cp "$OUTPUT_FILE" "$WORK_FILE"
+        echo "    OK: PR #$NEW_PR unchanged — restored from cache"
+      else
+        cp "$TMP_FILE" "$OUTPUT_FILE"
+        cp "$TMP_FILE" "$WORK_FILE"
+        CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
+        echo "    OK: PR #$NEW_PR — no cache, NEEDS ANALYSIS"
+      fi
+    fi
     FETCH_COUNT=$((FETCH_COUNT + 1))
+    rm -f "$TMP_FILE"
+
   elif echo "$RESULT" | grep -q "No passed build"; then
-    echo "  WARN: No passed builds, running PR fallback..."
+    echo "    WARN: No passed builds in latest PR, scanning fallback..."
     # PR fallback scan
     FOUND=false
-    for pr_num in $(gc pr list -R "$REPO_PATH" --state merged -L 20 2>&1 | grep -oP '#\d+' | tr -d '#'); do
-      fb_result=$(python3 .claude/skills/gitcode-build-time-analyzer/scripts/fetch_build_logs.py \
-        --repo "$REPO_PATH" --pr "$pr_num" -o "/tmp/test_${REPO_NAME}.json" 2>&1) || true
-      if echo "$fb_result" | grep -q "Template written"; then
-        cp "/tmp/test_${REPO_NAME}.json" "$OUTPUT_FILE"
-        echo "  FOUND: PR #$pr_num"
+    for pr_num in $(gc pr list -R "$REPO_PATH" --state merged -L 20 2>/dev/null | grep -oP '#\d+' | tr -d '#'); do
+      fb_result=$(python3 "$FETCH_SCRIPT" \
+        --repo "$REPO_PATH" --pr "$pr_num" -o "$TMP_FILE" 2>&1) || true
+      if echo "$fb_result" | grep -q '"status": "ok"'; then
+        cp "$TMP_FILE" "$OUTPUT_FILE"
+        cp "$TMP_FILE" "$WORK_FILE"
+        CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
+        echo "    FOUND: PR #$pr_num — NEEDS ANALYSIS"
         FETCH_COUNT=$((FETCH_COUNT + 1))
         FOUND=true
         break
       fi
-      rm -f "/tmp/test_${REPO_NAME}.json"
+      rm -f "$TMP_FILE"
     done
     if [ "$FOUND" = false ]; then
-      echo "  ERROR: No passed builds in last 20 PRs"
+      echo "    ERROR: No passed builds in last 20 PRs — keeping existing data"
+      if [ -f "$OUTPUT_FILE" ]; then
+        cp "$OUTPUT_FILE" "$WORK_FILE"
+      fi
+      FAIL_COUNT=$((FAIL_COUNT + 1))
     fi
   else
-    echo "  ERROR: $RESULT"
+    echo "    ERROR: fetch failed — $RESULT"
+    if [ -f "$OUTPUT_FILE" ]; then
+      cp "$OUTPUT_FILE" "$WORK_FILE"
+      echo "    Restored existing cache"
+    fi
+    FAIL_COUNT=$((FAIL_COUNT + 1))
   fi
   echo ""
 done < "$REPOS_FILE"
 
-echo "Fetch complete: $FETCH_COUNT fetched, $SKIP_COUNT skipped"
+echo "=== Phase 1 Complete ==="
+echo "Fetched: $FETCH_COUNT | Skipped: $SKIP_COUNT | Failed: $FAIL_COUNT"
+echo "Needs analysis: ${#CHANGED_REPOS[@]} repos"
+for r in "${!CHANGED_REPOS[@]}"; do
+  echo "  - $r (${CHANGED_REPOS[$r]})"
+done
 echo ""
 
-# ── Step 2 & 3 are handled by Claude (AI analysis) ──
+# ── Step 2 & 3: AI analysis (Claude handles via sync-deploy skill) ──
+# Export changed repos for the skill to reference
+printf '%s\n' "${!CHANGED_REPOS[@]}" > /tmp/sync_changed_repos.txt
+echo "Changed repos written to /tmp/sync_changed_repos.txt"
 echo "=== Next: AI analysis (Claude) ==="
-echo "Files ready for analysis in $JSON_ORG/"
-echo ""
 
-# ── Steps 4-5: Normalize + Generate (run after AI analysis) ──
-normalize_and_generate() {
-  echo "=== Normalize ==="
-  python3 .claude/skills/build-log-normalizer/scripts/normalize.py
+# ── Steps 4-6: Normalize + Generate + Push ──
+finalize() {
   echo ""
-  echo "=== Generate ==="
+  echo "=== Phase 4: Normalize + Generate + Push ==="
+  python3 "$NORMALIZE_SCRIPT"
+  echo ""
   python3 generate.py
   echo ""
-}
-
-# ── Step 6: Push ──
-push_to_github() {
-  if [ "$SKIP_PUSH" = true ]; then
+  if [ "$SKIP_PUSH" = false ]; then
+    echo "=== Push to GitHub ==="
+    git add -A
+    git commit -m "sync: update build analysis ($(date +%Y-%m-%d))" || echo "  Nothing to commit"
+    git push
+    echo ""
+    echo "=== Pipeline Complete ==="
+    echo "Page: https://kerer-ai.github.io/log-report/"
+  else
     echo "SKIP push (--skip-push)"
-    return
   fi
-  echo "=== Push to GitHub ==="
-  git add -A
-  git commit -m "sync: update build analysis data ($(date +%Y-%m-%d))" || echo "  Nothing to commit"
-  git push
-  echo ""
-  echo "=== Pipeline Complete ==="
-  echo "Page: https://kerer-ai.github.io/log-report/"
 }
 
-# Export functions for use by Claude
-export -f normalize_and_generate push_to_github
+# Export for use after AI analysis
+export -f finalize
+export NORMALIZE_SCRIPT
+export SKIP_PUSH
 
-echo "After AI analysis is complete, run:"
-echo "  bash scripts/pipeline.sh --finish"
+echo ""
+echo "After AI analysis completes, run:"
+echo "  bash $SCRIPT_DIR/pipeline.sh --quick"
 echo ""

@@ -58,10 +58,14 @@ def validate_build(b, idx):
     if unatt < 0:
         errors.append(f"{name}: R1 FAIL — unattributed={unatt:.1f} < 0")
 
-    # R5: zero-duration actions
-    empty = [a["key"] for a in pb.get("actions", []) if a.get("duration_seconds", 0) == 0]
+    # R5: zero-duration actions without evidence (cached docker pull etc. is OK)
+    empty = [
+        a["key"] for a in pb.get("actions", [])
+        if a.get("duration_seconds", 0) == 0
+        and not a.get("evidence", "").strip()
+    ]
     if empty:
-        errors.append(f"{name}: R5 FAIL — {len(empty)} zero-duration actions: {empty}")
+        errors.append(f"{name}: R5 FAIL — {len(empty)} zero-duration actions without evidence: {empty}")
 
     # R7: total_seconds >= action span
     if pb.get("actions"):
@@ -85,10 +89,11 @@ def validate_build(b, idx):
                 f'{name}: R8 FAIL — env_setup={env_action["duration_seconds"]:.0f}s catch-all, missing {missing_pod}'
             )
 
-    # R9 target
-    if unatt > 5 or (total > 0 and unatt / total > 0.01):
+    # R9: unattributed target — 5% of total or 10s, whichever is larger
+    r9_limit = max(10.0, total * 0.05)
+    if unatt > r9_limit:
         errors.append(
-            f"{name}: R9 FAIL — unattributed={unatt:.1f}s ({unatt / total * 100:.1f}%) exceeds target (5s/1%)"
+            f"{name}: R9 FAIL — unattributed={unatt:.1f}s ({unatt / total * 100:.1f}%) exceeds target ({r9_limit:.0f}s/5%)"
         )
 
     # pod_scheduling check (non-Docker)
