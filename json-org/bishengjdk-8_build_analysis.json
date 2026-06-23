@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "pr": 331,
+    "repo": "openeuler/bishengjdk-8",
+    "pr_url": "https://gitcode.com/openeuler/bishengjdk-8/pull/331",
+    "pipeline_name": "jenkins_pipeline",
+    "pipeline_state": "completed",
+    "pipeline_url": "",
+    "comment_time": "2026-06-16 19:42",
+    "fetched_at": "2026-06-23T21:18:26.514728+08:00",
+    "analyzed_at": "2026-06-23T22:30:00+08:00",
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "x86_64 (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/x86-64/job/bishengjdk-8/146/console",
+      "time": {
+        "start": "2026-06-17T11:32:09.616000+08:00",
+        "end": "2026-06-17T12:03:41.645000+08:00",
+        "duration_seconds": 1892.029
+      },
+      "log_sample": "Started by upstream project \"multiarch/openeuler/trigger/bishengjdk-8\" build number 147\noriginally caused by:\n PR 331 [caoxj:matrix_jdk8_feature_gh -&gt; matrix_jdk8_feature_gh] trigger by note\nRunning as SYSTEM\n代理 k8s-x86-soe-20251016-kg405 由模板 k8s-x86-soe-20251016 提供\n[EnvInject] - Loading node environment variables.\nBuilding remotely on k8s-x86-soe-20251016-kg405 (docker-x86-soe k8s-x86-soe) in workspace /home/jenkins/agent/workspace/multiarch/openeuler/x86-64/bishengjdk-8\n[bishengjdk-8] $ /bin/sh -xe /tmp/jenkins634247819273240446.sh\n+ git config --global user.email local@example.com\n+ git config --global user.name local\n+ git clone -b matrix_jdk8_feature_gh https://gitcode.com/openeuler/bishengjdk-8.git bishengjdk-8\nCloning into 'bishengjdk-8'...\nUpdating files:  27% (13389/48501)\rUpdating files:  28% (13581/48501)\r...",
+      "log_stats": {
+        "total_timestamped_lines": 63004,
+        "sample_lines": 251,
+        "raw_chars": 20344665
+      },
+      "timestamp_summary": {
+        "first": "",
+        "last": "",
+        "duration_seconds": 0,
+        "total_timestamped_lines": 0,
+        "sample_lines_included": 251
+      },
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 1527,
+        "pct_of_total": 80.7,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": "2026-06-17T11:32:09+08:00",
+            "end": "2026-06-17T11:39:39+08:00",
+            "duration_seconds": 450,
+            "evidence": "[set -x trace] + git clone -b matrix_jdk8_feature_gh https://gitcode.com/openeuler/bishengjdk-8.git bishengjdk-8 ... Cloning into 'bishengjdk-8'... Updating files: 27%..100% (48501/48501), done. 48501 files, JDK repository clone."
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": "2026-06-17T11:39:39+08:00",
+            "end": "2026-06-17T11:39:47+08:00",
+            "duration_seconds": 8,
+            "evidence": "[set -x trace] + cd bishengjdk-8; + git fetch origin refs/merge-requests/331/head:pr_331 ... [new ref] pr_331; + git merge --no-edit --allow-unrelated-histories pr_331 ... Merge made by 'recursive' strategy. 127 files changed, 8416 insertions(+), 235 deletions(-)."
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": "2026-06-17T11:39:47+08:00",
+            "end": "2026-06-17T11:39:50+08:00",
+            "duration_seconds": 3,
+            "evidence": "[set -x trace] + sudo sed -i 's/repo.huaweicloud.com\\/openeuler/repo.openeuler.org/g' /etc/yum.repos.d/openEuler.repo; + cat /etc/yum.repos.d/openEuler.repo ... repo.openeuler.org confirmed."
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "start": "2026-06-17T11:39:50+08:00",
+            "end": "2026-06-17T11:57:36+08:00",
+            "duration_seconds": 1066,
+            "evidence": "Post-merge setup phase: JDK build configure, autoconf bootstrap JDK detection, Makefile generation, dependency checks. Anchored by embedded build timestamp 'Start 2026-06-17 11:57:36' marking compilation start."
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 364,
+        "pct_of_total": 19.2,
+        "actions": [
+          {
+            "key": "compilation",
+            "name": "编译构建",
+            "duration_seconds": 250,
+            "evidence": "Embedded build timestamps: 'Start 2026-06-17 11:57:36, End 2026-06-17 12:01:46, 00:04:10 TOTAL'. Sub-component times: corba 9s, demos 2s, hotspot 1m51s, images 11s, jaxp 8s, jaxws 12s, jdk 1m14s, langtools 16s, nashorn 6s."
+          },
+          {
+            "key": "packaging",
+            "name": "打包制品",
+            "duration_seconds": 114,
+            "evidence": "Embedded timing after build: removing debug symbols, moving j2sdk-image to bisheng-jdk1.8.0_492, archiving with gzip. Shell reports 'real 1m54.565s'. Artifact: bisheng-jdk-8u492-linux-x64.tar.gz."
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 1527,
+        "build_seconds": 364,
+        "unattributed_seconds": 1,
+        "key_bottleneck": "env_setup",
+        "key_bottleneck_seconds": 1066
+      }
+    },
+    {
+      "task_name": "ARM64 (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/aarch64/job/bishengjdk-8/146/console",
+      "time": {
+        "start": "2026-06-17T11:32:12.798000+08:00",
+        "end": "2026-06-17T12:04:56.823000+08:00",
+        "duration_seconds": 1964.025
+      },
+      "log_sample": "Started by upstream project \"multiarch/openeuler/trigger/bishengjdk-8\" build number 147\noriginally caused by:\n PR 331 [caoxj:matrix_jdk8_feature_gh -&gt; matrix_jdk8_feature_gh] trigger by note\nRunning as SYSTEM\n代理 k8s-aarch64-openeuler-20251016-v3qc4 由模板 k8s-aarch64-openeuler-20251016 提供\n[EnvInject] - Loading node environment variables.\nBuilding remotely on k8s-aarch64-openeuler-20251016-v3qc4 (k8s-aarch64-openeuler k8s-aarch64-oe) in workspace /home/jenkins/agent/workspace/multiarch/openeuler/aarch64/bishengjdk-8\n[bishengjdk-8] $ /bin/sh -xe /tmp/jenkins7596900755869460491.sh\n+ git config --global user.email local@example.com\n+ git config --global user.name local\n+ git clone -b matrix_jdk8_feature_gh https://gitcode.com/openeuler/bishengjdk-8.git bishengjdk-8\nCloning into 'bishengjdk-8'...\nUpdating files:  29% (14483/48501)\rUpdating files:  30% (14551/48501)\r...",
+      "log_stats": {
+        "total_timestamped_lines": 62999,
+        "sample_lines": 251,
+        "raw_chars": 20627582
+      },
+      "timestamp_summary": {
+        "first": "",
+        "last": "",
+        "duration_seconds": 0,
+        "total_timestamped_lines": 0,
+        "sample_lines_included": 251
+      },
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 1627,
+        "pct_of_total": 82.8,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": "2026-06-17T11:32:12+08:00",
+            "end": "2026-06-17T11:43:52+08:00",
+            "duration_seconds": 700,
+            "evidence": "[set -x trace] Initial clone: + git clone -b matrix_jdk8_feature_gh https://gitcode.com/openeuler/bishengjdk-8.git bishengjdk-8 (48501 files, 29%..100%). Then after merge and yum fix: rm -rf bishengjdk-8; + git clone -b matrix_jdk8_feature_gh https://gitcode.com/openeuler/bishengjdk-8.git (48501 files again from 28%..100%). Two full clones performed."
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": "2026-06-17T11:43:52+08:00",
+            "end": "2026-06-17T11:44:08+08:00",
+            "duration_seconds": 16,
+            "evidence": "[set -x trace] First merge: + git fetch origin refs/merge-requests/331/head:pr_331; + git merge --no-edit --allow-unrelated-histories pr_331 (127 files, 8416+, 235-). Second merge after re-clone: same fetch+merge repeated."
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": "2026-06-17T11:44:08+08:00",
+            "end": "2026-06-17T11:44:21+08:00",
+            "duration_seconds": 13,
+            "evidence": "[set -x trace] + sudo sed -i ... yum repo fix; + git clone https://gitcode.com/openeuler/bishengjdk-build.git --depth 1 --branch master (29 files, shallow clone). Log: '[INFO] Prepare JDK build scripts ... Download finished, begin to build and test ...'"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境配置",
+            "start": "2026-06-17T11:44:21+08:00",
+            "end": "2026-06-17T11:59:19+08:00",
+            "duration_seconds": 898,
+            "evidence": "Post-merge and tool-install setup: JDK build configure, autoconf bootstrap JDK detection, Makefile generation, cross-compilation checks for aarch64. Anchored by embedded build timestamp 'Start 2026-06-17 11:59:19' marking compilation start."
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 337,
+        "pct_of_total": 17.2,
+        "actions": [
+          {
+            "key": "compilation",
+            "name": "编译构建",
+            "duration_seconds": 217,
+            "evidence": "Embedded build timestamps: 'Start 2026-06-17 11:59:19, End 2026-06-17 12:02:56, 00:03:37 TOTAL'. Sub-component times: corba 8s, demos 2s, hotspot 1m36s, images 11s, jaxp 8s, jaxws 10s, jdk 1m1s, langtools 15s, nashorn 5s."
+          },
+          {
+            "key": "packaging",
+            "name": "打包制品",
+            "duration_seconds": 120,
+            "evidence": "Embedded timing after build: removing debug symbols, moving j2sdk-image to bisheng-jdk1.8.0_492, archiving with gzip. Shell reports 'real 2m0.134s'. Artifact: bisheng-jdk-8u492-linux-aarch64.tar.gz."
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 1627,
+        "build_seconds": 337,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "clone_kernel_repo",
+        "key_bottleneck_seconds": 700
+      }
+    }
+  ]
+}

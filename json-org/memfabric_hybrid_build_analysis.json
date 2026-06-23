@@ -1,0 +1,416 @@
+{
+  "meta": {
+    "pr": 875,
+    "repo": "Ascend/memfabric_hybrid",
+    "pr_url": "https://gitcode.com/Ascend/memfabric_hybrid/pull/875",
+    "pipeline_name": "PR-pipeline_memfabric_hybrid#3787",
+    "pipeline_state": " [ commitID：6748808d ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=3f520ea9e7d04fac8817c540cd4b5220&codeHostingPlatformFlag=gitcode",
+    "comment_time": "",
+    "fetched_at": "2026-06-23T21:16:07.236844+08:00",
+    "analyzed_at": "2026-06-23T23:30:00.000000+08:00",
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Build_memfabric-hybrid",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=3f520ea9e7d04fac8817c540cd4b5220&stepId=a80ed0f715c74fc89d58f41ab434bd58&jobRunId=2046d1ffdf074392885167c807a2fc05&stepRunId=b9c90e588e9949d58eabb099e8f96cdd&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-23T17:46:06.900000+08:00",
+        "end": "2026-06-23T17:55:00.400000+08:00",
+        "duration_seconds": 533.5
+      },
+      "log_sample": "[2026/06/23 17:46:06.900 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_di53PvUX #1\n[2026/06/23 17:46:06.902 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/23 17:46:07.013 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/23 17:46:07.015 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: bf7460429af54b92b0e3825f74b8b8fd\n[2026/06/23 17:46:07.016 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/23 17:46:07.016 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/23 17:46:08.018 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_9N3tldhG, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf004-ggRVyhoiKa\n[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_wchNreVE, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf002-8OFXgzZGHa\n[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_mIGrzDZg, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf003-R46RZ73zs8\n[2026/06/23 17:46:24.173 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_1762306282218-QRmJthyvHT\n[2026/06/23 17:46:24.210 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/23 17:46:25.223 GMT+08:00] starting check in ***/@tmp/durable-d559257f\n[2026/06/23 17:46:25.611 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 17:46:25.611 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/23 17:46:25.611 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 17:46:28.597 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/23 17:46:28.598 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/23 17:46:32.360 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/23 17:46:35.365 GMT+08:00] starting check in ***/@tmp/durable-73c25409\n[2026/06/23 17:46:35.754 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 17:46:35.754 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 17:46:39.358 GMT+08:00] + git clone -b develop https://gitcode.com/Ascend/memfabric_hybrid.git memfabric_hybrid\n[2026/06/23 17:46:43.307 GMT+08:00] + git submodule init\n[2026/06/23 17:46:48.784 GMT+08:00] Submodule path 'test/3rdparty/mockcpp': checked out\n[2026/06/23 17:46:51.953 GMT+08:00] v20: Pulling from memfabric-hybrid/memfabric-hybrid_arm\n[2026/06/23 17:46:51.954 GMT+08:00] Status: Image is up to date\n[2026/06/23 17:46:55.713 GMT+08:00] + yum install -y rdma-core-devel\n[2026/06/23 17:47:24.462 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  10 kB/s | 7.7 kB     00:00\n[2026/06/23 17:51:55.452 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  55 kB/s |  14 MB     04:28\n[2026/06/23 17:52:04.752 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed.\n[2026/06/23 17:52:04.752 GMT+08:00] + export PYTHON_HOME=/opt/python/cp311-cp311\n[2026/06/23 17:52:04.752 GMT+08:00] + gcc --version\n[2026/06/23 17:52:14.749 GMT+08:00] -- CMAKE_BUILD_TYPE = RELEASE\n[2026/06/23 17:52:22.733 GMT+08:00] gcc -c src/secureinput_a.c\n[2026/06/23 17:54:39.504 GMT+08:00] [100%] Built target _pymf_hybrid\n[2026/06/23 17:54:39.504 GMT+08:00] Install the project...\n[2026/06/23 17:54:45.137 GMT+08:00] + find output/ -name '*.whl'\n[2026/06/23 17:55:00.400 GMT+08:00] Finished: SUCCESS",
+      "log_stats": {
+        "total_timestamped_lines": 2658,
+        "sample_lines": 400,
+        "raw_chars": 303331
+      },
+      "timestamp_summary": {
+        "first": "2026-06-23T17:46:06.900000+08:00",
+        "last": "2026-06-23T17:55:00.400000+08:00",
+        "duration_seconds": 533.5,
+        "total_timestamped_lines": 2658,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 10,
+          "gap_seconds": 16.115,
+          "before_ts": "2026-06-23T17:46:08.058000+08:00",
+          "after_ts": "2026-06-23T17:46:24.173000+08:00",
+          "sample_before": "[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_mIGrzDZg, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf003-R46RZ73zs8",
+          "sample_after": "[2026/06/23 17:46:24.173 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_1762306282218-QRmJthyvHT"
+        },
+        {
+          "after_line": 159,
+          "gap_seconds": 13.197,
+          "before_ts": "2026-06-23T17:46:58.566000+08:00",
+          "after_ts": "2026-06-23T17:47:11.763000+08:00",
+          "sample_before": "[2026/06/23 17:46:58.566 GMT+08:00] AlmaLinux 8 - BaseOS                             41 MB/s |  59 MB     00:01    ",
+          "sample_after": "[2026/06/23 17:47:11.763 GMT+08:00] AlmaLinux 8 - AppStream                         6.2 kB/s | 4.3 kB     00:00    "
+        },
+        {
+          "after_line": 161,
+          "gap_seconds": 7.694,
+          "before_ts": "2026-06-23T17:47:12.868000+08:00",
+          "after_ts": "2026-06-23T17:47:20.562000+08:00",
+          "sample_before": "[2026/06/23 17:47:12.868 GMT+08:00] AlmaLinux 8 - AppStream                          24 MB/s |  26 MB     00:01    ",
+          "sample_after": "[2026/06/23 17:47:20.562 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    "
+        },
+        {
+          "after_line": 166,
+          "gap_seconds": 270.99,
+          "before_ts": "2026-06-23T17:47:24.462000+08:00",
+          "after_ts": "2026-06-23T17:51:55.452000+08:00",
+          "sample_before": "[2026/06/23 17:47:24.462 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  10 kB/s | 7.7 kB     00:00    ",
+          "sample_after": "[2026/06/23 17:51:55.452 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  55 kB/s |  14 MB     04:28    "
+        },
+        {
+          "after_line": 167,
+          "gap_seconds": 9.3,
+          "before_ts": "2026-06-23T17:51:55.452000+08:00",
+          "after_ts": "2026-06-23T17:52:04.752000+08:00",
+          "sample_before": "[2026/06/23 17:51:55.452 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  55 kB/s |  14 MB     04:28    ",
+          "sample_after": "[2026/06/23 17:52:04.752 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed."
+        },
+        {
+          "after_line": 284,
+          "gap_seconds": 5.324,
+          "before_ts": "2026-06-23T17:52:14.750000+08:00",
+          "after_ts": "2026-06-23T17:52:20.074000+08:00",
+          "sample_before": "[2026/06/23 17:52:14.750 GMT+08:00] -- Configuring hcom with CMAKE_INSTALL_PREFIX=***//memfabric_hybrid/output/3rdparty/hcom, options: BUILD_WITH_RDMA:ON BUILD_WITH_UB:OFF",
+          "sample_after": "[2026/06/23 17:52:20.074 GMT+08:00] -- CMAKE_BUILD_TYPE: RELEASE"
+        },
+        {
+          "after_line": 681,
+          "gap_seconds": 9.36,
+          "before_ts": "2026-06-23T17:54:04.397000+08:00",
+          "after_ts": "2026-06-23T17:54:13.757000+08:00",
+          "sample_before": "[2026/06/23 17:54:04.397 GMT+08:00] [ 95%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/__/__/util/csrc/mf_fault_injection_point_registry.cpp.o",
+          "sample_after": "[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'"
+        },
+        {
+          "after_line": 735,
+          "gap_seconds": 9.324,
+          "before_ts": "2026-06-23T17:54:26.330000+08:00",
+          "after_ts": "2026-06-23T17:54:35.654000+08:00",
+          "sample_before": "[2026/06/23 17:54:26.330 GMT+08:00] [100%] Built target hcom_static",
+          "sample_after": "[2026/06/23 17:54:35.654 GMT+08:00] [100%] Linking CXX shared module _pymf_transfer.cpython-311-aarch64-linux-gnu.so"
+        },
+        {
+          "after_line": 2657,
+          "gap_seconds": 8.017,
+          "before_ts": "2026-06-23T17:54:52.383000+08:00",
+          "after_ts": "2026-06-23T17:55:00.400000+08:00",
+          "sample_before": "[2026/06/23 17:54:52.383 GMT+08:00] Flag --time has been deprecated, use --timeout instead",
+          "sample_after": "[2026/06/23 17:55:00.400 GMT+08:00] Finished: SUCCESS"
+        }
+      ],
+      "pre_build": {
+        "total_seconds": 371.03,
+        "pct_of_total": 69.55,
+        "orchestrator": "volcano",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-23T17:46:07.013000+08:00",
+            "end": "2026-06-23T17:46:24.210000+08:00",
+            "duration_seconds": 17.2,
+            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> Find available executor node:agent_1762306282218-QRmJthyvHT -> 该步骤执行完成"
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": "2026-06-23T17:46:08.058000+08:00",
+            "end": "2026-06-23T17:46:24.173000+08:00",
+            "duration_seconds": 16.12,
+            "evidence": "slave_create 内部等待可用 executor: 遍历 j_9N3tldhG/j_wchNreVE/j_mIGrzDZg 均 running，16.1s 后分配到 agent_1762306282218-QRmJthyvHT"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-23T17:46:25.611000+08:00",
+            "end": "2026-06-23T17:46:25.611000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date"
+          },
+          {
+            "key": "cache_check",
+            "name": "缓存检查",
+            "start": "2026-06-23T17:46:25.611000+08:00",
+            "end": "2026-06-23T17:46:25.611000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Docker 镜像已缓存，未触发实际拉取"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-06-23T17:46:28.598000+08:00",
+            "end": "2026-06-23T17:46:32.360000+08:00",
+            "duration_seconds": 3.76,
+            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 -> git clone + fetch fork/develop -> merge MR -> [代码检出:external_post_checkout] 该步骤执行完成"
+          },
+          {
+            "key": "pod_git_clone",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-23T17:46:39.358000+08:00",
+            "end": "2026-06-23T17:46:48.784000+08:00",
+            "duration_seconds": 9.43,
+            "evidence": "git clone -b develop https://gitcode.com/Ascend/memfabric_hybrid.git memfabric_hybrid -> git fetch origin + merge FETCH_HEAD -> ls -la"
+          },
+          {
+            "key": "submodule_init",
+            "name": "子模块初始化",
+            "start": "2026-06-23T17:46:43.307000+08:00",
+            "end": "2026-06-23T17:46:48.784000+08:00",
+            "duration_seconds": 5.48,
+            "evidence": "git submodule init (googletest + mockcpp) -> git submodule update --init -> checked out"
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-23T17:46:55.713000+08:00",
+            "end": "2026-06-23T17:52:04.752000+08:00",
+            "duration_seconds": 309.04,
+            "evidence": "yum install -y rdma-core-devel 触发 AlmaLinux 8 全量 repo 元数据同步 (BaseOS 59MB + AppStream 26MB + Extras 12kB + PowerTools 3.8MB + EPEL aarch64 14MB)，耗时 271s 在 EPEL 下载"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置",
+            "start": "2026-06-23T17:52:04.752000+08:00",
+            "end": "2026-06-23T17:52:06.000000+08:00",
+            "duration_seconds": 1.25,
+            "evidence": "export PYTHON_HOME=/opt/python/cp311-cp311, export PATH=..., gcc/g++/cmake --version 版本校验"
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": "2026-06-23T17:52:06.000000+08:00",
+            "end": "2026-06-23T17:52:14.749000+08:00",
+            "duration_seconds": 8.75,
+            "evidence": "pip3 install --upgrade pip + setuptools wheel + pybind11==3.0.1 (log_sample 中跳过 77 行，基于 Build 2 同步骤 8.27s 推算)"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 162.47,
+        "pct_of_total": 30.45,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 7.98,
+            "evidence": "cmake 输出从 CMAKE_BUILD_TYPE=RELEASE 到首次 gcc 编译 (17:52:14.749 -> 17:52:22.733)"
+          },
+          {
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 136.77,
+            "evidence": "首次 gcc 编译 libboundscheck 到 [100%] Built target _pymf_hybrid + Install the project... (17:52:22.733 -> 17:54:39.504)"
+          },
+          {
+            "key": "packaging",
+            "name": "打包与上传",
+            "duration_seconds": 20.896,
+            "evidence": "Install the project... -> find output/ -name '*.whl' + cp 到 BeiMing_output/ (17:54:39.504 -> 17:54:45.137) -> 后续间隙直至 Finished: SUCCESS (17:55:00.400) 归入打包阶段"
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 371.03,
+        "build_seconds": 162.47,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "artifact_download",
+        "key_bottleneck_seconds": 309.04
+      }
+    },
+    {
+      "task_name": "Build_memfabric-hybrid-bazel",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=3f520ea9e7d04fac8817c540cd4b5220&stepId=a80ed0f715c74fc89d58f41ab434bd58&jobRunId=073ddf9670694003ab333d7770a50dfb&stepRunId=be77c96a6c55412dac10c2ac028d5f00&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-23T17:49:39.337000+08:00",
+        "end": "2026-06-23T17:53:40.292000+08:00",
+        "duration_seconds": 240.955
+      },
+      "log_sample": "[2026/06/23 17:49:39.337 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_QF3F3DED #1\n[2026/06/23 17:49:39.445 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/23 17:49:39.447 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: bf7460429af54b92b0e3825f74b8b8fd\n[2026/06/23 17:49:40.508 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_di53PvUX, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_1762306282218-QRmJthyvHT\n[2026/06/23 17:50:09.591 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_mf004-ggRVyhoiKa\n[2026/06/23 17:50:09.636 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/23 17:50:10.964 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date\n[2026/06/23 17:50:13.776 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/23 17:50:17.482 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/23 17:50:20.600 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date\n[2026/06/23 17:50:24.319 GMT+08:00] + git clone -b develop https://gitcode.com/Ascend/memfabric_hybrid.git memfabric_hybrid\n[2026/06/23 17:50:28.407 GMT+08:00] + git submodule init\n[2026/06/23 17:50:32.698 GMT+08:00] Submodule path 'test/3rdparty/mockcpp': checked out\n[2026/06/23 17:50:36.052 GMT+08:00] v30: Pulling from memfabric-hybrid/memfabric-hybrid_arm\n[2026/06/23 17:50:36.052 GMT+08:00] Status: Image is up to date\n[2026/06/23 17:50:39.609 GMT+08:00] + yum install -y rdma-core-devel\n[2026/06/23 17:51:13.130 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64 4.9 MB/s |  14 MB     00:02\n[2026/06/23 17:51:24.101 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed.\n[2026/06/23 17:51:24.101 GMT+08:00] + export PYTHON_HOME=/opt/python/cp311-cp311\n[2026/06/23 17:51:24.101 GMT+08:00] + gcc --version\n[2026/06/23 17:51:28.638 GMT+08:00] Successfully installed pip-26.1.2\n[2026/06/23 17:51:31.330 GMT+08:00] Successfully installed setuptools-82.0.1 wheel-0.47.0\n[2026/06/23 17:51:32.366 GMT+08:00] Successfully installed pybind11-3.0.1\n[2026/06/23 17:51:32.366 GMT+08:00] + bash script/build_and_pack_run.sh --build_tool bazel\n[2026/06/23 17:51:32.366 GMT+08:00] bazel clean --async\n[2026/06/23 17:51:38.175 GMT+08:00] Computing main repo mapping\n[2026/06/23 17:52:19.450 GMT+08:00] [187 / 262] Compiling src/hcom/common/net_tcp_client.cpp\n[2026/06/23 17:53:09.122 GMT+08:00] INFO: Build completed successfully, 262 total actions\n[2026/06/23 17:53:09.645 GMT+08:00] ========= copy bazel artifacts to dist directory=========\n[2026/06/23 17:53:26.732 GMT+08:00] + cp -rf output/memfabric_hybrid-1.2.0_linux_aarch64.run ***//BeiMing_output/develop/\n[2026/06/23 17:53:40.292 GMT+08:00] Finished: SUCCESS",
+      "log_stats": {
+        "total_timestamped_lines": 2290,
+        "sample_lines": 400,
+        "raw_chars": 234953
+      },
+      "timestamp_summary": {
+        "first": "2026-06-23T17:49:39.337000+08:00",
+        "last": "2026-06-23T17:53:40.292000+08:00",
+        "duration_seconds": 240.955,
+        "total_timestamped_lines": 2290,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 9,
+          "gap_seconds": 29.083,
+          "before_ts": "2026-06-23T17:49:40.508000+08:00",
+          "after_ts": "2026-06-23T17:50:09.591000+08:00",
+          "sample_before": "[2026/06/23 17:49:40.508 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_di53PvUX, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_1762306282218-QRmJthyvHT",
+          "sample_after": "[2026/06/23 17:50:09.591 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_mf004-ggRVyhoiKa"
+        },
+        {
+          "after_line": 155,
+          "gap_seconds": 13.092,
+          "before_ts": "2026-06-23T17:50:43.739000+08:00",
+          "after_ts": "2026-06-23T17:50:56.831000+08:00",
+          "sample_before": "[2026/06/23 17:50:43.739 GMT+08:00] AlmaLinux 8 - BaseOS                             28 MB/s |  59 MB     00:02    ",
+          "sample_after": "[2026/06/23 17:50:56.831 GMT+08:00] AlmaLinux 8 - AppStream                         6.2 kB/s | 4.3 kB     00:00    "
+        },
+        {
+          "after_line": 157,
+          "gap_seconds": 8.489,
+          "before_ts": "2026-06-23T17:50:57.349000+08:00",
+          "after_ts": "2026-06-23T17:51:05.838000+08:00",
+          "sample_before": "[2026/06/23 17:50:57.349 GMT+08:00] AlmaLinux 8 - AppStream                          25 MB/s |  26 MB     00:01    ",
+          "sample_after": "[2026/06/23 17:51:05.838 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    "
+        },
+        {
+          "after_line": 163,
+          "gap_seconds": 10.971,
+          "before_ts": "2026-06-23T17:51:13.130000+08:00",
+          "after_ts": "2026-06-23T17:51:24.101000+08:00",
+          "sample_before": "[2026/06/23 17:51:13.130 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64 4.9 MB/s |  14 MB     00:02    ",
+          "sample_after": "[2026/06/23 17:51:24.101 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed."
+        },
+        {
+          "after_line": 2289,
+          "gap_seconds": 5.74,
+          "before_ts": "2026-06-23T17:53:34.552000+08:00",
+          "after_ts": "2026-06-23T17:53:40.292000+08:00",
+          "sample_before": "[2026/06/23 17:53:34.552 GMT+08:00] Flag --time has been deprecated, use --timeout instead",
+          "sample_after": "[2026/06/23 17:53:40.292 GMT+08:00] Finished: SUCCESS"
+        }
+      ],
+      "pre_build": {
+        "total_seconds": 129.41,
+        "pct_of_total": 53.71,
+        "orchestrator": "volcano",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-23T17:49:39.445000+08:00",
+            "end": "2026-06-23T17:50:09.636000+08:00",
+            "duration_seconds": 30.19,
+            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> Find available executor node:agent_mf004-ggRVyhoiKa -> 该步骤执行完成"
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": "2026-06-23T17:49:40.508000+08:00",
+            "end": "2026-06-23T17:50:09.591000+08:00",
+            "duration_seconds": 29.08,
+            "evidence": "slave_create 内部等待可用 executor: 遍历 j_iS17lEDz/j_di53PvUX 均 running，29.1s 后分配到 agent_mf004-ggRVyhoiKa"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-23T17:50:10.964000+08:00",
+            "end": "2026-06-23T17:50:10.964000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date"
+          },
+          {
+            "key": "cache_check",
+            "name": "缓存检查",
+            "start": "2026-06-23T17:50:10.964000+08:00",
+            "end": "2026-06-23T17:50:10.964000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Docker 镜像已缓存，未触发实际拉取"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-06-23T17:50:13.776000+08:00",
+            "end": "2026-06-23T17:50:17.482000+08:00",
+            "duration_seconds": 3.71,
+            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 -> git clone + fetch fork/develop -> merge MR -> [代码检出:external_post_checkout] 该步骤执行完成"
+          },
+          {
+            "key": "pod_git_clone",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-23T17:50:24.319000+08:00",
+            "end": "2026-06-23T17:50:32.698000+08:00",
+            "duration_seconds": 8.38,
+            "evidence": "git clone -b develop https://gitcode.com/Ascend/memfabric_hybrid.git memfabric_hybrid -> git fetch origin + merge FETCH_HEAD -> ls -la"
+          },
+          {
+            "key": "submodule_init",
+            "name": "子模块初始化",
+            "start": "2026-06-23T17:50:28.407000+08:00",
+            "end": "2026-06-23T17:50:32.698000+08:00",
+            "duration_seconds": 4.29,
+            "evidence": "git submodule init (googletest + mockcpp) -> git submodule update --init -> checked out"
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-23T17:50:39.609000+08:00",
+            "end": "2026-06-23T17:51:24.101000+08:00",
+            "duration_seconds": 44.49,
+            "evidence": "yum install -y rdma-core-devel 触发 AlmaLinux 8 repo 元数据同步 (BaseOS 59MB 28MB/s + AppStream 26MB 25MB/s + Extras + PowerTools + EPEL aarch64 14MB 4.9MB/s)，已完成缓存故较快"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置",
+            "start": "2026-06-23T17:51:24.101000+08:00",
+            "end": "2026-06-23T17:51:24.101000+08:00",
+            "duration_seconds": 1.0,
+            "evidence": "export PYTHON_HOME=/opt/python/cp311-cp311, export PATH=..., gcc/g++/cmake --version 版本校验"
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": "2026-06-23T17:51:24.101000+08:00",
+            "end": "2026-06-23T17:51:32.366000+08:00",
+            "duration_seconds": 8.27,
+            "evidence": "pip3 install --upgrade pip (4.54s) -> pip3 install --upgrade setuptools wheel (2.69s) -> pip3 install pybind11==3.0.1 (1.04s)"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 111.545,
+        "pct_of_total": 46.29,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "Bazel 分析/配置",
+            "duration_seconds": 41.28,
+            "evidence": "bazel clean --async + Extracting Bazel -> Computing main repo mapping + 依赖解析 -> 首次编译动作 [187/262] (17:51:38.175 -> 17:52:19.450)"
+          },
+          {
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 49.67,
+            "evidence": "首次 Bazel 编译动作 [187/262] 到 INFO: Build completed successfully, 262 total actions (17:52:19.450 -> 17:53:09.122)"
+          },
+          {
+            "key": "packaging",
+            "name": "打包与上传",
+            "duration_seconds": 31.17,
+            "evidence": "copy bazel artifacts -> bdist_wheel -> auditwheel repair manylinux_2_26 -> make_run.sh cp 到 BeiMing_output/ (17:53:09.122 -> 17:53:26.732) -> 后续间隙直至 Finished: SUCCESS (17:53:40.292) 归入打包阶段"
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 129.41,
+        "build_seconds": 111.545,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "artifact_download",
+        "key_bottleneck_seconds": 44.49
+      }
+    }
+  ]
+}

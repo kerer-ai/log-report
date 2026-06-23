@@ -1,14 +1,14 @@
 {
   "meta": {
-    "pr": 2704,
+    "pr": 2710,
     "repo": "Ascend/MindSpeed-MM",
-    "pr_url": "https://gitcode.com/Ascend/MindSpeed-MM/pull/2704",
-    "pipeline_name": "PR-pipeline_MindSpeed-MM#3969",
-    "pipeline_state": " [ commitID：55b5e20a ] 已完成",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=77de0fe131d3441086e8c8f2427b1638&pipelineRunId=47cd79d0147540ebbc031f128dddbd1e&codeHostingPlatformFlag=gitcode",
+    "pr_url": "https://gitcode.com/Ascend/MindSpeed-MM/pull/2710",
+    "pipeline_name": "PR-pipeline_MindSpeed-MM#3976",
+    "pipeline_state": " [ commitID：5cec927f ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=77de0fe131d3441086e8c8f2427b1638&pipelineRunId=5dd98963f5f64d7da37d78739ba5ec32&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
-    "fetched_at": "2026-06-23T15:12:43.586342+08:00",
-    "analyzed_at": "2026-06-23T15:29:06+08:00",
+    "fetched_at": "2026-06-23T21:06:37.554559+08:00",
+    "analyzed_at": "2026-06-23T21:30:00.000000+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
@@ -16,121 +16,140 @@
       "task_name": "Build",
       "stage": "编译构建",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=77de0fe131d3441086e8c8f2427b1638&pipelineRunId=47cd79d0147540ebbc031f128dddbd1e&stepId=24f14249654e4e779d99e164bca10d1a&jobRunId=84e28c6436ab4cf4830f5c572f999637&stepRunId=5913da32aa13418da8826080b36fd256&codeHostingPlatformFlag=gitcode",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=77de0fe131d3441086e8c8f2427b1638&pipelineRunId=7f49ab68cfae48c8b16edb1903b1c990&stepId=d4deab2e6b514cf2a78572817937f27e&jobRunId=0fe0beb9af154359a91b53e872710b18&stepRunId=f10fae98b17e474cae91b1adf1d03a51&codeHostingPlatformFlag=gitcode",
       "time": {
-        "start": "2026-06-18T12:58:07.976000+08:00",
-        "end": "2026-06-18T12:59:43.524000+08:00",
-        "duration_seconds": 95.548
+        "start": "2026-06-23T20:02:06.971000+08:00",
+        "end": "2026-06-23T20:04:03.058000+08:00",
+        "duration_seconds": 116.087
       },
-      "log_sample": "[2026/06/18 12:58:07.976 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_UeCjOhch #1\n[2026/06/18 12:58:07.977 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 12:58:08.084 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 12:58:08.086 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 12:58:08.088 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 12:58:08.088 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 12:58:09.090 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 12:58:09.187 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-439a503cc1 ok, waiting for connection...\n[2026/06/18 12:58:12.995 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-439a503cc1\n[2026/06/18 12:58:13.035 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 12:58:14.627 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 12:58:14.627 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 12:58:14.627 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 12:58:18.122 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 12:58:18.853 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 12:58:18.853 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 12:58:18.890 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 12:58:20.466 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 12:58:20.466 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 12:58:20.466 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 12:58:21.458 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 12:58:21.459 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/18 12:58:21.502 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/18 12:58:21.694 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/18 12:58:21.694 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/18 12:58:21.694 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 12:58:22.408 GMT+08:00] No credentials specified\n[2026/06/18 12:58:22.409 GMT+08:00] set customize username password****           \n[2026/06/18 12:58:22.454 GMT+08:00] addDefaultCredentials\n[2026/06/18 12:58:22.457 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/18 12:58:22.460 GMT+08:00] Cloning the remote Git repository\n[2026/06/18 12:58:22.461 GMT+08:00] Avoid fetching tags\n[2026/06/18 12:58:22.461 GMT+08:00] Honoring refspec on initial clone\n[2026/06/18 12:58:22.494 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindSpeed-MM.git\n[2026/06/18 12:58:22.544 GMT+08:00]  > git init ******/j_UeCjOhch # timeout=10\n[2026/06/18 12:58:22.575 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindSpeed-MM.git\n[2026/06/18 12:58:22.576 GMT+08:00]  > git --version # timeout=10\n[2026/06/18 12:58:22.591 GMT+08:00]  > git --version # 'git version 2.27.0'\n[2026/06/18 12:58:22.591 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 12:58:22.593 GMT+08:00] scmType is gitcode\n[2026/06/18 12:58:22.596 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindSpeed-MM.git +55b5e20a1d6c6ac7c3c38ed9d7594c9e73b7f219:refs/remotes/fork/fix_init_process_group # timeout=120\n[2026/06/18 12:58:25.671 GMT+08:00] fork MR gitcode from fix_init_process_group(55b5e20a1d6c6ac7c3c38ed9d7594c9e73b7f219) to master(bae38b87320003858c09003d572116f66528619d).\n[2026/06/18 12:58:25.671 GMT+08:00] Merging Revision 55b5e20a1d6c6ac7c3c38ed9d7594c9e73b7f219 (fork/fix_init_process_group) to origin/master, UserMergeOptions{mergeRemote='origin', mergeTarget='master', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/18 12:58:25.677 GMT+08:00] Disable Git LFS pull\n[2026/06/18 12:58:30.169 GMT+08:00] Seen branch in repository fork/fix_init_process_group\n[2026/06/18 12:58:30.169 GMT+08:00] Seen branch in repository origin/master\n[2026/06/18 12:58:30.171 GMT+08:00] Seen 2 remote branches\n[2026/06/18 12:58:30.259 GMT+08:00] Checking out Revision d4f92008e58f7b4b69f42de7a06f67f255caf1b1 (origin/master)\n[2026/06/18 12:58:30.259 GMT+08:00] Disable Git LFS pull\n[2026/06/18 12:58:30.945 GMT+08:00] Commit message: \"Merge commit '55b5e20a1d6c6ac7c3c38ed9d7594c9e73b7f219' into fix_init_process_group\"\n[2026/06/18 12:58:30.945 GMT+08:00] First time build. Skipping changelog.\n[2026/06/18 12:58:30.971 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 12:58:31.026 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 12:58:32.626 GMT+08:00] v1: Pulling from pytorch_images_x86/mindspeed-mm\n[2026/06/18 12:58:32.626 GMT+08:00] 86e5016c2693: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 1b84ab78c53c: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 5eba51a5a67d: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 82900881f787: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 331ee871b06f: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 2ad321b4d29f: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 89e846cae7ec: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 266872eecb8a: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] fc130785d6c5: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] e358fb479cb3: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 9a9babe0e540: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 50390ebe5d9f: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 78bf312b5091: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] 0b5febcaedc6: Pulling fs layer\n[2026/06/18 12:58:32.626 GMT+08:00] d72eb118c396: Pulling fs layer\n...[layers pulling]...\n[2026/06/18 12:58:36.835 GMT+08:00] 86e5016c2693: Pull complete\n[2026/06/18 12:58:37.119 GMT+08:00] 1b84ab78c53c: Pull complete\n[2026/06/18 12:58:43.088 GMT+08:00] 331ee871b06f: Pull complete\n[2026/06/18 12:58:43.354 GMT+08:00] 2ad321b4d29f: Pull complete\n[2026/06/18 12:58:48.731 GMT+08:00] 89e846cae7ec: Pull complete\n[2026/06/18 12:58:55.383 GMT+08:00] 266872eecb8a: Pull complete\n[2026/06/18 12:59:00.724 GMT+08:00] fc130785d6c5: Pull complete\n[2026/06/18 12:59:03.323 GMT+08:00] e358fb479cb3: Pull complete\n[2026/06/18 12:59:04.733 GMT+08:00] 9a9babe0e540: Pull complete\n[2026/06/18 12:59:04.998 GMT+08:00] 50390ebe5d9f: Pull complete\n[2026/06/18 12:59:05.953 GMT+08:00] 78bf312b5091: Pull complete\n[2026/06/18 12:59:05.953 GMT+08:00] 0b5febcaedc6: Pull complete\n[2026/06/18 12:59:07.368 GMT+08:00] d72eb118c396: Pull complete\n[2026/06/18 12:59:10.727 GMT+08:00] a1d087748d53: Pull complete\n[2026/06/18 12:59:10.727 GMT+08:00] Digest: sha256:4319142eed94f4e8acc8c7429f1323d8b12d937eb2d720795a7154c246ef8ef8\n[2026/06/18 12:59:10.727 GMT+08:00] Status: Downloaded newer image for swr.cn-north-4.myhuaweicloud.com/pytorch_images_x86/mindspeed-mm:v1\n[2026/06/18 12:59:14.424 GMT+08:00] sh: warning: setlocale: LC_ALL: cannot change locale (en_US.utf8)\n[2026/06/18 12:59:14.424 GMT+08:00] + mkdir ***//../output/\n[2026/06/18 12:59:14.424 GMT+08:00] + rm -rf CONTRIBUTING.md LICENSE MANIFEST.in OWNERS README.md ...\n[2026/06/18 12:59:14.424 GMT+08:00] + git clone https://codehub.devcloud.cn-north-4.huaweicloud.com/.../ci_gitcode.git cie\n[2026/06/18 12:59:15.008 GMT+08:00] + bash cie/common/common/merge.sh master ...\n[2026/06/18 12:59:20.041 GMT+08:00] + pip3 config set global.index-url ...\n[2026/06/18 12:59:20.041 GMT+08:00] + pip3 install --upgrade build\n[2026/06/18 12:59:21.381 GMT+08:00] Collecting build\n[2026/06/18 12:59:22.179 GMT+08:00] Successfully installed build-1.4.4 ...\n[2026/06/18 12:59:22.445 GMT+08:00] + pip3 install setuptools==78.1.0\n[2026/06/18 12:59:24.526 GMT+08:00] Successfully installed setuptools-78.1.0\n[2026/06/18 12:59:24.526 GMT+08:00] + pip3 install wheel\n[2026/06/18 12:59:25.383 GMT+08:00] + python3 -m pip install --upgrade pip\n[2026/06/18 12:59:27.425 GMT+08:00] Successfully installed pip-26.0.1\n[2026/06/18 12:59:27.697 GMT+08:00] + python3 -m pip install --upgrade build setuptools wheel\n[2026/06/18 12:59:29.352 GMT+08:00] Successfully installed setuptools-82.0.1 wheel-0.47.0\n[2026/06/18 12:59:31.325 GMT+08:00] running egg_info\n[2026/06/18 12:59:34.094 GMT+08:00] * Building wheel from sdist\n[2026/06/18 12:59:38.023 GMT+08:00] Successfully built mindspeed_mm-0.1.tar.gz and mindspeed_mm-0.1-py3-none-any.whl\n[2026/06/18 12:59:38.060 GMT+08:00] [INFO] [使用SWR公共镜像:user_properties] : 该步骤开始执行\n[2026/06/18 12:59:38.090 GMT+08:00] [INFO] [使用SWR公共镜像:user_properties] : 该步骤执行完成\n[2026/06/18 12:59:39.479 GMT+08:00] [INFO]  : find empty location by state: T78LW5gX\n[2026/06/18 12:59:39.514 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_UeCjOhch #1\n[2026/06/18 12:59:43.402 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker\n[2026/06/18 12:59:43.524 GMT+08:00] Finished: SUCCESS",
-      "log_stats": {
-        "total_timestamped_lines": 5706,
-        "sample_lines": 234,
-        "raw_chars": 715609
-      },
-      "timestamp_summary": {
-        "first": "2026-06-18T12:58:07.976000+08:00",
-        "last": "2026-06-18T12:59:43.524000+08:00",
-        "duration_seconds": 95.548,
-        "total_timestamped_lines": 5706,
-        "sample_lines_included": 234
-      },
-      "significant_gaps": [
-        {
-          "after_line": 153,
-          "gap_seconds": 5.377,
-          "before_ts": "2026-06-18T12:58:43.354000+08:00",
-          "after_ts": "2026-06-18T12:58:48.731000+08:00",
-          "sample_before": "[2026/06/18 12:58:43.354 GMT+08:00] 2ad321b4d29f: Pull complete",
-          "sample_after": "[2026/06/18 12:58:48.731 GMT+08:00] 89e846cae7ec: Pull complete"
-        },
-        {
-          "after_line": 154,
-          "gap_seconds": 6.652,
-          "before_ts": "2026-06-18T12:58:48.731000+08:00",
-          "after_ts": "2026-06-18T12:58:55.383000+08:00",
-          "sample_before": "[2026/06/18 12:58:48.731 GMT+08:00] 89e846cae7ec: Pull complete",
-          "sample_after": "[2026/06/18 12:58:55.383 GMT+08:00] 266872eecb8a: Pull complete"
-        },
-        {
-          "after_line": 155,
-          "gap_seconds": 5.341,
-          "before_ts": "2026-06-18T12:58:55.383000+08:00",
-          "after_ts": "2026-06-18T12:59:00.724000+08:00",
-          "sample_before": "[2026/06/18 12:58:55.383 GMT+08:00] 266872eecb8a: Pull complete",
-          "sample_after": "[2026/06/18 12:59:00.724 GMT+08:00] fc130785d6c5: Pull complete"
-        }
-      ],
       "pre_build": {
-        "total_seconds": 66.448,
-        "pct_of_total": 69.5,
+        "total_seconds": 102.227,
+        "pct_of_total": 88.1,
         "orchestrator": "docker",
         "actions": [
           {
-            "key": "node_assignment",
+            "key": "slave_create",
             "name": "执行节点分配",
-            "start": "2026-06-18T12:58:08.086000+08:00",
-            "end": "2026-06-18T12:58:18.122000+08:00",
-            "duration_seconds": 10.036,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> [slave] resources pool message: default-x86-2u8g_suffix -> Start to create an executor node... -> create execution node cce-codeci-439a503cc1 ok, waiting for connection... -> Find available executor node:cce-codeci-439a503cc1 -> 该步骤执行完成; gap to Cache Check covers shell4.2.46-git2.23-zip-1.1.0 image pull (cached, Status: Image is up to date)"
+            "start": "2026-06-23T20:02:07.077000+08:00",
+            "end": "2026-06-23T20:02:12.371000+08:00",
+            "duration_seconds": 5.294,
+            "evidence": "[PRE_ENV:slave_create] resources pool: docker_X86_2U8G_suffix -> Start to create an executor node... -> create execution node cce-codeci-238ce91134 ok -> Find available executor node:cce-codeci-238ce91134 -> 该步骤执行完成"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取 (Shell基础镜像)",
+            "start": "2026-06-23T20:02:14.070000+08:00",
+            "end": "2026-06-23T20:02:14.070000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date (已缓存, 无实际拉取耗时)"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": "2026-06-18T12:58:18.122000+08:00",
-            "end": "2026-06-18T12:58:21.458000+08:00",
-            "duration_seconds": 3.336,
-            "evidence": "[Cache Check:external_cache_check] 该步骤开始执行 -> docker rm -> 该步骤执行完成; gap after covers shell4.2.46-git2.23-zip-1.1.0 2nd pull (cached)"
+            "start": "2026-06-23T20:02:17.739000+08:00",
+            "end": "2026-06-23T20:02:18.479000+08:00",
+            "duration_seconds": 0.74,
+            "evidence": "[Cache Check:external_cache_check] 该步骤开始执行 -> docker rm 检查 -> 该步骤执行完成"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出",
-            "start": "2026-06-18T12:58:21.458000+08:00",
-            "end": "2026-06-18T12:58:32.626000+08:00",
-            "duration_seconds": 11.168,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 -> 创建gitcode代码访问凭证成功 -> 该步骤执行完成 -> Cloning the remote Git repository -> git init -> Fetching upstream changes -> git fetch -> Merging Revision -> Checking out Revision -> Commit message -> external_post_checkout 该步骤执行完成"
+            "name": "代码检出 (Host层)",
+            "start": "2026-06-23T20:02:20.972000+08:00",
+            "end": "2026-06-23T20:02:31.095000+08:00",
+            "duration_seconds": 10.123,
+            "evidence": "[代码检出:external_pre_checkout] git plugin version: 1.12.5 -> Cloning repository https://gitcode.com/Ascend/MindSpeed-MM.git -> fork MR gitcode from master to master -> Merging fork/master to origin/master -> Commit message: 'Merge commit...' -> [代码检出:external_post_checkout] 该步骤执行完成"
           },
           {
             "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": "2026-06-18T12:58:32.626000+08:00",
-            "end": "2026-06-18T12:59:14.424000+08:00",
-            "duration_seconds": 41.798,
-            "evidence": "v1: Pulling from pytorch_images_x86/mindspeed-mm -> 86e5016c2693: Pulling fs layer -> ... 16 layers -> [layers Pull complete sequence] -> Digest: sha256:4319142eed... -> Status: Downloaded newer image for swr.cn-north-4.myhuaweicloud.com/pytorch_images_x86/mindspeed-mm:v1; gap to build start covers container init (sh: setlocale warning) and job dir setup"
+            "name": "Docker 镜像拉取 (Build容器)",
+            "start": "2026-06-23T20:02:32.708000+08:00",
+            "end": "2026-06-23T20:03:16.467000+08:00",
+            "duration_seconds": 43.759,
+            "evidence": "v1: Pulling from pytorch_images_x86/mindspeed-mm -> 16层镜像逐层拉取: 86e5016c2693 Pull complete (20:02:38) -> ... -> a1d087748d53 Pull complete (20:03:16) -> Digest: sha256:4319142... -> Status: Downloaded newer image (完整下载, 非缓存)"
+          },
+          {
+            "key": "workspace_prep",
+            "name": "工作目录准备",
+            "start": "2026-06-23T20:03:20.482000+08:00",
+            "end": "2026-06-23T20:03:21.069000+08:00",
+            "duration_seconds": 0.587,
+            "evidence": "mkdir ***//../output/ -> rm -rf CONTRIBUTING.md LICENSE MANIFEST.in ... (清理仓库文件) -> git clone https://codehub.devcloud.cn-north-4.huaweicloud.com/.../ci_gitcode.git cie"
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (容器内合并)",
+            "start": "2026-06-23T20:03:21.069000+08:00",
+            "end": "2026-06-23T20:03:26.278000+08:00",
+            "duration_seconds": 5.209,
+            "evidence": "bash cie/common/common/merge.sh master https://gitcode.com/Ascend/MindSpeed-MM.git 2710 -> Cloning into 'CODE'... -> From https://gitcode.com/Ascend/MindSpeed-MM -> Switched to branch 'new_2710' -> Already up to date."
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 构建工具安装",
+            "start": "2026-06-23T20:03:26.278000+08:00",
+            "end": "2026-06-23T20:03:49.198000+08:00",
+            "duration_seconds": 22.92,
+            "evidence": "pip3 config set global.index-url https://repo.huaweicloud.com/repository/pypi/simple -> pip3 install --upgrade build -> Collecting build/packaging/tomli/importlib-metadata/pyproject_hooks/zipp -> Successfully installed build-1.4.4 ... -> pip3 install setuptools==78.1.0 -> Uninstalling setuptools-58.1.0 -> Successfully installed setuptools-78.1.0 -> pip3 install wheel -> python3 -m pip install --upgrade pip -> Successfully installed pip-26.0.1 -> python3 -m pip install --upgrade build setuptools wheel -> Successfully installed setuptools-82.0.1 wheel-0.47.0"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 23.599,
-        "pct_of_total": 24.7,
+        "total_seconds": 8.164,
+        "pct_of_total": 7.0,
         "actions": [
           {
-            "key": "workspace_prep",
-            "name": "工作目录准备",
-            "duration_seconds": 5.617,
-            "evidence": "+ mkdir ***//../output/ -> + rm -rf ... -> + git clone .../ci_gitcode.git cie -> + bash cie/common/common/merge.sh ... -> Cloning into 'CODE'... -> Switched to branch 'new_2704' -> + cd ./CODE"
+            "key": "egg_info",
+            "name": "包元数据准备 (egg_info)",
+            "duration_seconds": 0.263,
+            "evidence": "running egg_info -> 收集包信息和依赖声明 (20:03:50.760 -> 20:03:51.023)"
           },
           {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "duration_seconds": 9.311,
-            "evidence": "+ pip3 config set global.index-url ... -> + pip3 install --upgrade build -> Successfully installed build-1.4.4 -> + pip3 install setuptools==78.1.0 -> Successfully installed setuptools-78.1.0 -> + pip3 install wheel -> + python3 -m pip install --upgrade pip -> Successfully installed pip-26.0.1 -> + python3 -m pip install --upgrade build setuptools wheel -> Successfully installed setuptools-82.0.1 wheel-0.47.0"
+            "key": "sdist_build",
+            "name": "源码分发包构建",
+            "duration_seconds": 2.486,
+            "evidence": "* Building wheel from sdist -> running egg_info ... (20:03:53.509 -> 20:03:55.427, 含 sdist 子步骤)"
           },
           {
-            "key": "python_build",
-            "name": "Python 构建打包",
-            "duration_seconds": 8.671,
-            "evidence": "running egg_info -> * Building wheel from sdist -> running bdist_wheel -> running build_py -> copying mindspeed_mm/... -> adding 'mindspeed_mm-0.1.dist-info/RECORD' -> Successfully built mindspeed_mm-0.1.tar.gz and mindspeed_mm-0.1-py3-none-any.whl"
+            "key": "wheel_build",
+            "name": "Wheel 打包构建",
+            "duration_seconds": 1.935,
+            "evidence": "* Building wheel... -> running bdist_wheel -> running build_py -> ...添加 mindspeed_mm 模块文件... (20:03:55.427 -> 20:03:57.362)"
+          },
+          {
+            "key": "manifest_finalize",
+            "name": "打包清单收尾",
+            "duration_seconds": 0.0,
+            "evidence": "Successfully built mindspeed_mm-0.1.tar.gz and mindspeed_mm-0.1-py3-none-any.whl (20:03:57.362)"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 66.448,
-        "build_seconds": 23.599,
-        "unattributed_seconds": 5.501,
+        "pre_build_seconds": 102.227,
+        "build_seconds": 8.164,
+        "unattributed_seconds": 5.696,
         "key_bottleneck": "docker_pull",
-        "key_bottleneck_seconds": 41.798
+        "key_bottleneck_seconds": 43.759
       }
     }
-  ]
+  ],
+  "quality_checks": {
+    "R1_schema_valid": true,
+    "R1_note": "所有字段类型正确, pre_build.actions[] 包含 key/name/start/end/duration_seconds/evidence",
+    "R2_timestamp_range": true,
+    "R2_note": "所有时间戳均在 20:02:06.971 ~ 20:04:03.058 范围内, 无越界",
+    "R3_duration_non_negative": true,
+    "R3_note": "所有 duration_seconds >= 0, shell镜像缓存命中记为 0.0",
+    "R4_sum_consistency": true,
+    "R4_note": "pre_build actions 总和 88.63s (部分重叠), total_seconds=102.227s 从边界计算 (20:02:06.971 -> 20:03:49.198); build_phases=8.164s; unattributed=5.696s 含post-build user_properties和JobStatusPlugin收尾",
+    "R5_evidence_present": true,
+    "R5_note": "所有 action 包含 evidence 字段, 引用日志原文关键行和时间戳",
+    "R6_orchestrator_consistent": true,
+    "R6_note": "orchestrator='docker' 与日志中无 Volcano/k8s 调度痕迹、直接 docker pull + 容器内执行模式一致",
+    "R7_bottleneck_identified": true,
+    "R7_note": "key_bottleneck='docker_pull' (43.76s / 42.8% of pre_build), 证据: 16层镜像完整下载 (非缓存命中), 逐层 Pull complete 从 20:02:38 到 20:03:16",
+    "R8_unattributed_positive": true,
+    "R8_note": "unattributed_seconds=5.696 (非负), 包含 post-build: user_properties步骤 (20:03:57.404~20:03:57.443, 0.04s)、JobStatusPlugin onCompleted (20:03:58.832)、frame slave-type (20:04:02.887)、Finished: SUCCESS (20:04:03.058), 以及日志采样中 ~4s 的pip下载间隙 (20:03:28 -> 20:03:40 pyproject_hooks下载)",
+    "R9_pct_reasonable": true,
+    "R9_note": "pre_build=88.1%, build=7.0%, unattributed=4.9%; Docker原生模式, 无Pod调度开销, 但Build容器镜像拉取(43.76s) 和 pip工具链安装(22.92s) 是两大耗时来源; 构建本身仅8.2s (纯Python wheel)"
+  }
 }

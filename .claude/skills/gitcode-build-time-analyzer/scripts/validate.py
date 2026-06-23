@@ -75,8 +75,11 @@ def validate_build(b, idx):
                 f"{name}: R7 FAIL — total_seconds={pre:.1f}s < sum of durations={actions_span:.1f}s"
             )
 
-    # R8: env_setup catch-all
-    env_action = next((a for a in pb.get("actions", []) if a["key"] == "env_setup"), None)
+    # R8: env_setup catch-all (skip for jenkins — no pod actions)
+    if pb.get("orchestrator", "") == "jenkins":
+        env_action = None
+    else:
+        env_action = next((a for a in pb.get("actions", []) if a["key"] == "env_setup"), None)
     if env_action and env_action.get("duration_seconds", 0) > 20:
         pod_actions = [a["key"] for a in pb.get("actions", [])]
         missing_pod = [

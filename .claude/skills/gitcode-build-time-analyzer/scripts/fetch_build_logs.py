@@ -511,8 +511,21 @@ def jenkins_sample_log(full_log, max_sample_lines=400):
             entries.append((ts, line))
 
     if not entries:
-        return {"sample_log": "", "sample_line_count": 0, "total_lines_in_log": len(lines),
-                "raw_log_total_chars": len(full_log), "timestamp_summary": {},
+        # Fallback: no timestamped lines found — include raw log head+tail
+        head = lines[:200]
+        tail = lines[-50:] if len(lines) > 200 else []
+        sample_lines = list(head)
+        if tail:
+            skipped = len(lines) - 250
+            if skipped > 0:
+                sample_lines.append(f"... [no timestamps — skipped {skipped} lines] ...")
+            sample_lines.extend(tail)
+        return {"sample_log": "\n".join(redact(l) for l in sample_lines),
+                "sample_line_count": len(sample_lines),
+                "total_lines_in_log": len(lines),
+                "raw_log_total_chars": len(full_log),
+                "timestamp_summary": {"first": "", "last": "", "duration_seconds": 0,
+                                      "total_timestamped_lines": 0, "sample_lines_included": len(sample_lines)},
                 "significant_gaps": []}
 
     total = len(entries)

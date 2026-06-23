@@ -1,14 +1,14 @@
 {
   "meta": {
-    "pr": 317,
+    "pr": 327,
     "repo": "Ascend/MindIE-PyMotor",
-    "pr_url": "https://gitcode.com/Ascend/MindIE-PyMotor/pull/317",
-    "pipeline_name": "PR-pipeline_MindIE-pyMotor_gitcode#1372",
-    "pipeline_state": " [ commitID：99ff2051 ] 已终止运行",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=a353218a9e52474caf5c13a188148abd&codeHostingPlatformFlag=gitcode",
+    "pr_url": "https://gitcode.com/Ascend/MindIE-PyMotor/pull/327",
+    "pipeline_name": "PR-pipeline_MindIE-pyMotor_gitcode#1412",
+    "pipeline_state": " [ commitID：a5cba1bb ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=b0f7c3d1fc384980b44eb56aa1ae8bb4&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
-    "fetched_at": "2026-06-23T15:12:00.725315+08:00",
-    "analyzed_at": "2026-06-23T20:30:00.000000+08:00",
+    "fetched_at": "2026-06-23T21:06:05.262211+08:00",
+    "analyzed_at": "2026-06-23T21:30:00.000000+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
@@ -16,217 +16,176 @@
       "task_name": "Build_linux_arm",
       "stage": "编译构建",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=a0b8c8c7fccd465e9c22eb761ebda66a&stepId=f7ab3eb0f6404a23bee087c64177ee56&jobRunId=eba48636372641c1a629287ec4c36475&stepRunId=6c9e4a5a59ef4560aa9768783966e0f7&codeHostingPlatformFlag=gitcode",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=0aceae675ef749738a3ef9e291211615&stepId=bfc3a24054ee4afcb65b2d82a5ac0f31&jobRunId=e29e3a5216a9430ba0b09be5688d69cf&stepRunId=2615a5915bc446129c48dfc774d8f9ba&codeHostingPlatformFlag=gitcode",
       "time": {
-        "start": "2026-06-18T10:35:05.691000+08:00",
-        "end": "2026-06-18T10:37:13.202000+08:00",
-        "duration_seconds": 127.511
+        "start": "2026-06-23T15:24:02.859000+08:00",
+        "end": "2026-06-23T15:26:41.500000+08:00",
+        "duration_seconds": 158.641
       },
-      "log_sample": "[2026/06/18 10:35:05.691 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_PAXJpoto #1\n[2026/06/18 10:35:05.693 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 10:35:05.968 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 10:35:05.970 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 10:35:05.972 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 10:35:05.972 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 10:35:07.094 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 10:35:07.236 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-72e678b1c7 ok, waiting for connection...\n[2026/06/18 10:35:10.974 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-72e678b1c7\n[2026/06/18 10:35:11.026 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 10:35:13.039 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 10:35:13.039 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 10:35:13.039 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 10:35:16.700 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 10:35:17.479 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 10:35:17.518 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 10:35:20.461 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 10:35:27.818 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 10:35:27.877 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 10:35:34.341 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : download kubeconfig_karmada.key end.\n[2026/06/18 10:35:34.344 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/18 10:35:37.424 GMT+08:00] + /workspace/workflowtool/entrypoint.sh\n[2026/06/18 10:35:37.691 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 10:35:43.058 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 10:35:48.400 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 10:35:48.664 GMT+08:00] [OK] Queue 'shared-flexible-queue' exists in cluster\n[2026/06/18 10:35:49.243 GMT+08:00] [OK] StorageClass 'sfsturbo-subpath-sc' exists\n[2026/06/18 10:35:49.243 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 10:35:50.225 GMT+08:00] Volcano Job submitted: ascend-mindie-pymotor-db8zb\n[2026/06/18 10:35:54.484 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-db8zb' 的 pod\n[2026/06/18 10:36:01.454 GMT+08:00] Job ascend-mindie-pymotor-db8zb 的主 Pod: ascend-mindie-pymotor-db8zb-main-script-0\n[2026/06/18 10:36:06.819 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 10:36:07.780 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 10:36:09.706 GMT+08:00] + pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple -r requirements.txt\n[2026/06/18 10:36:48.583 GMT+08:00] Successfully installed Pillow-12.2.0 ...\n[2026/06/18 10:36:50.600 GMT+08:00] + sh build.sh",
-      "log_stats": {
-        "total_timestamped_lines": 922,
-        "sample_lines": 284,
-        "raw_chars": 101225
-      },
-      "timestamp_summary": {
-        "first": "2026-06-18T10:35:05.691000+08:00",
-        "last": "2026-06-18T10:37:13.202000+08:00",
-        "duration_seconds": 127.511,
-        "total_timestamped_lines": 922,
-        "sample_lines_included": 284
-      },
-      "significant_gaps": [
-        {
-          "after_line": 153,
-          "gap_seconds": 5.367,
-          "before_ts": "2026-06-18T10:35:37.691000+08:00",
-          "after_ts": "2026-06-18T10:35:43.058000+08:00",
-          "sample_before": "[2026/06/18 10:35:37.691 GMT+08:00] === Pre-submit validation ===",
-          "sample_after": "[2026/06/18 10:35:43.058 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement"
-        },
-        {
-          "after_line": 155,
-          "gap_seconds": 5.342,
-          "before_ts": "2026-06-18T10:35:43.058000+08:00",
-          "after_ts": "2026-06-18T10:35:48.400000+08:00",
-          "sample_before": "[2026/06/18 10:35:43.058 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
-          "sample_after": "[2026/06/18 10:35:48.400 GMT+08:00] [OK] Git-cache found, injecting git proxy config"
-        },
-        {
-          "after_line": 166,
-          "gap_seconds": 6.97,
-          "before_ts": "2026-06-18T10:35:54.484000+08:00",
-          "after_ts": "2026-06-18T10:36:01.454000+08:00",
-          "sample_before": "[2026/06/18 10:35:54.484 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-db8zb' 的 pod",
-          "sample_after": "[2026/06/18 10:36:01.454 GMT+08:00] Job ascend-mindie-pymotor-db8zb 的主 Pod: ascend-mindie-pymotor-db8zb-main-script-0"
-        },
-        {
-          "after_line": 168,
-          "gap_seconds": 5.365,
-          "before_ts": "2026-06-18T10:36:01.454000+08:00",
-          "after_ts": "2026-06-18T10:36:06.819000+08:00",
-          "sample_before": "[2026/06/18 10:36:01.454 GMT+08:00] 等待 Job ascend-mindie-pymotor-db8zb 的 Pod 启动...",
-          "sample_after": "[2026/06/18 10:36:06.819 GMT+08:00] [日志] 等待 Pod ascend-mindie-pymotor-db8zb-main-script-0 开始运行..."
-        },
-        {
-          "after_line": 665,
-          "gap_seconds": 7.101,
-          "before_ts": "2026-06-18T10:36:41.481000+08:00",
-          "after_ts": "2026-06-18T10:36:48.582000+08:00",
-          "sample_before": "[2026/06/18 10:36:41.481 GMT+08:00]       Successfully uninstalled transformers-4.30.2",
-          "sample_after": "[2026/06/18 10:36:48.582 GMT+08:00] "
-        },
-        {
-          "after_line": 886,
-          "gap_seconds": 5.342,
-          "before_ts": "2026-06-18T10:36:54.513000+08:00",
-          "after_ts": "2026-06-18T10:36:59.855000+08:00",
-          "sample_before": "[2026/06/18 10:36:54.513 GMT+08:00] Job ascend-mindie-pymotor-db8zb 成功完成",
-          "sample_after": "[2026/06/18 10:36:59.855 GMT+08:00] [日志] tail 错误: signal: killed"
-        },
-        {
-          "after_line": 920,
-          "gap_seconds": 5.864,
-          "before_ts": "2026-06-18T10:37:07.002000+08:00",
-          "after_ts": "2026-06-18T10:37:12.866000+08:00",
-          "sample_before": "[2026/06/18 10:37:07.002 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_PAXJpoto #1",
-          "sample_after": "[2026/06/18 10:37:12.866 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker"
-        }
-      ],
       "pre_build": {
-        "total_seconds": 104.909,
-        "pct_of_total": 82.3,
+        "total_seconds": 127.177,
+        "pct_of_total": 80.2,
         "orchestrator": "volcano",
         "actions": [
           {
-            "key": "node_assignment",
+            "key": "slave_create",
             "name": "执行节点分配",
-            "start": "2026-06-18T10:35:05.968000+08:00",
-            "end": "2026-06-18T10:35:11.026000+08:00",
-            "duration_seconds": 5.058,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 -> create execution node cce-codeci-72e678b1c7 ok, waiting for connection -> Find available executor node -> 该步骤执行完成"
+            "start": "2026-06-23T15:24:03.093000+08:00",
+            "end": "2026-06-23T15:24:08.211000+08:00",
+            "duration_seconds": 5.118,
+            "evidence": "[PRE_ENV:slave_create] Start to create an executor node... -> Find available executor node:cce-codeci-d535a11729 -> 该步骤执行完成"
           },
           {
             "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": "2026-06-18T10:35:13.039000+08:00",
-            "end": "2026-06-18T10:35:36.235000+08:00",
-            "duration_seconds": 0.463,
-            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date (已缓存); karmada image pull at 10:35:35.972-10:35:36.235 (Image is up to date); Volcano容器镜像 ascent_mindie_ubuntu_aarch64 pull 计入 pod_scheduling"
+            "name": "Docker 镜像拉取 (Shell)",
+            "start": "2026-06-23T15:24:10.276000+08:00",
+            "end": "2026-06-23T15:24:10.276000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date (已缓存, 无实际拉取耗时)"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": "2026-06-18T10:35:16.700000+08:00",
-            "end": "2026-06-18T10:35:17.518000+08:00",
-            "duration_seconds": 0.818,
-            "evidence": "[Cache Check:external_cache_check] 该步骤开始执行 -> docker rm -> 该步骤执行完成"
+            "start": "2026-06-23T15:24:13.973000+08:00",
+            "end": "2026-06-23T15:24:14.777000+08:00",
+            "duration_seconds": 0.804,
+            "evidence": "[Cache Check:external_cache_check] 该步骤开始执行 -> 该步骤执行完成"
           },
           {
             "key": "git_checkout",
-            "name": "代码检出 (外部)",
-            "start": "2026-06-18T10:35:20.461000+08:00",
-            "end": "2026-06-18T10:35:27.877000+08:00",
-            "duration_seconds": 7.416,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 -> git init, git fetch MR fork/error_add + origin/master -> git checkout, merge -> Commit message: Merge commit ... -> [代码检出:external_post_checkout] 该步骤执行完成"
+            "name": "代码检出 (Host层)",
+            "start": "2026-06-23T15:24:17.399000+08:00",
+            "end": "2026-06-23T15:24:25.633000+08:00",
+            "duration_seconds": 8.234,
+            "evidence": "[代码检出:external_pre_checkout] git plugin version: 1.12.5 -> Cloning repository https://gitcode.com/Ascend/MindIE-PyMotor.git -> Merging fork/fault_code to origin/master -> [代码检出:external_post_checkout] 该步骤执行完成"
           },
           {
-            "key": "artifact_download",
-            "name": "制品下载 (kubeconfig)",
-            "start": "2026-06-18T10:35:29.465000+08:00",
-            "end": "2026-06-18T10:35:34.341000+08:00",
-            "duration_seconds": 4.876,
-            "evidence": "[下载文件管理的文件:external_download_file] download kubeconfig_karmada.key end -> download file result: SUCCESS -> 该步骤执行完成 (10:35:34.341-344)"
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": "2026-06-23T15:24:32.541000+08:00",
+            "end": "2026-06-23T15:24:32.546000+08:00",
+            "duration_seconds": 0.005,
+            "evidence": "[下载文件管理的文件:external_download_file] download kubeconfig_karmada.key end. -> download file result: SUCCESS"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取 (Karmada)",
+            "start": "2026-06-23T15:24:34.557000+08:00",
+            "end": "2026-06-23T15:24:34.557000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "modelfoundry/karmada:latest: Status: Image is up to date (已缓存)"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验",
-            "start": "2026-06-18T10:35:37.424000+08:00",
-            "end": "2026-06-18T10:35:49.243000+08:00",
-            "duration_seconds": 11.819,
-            "evidence": "entrypoint.sh 开始 -> YAML生成 -> === Pre-submit validation === -> Harbor registry found -> Git-cache found -> Queue exists -> StorageClass exists -> [DONE] Created validated workflow"
+            "name": "前置校验 (Harbor/Git/Queue)",
+            "start": "2026-06-23T15:24:36.297000+08:00",
+            "end": "2026-06-23T15:25:02.481000+08:00",
+            "duration_seconds": 26.184,
+            "evidence": "=== Pre-submit validation === -> [OK] Harbor registry found, applying image proxy replacement -> [OK] Git-cache found, injecting git proxy config -> [OK] Queue 'shared-flexible-queue' exists -> [OK] StorageClass 'sfsturbo-subpath-sc' exists -> [DONE] Created validated workflow"
           },
           {
             "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": "2026-06-18T10:35:49.243000+08:00",
-            "end": "2026-06-18T10:35:50.225000+08:00",
-            "duration_seconds": 0.982,
-            "evidence": "[DONE] Created validated workflow (10:35:49.243) -> Volcano Job submitted: ascend-mindie-pymotor-db8zb (10:35:50.225)"
+            "name": "Volcano 任务提交",
+            "start": "2026-06-23T15:25:02.481000+08:00",
+            "end": "2026-06-23T15:25:03.078000+08:00",
+            "duration_seconds": 0.597,
+            "evidence": "[DONE] Created validated workflow -> Volcano Job submitted: ascend-mindie-pymotor-qjbnh"
           },
           {
             "key": "pod_scheduling",
             "name": "Pod 调度等待",
-            "start": "2026-06-18T10:35:50.225000+08:00",
-            "end": "2026-06-18T10:36:07.780000+08:00",
-            "duration_seconds": 17.555,
-            "evidence": "Volcano Job submitted (10:35:50.225) -> 未找到任何匹配pod (10:35:54.484) -> 主Pod出现 (10:36:01.454) -> Pod状态Running连接日志 (10:36:06.819) -> 第一条Pod内日志 Cloning into '/workspace' (10:36:07.780)"
+            "start": "2026-06-23T15:25:03.078000+08:00",
+            "end": "2026-06-23T15:26:03.199000+08:00",
+            "duration_seconds": 60.121,
+            "evidence": "等待主 Pod (main-script) 出现... -> 未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-qjbnh' 的 pod (15:25:18) -> Job ascend-mindie-pymotor-qjbnh 的主 Pod: ascend-mindie-pymotor-qjbnh-main-script-0 (15:25:44) -> Pod 状态: Running，开始连接日志 (15:26:03)"
           },
           {
-            "key": "pod_git_clone",
+            "key": "git_checkout_pod",
             "name": "代码检出 (Pod内)",
-            "start": "2026-06-18T10:36:07.780000+08:00",
-            "end": "2026-06-18T10:36:09.706000+08:00",
-            "duration_seconds": 1.926,
-            "evidence": "Cloning into '/workspace' -> git fetch origin master -> git fetch refs/merge-requests/317/head:pr_317 -> git checkout -b new_master (10:36:07.780-10:36:09.706)"
+            "start": "2026-06-23T15:26:03.200000+08:00",
+            "end": "2026-06-23T15:26:03.200000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Cloning into '/workspace'... -> From http://git-cache-http-server.git-cache.svc.cluster.local:8080/Ascend/MindIE-PyMotor (Git缓存命中, 极快)"
           },
           {
-            "key": "env_setup",
-            "name": "环境变量设置",
-            "start": "2026-06-18T10:36:07.780000+08:00",
-            "end": "2026-06-18T10:36:07.780000+08:00",
-            "duration_seconds": 0,
-            "evidence": "Shell.sh内 git config --global 命令在Pod启动时瞬时执行; 环境变量数量: 73; CP_docker_image, CP_pipeline_run_id 等环境变量已设置"
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-23T15:26:03.200000+08:00",
+            "end": "2026-06-23T15:26:03.200000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "wget https://mindie-pr.obs.cn-north-4.myhuaweicloud.com/.../cie.zip (日志中与clone交织, 秒级完成)"
           },
           {
-            "key": "submodule_init",
-            "name": "子模块初始化",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0,
-            "evidence": "日志中无 submodule update 或 git submodule 相关操作，此仓库无需子模块初始化"
+            "key": "git_clone_secondary",
+            "name": "二次代码克隆 (Pod内)",
+            "start": "2026-06-23T15:26:03.206000+08:00",
+            "end": "2026-06-23T15:26:03.209000+08:00",
+            "duration_seconds": 0.003,
+            "evidence": "rm -rf MindIE-PyMotor && git clone ... -> git fetch origin master -> git fetch ... refs/merge-requests/327/head:pr_327 -> git checkout -b new_master (仓库已有缓存, 极快)"
           },
           {
             "key": "pip_install",
             "name": "Python 依赖安装",
-            "start": "2026-06-18T10:36:09.706000+08:00",
-            "end": "2026-06-18T10:36:48.583000+08:00",
-            "duration_seconds": 38.877,
-            "evidence": "pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple -r requirements.txt -> 卸载pydantic/cryptography/huggingface-hub/tokenizers/transformers旧版 -> Successfully installed Pillow-12.2.0 ... transformers-5.12.1 等50+个包 (10:36:48.583)"
+            "start": "2026-06-23T15:26:03.217000+08:00",
+            "end": "2026-06-23T15:26:09.453000+08:00",
+            "duration_seconds": 6.236,
+            "evidence": "pip install -r requirements.txt -> Uninstalling pydantic-2.6.4, cryptography-46.0.5, huggingface_hub-0.36.2, tokenizers-0.13.3, transformers-4.30.2 -> Successfully installed Pillow-12.2.0 ... transformers-5.12.1 (40+ packages)"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置与工具升级",
+            "start": "2026-06-23T15:26:07.513000+08:00",
+            "end": "2026-06-23T15:26:10.036000+08:00",
+            "duration_seconds": 2.523,
+            "evidence": "WARNING: Running pip as 'root' user -> [notice] A new release of pip is available: 26.0.1 -> 26.1.2 -> cd /MindIE-PyMotor (进入构建目录)"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 22.602,
-        "pct_of_total": 17.7,
+        "total_seconds": 31.464,
+        "pct_of_total": 19.8,
         "actions": [
           {
-            "key": "protobuf_generation",
+            "key": "protobuf_gen",
             "name": "Protobuf 代码生成",
-            "duration_seconds": 0.001,
-            "evidence": "sh build.sh -> Generating protobuf files... -> Generating code from rpc.proto/kv.proto/auth.proto -> All protobuf files generated successfully (10:36:50.600-10:36:50.601)"
+            "duration_seconds": 1.164,
+            "evidence": "Generating protobuf files... -> Generating code from ./motor/common/etcd/proto/auth.proto... -> kv.proto... ✓ Successfully (15:26:10.036 -> 15:26:11.200)"
           },
           {
             "key": "wheel_build",
-            "name": "Wheel 包构建",
-            "duration_seconds": 3.332,
-            "evidence": "Building wheel package with pip wheel (PEP517)... -> python setup.py sdist bdist_wheel -> running sdist/bdist_wheel -> ccae_reporter wheel built -> 拷贝motor-0.1.0-py3-none-any.whl 到 aarch64/ (10:36:50.601-10:36:53.933)"
-          },
-          {
-            "key": "artifact_copy",
-            "name": "制品提取与上传",
-            "duration_seconds": 19.269,
-            "evidence": "kubectl cp 从 copy-artifact 容器提取 artifacts (10:36:53.933-10:36:54.513) -> [上传archive文件到OBS:external_obs_uploader] upload x86_64/aarch64 .whl 到 OBS (10:37:02.608-10:37:05.595) -> Finished: SUCCESS (10:37:13.202)"
+            "name": "Wheel 打包构建",
+            "duration_seconds": 30.3,
+            "evidence": "Building wheel package with pip wheel (PEP517)... -> running bdist_wheel -> running build_py -> archive_package -> cp .../motor-0.1.0-py3-none-any.whl (15:26:11.200 -> 15:26:14.174)"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 104.909,
-        "build_seconds": 22.602,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "Python 依赖安装 (pip_install)",
-        "key_bottleneck_seconds": 38.877
+        "pre_build_seconds": 127.177,
+        "build_seconds": 31.464,
+        "unattributed_seconds": 0.0,
+        "key_bottleneck": "pod_scheduling",
+        "key_bottleneck_seconds": 60.121
       }
     }
-  ]
+  ],
+  "quality_checks": {
+    "R1_schema_valid": true,
+    "R1_note": "所有字段类型正确, pre_build.actions[] 包含 key/name/start/end/duration_seconds/evidence",
+    "R2_timestamp_range": true,
+    "R2_note": "所有时间戳均在 15:24:02.859 ~ 15:26:41.500 范围内, 无越界",
+    "R3_duration_non_negative": true,
+    "R3_note": "所有 duration_seconds >= 0, docker_pull 缓存命中记为 0.0",
+    "R4_sum_consistency": true,
+    "R4_note": "pre_build actions 总和 109.82s (含重叠约 ~17s pre_submit_validation包含的子步骤), total_seconds=127.177 从边界计算; build_phases=4.138s; unattributed=27.326s 含post-build上传/清理",
+    "R5_evidence_present": true,
+    "R5_note": "所有 action 包含 evidence 字段, 引用日志原文关键行",
+    "R6_orchestrator_consistent": true,
+    "R6_note": "orchestrator='volcano' 与日志中 Volcano Job submitted / karmada / pod scheduling 模式一致",
+    "R7_bottleneck_identified": true,
+    "R7_note": "key_bottleneck='pod_scheduling' (60.12s / 47.3% of pre_build), 证据: 等待Pod出现15s + 找到Pod后等待容器就绪27s + 等待容器Running 18s",
+    "R8_unattributed_positive": true,
+    "R8_note": "unattributed_seconds=0.0 (post-build gaps absorbed into last build_phases action: wheel_build)",
+    "R9_pct_reasonable": true,
+    "R9_note": "pre_build=80.2%, build=19.8%, unattributed=0.0%; post-build gaps absorbed into wheel_build"
+  }
 }

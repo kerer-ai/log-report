@@ -1,0 +1,471 @@
+{
+  "meta": {
+    "pr": 990,
+    "repo": "openeuler/ubs-engine",
+    "pr_url": "https://gitcode.com/openeuler/ubs-engine/pull/990",
+    "pipeline_name": "jenkins_pipeline",
+    "pipeline_state": "completed",
+    "pipeline_url": "",
+    "comment_time": "2026-06-23 19:54",
+    "fetched_at": "2026-06-23T21:15:20.242494+08:00",
+    "analyzed_at": null,
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "x86_64 (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/x86-64/job/ubs-engine/4573/console",
+      "time": {
+        "start": "2026-06-23T19:36:52.863000+08:00",
+        "end": "2026-06-23T19:36:52.994000+08:00",
+        "duration_seconds": 0.131
+      },
+      "log_sample": "",
+      "log_stats": {
+        "total_timestamped_lines": 12,
+        "sample_lines": 0,
+        "raw_chars": 686
+      },
+      "timestamp_summary": {},
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_check_scripts",
+            "name": "Clone 检查脚本",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "allmodconfig_build",
+            "name": "Allmodconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_build",
+            "name": "Defconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "kabi_check",
+            "name": "KABI 兼容性检查",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_check",
+            "name": "Defconfig 一致性检查",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    },
+    {
+      "task_name": "ARM64 (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/aarch64/job/ubs-engine/4581/console",
+      "time": {
+        "start": "2026-06-23T19:36:58.038000+08:00",
+        "end": "2026-06-23T19:37:01.598000+08:00",
+        "duration_seconds": 3.56
+      },
+      "log_sample": "",
+      "log_stats": {
+        "total_timestamped_lines": 47,
+        "sample_lines": 0,
+        "raw_chars": 2213
+      },
+      "timestamp_summary": {},
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_check_scripts",
+            "name": "Clone 检查脚本",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "allmodconfig_build",
+            "name": "Allmodconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_build",
+            "name": "Defconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "kabi_check",
+            "name": "KABI 兼容性检查",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_check",
+            "name": "Defconfig 一致性检查",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    },
+    {
+      "task_name": "pre-commit (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/manual-jobs/job/openeuler/job/UBSCore/job/pre-commit/job/ubs-engine/3921/console",
+      "time": {
+        "start": "2026-06-23T19:36:57.084000+08:00",
+        "end": "2026-06-23T19:37:37.797000+08:00",
+        "duration_seconds": 40.713
+      },
+      "log_sample": "",
+      "log_stats": {
+        "total_timestamped_lines": 494,
+        "sample_lines": 0,
+        "raw_chars": 32580
+      },
+      "timestamp_summary": {},
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_check_scripts",
+            "name": "Clone 检查脚本",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "allmodconfig_build",
+            "name": "Allmodconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_build",
+            "name": "Defconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "kabi_check",
+            "name": "KABI 兼容性检查",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_check",
+            "name": "Defconfig 一致性检查",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    },
+    {
+      "task_name": "DT (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/manual-jobs/job/openeuler/job/UBSCore/job/DT/job/ubs-engine/3869/console",
+      "time": {
+        "start": "2026-06-23T19:36:58.052000+08:00",
+        "end": "2026-06-23T19:54:42.665000+08:00",
+        "duration_seconds": 1064.613
+      },
+      "log_sample": "",
+      "log_stats": {
+        "total_timestamped_lines": 23474,
+        "sample_lines": 0,
+        "raw_chars": 1620484
+      },
+      "timestamp_summary": {},
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_check_scripts",
+            "name": "Clone 检查脚本",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "allmodconfig_build",
+            "name": "Allmodconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_build",
+            "name": "Defconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "kabi_check",
+            "name": "KABI 兼容性检查",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_check",
+            "name": "Defconfig 一致性检查",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    },
+    {
+      "task_name": "check_issue_associate (check_build)",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/manual-jobs/job/openeuler/job/UBSCore/job/check_issue_associate/job/issue-associate-check/5266/console",
+      "time": {
+        "start": "2026-06-23T19:36:58.064000+08:00",
+        "end": "2026-06-23T19:36:59.073000+08:00",
+        "duration_seconds": 1.009
+      },
+      "log_sample": "",
+      "log_stats": {
+        "total_timestamped_lines": 37,
+        "sample_lines": 0,
+        "raw_chars": 4900
+      },
+      "timestamp_summary": {},
+      "significant_gaps": [],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": [
+          {
+            "key": "clone_check_scripts",
+            "name": "Clone 检查脚本",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "clone_kernel_repo",
+            "name": "Clone 内核仓库",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apply_pr_patch",
+            "name": "应用 PR 补丁",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "allmodconfig_build",
+            "name": "Allmodconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_build",
+            "name": "Defconfig 构建",
+            "duration_seconds": 0
+          },
+          {
+            "key": "kabi_check",
+            "name": "KABI 兼容性检查",
+            "duration_seconds": 0
+          },
+          {
+            "key": "defconfig_check",
+            "name": "Defconfig 一致性检查",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    }
+  ]
+}

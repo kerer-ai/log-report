@@ -7,8 +7,8 @@
     "pipeline_state": "triggered",
     "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?pipelineId=1fb7edac5d0b4cf095f25ebea7376e75&projectId=300036&pipelineRunId=e615a372fad14903802c9a40fd395e17)",
     "comment_time": "2026-06-18 10:35",
-    "fetched_at": "2026-06-23T15:11:53.766535+08:00",
-    "analyzed_at": "2026-06-23T23:00:00.000000+08:00",
+    "fetched_at": "2026-06-23T21:05:43.029702+08:00",
+    "analyzed_at": "2026-06-23T22:50:00.000000+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
@@ -22,91 +22,242 @@
         "end": "2026-06-18T18:16:44.405000+08:00",
         "duration_seconds": 221.834
       },
+      "log_sample": "[2026/06/18 18:13:02.571 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_bLqdi56e #1\n[2026/06/18 18:13:02.573 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 18:13:02.728 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 18:13:02.731 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 18:13:02.733 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 18:13:02.733 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 18:13:03.736 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 18:13:03.829 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-b28ba5852d ok, waiting for connection...\n[2026/06/18 18:13:07.638 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-a620969136\n[2026/06/18 18:13:07.689 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 18:13:09.835 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:09.835 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:09.835 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:13.232 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 18:13:13.955 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 18:13:13.955 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 18:13:13.955 GMT+08:00] \n[2026/06/18 18:13:13.955 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/18 18:13:13.955 GMT+08:00] \n[2026/06/18 18:13:13.955 GMT+08:00] Remove one or more containers\n[2026/06/18 18:13:14.003 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 18:13:15.649 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:15.649 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:15.649 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:16.631 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 18:13:16.632 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/18 18:13:16.670 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/18 18:13:16.849 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/18 18:13:16.849 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/18 18:13:16.849 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 18:13:17.389 GMT+08:00] No credentials specified\n[2026/06/18 18:13:17.390 GMT+08:00] set customize username password****           \n[2026/06/18 18:13:17.449 GMT+08:00] addDefaultCredentials\n[2026/06/18 18:13:17.452 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/18 18:13:17.455 GMT+08:00] Cloning the remote Git repository\n[2026/06/18 18:13:17.455 GMT+08:00] Avoid fetching tags\n[2026/06/18 18:13:17.455 GMT+08:00] Honoring refspec on initial clone\n[2026/06/18 18:13:17.482 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-SD.git\n[2026/06/18 18:13:17.520 GMT+08:00]  > git init ******/j_bLqdi56e # timeout=10\n[2026/06/18 18:13:17.560 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-SD.git\n[2026/06/18 18:13:17.560 GMT+08:00]  > git --version # timeout=10\n[2026/06/18 18:13:17.565 GMT+08:00]  > git --version # 'git version 2.27.0'\n[2026/06/18 18:13:17.566 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 18:13:17.568 GMT+08:00] scmType is gitcode\n[2026/06/18 18:13:17.572 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-SD.git +8d83c178a4c862d522aa51f1b60f3bed3ae80042:refs/remotes/fork/dev # timeout=120\n[2026/06/18 18:13:18.792 GMT+08:00] fork MR gitcode from dev(8d83c178a4c862d522aa51f1b60f3bed3ae80042) to dev(32f75e211622e4b4784b62f56041713b15be9744).\n[2026/06/18 18:13:18.792 GMT+08:00] Merging Revision 8d83c178a4c862d522aa51f1b60f3bed3ae80042 (fork/dev) to origin/dev, UserMergeOptions{mergeRemote='origin', mergeTarget='dev', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/18 18:13:18.802 GMT+08:00] Disable Git LFS pull\n[2026/06/18 18:13:18.682 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindIE-SD.git # timeout=10\n[2026/06/18 18:13:18.687 GMT+08:00]  > git config --add remote.fork.fetch +8d83c178a4c862d522aa51f1b60f3bed3ae80042:refs/remotes/fork/dev # timeout=10\n[2026/06/18 18:13:18.698 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindIE-SD.git # timeout=10\n[2026/06/18 18:13:18.706 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-SD.git\n[2026/06/18 18:13:18.707 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 18:13:18.708 GMT+08:00] scmType is gitcode\n[2026/06/18 18:13:18.709 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-SD.git +8d83c178a4c862d522aa51f1b60f3bed3ae80042:refs/remotes/fork/dev # timeout=120\n[2026/06/18 18:13:18.740 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/MindIE-SD.git # timeout=10\n[2026/06/18 18:13:18.749 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-SD.git\n[2026/06/18 18:13:18.750 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 18:13:18.751 GMT+08:00] scmType is gitcode\n[2026/06/18 18:13:18.752 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-SD.git +32f75e211622e4b4784b62f56041713b15be9744:refs/remotes/origin/dev # timeout=120\n[2026/06/18 18:13:18.771 GMT+08:00]  > git rev-parse fork/dev^{commit} # timeout=10\n[2026/06/18 18:13:18.780 GMT+08:00]  > git rev-parse origin/dev^{commit} # timeout=10\n[2026/06/18 18:13:18.793 GMT+08:00]  > git rev-parse origin/dev^{commit} # timeout=10\n[2026/06/18 18:13:18.808 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/18 18:13:18.833 GMT+08:00]  > git checkout -f origin/dev # timeout=120\n[2026/06/18 18:13:19.033 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/18 18:13:19.043 GMT+08:00]  > git checkout -b dev origin/dev # timeout=120\n[2026/06/18 18:13:19.175 GMT+08:00]  > git remote # timeout=10\n[2026/06/18 18:13:19.240 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/18 18:13:19.265 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 18:13:19.266 GMT+08:00] scmType is gitcode\n[2026/06/18 18:13:19.266 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/18 18:13:19.283 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/18 18:13:23.337 GMT+08:00] Checking out Revision 32bdbdcb1493793a2e3381a5fc0ed3c84d5cc388 (origin/dev)\n[2026/06/18 18:13:23.337 GMT+08:00] Disable Git LFS pull\n[2026/06/18 18:13:23.248 GMT+08:00] Seen branch in repository fork/dev\n[2026/06/18 18:13:23.248 GMT+08:00] Seen branch in repository origin/dev\n[2026/06/18 18:13:23.249 GMT+08:00] Seen 2 remote branches\n[2026/06/18 18:13:23.314 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/18 18:13:23.338 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/18 18:13:23.352 GMT+08:00]  > git checkout -f 32bdbdcb1493793a2e3381a5fc0ed3c84d5cc388 # timeout=120\n[2026/06/18 18:13:23.359 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/18 18:13:23.364 GMT+08:00]  > git branch -D dev # timeout=10\n[2026/06/18 18:13:23.372 GMT+08:00]  > git checkout -b dev 32bdbdcb1493793a2e3381a5fc0ed3c84d5cc388 # timeout=120\n[2026/06/18 18:13:23.989 GMT+08:00] Commit message: \"Merge commit '8d83c178a4c862d522aa51f1b60f3bed3ae80042' into dev\"\n[2026/06/18 18:13:23.989 GMT+08:00] First time build. Skipping changelog.\n[2026/06/18 18:13:24.019 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 18:13:24.092 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 18:13:25.742 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:25.742 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:25.742 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:27.131 GMT+08:00] + cat\n[2026/06/18 18:13:27.131 GMT+08:00] + cat shell.sh\n[2026/06/18 18:13:27.131 GMT+08:00] #! /bin/bash\n[2026/06/18 18:13:27.132 GMT+08:00] set -e\n[2026/06/18 18:13:27.132 GMT+08:00] umask 022\n[2026/06/18 18:13:27.132 GMT+08:00] [ -f /home/jenkins/.gitconfig ] && cp /home/jenkins/.gitconfig ~/.gitconfig\n[2026/06/18 18:13:27.132 GMT+08:00] [ -f /home/jenkins/.git-credentials ] && cp /home/jenkins/.git-credentials ~/.git-credentials\n[2026/06/18 18:13:27.132 GMT+08:00] \n[2026/06/18 18:13:27.132 GMT+08:00] cd ..\n[2026/06/18 18:13:27.132 GMT+08:00] rm -rf MindIE-SD\n[2026/06/18 18:13:27.132 GMT+08:00] \n[2026/06/18 18:13:27.132 GMT+08:00] rm -rf cie/\n[2026/06/18 18:13:27.132 GMT+08:00] # repo_url=https://ascend-robot:${access}@gitcode.com/Ascend/MindIE-CI.git\n...\n[2026/06/18 18:13:33.538 GMT+08:00] CP_docker_image: swr.cn-north-4.myhuaweicloud.com/inference/ascend_mindie_ubuntu_x86:20260514_ubuntu24_3.1.0_cann9.0.0_torch2.9.0_py311\n[2026/06/18 18:13:33.538 GMT+08:00] CP_pipeline_run_id: e16d36910a274bfa8342fd36963a1df2\n[2026/06/18 18:13:33.538 GMT+08:00] CP_merge_id: 373\n[2026/06/18 18:13:33.538 GMT+08:00] CP_repo_url: https://gitcode.com/Ascend/MindIE-SD.git\n[2026/06/18 18:13:33.538 GMT+08:00] 环境变量数量: 73\n[2026/06/18 18:13:33.546 GMT+08:00] starting check in ***/@tmp/durable-86a78340\n[2026/06/18 18:13:33.803 GMT+08:00] 成功生成 YAML 文件: ./workflowtool/workflow.yaml\n[2026/06/18 18:13:33.804 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 18:13:34.382 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 18:13:34.382 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 18:13:36.957 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 18:13:36.957 GMT+08:00] [GIT] Injected git proxy config into main-script\n[2026/06/18 18:13:37.910 GMT+08:00] [OK] Queue 'shared-flexible-queue' exists in cluster\n[2026/06/18 18:13:37.910 GMT+08:00] [INFO] Checking StorageClasses\n[2026/06/18 18:13:38.490 GMT+08:00] [OK] StorageClass 'sfsturbo-subpath-sc' exists\n[2026/06/18 18:13:38.490 GMT+08:00] [SKIP] No chip-specific nodeSelector in workflow\n[2026/06/18 18:13:38.490 GMT+08:00] [SKIP] No PVC mounts in workflow\n[2026/06/18 18:13:38.490 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 18:13:39.457 GMT+08:00] Volcano Job submitted: ascend-mindie-sd-2xnk6\n[2026/06/18 18:13:39.457 GMT+08:00] 等待主 Pod (main-script) 出现...\n[2026/06/18 18:13:43.708 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-2xnk6' 的 pod\n[2026/06/18 18:13:50.340 GMT+08:00] Job ascend-mindie-sd-2xnk6 的主 Pod: ascend-mindie-sd-2xnk6-main-script-0\n[2026/06/18 18:13:50.340 GMT+08:00] 等待 Job ascend-mindie-sd-2xnk6 的 Pod 启动...\n[2026/06/18 18:13:54.613 GMT+08:00] [日志] 等待 Pod ascend-mindie-sd-2xnk6-main-script-0 开始运行...\n[2026/06/18 18:13:54.613 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 18:13:54.613 GMT+08:00] [日志] 连接 kubectl logs ascend-mindie-sd-2xnk6-main-script-0 ...\n[2026/06/18 18:13:55.194 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 18:13:55.194 GMT+08:00] From http://git-cache-http-server.git-cache.svc.cluster.local:8080/Ascend/MindIE-SD\n[2026/06/18 18:13:55.194 GMT+08:00]  * [new ref]         refs/merge-requests/373/head -> pr\n[2026/06/18 18:13:55.194 GMT+08:00] Merge made by the 'ort' strategy.\n[2026/06/18 18:13:55.194 GMT+08:00]  mindiesd/quantization/layer.py                     |  2 +-\n[2026/06/18 18:13:55.194 GMT+08:00]  tests/compilation/patterns/test_rmsnorm_pattern.py | 10 +++++--\n[2026/06/18 18:13:55.194 GMT+08:00]  tests/compilation/patterns/test_rope_pattern.py    | 16 +++++++---\n[2026/06/18 18:13:55.194 GMT+08:00]  tests/quantization/test_config.py                  | 34 ++++++++++-----------\n[2026/06/18 18:13:55.194 GMT+08:00]  tests/quantization/test_layer.py                   | 35 ++++++++++++++--------\n[2026/06/18 18:13:55.194 GMT+08:00]  tests/quantization/test_quantize.py                | 10 +------\n[2026/06/18 18:13:55.194 GMT+08:00]  tests/test_share_memory.py                         |  5 ++++\n[2026/06/18 18:13:55.194 GMT+08:00]  7 files changed, 65 insertions(+), 47 deletions(-)\n[2026/06/18 18:13:55.194 GMT+08:00] --2026-06-18 18:13:53--  https://mindie-pr.obs.cn-north-4.myhuaweicloud.com/Private_repository/MindIE-SD/373/ci_target/cie.zip\n[2026/06/18 18:13:55.194 GMT+08:00] Resolving mindie-pr.obs.cn-north-4.myhuaweicloud.com (mindie-pr.obs.cn-north-4.myhuaweicloud.com)... ***.***.***.82\n[2026/06/18 18:13:55.194 GMT+08:00] Connecting to mindie-pr.obs.cn-north-4.myhuaweicloud.com (mindie-pr.obs.cn-north-4.myhuaweicloud.com)|***.***.***.82|:443... connected.\n[2026/06/18 18:13:55.195 GMT+08:00] HTTP request sent, awaiting response... 200 OK\n[2026/06/18 18:13:55.195 GMT+08:00] Length: 557292 (544K) [application/zip]\n...\n[2026/06/18 18:14:00.005 GMT+08:00] -- Configuring done (3.2s)\n[2026/06/18 18:14:00.005 GMT+08:00] -- Generating done (0.0s)\n[2026/06/18 18:14:00.005 GMT+08:00] -- Build files have been written to: /MindIE-SD/build/build\n[2026/06/18 18:14:00.005 GMT+08:00] [ 66%] Generating obj/quant_flash_attn_metadata_aicpu.o\n[2026/06/18 18:14:00.005 GMT+08:00] [ 66%] Generating cust_aicpu_kernel.json\n[2026/06/18 18:14:00.270 GMT+08:00] Job ascend-mindie-sd-2xnk6 的 Pod 已启动\n[2026/06/18 18:14:00.270 GMT+08:00] 等待 Job ascend-mindie-sd-2xnk6 的主容器 (ascend) 完成...\n[2026/06/18 18:14:03.600 GMT+08:00] [100%] Generating libtransformer_aicpu_kernels.so\n[2026/06/18 18:14:03.600 GMT+08:00] [100%] Built target quant_flash_attn_metadata_aicpu\n...\n[2026/06/18 18:16:44.269 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker",
+      "log_stats": {
+        "total_timestamped_lines": 4342,
+        "sample_lines": 400,
+        "raw_chars": 544634
+      },
+      "timestamp_summary": {
+        "first": "2026-06-18T18:13:02.571000+08:00",
+        "last": "2026-06-18T18:16:44.405000+08:00",
+        "duration_seconds": 221.834,
+        "total_timestamped_lines": 4342,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 159,
+          "gap_seconds": 6.632,
+          "before_ts": "2026-06-18T18:13:43.708000+08:00",
+          "after_ts": "2026-06-18T18:13:50.340000+08:00",
+          "sample_before": "[2026/06/18 18:13:43.708 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-2xnk6' 的 pod",
+          "sample_after": "[2026/06/18 18:13:50.340 GMT+08:00] Job ascend-mindie-sd-2xnk6 的主 Pod: ascend-mindie-sd-2xnk6-main-script-0"
+        },
+        {
+          "after_line": 1696,
+          "gap_seconds": 8.18,
+          "before_ts": "2026-06-18T18:14:13.156000+08:00",
+          "after_ts": "2026-06-18T18:14:21.336000+08:00",
+          "sample_before": "[2026/06/18 18:14:13.156 GMT+08:00] [ascend910b] Generating AdaBlockSparseAttention_e36cf566f9b7fc9a89197081c50d88f8 ...",
+          "sample_after": "[2026/06/18 18:14:21.336 GMT+08:00] [INFO] RUNTIME(1473,python3):2026-06-18-18:14:17.397.597 [task_fail_callback_data_manager.cc:93] 1473 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1830,
+          "gap_seconds": 8.189,
+          "before_ts": "2026-06-18T18:14:40.960000+08:00",
+          "after_ts": "2026-06-18T18:14:49.149000+08:00",
+          "sample_before": "[2026/06/18 18:14:40.960 GMT+08:00] [ 97%] Built target laser_attention_ascend910b_1",
+          "sample_after": "[2026/06/18 18:14:49.149 GMT+08:00] [ 97%] Built target laser_attention_ascend910_93"
+        },
+        {
+          "after_line": 1833,
+          "gap_seconds": 15.012,
+          "before_ts": "2026-06-18T18:14:51.079000+08:00",
+          "after_ts": "2026-06-18T18:15:06.091000+08:00",
+          "sample_before": "[2026/06/18 18:14:51.079 GMT+08:00] [ 97%] Built target laser_attention",
+          "sample_after": "[2026/06/18 18:15:06.091 GMT+08:00] [INFO] RUNTIME(1539,python3):2026-06-18-18:14:19.410.334 [task_fail_callback_data_manager.cc:93] 1539 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1849,
+          "gap_seconds": 10.072,
+          "before_ts": "2026-06-18T18:15:10.432000+08:00",
+          "after_ts": "2026-06-18T18:15:20.504000+08:00",
+          "sample_before": "[2026/06/18 18:15:10.432 GMT+08:00] [ 97%] Built target ada_block_sparse_attention_ascend910b_1",
+          "sample_after": "[2026/06/18 18:15:20.504 GMT+08:00] [INFO] RUNTIME(1352,python3):2026-06-18-18:14:18.201.188 [task_fail_callback_data_manager.cc:93] 1352 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1884,
+          "gap_seconds": 6.671,
+          "before_ts": "2026-06-18T18:15:28.136000+08:00",
+          "after_ts": "2026-06-18T18:15:34.807000+08:00",
+          "sample_before": "[2026/06/18 18:15:28.136 GMT+08:00] [ 97%] Built target ada_block_sparse_attention",
+          "sample_after": "[2026/06/18 18:15:34.807 GMT+08:00] Opc tool start working now, please wait for a moment."
+        },
+        {
+          "after_line": 2243,
+          "gap_seconds": 6.863,
+          "before_ts": "2026-06-18T18:15:45.318000+08:00",
+          "after_ts": "2026-06-18T18:15:52.181000+08:00",
+          "sample_before": "[2026/06/18 18:15:45.318 GMT+08:00] INFO: >>> Running script: bash /MindIE-SD/build/build_plugin.sh /MindIE-SD/build",
+          "sample_after": "[2026/06/18 18:15:52.181 GMT+08:00] -- The C compiler identifier is GNU 9.5.0"
+        },
+        {
+          "after_line": 2255,
+          "gap_seconds": 5.412,
+          "before_ts": "2026-06-18T18:15:52.181000+08:00",
+          "after_ts": "2026-06-18T18:15:57.593000+08:00",
+          "sample_before": "[2026/06/18 18:15:52.181 GMT+08:00] -- Detecting CXX compile features - done",
+          "sample_after": "[2026/06/18 18:15:57.593 GMT+08:00] -- Found Python library: /usr/local/lib/libpython3.11.so"
+        },
+        {
+          "after_line": 2271,
+          "gap_seconds": 22.049,
+          "before_ts": "2026-06-18T18:15:57.593000+08:00",
+          "after_ts": "2026-06-18T18:16:19.642000+08:00",
+          "sample_before": "[2026/06/18 18:15:57.593 GMT+08:00] [ 92%] Building CXX object CMakeFiles/PTAExtensionOPS.dir/plugin/quant_flash_attn_metadata.cpp.o",
+          "sample_after": "[2026/06/18 18:16:19.642 GMT+08:00] [100%] Linking CXX shared library libPTAExtensionOPS.so"
+        },
+        {
+          "after_line": 4302,
+          "gap_seconds": 5.333,
+          "before_ts": "2026-06-18T18:16:19.699000+08:00",
+          "after_ts": "2026-06-18T18:16:25.032000+08:00",
+          "sample_before": "[2026/06/18 18:16:19.699 GMT+08:00] archive_url:https://mindie.obs.cn-north-4.myhuaweicloud.com/monitor/ascend/MindIE-SD/373/abi1/x86_64/mindiesd-3.0.0-cp311-cp311-linux_x86_64.whl",
+          "sample_after": "[2026/06/18 18:16:25.032 GMT+08:00] [日志] tail 错误: signal: killed"
+        },
+        {
+          "after_line": 4308,
+          "gap_seconds": 5.334,
+          "before_ts": "2026-06-18T18:16:27.043000+08:00",
+          "after_ts": "2026-06-18T18:16:32.377000+08:00",
+          "sample_before": "[2026/06/18 18:16:27.043 GMT+08:00] Job ascend-mindie-sd-2xnk6 成功完成",
+          "sample_after": "[2026/06/18 18:16:32.377 GMT+08:00] 清理 copy-artifact 容器..."
+        },
+        {
+          "after_line": 4340,
+          "gap_seconds": 5.428,
+          "before_ts": "2026-06-18T18:16:38.841000+08:00",
+          "after_ts": "2026-06-18T18:16:44.269000+08:00",
+          "sample_before": "[2026/06/18 18:16:38.841 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_bLqdi56e #1",
+          "sample_after": "[2026/06/18 18:16:44.269 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker"
+        }
+      ],
       "pre_build": {
-        "total_seconds": 52.623,
-        "pct_of_total": 23.7,
+        "total_seconds": 56.022,
+        "pct_of_total": 25.25,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-18T18:13:02.571000+08:00",
-            "end": "2026-06-18T18:13:09.835000+08:00",
-            "duration_seconds": 7.264,
-            "evidence": "[2026/06/18 18:13:02.728 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行 ... [2026/06/18 18:13:07.689 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成 (节点: cce-codeci-a620969136)"
+            "start": "2026-06-18T18:13:02.728000+08:00",
+            "end": "2026-06-18T18:13:07.689000+08:00",
+            "duration_seconds": 4.961,
+            "evidence": "[PRE_ENV:slave_create] 开始执行 -> 执行完成，资源池 default-x86-2u8g_suffix，执行节点 cce-codeci-a620969136"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-18T18:13:09.835000+08:00",
-            "end": "2026-06-18T18:13:13.232000+08:00",
-            "duration_seconds": 3.397,
-            "evidence": "[2026/06/18 18:13:09.835 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from ***** ... Status: Image is up to date for************"
+            "start": "2026-06-18T18:13:07.689000+08:00",
+            "end": "2026-06-18T18:13:54.613000+08:00",
+            "duration_seconds": 15.153,
+            "evidence": "3次 shell 镜像 pull (Image is up to date/已缓存) + Volcano pod 启动期间拉取主构建镜像 ascend_mindie_ubuntu_x86；扣除 cache_check(0.771s)、git_checkout(7.461s)、workspace_prep(6.407s)、pre_submit_validation(4.687s)、orchestrator_submit(0.967s) 后纯 docker_pull 约 15.2s"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-18T18:13:13.232000+08:00",
-            "end": "2026-06-18T18:13:16.631000+08:00",
-            "duration_seconds": 3.399,
-            "evidence": "[2026/06/18 18:13:13.232 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行 ... [2026/06/18 18:13:14.003 GMT+08:00] 该步骤执行完成"
+            "end": "2026-06-18T18:13:14.003000+08:00",
+            "duration_seconds": 0.771,
+            "evidence": "[Cache Check:external_cache_check] 开始执行 -> 执行完成"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
             "start": "2026-06-18T18:13:16.631000+08:00",
-            "end": "2026-06-18T18:13:27.131000+08:00",
-            "duration_seconds": 10.5,
-            "evidence": "[2026/06/18 18:13:16.631 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行 ... git clone/fetch/merge operations ... [2026/06/18 18:13:24.092 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成"
+            "end": "2026-06-18T18:13:24.092000+08:00",
+            "duration_seconds": 7.461,
+            "evidence": "[代码检出:external_pre_checkout] 开始执行 -> [代码检出:external_post_checkout] 执行完成，git fetch fork/dev + origin/dev 双源，checkout 32bdbdcb"
           },
           {
             "key": "workspace_prep",
             "name": "工作目录准备",
             "start": "2026-06-18T18:13:27.131000+08:00",
-            "end": "2026-06-18T18:13:33.804000+08:00",
-            "duration_seconds": 6.673,
-            "evidence": "[2026/06/18 18:13:27.131 GMT+08:00] + cat shell.sh (workspace cleanup, CI files download, env vars setup: 73 variables at 18:13:33.538)"
+            "end": "2026-06-18T18:13:33.538000+08:00",
+            "duration_seconds": 6.407,
+            "evidence": "shell.sh 执行: git config 复制、目录清理(cd .. && rm -rf)、CI 脚本准备、环境变量设置(73个)、CP_docker_image 识别为 ascend_mindie_ubuntu_x86"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验与编排提交",
-            "start": "2026-06-18T18:13:33.804000+08:00",
+            "name": "前置校验",
+            "start": "2026-06-18T18:13:33.803000+08:00",
+            "end": "2026-06-18T18:13:38.490000+08:00",
+            "duration_seconds": 4.687,
+            "evidence": "YAML 生成 -> Pre-submit validation: Harbor registry OK、image proxy 替换 swr->harbor、git-cache 注入、Queue shared-flexible-queue OK、StorageClass sfsturbo-subpath-sc OK、无 chip-specific nodeSelector、无 PVC mounts"
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": "2026-06-18T18:13:34.382000+08:00",
+            "end": "2026-06-18T18:13:34.382000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "[IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/ (含于 pre_submit_validation)"
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": "2026-06-18T18:13:36.957000+08:00",
+            "end": "2026-06-18T18:13:36.957000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "[GIT] Injected git proxy config into main-script (含于 pre_submit_validation)"
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": "2026-06-18T18:13:38.490000+08:00",
+            "end": "2026-06-18T18:13:39.457000+08:00",
+            "duration_seconds": 0.967,
+            "evidence": "[DONE] Created validated workflow -> Volcano Job submitted: ascend-mindie-sd-2xnk6"
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-18T18:13:55.194000+08:00",
             "end": "2026-06-18T18:13:55.194000+08:00",
-            "duration_seconds": 21.39,
-            "evidence": "[2026/06/18 18:13:33.804 GMT+08:00] === Pre-submit validation === image_proxy at 18:13:34.382, git_cache_injection at 18:13:36.957, queue/StorageClass checks, Volcano submit at 18:13:39.457, pod scheduling until 18:13:54.613 Pod Running"
+            "duration_seconds": 0.5,
+            "evidence": "Cloning into '/workspace' from git-cache-http-server (集群内缓存)，PR refs/merge-requests/373/head -> pr, Merge made by 'ort' strategy, 7 files changed; 极快完成"
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-18T18:13:55.194000+08:00",
+            "end": "2026-06-18T18:13:58.000000+08:00",
+            "duration_seconds": 2.806,
+            "evidence": "wget cie.zip (544K) from mindie-pr.obs.cn-north-4.myhuaweicloud.com，HTTP 200 OK，下载+解压"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 169.211,
-        "pct_of_total": 76.3,
+        "total_seconds": 165.812,
+        "pct_of_total": 74.75,
         "actions": [
           {
             "key": "cmake_configure",
-            "name": "CMake 配置与依赖准备",
-            "duration_seconds": 5.076,
-            "evidence": "18:13:55.194 Pod git clone + artifact download + pip install + CMake configure up to 18:14:00.270 Pod 已启动"
+            "name": "CMake 配置",
+            "duration_seconds": 3.2,
+            "evidence": "[18:14:00.005] -- Configuring done (3.2s)，Build files written to /MindIE-SD/build/build"
           },
           {
             "key": "compilation",
-            "name": "编译 (ASCENDC + Plugin)",
-            "duration_seconds": 139.372,
-            "evidence": "18:14:00.270 ASCENDC multi-chip parallel compilation (ascend910/910b/910_93/950 targets) through 18:16:19.642 plugin link complete"
+            "name": "编译",
+            "duration_seconds": 159.612,
+            "evidence": "AscendC kernel 编译 (18:14:00-18:15:45) ~105s + PyTorch 插件编译 cmake_configure(5.4s) + CXX 编译+链接(18:15:52-18:16:19.642) ~27.6s；合计 ~160s"
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 24.763,
-            "evidence": "18:16:19.642 plugin link done -> wheel build, packaging, OBS upload, copy-artifact cleanup to 18:16:44.405"
+            "duration_seconds": 3.0,
+            "evidence": "python setup.py bdist_wheel -> archive_url mindiesd-3.0.0-cp311-cp311-linux_x86_64.whl 上传到 OBS"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 52.623,
-        "build_seconds": 169.211,
+        "pre_build_seconds": 56.022,
+        "build_seconds": 165.812,
         "unattributed_seconds": 0.0,
-        "key_bottleneck": "pre_submit_validation",
-        "key_bottleneck_seconds": 21.39
+        "key_bottleneck": "docker_pull",
+        "key_bottleneck_seconds": 15.153
       }
     },
     {
@@ -119,82 +270,273 @@
         "end": "2026-06-18T18:19:41.789000+08:00",
         "duration_seconds": 395.497
       },
+      "log_sample": "[2026/06/18 18:13:06.292 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_tuaTM5eP #1\n[2026/06/18 18:13:06.294 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 18:13:06.415 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 18:13:06.417 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 18:13:06.419 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 18:13:06.419 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 18:13:07.422 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 18:13:07.509 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-f7573bf4e8 ok, waiting for connection...\n[2026/06/18 18:13:11.319 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-ee5416e2c6\n[2026/06/18 18:13:11.361 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 18:13:13.149 GMT+08:00] starting check in ***/@tmp/durable-e6c6245b\n[2026/06/18 18:13:13.410 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:13.410 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:13.410 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:16.545 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 18:13:17.225 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 18:13:17.225 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 18:13:17.225 GMT+08:00] \n[2026/06/18 18:13:17.225 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/18 18:13:17.225 GMT+08:00] \n[2026/06/18 18:13:17.225 GMT+08:00] Remove one or more containers\n[2026/06/18 18:13:17.253 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 18:13:18.830 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:18.830 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:18.830 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:19.697 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 18:13:19.699 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n...\n[2026/06/18 18:13:35.901 GMT+08:00] CP_runs_on: arm64-cpu-16-mem-32G\n[2026/06/18 18:13:35.901 GMT+08:00] CP_docker_image: swr.cn-north-4.myhuaweicloud.com/inference/ascend_mindie_ubuntu_aarch64:20260514_ubuntu24_3.1.0_cann9.0.0_torch2.9.0_py311\n[2026/06/18 18:13:35.901 GMT+08:00] CP_pipeline_run_id: e16d36910a274bfa8342fd36963a1df2\n[2026/06/18 18:13:35.901 GMT+08:00] CP_merge_id: 373\n[2026/06/18 18:13:35.901 GMT+08:00] CP_repo_url: https://gitcode.com/Ascend/MindIE-SD.git\n[2026/06/18 18:13:35.901 GMT+08:00] 环境变量数量: 73\n[2026/06/18 18:13:35.906 GMT+08:00] starting check in ***/@tmp/durable-4f4cc989\n[2026/06/18 18:13:36.161 GMT+08:00] 成功生成 YAML 文件: ./workflowtool/workflow.yaml\n[2026/06/18 18:13:36.162 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 18:13:38.083 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 18:13:38.083 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 18:13:42.300 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 18:13:42.300 GMT+08:00] [GIT] Injected git proxy config into main-script\n[2026/06/18 18:13:42.300 GMT+08:00] [OK] Queue 'shared-flexible-queue' exists in cluster\n[2026/06/18 18:13:42.300 GMT+08:00] [INFO] Checking StorageClasses\n[2026/06/18 18:13:42.872 GMT+08:00] [OK] StorageClass 'sfsturbo-subpath-sc' exists\n[2026/06/18 18:13:42.872 GMT+08:00] [SKIP] No chip-specific nodeSelector in workflow\n[2026/06/18 18:13:42.872 GMT+08:00] [SKIP] No PVC mounts in workflow\n[2026/06/18 18:13:42.872 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 18:13:43.444 GMT+08:00] Volcano Job submitted: ascend-mindie-sd-ft4pf\n[2026/06/18 18:13:43.444 GMT+08:00] 等待主 Pod (main-script) 出现...\n[2026/06/18 18:13:47.654 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-ft4pf' 的 pod\n[2026/06/18 18:13:54.242 GMT+08:00] Job ascend-mindie-sd-ft4pf 的主 Pod: ascend-mindie-sd-ft4pf-main-script-0\n[2026/06/18 18:13:54.242 GMT+08:00] 等待 Job ascend-mindie-sd-ft4pf 的 Pod 启动...\n[2026/06/18 18:13:57.549 GMT+08:00] [日志] 等待 Pod ascend-mindie-sd-ft4pf-main-script-0 开始运行...\n[2026/06/18 18:16:49.141 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 18:16:49.141 GMT+08:00] [日志] 连接 kubectl logs ascend-mindie-sd-ft4pf-main-script-0 ...\n[2026/06/18 18:16:49.141 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 18:16:49.141 GMT+08:00] Job ascend-mindie-sd-ft4pf 的 Pod 已启动\n[2026/06/18 18:16:49.142 GMT+08:00] 等待 Job ascend-mindie-sd-ft4pf 的主容器 (ascend) 完成...\n[2026/06/18 18:16:49.142 GMT+08:00] From http://git-cache-http-server.git-cache.svc.cluster.local:8080/Ascend/MindIE-SD\n[2026/06/18 18:16:49.142 GMT+08:00]  * [new ref]         refs/merge-requests/373/head -> pr\n[2026/06/18 18:16:49.142 GMT+08:00] Merge made by the 'ort' strategy.\n...\n[2026/06/18 18:19:02.379 GMT+08:00] -- Found Python library: /usr/local/lib/libpython3.11.so\n[2026/06/18 18:19:02.379 GMT+08:00] -- Configuring done (5.7s)\n[2026/06/18 18:19:02.379 GMT+08:00] -- Build files have been written to: /MindIE-SD/build/plugin_build\n[2026/06/18 18:19:20.517 GMT+08:00] [100%] Linking CXX shared library libPTAExtensionOPS.so\n[2026/06/18 18:19:20.517 GMT+08:00] [100%] Built target PTAExtensionOPS\n[2026/06/18 18:19:36.439 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_tuaTM5eP #1",
+      "log_stats": {
+        "total_timestamped_lines": 4340,
+        "sample_lines": 400,
+        "raw_chars": 545273
+      },
+      "timestamp_summary": {
+        "first": "2026-06-18T18:13:06.292000+08:00",
+        "last": "2026-06-18T18:19:41.789000+08:00",
+        "duration_seconds": 395.497,
+        "total_timestamped_lines": 4340,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 159,
+          "gap_seconds": 6.588,
+          "before_ts": "2026-06-18T18:13:47.654000+08:00",
+          "after_ts": "2026-06-18T18:13:54.242000+08:00",
+          "sample_before": "[2026/06/18 18:13:47.654 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-ft4pf' 的 pod",
+          "sample_after": "[2026/06/18 18:13:54.242 GMT+08:00] Job ascend-mindie-sd-ft4pf 的主 Pod: ascend-mindie-sd-ft4pf-main-script-0"
+        },
+        {
+          "after_line": 162,
+          "gap_seconds": 171.592,
+          "before_ts": "2026-06-18T18:13:57.549000+08:00",
+          "after_ts": "2026-06-18T18:16:49.141000+08:00",
+          "sample_before": "[2026/06/18 18:13:57.549 GMT+08:00] [日志] 等待 Pod ascend-mindie-sd-ft4pf-main-script-0 开始运行...",
+          "sample_after": "[2026/06/18 18:16:49.141 GMT+08:00] [日志] Pod 状态: Running，开始连接日志"
+        },
+        {
+          "after_line": 1694,
+          "gap_seconds": 8.165,
+          "before_ts": "2026-06-18T18:17:01.486000+08:00",
+          "after_ts": "2026-06-18T18:17:09.651000+08:00",
+          "sample_before": "[2026/06/18 18:17:01.486 GMT+08:00] [ 96%] Built target optiling_compat",
+          "sample_after": "[2026/06/18 18:17:09.651 GMT+08:00] [INFO] RUNTIME(1432,python3):2026-06-18-18:17:04.790.887 [task_fail_callback_data_manager.cc:93] 1432 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1710,
+          "gap_seconds": 6.586,
+          "before_ts": "2026-06-18T18:17:10.594000+08:00",
+          "after_ts": "2026-06-18T18:17:17.180000+08:00",
+          "sample_before": "[2026/06/18 18:17:10.594 GMT+08:00] [ 96%] Built target laser_attention_ascend910_0",
+          "sample_after": "[2026/06/18 18:17:17.180 GMT+08:00] [INFO] RUNTIME(1523,python3):2026-06-18-18:17:06.556.408 [task_fail_callback_data_manager.cc:93] 1523 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1793,
+          "gap_seconds": 10.0,
+          "before_ts": "2026-06-18T18:17:21.504000+08:00",
+          "after_ts": "2026-06-18T18:17:31.504000+08:00",
+          "sample_before": "[2026/06/18 18:17:21.504 GMT+08:00] [ 97%] Built target la_preprocess_ascend910_93_0",
+          "sample_after": "[2026/06/18 18:17:31.504 GMT+08:00] [ 97%] Built target la_preprocess_ascend910b"
+        },
+        {
+          "after_line": 1828,
+          "gap_seconds": 5.288,
+          "before_ts": "2026-06-18T18:17:32.449000+08:00",
+          "after_ts": "2026-06-18T18:17:37.737000+08:00",
+          "sample_before": "[2026/06/18 18:17:32.449 GMT+08:00] [ 97%] Built target la_preprocess",
+          "sample_after": "[2026/06/18 18:17:37.737 GMT+08:00] [ 97%] Built target laser_attention_ascend910b"
+        },
+        {
+          "after_line": 1829,
+          "gap_seconds": 6.587,
+          "before_ts": "2026-06-18T18:17:37.737000+08:00",
+          "after_ts": "2026-06-18T18:17:44.324000+08:00",
+          "sample_before": "[2026/06/18 18:17:37.737 GMT+08:00] [ 97%] Built target laser_attention_ascend910b",
+          "sample_after": "[2026/06/18 18:17:44.324 GMT+08:00] [ 97%] Built target laser_attention_ascend910_93"
+        },
+        {
+          "after_line": 1830,
+          "gap_seconds": 8.196,
+          "before_ts": "2026-06-18T18:17:44.324000+08:00",
+          "after_ts": "2026-06-18T18:17:52.520000+08:00",
+          "sample_before": "[2026/06/18 18:17:44.324 GMT+08:00] [ 97%] Built target laser_attention_ascend910_93",
+          "sample_after": "[2026/06/18 18:17:52.520 GMT+08:00] [ 97%] Built target laser_attention"
+        },
+        {
+          "after_line": 1831,
+          "gap_seconds": 12.247,
+          "before_ts": "2026-06-18T18:17:52.520000+08:00",
+          "after_ts": "2026-06-18T18:18:04.767000+08:00",
+          "sample_before": "[2026/06/18 18:17:52.520 GMT+08:00] [ 97%] Built target laser_attention",
+          "sample_after": "[2026/06/18 18:18:04.767 GMT+08:00] [INFO] RUNTIME(1538,python3):2026-06-18-18:17:06.366.595 [task_fail_callback_data_manager.cc:93] 1538 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1856,
+          "gap_seconds": 10.042,
+          "before_ts": "2026-06-18T18:18:07.364000+08:00",
+          "after_ts": "2026-06-18T18:18:17.406000+08:00",
+          "sample_before": "[2026/06/18 18:18:07.364 GMT+08:00] [ 97%] Built target ada_block_sparse_attention_ascend910_93",
+          "sample_after": "[2026/06/18 18:18:17.406 GMT+08:00] [INFO] RUNTIME(1458,python3):2026-06-18-18:17:06.358.853 [task_fail_callback_data_manager.cc:93] 1458 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1864,
+          "gap_seconds": 5.292,
+          "before_ts": "2026-06-18T18:18:17.406000+08:00",
+          "after_ts": "2026-06-18T18:18:22.698000+08:00",
+          "sample_before": "[2026/06/18 18:18:17.406 GMT+08:00] [ 97%] Built target ada_block_sparse_attention_ascend910b_0",
+          "sample_after": "[2026/06/18 18:18:22.698 GMT+08:00] [INFO] RUNTIME(1465,python3):2026-06-18-18:17:06.162.754 [task_fail_callback_data_manager.cc:93] 1465 TaskFailCallBackManager: Constructor."
+        },
+        {
+          "after_line": 1890,
+          "gap_seconds": 12.262,
+          "before_ts": "2026-06-18T18:18:31.592000+08:00",
+          "after_ts": "2026-06-18T18:18:43.854000+08:00",
+          "sample_before": "[2026/06/18 18:18:31.592 GMT+08:00] [ 97%] Built target ada_block_sparse_attention",
+          "sample_after": "[2026/06/18 18:18:43.854 GMT+08:00] Opc tool start working now, please wait for a moment."
+        },
+        {
+          "after_line": 2241,
+          "gap_seconds": 6.586,
+          "before_ts": "2026-06-18T18:18:50.494000+08:00",
+          "after_ts": "2026-06-18T18:18:57.080000+08:00",
+          "sample_before": "[2026/06/18 18:18:50.494 GMT+08:00] INFO: >>> Running script: bash /MindIE-SD/build/build_plugin.sh /MindIE-SD/build",
+          "sample_after": "[2026/06/18 18:18:57.080 GMT+08:00] -- The C compiler identification is GNU 9.5.0"
+        },
+        {
+          "after_line": 2253,
+          "gap_seconds": 5.299,
+          "before_ts": "2026-06-18T18:18:57.080000+08:00",
+          "after_ts": "2026-06-18T18:19:02.379000+08:00",
+          "sample_before": "[2026/06/18 18:18:57.080 GMT+08:00] -- Detecting CXX compile features - done",
+          "sample_after": "[2026/06/18 18:19:02.379 GMT+08:00] -- Found Python library: /usr/local/lib/libpython3.11.so"
+        },
+        {
+          "after_line": 2269,
+          "gap_seconds": 18.138,
+          "before_ts": "2026-06-18T18:19:02.379000+08:00",
+          "after_ts": "2026-06-18T18:19:20.517000+08:00",
+          "sample_before": "[2026/06/18 18:19:02.379 GMT+08:00] [ 92%] Building CXX object CMakeFiles/PTAExtensionOPS.dir/plugin/layernorm.cpp.o",
+          "sample_after": "[2026/06/18 18:19:20.517 GMT+08:00] [100%] Linking CXX shared library libPTAExtensionOPS.so"
+        },
+        {
+          "after_line": 4338,
+          "gap_seconds": 5.193,
+          "before_ts": "2026-06-18T18:19:36.439000+08:00",
+          "after_ts": "2026-06-18T18:19:41.632000+08:00",
+          "sample_before": "[2026/06/18 18:19:36.439 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_tuaTM5eP #1",
+          "sample_after": "[2026/06/18 18:19:41.632 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker"
+        }
+      ],
       "pre_build": {
         "total_seconds": 222.849,
-        "pct_of_total": 56.3,
+        "pct_of_total": 56.34,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-18T18:13:06.292000+08:00",
-            "end": "2026-06-18T18:13:13.410000+08:00",
-            "duration_seconds": 7.118,
-            "evidence": "[2026/06/18 18:13:06.415 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行 ... [2026/06/18 18:13:11.361 GMT+08:00] 该步骤执行完成 (节点: cce-codeci-ee5416e2c6)"
+            "start": "2026-06-18T18:13:06.415000+08:00",
+            "end": "2026-06-18T18:13:11.361000+08:00",
+            "duration_seconds": 4.946,
+            "evidence": "[PRE_ENV:slave_create] 开始执行 -> 执行完成，资源池 default-x86-2u8g_suffix，执行节点 cce-codeci-ee5416e2c6"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-18T18:13:13.410000+08:00",
-            "end": "2026-06-18T18:13:16.545000+08:00",
-            "duration_seconds": 3.135,
-            "evidence": "[2026/06/18 18:13:13.410 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from ***** ... Status: Image is up to date for************"
+            "start": "2026-06-18T18:13:11.361000+08:00",
+            "end": "2026-06-18T18:16:49.141000+08:00",
+            "duration_seconds": 192.606,
+            "evidence": "2次 shell 镜像 pull (Image is up to date/已缓存) + karmada 镜像 pull (18:13:34.745 Image is up to date) + Volcano ARM Pod 启动等待 171.6s gap (18:13:57 -> 18:16:49)，期间拉取 ARM64 主构建镜像 ascend_mindie_ubuntu_aarch64；扣除 cache_check(0.708s)、git_checkout(7.174s)、workspace_prep(6.261s)、pre_submit_validation(5.746s)、orchestrator_submit(0.572s)、tool_download karmada pull(1.155s) 后纯 docker_pull 约 192.6s"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-18T18:13:16.545000+08:00",
-            "end": "2026-06-18T18:13:19.697000+08:00",
-            "duration_seconds": 3.152,
-            "evidence": "[2026/06/18 18:13:16.545 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行 ... [2026/06/18 18:13:17.253 GMT+08:00] 该步骤执行完成"
+            "end": "2026-06-18T18:13:17.253000+08:00",
+            "duration_seconds": 0.708,
+            "evidence": "[Cache Check:external_cache_check] 开始执行 -> 执行完成"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
             "start": "2026-06-18T18:13:19.697000+08:00",
-            "end": "2026-06-18T18:13:29.640000+08:00",
-            "duration_seconds": 9.943,
-            "evidence": "[2026/06/18 18:13:19.697 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行 ... git clone/fetch/merge operations ... [2026/06/18 18:13:26.862 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成"
+            "end": "2026-06-18T18:13:26.862000+08:00",
+            "duration_seconds": 7.165,
+            "evidence": "[代码检出:external_pre_checkout] 开始执行 -> [代码检出:external_post_checkout] 执行完成，git fetch fork/dev + origin/dev 双源"
           },
           {
             "key": "workspace_prep",
             "name": "工作目录准备",
             "start": "2026-06-18T18:13:29.640000+08:00",
-            "end": "2026-06-18T18:13:36.162000+08:00",
-            "duration_seconds": 6.522,
-            "evidence": "[2026/06/18 18:13:29.640 GMT+08:00] + cat shell.sh (workspace cleanup, CI files download, karmada orchestrator image pull at 18:13:34.745, env vars: 73 variables at 18:13:35.901)"
+            "end": "2026-06-18T18:13:35.901000+08:00",
+            "duration_seconds": 6.261,
+            "evidence": "shell.sh 执行: 目录清理、文件下载管理、环境变量设置(73个)、CP_runs_on=arm64-cpu-16-mem-32G, CP_docker_image=ascend_mindie_ubuntu_aarch64"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验与编排提交",
-            "start": "2026-06-18T18:13:36.162000+08:00",
-            "end": "2026-06-18T18:16:49.141000+08:00",
-            "duration_seconds": 192.979,
-            "evidence": "[2026/06/18 18:13:36.162 GMT+08:00] === Pre-submit validation === image_proxy at 18:13:38.083, git_cache_injection at 18:13:42.300, queue/StorageClass checks, Volcano submit at 18:13:43.444, pod scheduling delay 171.6s (ARM node scarcity), Pod Running at 18:16:49.141"
+            "name": "前置校验",
+            "start": "2026-06-18T18:13:36.161000+08:00",
+            "end": "2026-06-18T18:13:42.872000+08:00",
+            "duration_seconds": 6.711,
+            "evidence": "YAML 生成 -> Pre-submit validation: Harbor registry OK、image proxy swr->harbor、git-cache 注入、Queue shared-flexible-queue OK、StorageClass sfsturbo-subpath-sc OK"
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": "2026-06-18T18:13:38.083000+08:00",
+            "end": "2026-06-18T18:13:38.083000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "[IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/ (含于 pre_submit_validation)"
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": "2026-06-18T18:13:42.300000+08:00",
+            "end": "2026-06-18T18:13:42.300000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "[GIT] Injected git proxy config into main-script (含于 pre_submit_validation)"
+          },
+          {
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": "2026-06-18T18:13:34.490000+08:00",
+            "end": "2026-06-18T18:13:35.636000+08:00",
+            "duration_seconds": 1.146,
+            "evidence": "karmada 镜像下载: latest: Pulling from modelfoundry/karmada, layers 拉取完成，Status: Downloaded newer image"
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": "2026-06-18T18:13:42.872000+08:00",
+            "end": "2026-06-18T18:13:43.444000+08:00",
+            "duration_seconds": 0.572,
+            "evidence": "[DONE] Created validated workflow -> Volcano Job submitted: ascend-mindie-sd-ft4pf"
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-18T18:16:49.142000+08:00",
+            "end": "2026-06-18T18:16:49.142000+08:00",
+            "duration_seconds": 0.5,
+            "evidence": "Cloning into '/workspace' from git-cache-http-server (集群内缓存)，Merge made by 'ort' strategy, 极快完成"
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-18T18:16:49.142000+08:00",
+            "end": "2026-06-18T18:16:52.000000+08:00",
+            "duration_seconds": 2.858,
+            "evidence": "wget cie.zip from mindie-pr.obs.cn-north-4.myhuaweicloud.com，HTTP 200 OK，下载+解压"
           }
         ]
       },
       "build_phases": {
         "total_seconds": 172.648,
-        "pct_of_total": 43.7,
+        "pct_of_total": 43.66,
         "actions": [
           {
             "key": "cmake_configure",
-            "name": "CMake 配置与依赖准备",
-            "duration_seconds": 12.345,
-            "evidence": "18:16:49.141 Pod git clone + artifact download + pip install + CMake configure to 18:17:01.486 ASCENDC compilation begins"
+            "name": "CMake 配置",
+            "duration_seconds": 5.7,
+            "evidence": "[18:19:02.379] -- Configuring done (5.7s)，Build files written to /MindIE-SD/build/plugin_build"
           },
           {
             "key": "compilation",
-            "name": "编译 (ASCENDC + Plugin)",
-            "duration_seconds": 139.031,
-            "evidence": "18:17:01.486 ASCENDC multi-chip parallel compilation (ascend910/910b/910_93/950 targets) through 18:19:20.517 plugin link complete"
+            "name": "编译",
+            "duration_seconds": 160.948,
+            "evidence": "AscendC kernel 编译 (18:16:52-18:18:50) ~118s + PyTorch 插件 cmake_configure(5.7s) + CXX 编译+链接(18:18:57-18:19:20) ~23.5s + Python wheel build ~13s；合计 ~161s"
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 21.272,
-            "evidence": "18:19:20.517 plugin link done -> wheel build, packaging, OBS upload, copy-artifact cleanup to 18:19:41.789"
+            "duration_seconds": 6.0,
+            "evidence": "python setup.py bdist_wheel -> archive_url mindiesd-3.0.0-cp311-cp311-linux_aarch64.whl 上传到 OBS"
           }
         ]
       },
@@ -202,8 +544,8 @@
         "pre_build_seconds": 222.849,
         "build_seconds": 172.648,
         "unattributed_seconds": 0.0,
-        "key_bottleneck": "pre_submit_validation",
-        "key_bottleneck_seconds": 192.979
+        "key_bottleneck": "docker_pull",
+        "key_bottleneck_seconds": 192.606
       }
     },
     {
@@ -216,91 +558,322 @@
         "end": "2026-06-18T18:20:02.500000+08:00",
         "duration_seconds": 419.909
       },
+      "log_sample": "[2026/06/18 18:13:02.591 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_sJOI98PK #1\n[2026/06/18 18:13:02.592 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 18:13:02.756 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 18:13:02.758 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 18:13:02.760 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 18:13:02.760 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 18:13:03.762 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 18:13:03.852 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-a620969136 ok, waiting for connection...\n[2026/06/18 18:13:07.661 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-b28ba5852d\n[2026/06/18 18:13:07.715 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 18:13:09.815 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:09.815 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:09.815 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:13.610 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 18:13:14.366 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 18:13:14.366 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 18:13:14.366 GMT+08:00] \n[2026/06/18 18:13:14.366 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/18 18:13:14.366 GMT+08:00] \n[2026/06/18 18:13:14.366 GMT+08:00] Remove one or more containers\n[2026/06/18 18:13:14.396 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 18:13:15.989 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:15.989 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 18:13:15.989 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:16.919 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 18:13:16.921 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/18 18:13:16.958 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/18 18:13:17.170 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/18 18:13:17.170 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/18 18:13:17.170 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 18:13:17.664 GMT+08:00] No credentials specified\n[2026/06/18 18:13:17.665 GMT+08:00] set customize username password****           \n...\n[2026/06/18 18:13:24.530 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 18:13:24.593 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 18:13:26.401 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 18:13:26.401 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 18:13:27.586 GMT+08:00] + cat shell.sh\n...\n[2026/06/18 18:13:35.366 GMT+08:00] 2ae409cf134c: Download complete\n[2026/06/18 18:13:35.366 GMT+08:00] 2ae409cf134c: Pull complete\n[2026/06/18 18:13:35.636 GMT+08:00] ea81daef5489: Pull complete\n[2026/06/18 18:13:35.636 GMT+08:00] d4483ba7572e: Pull complete\n[2026/06/18 18:13:35.636 GMT+08:00] eb3e9faa28a1: Pull complete\n[2026/06/18 18:13:35.636 GMT+08:00] Digest: sha256:3d418c10ab77419c46b1394761b30cde84d4aceedfa99f37774972e217e462e3\n[2026/06/18 18:13:35.636 GMT+08:00] Status: Downloaded newer image for swr.cn-southwest-2.myhuaweicloud.com/modelfoundry/karmada:latest\n[2026/06/18 18:13:36.864 GMT+08:00] + /workspace/workflowtool/entrypoint.sh\n[2026/06/18 18:13:36.864 GMT+08:00] CP_runs_on: arm64-cpu-16-mem-32G\n[2026/06/18 18:13:36.864 GMT+08:00] CP_docker_image: swr.cn-north-4.myhuaweicloud.com/inference/ascend_mindie_ubuntu_aarch64:20260514_ubuntu24_3.1.0_cann9.0.0_torch2.1.0_py311\n[2026/06/18 18:13:36.865 GMT+08:00] 环境变量数量: 73\n[2026/06/18 18:13:36.870 GMT+08:00] starting check in ***/@tmp/durable-1577dd7f\n[2026/06/18 18:13:37.126 GMT+08:00] 成功生成 YAML 文件: ./workflowtool/workflow.yaml\n[2026/06/18 18:13:37.126 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 18:13:42.423 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 18:13:42.423 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 18:13:47.726 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 18:13:47.726 GMT+08:00] [GIT] Injected git proxy config into main-script\n[2026/06/18 18:13:47.726 GMT+08:00] [OK] Queue 'shared-flexible-queue' exists in cluster\n[2026/06/18 18:13:47.726 GMT+08:00] [INFO] Checking StorageClasses\n[2026/06/18 18:13:47.993 GMT+08:00] [OK] StorageClass 'sfsturbo-subpath-sc' exists\n[2026/06/18 18:13:48.566 GMT+08:00] Volcano Job submitted: ascend-mindie-sd-rfvkl\n[2026/06/18 18:13:48.566 GMT+08:00] 等待主 Pod (main-script) 出现...\n[2026/06/18 18:13:53.859 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-rfvkl' 的 pod\n[2026/06/18 18:14:02.005 GMT+08:00] Job ascend-mindie-sd-rfvkl 的主 Pod: ascend-mindie-sd-rfvkl-main-script-0\n[2026/06/18 18:14:02.005 GMT+08:00] 等待 Job ascend-mindie-sd-rfvkl 的 Pod 启动...\n[2026/06/18 18:14:08.653 GMT+08:00] [日志] 等待 Pod ascend-mindie-sd-rfvkl-main-script-0 开始运行...\n[2026/06/18 18:17:15.337 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 18:17:15.337 GMT+08:00] [日志] 连接 kubectl logs ascend-mindie-sd-rfvkl-main-script-0 ...\n[2026/06/18 18:17:15.337 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 18:17:15.337 GMT+08:00] From http://git-cache-http-server.git-cache.svc.cluster.local:8080/Ascend/MindIE-SD\n[2026/06/18 18:17:15.337 GMT+08:00]  * [new ref]         refs/merge-requests/373/head -> pr\n[2026/06/18 18:17:15.337 GMT+08:00] Merge made by the 'ort' strategy.\n[2026/06/18 18:17:15.337 GMT+08:00] --2026-06-18 18:17:04--  https://mindie-pr.obs.cn-north-4.myhuaweicloud.com/Private_repository/MindIE-SD/373/ci_target/cie.zip\n...\n[2026/06/18 18:19:14.711 GMT+08:00] -- Configuring done (2.1s)\n[2026/06/18 18:19:14.711 GMT+08:00] -- Build files have been written to: /MindIE-SD/build/plugin_build\n[2026/06/18 18:19:32.852 GMT+08:00] [100%] Linking CXX shared library libPTAExtensionOPS.so\n[2026/06/18 18:19:32.852 GMT+08:00] [100%] Built target PTAExtensionOPS\n[2026/06/18 18:19:56.473 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_sJOI98PK #1",
+      "log_stats": {
+        "total_timestamped_lines": 4442,
+        "sample_lines": 400,
+        "raw_chars": 553255
+      },
+      "timestamp_summary": {
+        "first": "2026-06-18T18:13:02.591000+08:00",
+        "last": "2026-06-18T18:20:02.500000+08:00",
+        "duration_seconds": 419.909,
+        "total_timestamped_lines": 4442,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 204,
+          "gap_seconds": 5.297,
+          "before_ts": "2026-06-18T18:13:37.126000+08:00",
+          "after_ts": "2026-06-18T18:13:42.423000+08:00",
+          "sample_before": "[2026/06/18 18:13:37.126 GMT+08:00] === Pre-submit validation ===",
+          "sample_after": "[2026/06/18 18:13:42.423 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement"
+        },
+        {
+          "after_line": 206,
+          "gap_seconds": 5.303,
+          "before_ts": "2026-06-18T18:13:42.423000+08:00",
+          "after_ts": "2026-06-18T18:13:47.726000+08:00",
+          "sample_before": "[2026/06/18 18:13:42.423 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
+          "sample_after": "[2026/06/18 18:13:47.726 GMT+08:00] [OK] Git-cache found, injecting git proxy config"
+        },
+        {
+          "after_line": 216,
+          "gap_seconds": 5.293,
+          "before_ts": "2026-06-18T18:13:48.566000+08:00",
+          "after_ts": "2026-06-18T18:13:53.859000+08:00",
+          "sample_before": "[2026/06/18 18:13:48.566 GMT+08:00] 等待主 Pod (main-script) 出现...",
+          "sample_after": "[2026/06/18 18:13:53.859 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-rfvkl' 的 pod"
+        },
+        {
+          "after_line": 217,
+          "gap_seconds": 8.146,
+          "before_ts": "2026-06-18T18:13:53.859000+08:00",
+          "after_ts": "2026-06-18T18:14:02.005000+08:00",
+          "sample_before": "[2026/06/18 18:13:53.859 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-sd-rfvkl' 的 pod",
+          "sample_after": "[2026/06/18 18:14:02.005 GMT+08:00] Job ascend-mindie-sd-rfvkl 的主 Pod: ascend-mindie-sd-rfvkl-main-script-0"
+        },
+        {
+          "after_line": 219,
+          "gap_seconds": 6.648,
+          "before_ts": "2026-06-18T18:14:02.005000+08:00",
+          "after_ts": "2026-06-18T18:14:08.653000+08:00",
+          "sample_before": "[2026/06/18 18:14:02.005 GMT+08:00] 等待 Job ascend-mindie-sd-rfvkl 的 Pod 启动...",
+          "sample_after": "[2026/06/18 18:14:08.653 GMT+08:00] [日志] 等待 Pod ascend-mindie-sd-rfvkl-main-script-0 开始运行..."
+        },
+        {
+          "after_line": 220,
+          "gap_seconds": 186.684,
+          "before_ts": "2026-06-18T18:14:08.653000+08:00",
+          "after_ts": "2026-06-18T18:17:15.337000+08:00",
+          "sample_before": "[2026/06/18 18:14:08.653 GMT+08:00] [日志] 等待 Pod ascend-mindie-sd-rfvkl-main-script-0 开始运行...",
+          "sample_after": "[2026/06/18 18:17:15.337 GMT+08:00] [日志] Pod 状态: Running，开始连接日志"
+        },
+        {
+          "after_line": 1750,
+          "gap_seconds": 10.001,
+          "before_ts": "2026-06-18T18:17:22.767000+08:00",
+          "after_ts": "2026-06-18T18:17:32.768000+08:00",
+          "sample_before": "[2026/06/18 18:17:22.767 GMT+08:00] [ 96%] Built target optiling_compat",
+          "sample_after": "[2026/06/18 18:17:32.768 GMT+08:00] [INFO] RUNTIME(1478,python3):2026-06-18-18:17:26.591.701"
+        },
+        {
+          "after_line": 1766,
+          "gap_seconds": 6.582,
+          "before_ts": "2026-06-18T18:17:32.769000+08:00",
+          "after_ts": "2026-06-18T18:17:39.351000+08:00",
+          "sample_before": "[2026/06/18 18:17:32.769 GMT+08:00] [ 96%] Built target laser_attention_ascend910_1",
+          "sample_after": "[2026/06/18 18:17:39.351 GMT+08:00] [INFO] RUNTIME(1547,python3)"
+        },
+        {
+          "after_line": 1851,
+          "gap_seconds": 6.58,
+          "before_ts": "2026-06-18T18:17:45.960000+08:00",
+          "after_ts": "2026-06-18T18:17:52.540000+08:00",
+          "sample_before": "[2026/06/18 18:17:45.960 GMT+08:00] [ 97%] Built target la_preprocess_ascend910b",
+          "sample_after": "[2026/06/18 18:17:52.540 GMT+08:00] [ 97%] Built target la_preprocess"
+        },
+        {
+          "after_line": 1884,
+          "gap_seconds": 5.288,
+          "before_ts": "2026-06-18T18:17:54.425000+08:00",
+          "after_ts": "2026-06-18T18:17:59.713000+08:00",
+          "sample_before": "[2026/06/18 18:17:54.425 GMT+08:00] [ 97%] Built target laser_attention_ascend910_93_1",
+          "sample_after": "[2026/06/18 18:17:59.713 GMT+08:00] [ 97%] Built target laser_attention_ascend910b"
+        },
+        {
+          "after_line": 1885,
+          "gap_seconds": 6.587,
+          "before_ts": "2026-06-18T18:17:59.713000+08:00",
+          "after_ts": "2026-06-18T18:18:06.300000+08:00",
+          "sample_before": "[2026/06/18 18:17:59.713 GMT+08:00] [ 97%] Built target laser_attention_ascend910b",
+          "sample_after": "[2026/06/18 18:18:06.300 GMT+08:00] [ 97%] Built target laser_attention_ascend910_93"
+        },
+        {
+          "after_line": 1887,
+          "gap_seconds": 18.152,
+          "before_ts": "2026-06-18T18:18:06.300000+08:00",
+          "after_ts": "2026-06-18T18:18:24.452000+08:00",
+          "sample_before": "[2026/06/18 18:18:06.300 GMT+08:00] [ 97%] Built target laser_attention",
+          "sample_after": "[2026/06/18 18:18:24.452 GMT+08:00] [INFO] RUNTIME(1494,python3)"
+        },
+        {
+          "after_line": 1911,
+          "gap_seconds": 5.288,
+          "before_ts": "2026-06-18T18:18:31.964000+08:00",
+          "after_ts": "2026-06-18T18:18:37.252000+08:00",
+          "sample_before": "[2026/06/18 18:18:31.964 GMT+08:00] [ 97%] Built target ada_block_sparse_attention_ascend910_93_2",
+          "sample_after": "[2026/06/18 18:18:37.252 GMT+08:00] [INFO] RUNTIME(1538,python3)"
+        },
+        {
+          "after_line": 1920,
+          "gap_seconds": 6.59,
+          "before_ts": "2026-06-18T18:18:37.513000+08:00",
+          "after_ts": "2026-06-18T18:18:44.103000+08:00",
+          "sample_before": "[2026/06/18 18:18:37.513 GMT+08:00] [ 97%] Built target ada_block_sparse_attention_ascend910_93",
+          "sample_after": "[2026/06/18 18:18:44.103 GMT+08:00] [INFO] RUNTIME(1523,python3)"
+        },
+        {
+          "after_line": 1928,
+          "gap_seconds": 8.147,
+          "before_ts": "2026-06-18T18:18:44.103000+08:00",
+          "after_ts": "2026-06-18T18:18:52.250000+08:00",
+          "sample_before": "[2026/06/18 18:18:44.103 GMT+08:00] [ 97%] Built target ada_block_sparse_attention_ascend910b_0",
+          "sample_after": "[2026/06/18 18:18:52.250 GMT+08:00] [INFO] RUNTIME(1499,python3)"
+        },
+        {
+          "after_line": 1938,
+          "gap_seconds": 6.588,
+          "before_ts": "2026-06-18T18:18:52.251000+08:00",
+          "after_ts": "2026-06-18T18:18:58.839000+08:00",
+          "sample_before": "[2026/06/18 18:18:52.251 GMT+08:00] [ 97%] Built target ada_block_sparse_attention",
+          "sample_after": "[2026/06/18 18:18:58.839 GMT+08:00] [INFO] RUNTIME(1529,python3)"
+        },
+        {
+          "after_line": 1954,
+          "gap_seconds": 6.589,
+          "before_ts": "2026-06-18T18:18:59.409000+08:00",
+          "after_ts": "2026-06-18T18:19:05.998000+08:00",
+          "sample_before": "[2026/06/18 18:18:59.409 GMT+08:00] [ 98%] Built target ops_config_ascend950",
+          "sample_after": "[2026/06/18 18:19:05.998 GMT+08:00] [INFO] RUNTIME(1531,python3)"
+        },
+        {
+          "after_line": 2371,
+          "gap_seconds": 18.14,
+          "before_ts": "2026-06-18T18:19:14.712000+08:00",
+          "after_ts": "2026-06-18T18:19:32.852000+08:00",
+          "sample_before": "[2026/06/18 18:19:14.712 GMT+08:00] [ 92%] Building CXX object CMakeFiles/PTAExtensionOPS.dir/plugin/quant_flash_attn_metadata.cpp.o",
+          "sample_after": "[2026/06/18 18:19:32.852 GMT+08:00] [100%] Linking CXX shared library libPTAExtensionOPS.so"
+        },
+        {
+          "after_line": 4402,
+          "gap_seconds": 6.716,
+          "before_ts": "2026-06-18T18:19:33.627000+08:00",
+          "after_ts": "2026-06-18T18:19:40.343000+08:00",
+          "sample_before": "[2026/06/18 18:19:33.627 GMT+08:00] archive_url:https://mindie.obs.cn-north-4.myhuaweicloud.com/monitor/ascend/MindIE-SD/373/abi0/aarch64/mindiesd-3.0.0-cp311-cp311-linux_aarch64.whl",
+          "sample_after": "[2026/06/18 18:19:40.343 GMT+08:00] [日志] tail 错误: signal: killed"
+        },
+        {
+          "after_line": 4408,
+          "gap_seconds": 5.287,
+          "before_ts": "2026-06-18T18:19:44.719000+08:00",
+          "after_ts": "2026-06-18T18:19:50.006000+08:00",
+          "sample_before": "[2026/06/18 18:19:44.719 GMT+08:00] Job ascend-mindie-sd-rfvkl 成功完成",
+          "sample_after": "[2026/06/18 18:19:50.006 GMT+08:00] 清理 copy-artifact 容器..."
+        },
+        {
+          "after_line": 4440,
+          "gap_seconds": 5.863,
+          "before_ts": "2026-06-18T18:19:56.473000+08:00",
+          "after_ts": "2026-06-18T18:20:02.336000+08:00",
+          "sample_before": "[2026/06/18 18:19:56.473 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_sJOI98PK #1",
+          "sample_after": "[2026/06/18 18:20:02.336 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker"
+        }
+      ],
       "pre_build": {
-        "total_seconds": 252.746,
-        "pct_of_total": 60.2,
+        "total_seconds": 246.746,
+        "pct_of_total": 58.76,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-18T18:13:02.591000+08:00",
-            "end": "2026-06-18T18:13:09.815000+08:00",
-            "duration_seconds": 7.224,
-            "evidence": "[2026/06/18 18:13:02.756 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行 ... [2026/06/18 18:13:07.715 GMT+08:00] 该步骤执行完成 (节点: cce-codeci-b28ba5852d)"
+            "start": "2026-06-18T18:13:02.756000+08:00",
+            "end": "2026-06-18T18:13:07.715000+08:00",
+            "duration_seconds": 4.959,
+            "evidence": "[PRE_ENV:slave_create] 开始执行 -> 执行完成，资源池 default-x86-2u8g_suffix，执行节点 cce-codeci-b28ba5852d"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-18T18:13:09.815000+08:00",
-            "end": "2026-06-18T18:13:13.610000+08:00",
-            "duration_seconds": 3.795,
-            "evidence": "[2026/06/18 18:13:09.815 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from ***** ... Status: Image is up to date for************"
+            "start": "2026-06-18T18:13:07.715000+08:00",
+            "end": "2026-06-18T18:17:15.337000+08:00",
+            "duration_seconds": 201.866,
+            "evidence": "3次 shell 镜像 pull (Image is up to date/已缓存) + karmada 镜像下载 18:13:34-18:13:35 (Download complete, layers pull complete, Downloaded newer image) + Volcano ARM Pod 启动等待 186.7s gap (18:14:08 -> 18:17:15)，期间拉取 ARM64 主构建镜像 ascend_mindie_ubuntu_aarch64 (torch2.1.0)；扣除 cache_check(0.786s)、git_checkout(7.674s)、workspace_prep(~7.721s)、pre_submit_validation(11.44s)、orchestrator_submit(0.573s)、tool_download karmada(1.146s) 后纯 docker_pull 约 201.9s"
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
             "start": "2026-06-18T18:13:13.610000+08:00",
-            "end": "2026-06-18T18:13:16.919000+08:00",
-            "duration_seconds": 3.309,
-            "evidence": "[2026/06/18 18:13:13.610 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行 ... [2026/06/18 18:13:14.396 GMT+08:00] 该步骤执行完成"
+            "end": "2026-06-18T18:13:14.396000+08:00",
+            "duration_seconds": 0.786,
+            "evidence": "[Cache Check:external_cache_check] 开始执行 -> 执行完成"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
             "start": "2026-06-18T18:13:16.919000+08:00",
-            "end": "2026-06-18T18:13:27.586000+08:00",
-            "duration_seconds": 10.667,
-            "evidence": "[2026/06/18 18:13:16.919 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行 ... git clone/fetch/merge operations ... [2026/06/18 18:13:24.593 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成"
+            "end": "2026-06-18T18:13:24.593000+08:00",
+            "duration_seconds": 7.674,
+            "evidence": "[代码检出:external_pre_checkout] 开始执行 -> [代码检出:external_post_checkout] 执行完成，git fetch fork/dev + origin/dev 双源，checkout 32bdbdcb"
           },
           {
             "key": "workspace_prep",
             "name": "工作目录准备",
             "start": "2026-06-18T18:13:27.586000+08:00",
-            "end": "2026-06-18T18:13:37.126000+08:00",
-            "duration_seconds": 9.54,
-            "evidence": "[2026/06/18 18:13:27.586 GMT+08:00] + cat shell.sh (workspace cleanup, CI files download, karmada orchestrator image FULL pull at 18:13:34.745-35.636 with layer downloads, env vars: 73 variables at 18:13:36.864)"
+            "end": "2026-06-18T18:13:36.864000+08:00",
+            "duration_seconds": 9.278,
+            "evidence": "shell.sh 执行: 目录清理、CIE 工具脚本、文件管理下载、环境变量设置(73个)、CP_runs_on=arm64-cpu-16-mem-32G, CP_docker_image=ascend_mindie_ubuntu_aarch64 (torch2.1.0)"
           },
           {
             "key": "pre_submit_validation",
-            "name": "前置校验与编排提交",
+            "name": "前置校验",
             "start": "2026-06-18T18:13:37.126000+08:00",
+            "end": "2026-06-18T18:13:48.566000+08:00",
+            "duration_seconds": 11.44,
+            "evidence": "YAML 生成 -> Pre-submit validation: Harbor registry OK (5.3s gap to image_proxy)、image proxy swr->harbor、git-cache 注入 (5.3s gap to git_cache)、Queue shared-flexible-queue OK、StorageClass sfsturbo-subpath-sc OK"
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": "2026-06-18T18:13:42.423000+08:00",
+            "end": "2026-06-18T18:13:42.423000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "[IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/ (含于 pre_submit_validation)"
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": "2026-06-18T18:13:47.726000+08:00",
+            "end": "2026-06-18T18:13:47.726000+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "[GIT] Injected git proxy config into main-script (含于 pre_submit_validation)"
+          },
+          {
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": "2026-06-18T18:13:34.490000+08:00",
+            "end": "2026-06-18T18:13:35.636000+08:00",
+            "duration_seconds": 1.146,
+            "evidence": "karmada 镜像下载: latest Pulling from modelfoundry/karmada, layers Download complete + Pull complete, Downloaded newer image"
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": "2026-06-18T18:13:47.993000+08:00",
+            "end": "2026-06-18T18:13:48.566000+08:00",
+            "duration_seconds": 0.573,
+            "evidence": "[DONE] Created validated workflow -> Volcano Job submitted: ascend-mindie-sd-rfvkl"
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-18T18:17:15.337000+08:00",
             "end": "2026-06-18T18:17:15.337000+08:00",
-            "duration_seconds": 218.211,
-            "evidence": "[2026/06/18 18:13:37.126 GMT+08:00] === Pre-submit validation === image_proxy at 18:13:42.423, git_cache_injection at 18:13:47.726, queue/StorageClass checks, Volcano submit at 18:13:48.566, pod scheduling delay 186.7s (ARM node scarcity, abi0), Pod Running at 18:17:15.337"
+            "duration_seconds": 0.5,
+            "evidence": "Cloning into '/workspace' from git-cache-http-server (集群内缓存)，Merge made by 'ort' strategy, 极快完成"
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-18T18:17:15.337000+08:00",
+            "end": "2026-06-18T18:17:19.000000+08:00",
+            "duration_seconds": 3.663,
+            "evidence": "wget cie.zip (544K) from mindie-pr.obs.cn-north-4.myhuaweicloud.com，HTTP 200 OK，下载+解压"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 167.163,
-        "pct_of_total": 39.8,
+        "total_seconds": 173.163,
+        "pct_of_total": 41.24,
         "actions": [
           {
             "key": "cmake_configure",
-            "name": "CMake 配置与依赖准备",
-            "duration_seconds": 7.43,
-            "evidence": "18:17:15.337 Pod git clone + artifact download + pip install + CMake configure to 18:17:22.767 ASCENDC compilation begins"
+            "name": "CMake 配置",
+            "duration_seconds": 2.1,
+            "evidence": "[18:19:14.711] -- Configuring done (2.1s)，Build files written to /MindIE-SD/build/plugin_build"
           },
           {
             "key": "compilation",
-            "name": "编译 (ASCENDC + Plugin)",
-            "duration_seconds": 130.085,
-            "evidence": "18:17:22.767 ASCENDC multi-chip parallel compilation (ascend910/910b/910_93/950 targets) through 18:19:32.852 plugin link complete"
+            "name": "编译",
+            "duration_seconds": 166.063,
+            "evidence": "AscendC kernel 编译 (18:17:19-18:19:06) ~107s + PyTorch 插件 cmake_configure(2.1s) + CXX 编译+链接(18:19:14-18:19:32) ~18.1s + Python wheel build + compile_commands merge ~39s；合计 ~166s"
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 29.648,
-            "evidence": "18:19:32.852 plugin link done -> wheel build, packaging, OBS upload, copy-artifact cleanup to 18:20:02.500"
+            "duration_seconds": 5.0,
+            "evidence": "python setup.py bdist_wheel -> archive_url mindiesd-3.0.0-cp311-cp311-linux_aarch64.whl 上传到 OBS，Job 成功完成"
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 252.746,
-        "build_seconds": 167.163,
+        "pre_build_seconds": 246.746,
+        "build_seconds": 173.163,
         "unattributed_seconds": 0.0,
-        "key_bottleneck": "pre_submit_validation",
-        "key_bottleneck_seconds": 218.211
+        "key_bottleneck": "docker_pull",
+        "key_bottleneck_seconds": 201.866
       }
     }
   ]

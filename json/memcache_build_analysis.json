@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "pr": 325,
+    "repo": "Ascend/memcache",
+    "pr_url": "https://gitcode.com/Ascend/memcache/pull/325",
+    "pipeline_name": "PR-pipeline_memcache#1160",
+    "pipeline_state": "（重试第1次） [ commitID：b09cf417 ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=d33796067f29467b9e00cc14ffcd86eb&pipelineRunId=0eb4cafc7710412aa0f1f334d72a1e49&codeHostingPlatformFlag=gitcode",
+    "comment_time": "",
+    "fetched_at": "2026-06-23T21:16:13.607811+08:00",
+    "analyzed_at": "2026-06-23T21:21:00.000000+08:00",
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Build_memcache",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=d33796067f29467b9e00cc14ffcd86eb&pipelineRunId=0eb4cafc7710412aa0f1f334d72a1e49&stepId=f52831a10ccb4fc6ac19001873a78237&jobRunId=10df6c69923c4b7e8526b552a3a3a00c&stepRunId=c0362498d1334c1db3ffaee11e998c41&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-23T19:41:54.187000+08:00",
+        "end": "2026-06-23T19:46:25.849000+08:00",
+        "duration_seconds": 271.662
+      },
+      "log_sample": "[2026/06/23 19:41:54.187 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_wfLBmodF #1\n[2026/06/23 19:41:54.189 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/23 19:41:54.294 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/23 19:41:54.296 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: bf7460429af54b92b0e3825f74b8b8fd\n[2026/06/23 19:41:54.297 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/23 19:41:54.297 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/23 19:41:54.401 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_1762306282218-QRmJthyvHT\n[2026/06/23 19:41:54.446 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/23 19:41:55.435 GMT+08:00] starting check in ***/@tmp/durable-95f730ef\n[2026/06/23 19:41:55.810 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 19:41:55.810 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/23 19:41:55.810 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 19:41:55.810 GMT+08:00]************\n[2026/06/23 19:41:59.700 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行",
+      "log_stats": {
+        "total_timestamped_lines": 1385,
+        "sample_lines": 400,
+        "raw_chars": 165423
+      },
+      "timestamp_summary": {
+        "first": "2026-06-23T19:41:54.187000+08:00",
+        "last": "2026-06-23T19:46:25.849000+08:00",
+        "duration_seconds": 271.662,
+        "total_timestamped_lines": 1385,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 73,
+          "gap_seconds": 5.967,
+          "before_ts": "2026-06-23T19:42:03.249000+08:00",
+          "after_ts": "2026-06-23T19:42:09.216000+08:00",
+          "sample_before": "[2026/06/23 19:42:03.249 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成",
+          "sample_after": "[2026/06/23 19:42:09.216 GMT+08:00] starting check in ***/@tmp/durable-18431bd8"
+        },
+        {
+          "after_line": 109,
+          "gap_seconds": 21.774,
+          "before_ts": "2026-06-23T19:42:24.439000+08:00",
+          "after_ts": "2026-06-23T19:42:46.213000+08:00",
+          "sample_before": "[2026/06/23 19:42:24.439 GMT+08:00] Cloning into '***//memcache/3rdparty/nlohmann/json'...",
+          "sample_after": "[2026/06/23 19:42:46.213 GMT+08:00] Cloning into '***//memcache/3rdparty/prometheus-cpp-lite'..."
+        },
+        {
+          "after_line": 152,
+          "gap_seconds": 13.587,
+          "before_ts": "2026-06-23T19:43:03.889000+08:00",
+          "after_ts": "2026-06-23T19:43:17.476000+08:00",
+          "sample_before": "[2026/06/23 19:43:03.889 GMT+08:00] AlmaLinux 8 - BaseOS                             29 MB/s |  59 MB     00:02    ",
+          "sample_after": "[2026/06/23 19:43:17.476 GMT+08:00] AlmaLinux 8 - AppStream                         6.3 kB/s | 4.3 kB     00:00    "
+        },
+        {
+          "after_line": 154,
+          "gap_seconds": 7.437,
+          "before_ts": "2026-06-23T19:43:18.527000+08:00",
+          "after_ts": "2026-06-23T19:43:25.964000+08:00",
+          "sample_before": "[2026/06/23 19:43:18.527 GMT+08:00] AlmaLinux 8 - AppStream                          25 MB/s |  26 MB     00:01    ",
+          "sample_after": "[2026/06/23 19:43:25.964 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    "
+        },
+        {
+          "after_line": 160,
+          "gap_seconds": 10.798,
+          "before_ts": "2026-06-23T19:43:33.249000+08:00",
+          "after_ts": "2026-06-23T19:43:44.047000+08:00",
+          "sample_before": "[2026/06/23 19:43:33.249 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64 6.9 MB/s |  14 MB     00:02    ",
+          "sample_after": "[2026/06/23 19:43:44.047 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed."
+        },
+        {
+          "after_line": 261,
+          "gap_seconds": 18.254,
+          "before_ts": "2026-06-23T19:43:49.755000+08:00",
+          "after_ts": "2026-06-23T19:44:08.009000+08:00",
+          "sample_before": "[2026/06/23 19:43:49.755 GMT+08:00] -- spdlog: start build...",
+          "sample_after": "[2026/06/23 19:44:08.009 GMT+08:00] -- spdlog: check file ***//memcache/build/3rdparty/spdlog/lib64/libspdlog.a"
+        },
+        {
+          "after_line": 534,
+          "gap_seconds": 18.277,
+          "before_ts": "2026-06-23T19:44:48.175000+08:00",
+          "after_ts": "2026-06-23T19:45:06.452000+08:00",
+          "sample_before": "[2026/06/23 19:44:48.175 GMT+08:00] [ 96%] Building CXX object 3rdparty/memfabric_hybrid/src/smem/csrc/python_wrapper/mk_transfer_adapter/CMakeFiles/_pytransfer.dir/csrc/transfer_util.cpp.o",
+          "sample_after": "[2026/06/23 19:45:06.452 GMT+08:00] [ 97%] Linking CXX shared module _pymf_transfer.cpython-311-aarch64-linux-gnu.so"
+        },
+        {
+          "after_line": 540,
+          "gap_seconds": 15.355,
+          "before_ts": "2026-06-23T19:45:09.602000+08:00",
+          "after_ts": "2026-06-23T19:45:24.957000+08:00",
+          "sample_before": "[2026/06/23 19:45:09.602 GMT+08:00] [ 98%] Built target _pymf_hybrid",
+          "sample_after": "[2026/06/23 19:45:24.957 GMT+08:00] make[2]: Leaving directory '***//memcache/build'"
+        },
+        {
+          "after_line": 558,
+          "gap_seconds": 43.926,
+          "before_ts": "2026-06-23T19:45:24.957000+08:00",
+          "after_ts": "2026-06-23T19:46:08.883000+08:00",
+          "sample_before": "[2026/06/23 19:45:24.957 GMT+08:00] [ 99%] Building CXX object src/memcache/csrc/python_wrapper/CMakeFiles/_pymmc.dir/pymmc.cpp.o",
+          "sample_after": "[2026/06/23 19:46:08.883 GMT+08:00] [100%] Linking CXX shared module _pymmc.cpython-311-aarch64-linux-gnu.so"
+        },
+        {
+          "after_line": 1384,
+          "gap_seconds": 6.477,
+          "before_ts": "2026-06-23T19:46:19.372000+08:00",
+          "after_ts": "2026-06-23T19:46:25.849000+08:00",
+          "sample_before": "[2026/06/23 19:46:19.372 GMT+08:00] Flag --time has been deprecated, use --timeout instead",
+          "sample_after": "[2026/06/23 19:46:25.849 GMT+08:00] Finished: SUCCESS"
+        }
+      ],
+      "pre_build": {
+        "total_seconds": 115.567,
+        "pct_of_total": 42.54,
+        "orchestrator": "volcano",
+        "actions": [
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": "2026-06-23T19:41:54.187000+08:00",
+            "end": "2026-06-23T19:41:54.294000+08:00",
+            "duration_seconds": 0.107,
+            "evidence": "[JobStatusPlugin] onStarted: j_wfLBmodF #1; Resume disabled by user, switching to high-performance, low-durability mode"
+          },
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": "2026-06-23T19:41:54.294000+08:00",
+            "end": "2026-06-23T19:41:54.446000+08:00",
+            "duration_seconds": 0.152,
+            "evidence": "[PRE_ENV:slave_create] 开始执行 -> resources pool bf7460429af54b92b0e3825f74b8b8fd -> find empty runtime, Fixed content: No -> Find available executor node:agent_1762306282218-QRmJthyvHT -> 执行完成"
+          },
+          {
+            "key": "cache_check",
+            "name": "缓存检查",
+            "start": "2026-06-23T19:41:54.446000+08:00",
+            "end": "2026-06-23T19:41:55.810000+08:00",
+            "duration_seconds": 1.364,
+            "evidence": "starting check in ***/@tmp/durable-95f730ef (openlibing durable task checkpoint, workspace cache verification)"
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": "2026-06-23T19:41:55.810000+08:00",
+            "end": "2026-06-23T19:41:59.700000+08:00",
+            "duration_seconds": 3.89,
+            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from ***** Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b Status: Image is up to date (no pull needed, image cached); 3.89s includes docker daemon check + image verification + transition to git checkout"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-06-23T19:41:59.700000+08:00",
+            "end": "2026-06-23T19:42:03.249000+08:00",
+            "duration_seconds": 3.549,
+            "evidence": "[代码检出:external_pre_checkout] git plugin 1.12.5 配置凭证成功 (0.247s) -> git init /opt/agent_1762306282218/workspace/j_wfLBmodF -> git fetch fork + develop branches -> fork MR gitcode from 0623fix(b09cf41) to develop(58f4252d) -> UserMergeOptions NO_FF -> checkout bf4241b1 (origin/develop) -> Commit: Merge commit -> [代码检出:external_post_checkout] 完成 (0.070s)"
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": "2026-06-23T19:42:03.249000+08:00",
+            "end": "2026-06-23T19:42:13.258000+08:00",
+            "duration_seconds": 10.009,
+            "evidence": "post_checkout 完成 (19:42:03.249) -> gap 5.967s -> starting check in durable-18431bd8 -> arm-shell 镜像检查 (already up to date) -> gap 3.668s -> 容器内脚本开始执行 (19:42:13.258 echo hello); 总计 10s 为 agent 上容器/workspace 准备就绪时间"
+          },
+          {
+            "key": "pod_git_clone",
+            "name": "代码检出 (Pod内)",
+            "start": "2026-06-23T19:42:13.258000+08:00",
+            "end": "2026-06-23T19:42:15.919000+08:00",
+            "duration_seconds": 2.661,
+            "evidence": "rm -rf 旧文件 -> git config user.email AtlasAccount -> git clone -b develop https://gitcode.com/Ascend/memcache.git memcache -> cd memcache -> git fetch origin -> git fetch origin refs/merge-requests/325/head -> git merge --no-edit FETCH_HEAD (Fast-forward, 1 file changed)"
+          },
+          {
+            "key": "submodule_init",
+            "name": "子模块初始化",
+            "start": "2026-06-23T19:42:15.919000+08:00",
+            "end": "2026-06-23T19:42:56.632000+08:00",
+            "duration_seconds": 40.713,
+            "evidence": "git submodule init 注册7个子模块: cpp-httplib, spdlog, memfabric_hybrid, nlohmann/json, prometheus-cpp-lite, googletest, mockcpp -> git submodule update --init 逐一克隆7个子模块 (36s) -> cd 3rdparty/memfabric_hybrid -> git fetch --all -> git checkout origin/develop -> ls -la -> 切换到 durable-ba1b5c73 checkpoint; 其中 nlohmann/json 克隆耗时最长 (21.774s gap)"
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": "2026-06-23T19:42:56.632000+08:00",
+            "end": "2026-06-23T19:43:00.560000+08:00",
+            "duration_seconds": 3.928,
+            "evidence": "starting check in durable-ba1b5c73 -> v20: Pulling from memfabric-hybrid/memfabric-hybrid_arm Digest: sha256:b609b8e6248bfc961daa2f220396b18e9ee452d59799c8dd3eda1f087ccee518 Status: Image is up to date (swr.cn-north-4.myhuaweicloud.com/memfabric-hybrid/memfabric-hybrid_arm:v20); 包含 checkpoint (0.375s) + 构建容器镜像检查 + 容器初始化"
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": "本构建未执行 pip install。Python 环境使用预装 /opt/python/cp311-cp311，所需包 (pybind11 等) 已在基础镜像 memfabric-hybrid_arm:v20 中预装。pip 仅被配置 (mkdir /root/.pip/ -> cat pip.conf) 但无实际安装操作"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置",
+            "start": "2026-06-23T19:43:00.560000+08:00",
+            "end": "2026-06-23T19:43:49.754000+08:00",
+            "duration_seconds": 49.194,
+            "evidence": "set -eu -> yum install -y rdma-core-devel (已安装) + yum 元数据刷新 BaseOS/AppStream/Extras/PowerTools/EPEL 5个仓库 (43.5s, 主要耗时) -> mkdir -p BeiMing_output/ -> mkdir /root/.pip/ -> cat pip.conf -> mv /usr/bin/patchelf -> export PYTHON_HOME=/opt/python/cp311-cp311 -> export PATH=/opt/python/cp311-cp311/bin:... -> gcc 8.5.0 / g++ 8.5.0 / cmake 3.26.5 版本检查 -> cmake 开始配置"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 156.095,
+        "pct_of_total": 57.46,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 18.256,
+            "evidence": "cmake 3.26.5 配置开始 (19:43:49.754): VERSION_MAJOR=1 VERSION_MINOR=2 VERSION_FIX=0, BUILD_TESTS=OFF, BUILD_USE_CXX11_ABI=OFF, BUILD_PYTHON=ON, CMAKE_BUILD_TYPE=RELEASE -> 检测 spdlog 需要构建 -> spdlog: start build... -> spdlog 编译完成 (19:44:08.009, 18.254s gap) -> memfabric cmake 子项目配置 -> cmake 配置完成 (19:44:08.010)"
+          },
+          {
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 120.873,
+            "evidence": "make 并行编译 (19:44:08.010 -> 19:46:08.883): spdlog 库链接 -> acc_tcp_net 编译链接 -> memfabric_hybrid hybmm/smem 编译 -> mmc_objects 编译 (memcache 核心) -> Python 绑定 _pytransfer / _pymf_hybrid / _pymmc 编译 -> 最终 Link _pymmc.cpython-311-aarch64-linux-gnu.so [100%]; 并行编译峰值出现在 58%-93% 区间, _pymmc.cpp.o 编译单文件耗时最长 (43.926s)"
+          },
+          {
+            "key": "packaging",
+            "name": "打包与上传",
+            "duration_seconds": 16.966,
+            "evidence": "Install the project... RELEASE (19:46:08.883): 安装头文件 + lib 到 output/ -> auditwheel repair memcache_hybrid wheel -> dir2zip 打包 -> cp -rf output/memcache_hybrid-1.2.0_linux_aarch64.run -> find output/ *.whl -> xargs cp 到 BeiMing_output/ -> 打包完成 (19:46:12.080) -> 后续间隙直至 Finished: SUCCESS (19:46:25.849) 归入打包阶段"
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 115.6,
+        "build_seconds": 156.1,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "环境变量设置",
+        "key_bottleneck_seconds": 49.194
+      }
+    }
+  ]
+}

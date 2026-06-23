@@ -1,0 +1,538 @@
+{
+  "meta": {
+    "pr": 875,
+    "repo": "Ascend/memfabric_hybrid",
+    "pr_url": "https://gitcode.com/Ascend/memfabric_hybrid/pull/875",
+    "pipeline_name": "PR-pipeline_memfabric_hybrid#3787",
+    "pipeline_state": " [ commitID：6748808d ] 已完成",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=3f520ea9e7d04fac8817c540cd4b5220&codeHostingPlatformFlag=gitcode",
+    "comment_time": "",
+    "fetched_at": "2026-06-23T21:16:07.236844+08:00",
+    "analyzed_at": null,
+    "analysis_method": "ai_semantic"
+  },
+  "builds": [
+    {
+      "task_name": "Build_memfabric-hybrid",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=3f520ea9e7d04fac8817c540cd4b5220&stepId=a80ed0f715c74fc89d58f41ab434bd58&jobRunId=2046d1ffdf074392885167c807a2fc05&stepRunId=b9c90e588e9949d58eabb099e8f96cdd&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-23T17:46:06.900000+08:00",
+        "end": "2026-06-23T17:55:00.400000+08:00",
+        "duration_seconds": 533.5
+      },
+      "log_sample": "[2026/06/23 17:46:06.900 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_di53PvUX #1\n[2026/06/23 17:46:06.902 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/23 17:46:07.013 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/23 17:46:07.015 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: bf7460429af54b92b0e3825f74b8b8fd\n[2026/06/23 17:46:07.016 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/23 17:46:07.016 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/23 17:46:08.018 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_9N3tldhG, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf004-ggRVyhoiKa\n[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_wchNreVE, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf002-8OFXgzZGHa\n[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_mIGrzDZg, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf003-R46RZ73zs8\n[2026/06/23 17:46:24.173 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_1762306282218-QRmJthyvHT\n[2026/06/23 17:46:24.210 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/23 17:46:25.223 GMT+08:00] starting check in ***/@tmp/durable-d559257f\n[2026/06/23 17:46:25.611 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 17:46:25.611 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/23 17:46:25.611 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 17:46:25.611 GMT+08:00]************\n[2026/06/23 17:46:28.597 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/23 17:46:28.598 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/23 17:46:28.647 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/23 17:46:28.958 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/23 17:46:28.958 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/23 17:46:28.958 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/23 17:46:29.119 GMT+08:00] No credentials specified\n[2026/06/23 17:46:29.120 GMT+08:00] set customize username password****           \n[2026/06/23 17:46:29.166 GMT+08:00] addDefaultCredentials\n[2026/06/23 17:46:29.213 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/23 17:46:29.260 GMT+08:00] Cloning the remote Git repository\n[2026/06/23 17:46:29.260 GMT+08:00] Avoid fetching tags\n[2026/06/23 17:46:29.260 GMT+08:00] Honoring refspec on initial clone\n[2026/06/23 17:46:29.283 GMT+08:00] Cloning repository https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:46:29.283 GMT+08:00]  > git init /opt/agent_1762306282218/workspace/j_di53PvUX # timeout=10\n[2026/06/23 17:46:29.289 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:46:29.289 GMT+08:00]  > git --version # timeout=10\n[2026/06/23 17:46:29.292 GMT+08:00]  > git --version # 'git version 2.34.1'\n[2026/06/23 17:46:29.292 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:46:29.293 GMT+08:00] scmType is gitcode\n[2026/06/23 17:46:29.293 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/memfabric_hybrid.git +6748808d02f789c56440a569c68445f250021ede:refs/remotes/fork/fm_a5_register # timeout=120\n[2026/06/23 17:46:31.035 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/memfabric_hybrid.git # timeout=10\n[2026/06/23 17:46:31.038 GMT+08:00]  > git config --add remote.fork.fetch +6748808d02f789c56440a569c68445f250021ede:refs/remotes/fork/fm_a5_register # timeout=10\n[2026/06/23 17:46:31.088 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/memfabric_hybrid.git # timeout=10\n[2026/06/23 17:46:31.443 GMT+08:00] fork MR gitcode from fm_a5_register(6748808d02f789c56440a569c68445f250021ede) to develop(6e26bb1eb4eecf6715853359a1adf64ac7854749).\n[2026/06/23 17:46:31.443 GMT+08:00] Merging Revision 6748808d02f789c56440a569c68445f250021ede (fork/fm_a5_register) to origin/develop, UserMergeOptions{mergeRemote='origin', mergeTarget='develop', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/23 17:46:31.493 GMT+08:00] Disable Git LFS pull\n[2026/06/23 17:46:32.063 GMT+08:00] Checking out Revision 4127f095777be234500f997f56d2da5148538f59 (origin/develop)\n[2026/06/23 17:46:32.063 GMT+08:00] Disable Git LFS pull\n[2026/06/23 17:46:31.138 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:46:31.139 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:46:31.140 GMT+08:00] scmType is gitcode\n[2026/06/23 17:46:31.140 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/memfabric_hybrid.git +6748808d02f789c56440a569c68445f250021ede:refs/remotes/fork/fm_a5_register # timeout=120\n[2026/06/23 17:46:31.194 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/memfabric_hybrid.git # timeout=10\n[2026/06/23 17:46:31.244 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:46:31.244 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:46:31.245 GMT+08:00] scmType is gitcode\n[2026/06/23 17:46:31.245 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/memfabric_hybrid.git +6e26bb1eb4eecf6715853359a1adf64ac7854749:refs/remotes/origin/develop # timeout=120\n[2026/06/23 17:46:31.365 GMT+08:00]  > git rev-parse fork/fm_a5_register^{commit} # timeout=10\n[2026/06/23 17:46:31.415 GMT+08:00]  > git rev-parse origin/fm_a5_register^{commit} # timeout=10\n[2026/06/23 17:46:31.465 GMT+08:00]  > git rev-parse origin/develop^{commit} # timeout=10\n[2026/06/23 17:46:31.515 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/23 17:46:31.518 GMT+08:00]  > git checkout -f origin/develop # timeout=120\n[2026/06/23 17:46:31.626 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/23 17:46:31.630 GMT+08:00]  > git checkout -b fm_a5_register origin/develop # timeout=120\n[2026/06/23 17:46:31.824 GMT+08:00]  > git remote # timeout=10\n[2026/06/23 17:46:31.827 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/23 17:46:31.830 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:46:31.831 GMT+08:00] scmType is gitcode\n[2026/06/23 17:46:31.832 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/23 17:46:31.935 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/23 17:46:31.988 GMT+08:00] Seen branch in repository fork/fm_a5_register\n[2026/06/23 17:46:31.988 GMT+08:00] Seen branch in repository origin/develop\n[2026/06/23 17:46:31.988 GMT+08:00] Seen 2 remote branches\n[2026/06/23 17:46:32.035 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/23 17:46:32.085 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/23 17:46:32.088 GMT+08:00]  > git checkout -f 4127f095777be234500f997f56d2da5148538f59 # timeout=120\n[2026/06/23 17:46:32.187 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/23 17:46:32.191 GMT+08:00]  > git branch -D fm_a5_register # timeout=10\n[2026/06/23 17:46:32.195 GMT+08:00]  > git checkout -b fm_a5_register 4127f095777be234500f997f56d2da5148538f59 # timeout=120\n[2026/06/23 17:46:32.277 GMT+08:00] Commit message: \"Merge commit '6748808d02f789c56440a569c68445f250021ede' into fm_a5_register\"\n[2026/06/23 17:46:32.277 GMT+08:00] First time build. Skipping changelog.\n[2026/06/23 17:46:32.311 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/23 17:46:32.360 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/23 17:46:35.365 GMT+08:00] starting check in ***/@tmp/durable-73c25409\n[2026/06/23 17:46:35.754 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 17:46:35.754 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/23 17:46:35.754 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 17:46:35.754 GMT+08:00]************\n[2026/06/23 17:46:39.358 GMT+08:00] + echo 'memfabric_hybrid Start....'\n[2026/06/23 17:46:39.358 GMT+08:00] memfabric_hybrid Start....\n[2026/06/23 17:46:39.358 GMT+08:00] + rm -rf ./app ./bazel ./benchmark ./BUILD.bazel ./cmake ./CMakeLists.txt ./doc ./examples ./LICENSE ./patches ./pre-commit ./README.md ./script ./src ./test ./VERSION ./WORKSPACE .git\n[2026/06/23 17:46:39.358 GMT+08:00] + git config --global user.email AtlasAccount@noreply.gitcode.com\n[2026/06/23 17:46:39.358 GMT+08:00] + git config --global user.name AtlasAccount\n[2026/06/23 17:46:39.358 GMT+08:00] + git clone -b develop https://gitcode.com/Ascend/memfabric_hybrid.git memfabric_hybrid\n[2026/06/23 17:46:39.358 GMT+08:00] Cloning into 'memfabric_hybrid'...\n[2026/06/23 17:46:39.497 GMT+08:00] starting check in ***/@tmp/durable-910f3a02\n[2026/06/23 17:46:41.098 GMT+08:00] + cd memfabric_hybrid\n[2026/06/23 17:46:41.098 GMT+08:00] + git fetch origin\n[2026/06/23 17:46:42.203 GMT+08:00] + git fetch origin refs/merge-requests/875/head\n[2026/06/23 17:46:43.307 GMT+08:00] From https://gitcode.com/Ascend/memfabric_hybrid\n[2026/06/23 17:46:43.307 GMT+08:00]  * branch              refs/merge-requests/875/head -> FETCH_HEAD\n[2026/06/23 17:46:43.307 GMT+08:00] + git merge --no-edit FETCH_HEAD\n[2026/06/23 17:46:43.307 GMT+08:00] Updating 6e26bb1e..6748808d\n[2026/06/23 17:46:43.307 GMT+08:00] Fast-forward\n[2026/06/23 17:46:43.307 GMT+08:00]  src/hybm/csrc/mm/hybm_dev_user_legacy_segment.cpp | 2 +-\n[2026/06/23 17:46:43.307 GMT+08:00]  src/hybm/csrc/mm/hybm_mem_segment.cpp             | 4 ++--\n[2026/06/23 17:46:43.307 GMT+08:00]  2 files changed, 3 insertions(+), 3 deletions(-)\n[2026/06/23 17:46:43.307 GMT+08:00] + git submodule init\n[2026/06/23 17:46:43.307 GMT+08:00] Submodule 'test/3rdparty/googletest' (https://github.com/google/googletest.git) registered for path 'test/3rdparty/googletest'\n[2026/06/23 17:46:43.307 GMT+08:00] Submodule 'test/3rdparty/mockcpp' (https://github.com/sinojelly/mockcpp.git) registered for path 'test/3rdparty/mockcpp'\n[2026/06/23 17:46:43.307 GMT+08:00] + git submodule update --init\n[2026/06/23 17:46:43.307 GMT+08:00] Cloning into '***//memfabric_hybrid/test/3rdparty/googletest'...\n[2026/06/23 17:46:47.449 GMT+08:00] Cloning into '***//memfabric_hybrid/test/3rdparty/mockcpp'...\n[2026/06/23 17:46:48.553 GMT+08:00] Submodule path 'test/3rdparty/googletest': checked out '15460959cbbfa20e66ef0b5ab497367e47fc0a04'\n[2026/06/23 17:46:48.784 GMT+08:00] Submodule path 'test/3rdparty/mockcpp': checked out 'e8d8b8fa25830b7f6b94281c5c5aee67ee87836f'\n[2026/06/23 17:46:48.784 GMT+08:00] + ls -la ./\n[2026/06/23 17:46:48.784 GMT+08:00] total 124\n[2026/06/23 17:46:48.784 GMT+08:00] drwxr-xr-x 15 root root  4096 Jun 23 17:46 .\n[2026/06/23 17:46:48.784 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:46 ..\n[2026/06/23 17:46:48.784 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:46 app\n[2026/06/23 17:46:48.784 GMT+08:00] drwxr-xr-x  2 root root  4096 Jun 23 17:46 bazel\n[2026/06/23 17:46:48.784 GMT+08:00] -rw-r--r--  1 root root   792 Jun 23 17:46 .bazelrc\n[2026/06/23 17:46:48.784 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:46 benchmark\n[2026/06/23 17:46:48.784 GMT+08:00] -rw-r--r--  1 root root   798 Jun 23 17:46 BUILD.bazel\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root  3095 Jun 23 17:46 .clang-format\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  3 root root  4096 Jun 23 17:46 cmake\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root  7336 Jun 23 17:46 CMakeLists.txt\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:46 doc\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  5 root root  4096 Jun 23 17:46 examples\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  9 root root  4096 Jun 23 17:46 .git\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  2 root root  4096 Jun 23 17:46 .gitcode\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root   212 Jun 23 17:46 .gitignore\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root   277 Jun 23 17:46 .gitmodules\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root  9490 Jun 23 17:46 LICENSE\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  3 root root  4096 Jun 23 17:46 patches\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  2 root root  4096 Jun 23 17:46 pre-commit\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root  2940 Jun 23 17:46 .pre-commit-config.yaml\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root 11765 Jun 23 17:46 README.md\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:46 script\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  6 root root  4096 Jun 23 17:46 src\n[2026/06/23 17:46:48.785 GMT+08:00] drwxr-xr-x  7 root root  4096 Jun 23 17:46 test\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root     5 Jun 23 17:46 VERSION\n[2026/06/23 17:46:48.785 GMT+08:00] -rw-r--r--  1 root root  1575 Jun 23 17:46 WORKSPACE\n[2026/06/23 17:46:51.565 GMT+08:00] starting check in ***/@tmp/durable-427ba670\n[2026/06/23 17:46:51.953 GMT+08:00] v20: Pulling from memfabric-hybrid/memfabric-hybrid_arm\n[2026/06/23 17:46:51.953 GMT+08:00] Digest: sha256:b609b8e6248bfc961daa2f220396b18e9ee452d59799c8dd3eda1f087ccee518\n[2026/06/23 17:46:51.953 GMT+08:00] Status: Image is up to date for swr.cn-north-4.myhuaweicloud.com/memfabric-hybrid/memfabric-hybrid_arm:v20\n[2026/06/23 17:46:51.954 GMT+08:00] swr.cn-north-4.myhuaweicloud.com/memfabric-hybrid/memfabric-hybrid_arm:v20\n[2026/06/23 17:46:55.713 GMT+08:00] + echo hello\n[2026/06/23 17:46:55.713 GMT+08:00] hello\n[2026/06/23 17:46:55.713 GMT+08:00] + set -eux\n[2026/06/23 17:46:55.713 GMT+08:00] +++ dirname ***/@tmp/durable-67ee7a70/script.sh\n[2026/06/23 17:46:55.713 GMT+08:00] ++ cd ***/@tmp/durable-67ee7a70\n[2026/06/23 17:46:55.713 GMT+08:00] ++ pwd\n[2026/06/23 17:46:55.713 GMT+08:00] + readonly CURRENT_PATH=***/@tmp/durable-67ee7a70\n[2026/06/23 17:46:55.713 GMT+08:00] + CURRENT_PATH=***/@tmp/durable-67ee7a70\n[2026/06/23 17:46:55.713 GMT+08:00] + cat\n[2026/06/23 17:46:55.713 GMT+08:00] + chmod 600 /root/.git-credentials\n[2026/06/23 17:46:55.713 GMT+08:00] + git config --global credential.helper store\n[2026/06/23 17:46:55.713 GMT+08:00] + mkdir -p ***//BeiMing_output/develop\n[2026/06/23 17:46:55.713 GMT+08:00] + cd ***/\n[2026/06/23 17:46:55.713 GMT+08:00] + yum install -y rdma-core-devel\n[2026/06/23 17:46:55.854 GMT+08:00] starting check in ***/@tmp/durable-67ee7a70\n[2026/06/23 17:46:56.819 GMT+08:00] AlmaLinux 8 - BaseOS                            4.6 kB/s | 3.8 kB     00:00    \n[2026/06/23 17:46:58.566 GMT+08:00] AlmaLinux 8 - BaseOS                             41 MB/s |  59 MB     00:01    \n[2026/06/23 17:47:11.763 GMT+08:00] AlmaLinux 8 - AppStream                         6.2 kB/s | 4.3 kB     00:00    \n[2026/06/23 17:47:12.868 GMT+08:00] AlmaLinux 8 - AppStream                          24 MB/s |  26 MB     00:01    \n[2026/06/23 17:47:20.562 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    \n[2026/06/23 17:47:21.089 GMT+08:00] AlmaLinux 8 - Extras                             17 kB/s |  12 kB     00:00    \n[2026/06/23 17:47:21.617 GMT+08:00] AlmaLinux 8 - PowerTools                        6.3 kB/s | 4.2 kB     00:00    \n[2026/06/23 17:47:22.721 GMT+08:00] AlmaLinux 8 - PowerTools                        5.0 MB/s | 3.8 MB     00:00    \n[2026/06/23 17:47:24.462 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  10 kB/s | 7.7 kB     00:00    \n[2026/06/23 17:51:55.452 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  55 kB/s |  14 MB     04:28    \n[2026/06/23 17:52:04.752 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed.\n[2026/06/23 17:52:04.752 GMT+08:00] Dependencies resolved.\n[2026/06/23 17:52:04.752 GMT+08:00] Nothing to do.\n[2026/06/23 17:52:04.752 GMT+08:00] Complete!\n[2026/06/23 17:52:04.752 GMT+08:00] + cd memfabric_hybrid\n[2026/06/23 17:52:04.752 GMT+08:00] + mv /usr/bin/patchelf /usr/bin/patchelf.bak\n[2026/06/23 17:52:04.752 GMT+08:00] + export PYTHON_HOME=/opt/python/cp311-cp311\n[2026/06/23 17:52:04.752 GMT+08:00] + PYTHON_HOME=/opt/python/cp311-cp311\n[2026/06/23 17:52:04.752 GMT+08:00] + export PATH=/opt/python/cp311-cp311/bin:/usr/bin:/opt/rh/gcc-toolset-14/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\n[2026/06/23 17:52:04.752 GMT+08:00] + PATH=/opt/python/cp311-cp311/bin:/usr/bin:/opt/rh/gcc-toolset-14/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\n[2026/06/23 17:52:04.752 GMT+08:00] + gcc --version\n[2026/06/23 17:52:04.752 GMT+08:00] gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28)\n[2026/06/23 17:52:04.752 GMT+08:00] Copyright (C) 2018 Free Software Foundation, Inc.\n[2026/06/23 17:52:04.752 GMT+08:00] This is free software; see the source for copying conditions.  There is NO\n[2026/06/23 17:52:04.752 GMT+08:00] warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n[2026/06/23 17:52:04.752 GMT+08:00] \n[2026/06/23 17:52:04.752 GMT+08:00] + g++ --version\n[2026/06/23 17:52:04.752 GMT+08:00] g++ (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28)\n[2026/06/23 17:52:04.752 GMT+08:00] Copyright (C) 2018 Free Software Foundation, Inc.\n[2026/06/23 17:52:04.752 GMT+08:00] This is free software; see the source for copying conditions.  There is NO\n... [skipped 77 lines] ...\n[2026/06/23 17:52:14.749 GMT+08:00] -- BUILD_USE_CXX11_ABI = OFF\n[2026/06/23 17:52:14.749 GMT+08:00] -- ENABLE_CPU_MONOTONIC = OFF\n[2026/06/23 17:52:14.749 GMT+08:00] -- BUILD_GIT_COMMIT = ON\n[2026/06/23 17:52:14.749 GMT+08:00] -- BUILD_PYTHON = ON\n[2026/06/23 17:52:14.749 GMT+08:00] -- ENABLE_PTRACER = ON\n[2026/06/23 17:52:14.750 GMT+08:00] -- CMAKE_COMPILER = \n[2026/06/23 17:52:14.750 GMT+08:00] -- CMAKE_CXX_COMPILER = /usr/bin/c++\n[2026/06/23 17:52:14.750 GMT+08:00] -- CMAKE_BUILD_TYPE = RELEASE\n[2026/06/23 17:52:14.750 GMT+08:00] -- XPU_TYPE = NPU\n[2026/06/23 17:52:14.750 GMT+08:00] -- BUILD_TEST = ON\n[2026/06/23 17:52:14.750 GMT+08:00] -- BUILD_HCOM = ON\n[2026/06/23 17:52:14.750 GMT+08:00] -- MAKE_CMD = make\n[2026/06/23 17:52:14.750 GMT+08:00] -- added compile options for RELEASE\n[2026/06/23 17:52:14.750 GMT+08:00] -- CMAKE_BUILD_TYPE is RELEASE.\n[2026/06/23 17:52:14.750 GMT+08:00] -- CMAKE_INSTALL_PREFIX = /usr/local\n[2026/06/23 17:52:14.750 GMT+08:00] -- TARGET_INSTALL_DIR = ***//memfabric_hybrid/output/\n[2026/06/23 17:52:14.750 GMT+08:00] -- CMAKE_PREFIX_PATH is exist, and append: /opt/python/cp311-cp311/lib/python3.11/site-packages/pybind11/share/cmake/pybind11\n[2026/06/23 17:52:14.750 GMT+08:00] -- Now CMAKE_PREFIX_PATH: /opt/python/cp311-cp311;/opt/python/cp311-cp311/lib/python3.11/site-packages/pybind11/share/cmake/pybind11\n[2026/06/23 17:52:14.750 GMT+08:00] -- BUILD_HCOM = ON\n[2026/06/23 17:52:14.750 GMT+08:00] -- Configuring hcom with CMAKE_INSTALL_PREFIX=***//memfabric_hybrid/output/3rdparty/hcom, options: BUILD_WITH_RDMA:ON BUILD_WITH_UB:OFF\n[2026/06/23 17:52:20.074 GMT+08:00] -- CMAKE_BUILD_TYPE: RELEASE\n[2026/06/23 17:52:20.074 GMT+08:00] -- CPU_TYPE: arm_64\n[2026/06/23 17:52:20.074 GMT+08:00] -- ld.gold is available, using it to link\n[2026/06/23 17:52:20.074 GMT+08:00] -- Build hcom on commit c22937e7aa4522b4586f1d3b590b768bdd821cb9\n[2026/06/23 17:52:20.074 GMT+08:00] -- BUILD_WITH_HW_CRC: OFF\n[2026/06/23 17:52:20.074 GMT+08:00] -- LIBBOUNDCHECK_INSTALL_DIR: ***//memfabric_hybrid/build/_deps/hcom-src/dist/hcom_3rdparty/libboundscheck\n[2026/06/23 17:52:20.074 GMT+08:00] -- libboundscheck not found! Suggest install the RPM package:\n[2026/06/23 17:52:20.074 GMT+08:00]   sudo rpm -ivh libboundscheck-v1.1.11-6.oe2403.aarch64.rpm\n[2026/06/23 17:52:20.074 GMT+08:00] Or via yum/dnf:\n[2026/06/23 17:52:20.074 GMT+08:00]   sudo yum install libboundscheck\n[2026/06/23 17:52:20.074 GMT+08:00] Expected:\n[2026/06/23 17:52:20.074 GMT+08:00]   Header: /usr/include/securec.h\n[2026/06/23 17:52:20.074 GMT+08:00]   Shared: /usr/lib64/libboundscheck.so\n[2026/06/23 17:52:20.074 GMT+08:00] -- =========install from soucecode=========\n[2026/06/23 17:52:22.733 GMT+08:00] gcc -c src/secureinput_a.c -Wall -DNDEBUG -O2 -fPIC -fstack-protector-all -D_FORTIFY_SOURCE=2 -O2 -Wformat=2 -Wfloat-equal -Wshadow -Wconversion -Wformat-security -Wextra --param ssp-buffer-size=4 -Warray-bounds -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=1 -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Iinclude -o obj/secureinput_a.o\n[2026/06/23 17:52:23.263 GMT+08:00] gcc -c src/vsscanf_s.c -Wall -DNDEBUG -O2 -fPIC -fstack-protector-all -D_FORTIFY_SOURCE=2 -O2 -Wformat=2 -Wfloat-equal -Wshadow -Wconversion -Wformat-security -Wextra --param ssp-buffer-size=4 -Warray-bounds -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=1 -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Iinclude -o obj/vsscanf_s.o\n[2026/06/23 17:52:23.263 GMT+08:00] gcc -c src/wcsncpy_s.c -Wall -DNDEBUG -O2 -fPIC -fstack-protector-all -D_FORTIFY_SOURCE=2 -O2 -Wformat=2 -Wfloat-equal -Wshadow -Wconversion -Wformat-security -Wextra --param ssp-buffer-size=4 -Warray-bounds -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=1 -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Iinclude -o obj/wcsncpy_s.o\n[2026/06/23 17:52:23.263 GMT+08:00] gcc -c src/strtok_s.c -Wall -DNDEBUG -O2 -fPIC -fstack-protector-all -D_FORTIFY_SOURCE=2 -O2 -Wformat=2 -Wfloat-equal -Wshadow -Wconversion -Wformat-security -Wextra --param ssp-buffer-size=4 -Warray-bounds -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=1 -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Iinclude -o obj/strtok_s.o\n[2026/06/23 17:52:23.263 GMT+08:00] gcc -c src/swscanf_s.c -Wall -DNDEBUG -O2 -fPIC -fstack-protector-all -D_FORTIFY_SOURCE=2 -O2 -Wformat=2 -Wfloat-equal -Wshadow -Wconversion -Wformat-security -Wextra --param ssp-buffer-size=4 -Warray-bounds -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=1 -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Iinclude -o obj/swscanf_s.o\n[2026/06/23 17:52:23.263 GMT+08:00] gcc -c src/secureinput_w.c -Wall -DNDEBUG -O2 -fPIC -fstack-protector-all -D_FORTIFY_SOURCE=2 -O2 -Wformat=2 -Wfloat-equal -Wshadow -Wconversion -Wformat-security -Wextra --param ssp-buffer-size=4 -Warray-bounds -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wstrict-overflow=1 -Wstrict-aliasing=2 -Wswitch -Wswitch-default -Iinclude -o obj/secureinput_w.o\n... [skipped 161 lines] ...\n[2026/06/23 17:52:37.969 GMT+08:00] [ 19%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/data_operation/host/hybm_data_op_device_urma.cpp.o\n[2026/06/23 17:52:39.724 GMT+08:00] [ 19%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/common/net_security_alg.cpp.o\n[2026/06/23 17:52:40.255 GMT+08:00] [ 19%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/net_mem_pool_fixed.cpp.o\n[2026/06/23 17:52:40.786 GMT+08:00] [ 19%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/net_pgtable.cpp.o\n[2026/06/23 17:52:41.898 GMT+08:00] [ 20%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/net_security_alg.cpp.o\n[2026/06/23 17:52:42.428 GMT+08:00] [ 20%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/data_operation/host/hybm_data_op_factory.cpp.o\n[2026/06/23 17:52:42.429 GMT+08:00] [ 21%] Building CXX object src/acc_links/csrc/CMakeFiles/acc_tcp_net_object.dir/security/acc_tcp_ssl_helper.cpp.o\n[2026/06/23 17:52:42.960 GMT+08:00] [ 22%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/data_operation/host/hybm_data_op_host_rdma.cpp.o\n[2026/06/23 17:52:43.490 GMT+08:00] [ 22%] Building CXX object src/acc_links/csrc/CMakeFiles/acc_tcp_net_object.dir/under_api/openssl/openssl_api_dl.cpp.o\n[2026/06/23 17:52:44.601 GMT+08:00] [ 23%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/common/net_trace.cpp.o\n[2026/06/23 17:52:45.131 GMT+08:00] [ 24%] Building CXX object src/acc_links/csrc/CMakeFiles/acc_tcp_net_object.dir/under_api/openssl/openssl_util.cpp.o\n[2026/06/23 17:52:45.662 GMT+08:00] [ 24%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/common/net_util.cpp.o\n[2026/06/23 17:52:46.193 GMT+08:00] [ 25%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/common/trace/htracer.cpp.o\n[2026/06/23 17:52:46.724 GMT+08:00] [ 25%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/common/trace/htracer_service.cpp.o\n[2026/06/23 17:52:46.724 GMT+08:00] [ 25%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/net_trace.cpp.o\n[2026/06/23 17:52:48.476 GMT+08:00] [ 26%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/net_util.cpp.o\n[2026/06/23 17:52:48.476 GMT+08:00] [ 26%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/common/trace/rpc_server.cpp.o\n[2026/06/23 17:52:50.231 GMT+08:00] [ 27%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/hcom.cpp.o\n[2026/06/23 17:52:50.231 GMT+08:00] [ 27%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/trace/htracer.cpp.o\n[2026/06/23 17:52:50.231 GMT+08:00] [ 27%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/data_operation/host/hybm_data_op_host_shm.cpp.o\n[2026/06/23 17:52:54.398 GMT+08:00] [ 27%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/trace/htracer_service.cpp.o\n[2026/06/23 17:52:54.398 GMT+08:00] [ 27%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/hcom_log.cpp.o\n[2026/06/23 17:52:54.929 GMT+08:00] [ 28%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/common/trace/rpc_server.cpp.o\n[2026/06/23 17:52:55.460 GMT+08:00] [ 29%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/hcom_obj_statistics.cpp.o\n[2026/06/23 17:52:55.990 GMT+08:00] [ 29%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/hcom_split.cpp.o\n[2026/06/23 17:52:56.521 GMT+08:00] [ 29%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/hcom_utils.cpp.o\n[2026/06/23 17:52:57.052 GMT+08:00] [ 29%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/hcom.cpp.o\n[2026/06/23 17:52:57.583 GMT+08:00] [ 30%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/service_v2/service.cpp.o\n[2026/06/23 17:52:58.114 GMT+08:00] [ 30%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/service_v2/service_channel_imp.cpp.o\n[2026/06/23 17:52:58.114 GMT+08:00] [ 31%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/service_v2/service_common.cpp.o\n[2026/06/23 17:52:58.644 GMT+08:00] [ 32%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/hcom_log.cpp.o\n[2026/06/23 17:52:58.644 GMT+08:00] [ 32%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/data_operation/host/hybm_data_op_sdma.cpp.o\n[2026/06/23 17:52:58.644 GMT+08:00] [ 33%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/driver/hybm_gva.cpp.o\n[2026/06/23 17:52:59.177 GMT+08:00] [ 33%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/driver/userspace/devmm_ioctl.cpp.o\n[2026/06/23 17:52:59.177 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:52:59.177 GMT+08:00] [ 33%] Built target acc_tcp_net_object\n[2026/06/23 17:52:59.177 GMT+08:00] [ 33%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/hcom_obj_statistics.cpp.o\n[2026/06/23 17:52:59.707 GMT+08:00] [ 33%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/hcom_split.cpp.o\n[2026/06/23 17:53:00.239 GMT+08:00] [ 34%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/driver/userspace/devmm_svm_gva.cpp.o\n[2026/06/23 17:53:00.239 GMT+08:00] [ 35%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/hcom_utils.cpp.o\n... [skipped 156 lines] ...\n[2026/06/23 17:53:59.573 GMT+08:00] [ 88%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/transport/sock/sock_worker_io.cpp.o\n[2026/06/23 17:54:00.104 GMT+08:00] [ 88%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/transport/sock/sock_wrapper.cpp.o\n[2026/06/23 17:54:00.104 GMT+08:00] [ 89%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/umq/util/urpc_thread_closure.cpp.o\n[2026/06/23 17:54:00.104 GMT+08:00] [ 89%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/under_api/openssl/openssl_api_dl.cpp.o\n[2026/06/23 17:54:00.104 GMT+08:00] [ 89%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_api.cpp.o\n[2026/06/23 17:54:00.634 GMT+08:00] [ 89%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_cuda_api.cpp.o\n[2026/06/23 17:54:00.634 GMT+08:00] [ 90%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_hal_api.cpp.o\n[2026/06/23 17:54:00.634 GMT+08:00] [ 90%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/umq/util/urpc_thread_closure.cpp.o\n[2026/06/23 17:54:01.164 GMT+08:00] [ 91%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/under_api/openssl/openssl_api_dl.cpp.o\n[2026/06/23 17:54:01.164 GMT+08:00] [ 92%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom_static_obj.dir/under_api/verbs/verbs_api_dl.cpp.o\n[2026/06/23 17:54:01.695 GMT+08:00] [ 92%] Building CXX object _deps/hcom-build/src/hcom/CMakeFiles/hcom.dir/under_api/verbs/verbs_api_dl.cpp.o\n[2026/06/23 17:54:01.695 GMT+08:00] [ 92%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_hccl_api.cpp.o\n[2026/06/23 17:54:01.695 GMT+08:00] [ 93%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_hccp_api.cpp.o\n[2026/06/23 17:54:01.695 GMT+08:00] [ 93%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_hcom_api.cpp.o\n[2026/06/23 17:54:02.225 GMT+08:00] [ 93%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_hcomm_api.cpp.o\n[2026/06/23 17:54:02.225 GMT+08:00] [ 94%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_hybm_copy_extend.cpp.o\n[2026/06/23 17:54:02.755 GMT+08:00] [ 94%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_op_api.cpp.o\n[2026/06/23 17:54:03.866 GMT+08:00] [ 95%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/under_api/dl_rt_api.cpp.o\n[2026/06/23 17:54:04.397 GMT+08:00] [ 95%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/__/__/util/csrc/mf_fault_injection_point.cpp.o\n[2026/06/23 17:54:04.397 GMT+08:00] [ 95%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/__/__/util/csrc/mf_fault_injection_point_registry.cpp.o\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] [ 95%] Built target hybmm_objects\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] [ 95%] Linking CXX static library libmf_hybm_core.a\n[2026/06/23 17:54:13.757 GMT+08:00] [ 96%] Linking CXX shared library libmf_hybm_core.so\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] [ 96%] Built target hybmm_static\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.288 GMT+08:00] [ 97%] Linking CXX static library libmf_smem.a\n[2026/06/23 17:54:14.288 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.288 GMT+08:00] [ 97%] Built target smem_static\n[2026/06/23 17:54:14.288 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.288 GMT+08:00] [ 97%] Built target hybmm_shared\n... [skipped 5 lines] ...\n[2026/06/23 17:54:14.820 GMT+08:00] [ 97%] Built target smem_shared\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] [ 98%] Building CXX object src/smem/csrc/python_wrapper/mk_transfer_adapter/CMakeFiles/_pytransfer.dir/csrc/pytransfer.cpp.o\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] [ 98%] Building CXX object src/smem/csrc/python_wrapper/memfabric_hybrid/CMakeFiles/_pymf_hybrid.dir/pymf_hybrid.cpp.o\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] [ 98%] Building CXX object src/smem/csrc/python_wrapper/mk_transfer_adapter/CMakeFiles/_pytransfer.dir/csrc/transfer_util.cpp.o\n[2026/06/23 17:54:14.820 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:14.820 GMT+08:00] [ 99%] Building CXX object test/integration/config_store/CMakeFiles/config_store_etcd_test.dir/config_store_etcd_test.cpp.o\n[2026/06/23 17:54:16.574 GMT+08:00] [ 99%] Linking CXX executable config_store_etcd_test\n[2026/06/23 17:54:17.106 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:17.106 GMT+08:00] [ 99%] Built target config_store_etcd_test\n[2026/06/23 17:54:18.870 GMT+08:00] [ 99%] Linking CXX shared library libhcom.so\n[2026/06/23 17:54:19.401 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:19.402 GMT+08:00] [ 99%] Built target hcom\n[2026/06/23 17:54:23.572 GMT+08:00] [ 99%] Linking CXX static library libhcom_static_obj.a\n[2026/06/23 17:54:24.685 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:24.685 GMT+08:00] [ 99%] Built target hcom_static_obj\n[2026/06/23 17:54:24.685 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:25.217 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:25.217 GMT+08:00] make[2]: Entering directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:25.217 GMT+08:00] [100%] Generating libhcom_static.a\n[2026/06/23 17:54:26.330 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:26.330 GMT+08:00] [100%] Built target hcom_static\n[2026/06/23 17:54:35.654 GMT+08:00] [100%] Linking CXX shared module _pymf_transfer.cpython-311-aarch64-linux-gnu.so\n[2026/06/23 17:54:36.185 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:36.185 GMT+08:00] [100%] Built target _pytransfer\n[2026/06/23 17:54:39.504 GMT+08:00] [100%] Linking CXX shared module _pymf_hybrid.cpython-311-aarch64-linux-gnu.so\n[2026/06/23 17:54:39.504 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:39.504 GMT+08:00] [100%] Built target _pymf_hybrid\n[2026/06/23 17:54:39.504 GMT+08:00] make[1]: Leaving directory '***//memfabric_hybrid/build'\n[2026/06/23 17:54:39.504 GMT+08:00] Install the project...\n[2026/06/23 17:54:39.504 GMT+08:00] -- Install configuration: \"RELEASE\"\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_def.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_err.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_log.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_num_def.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_obj_statistics.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_ref.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_split.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_utils.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_service.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_service_channel.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_service_context.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/hcom_service_def.h\n[2026/06/23 17:54:39.504 GMT+08:00] -- Installing: ***//memfabric_hybrid/output/3rdparty/hcom/include/hcom/capi/hcom_c.h\n... [skipped 1850 lines] ...\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_api.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_copy.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_rdma.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_define.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_meta.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_bm.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_bm_def.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_trans.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_def.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_shm.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_shm_def.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/include/smem/host/smem_trans_def.h\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/config_store_etcd_test\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/transfer_perf_python/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/transfer_perf_python/run_transfer_benchmark.sh\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/transfer_perf_python/transfer_performance.py\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/mock_server/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/mock_server/smem_bm/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/mock_server/smem_bm/smem_test_common.py\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/mock_server/smem_bm/smem_bm_server.py\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/mock_server/smem_bm/test_smem_bm_g2g.py\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/test/mock_server/server.py\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/wheel/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/wheel/memfabric_hybrid-1.2.0-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libhcom.so\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libmf_hybm_core.so\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libmf_smem.so\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libboundscheck.so\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/script/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/script/uninstall.sh\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/script/install.sh\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/copy_extend/\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/copy_extend/hybm_copy_kernel.cpp\n[2026/06/23 17:54:45.137 GMT+08:00] memfabric_hybrid/version.info\n[2026/06/23 17:54:45.137 GMT+08:00] + cp -rf output/memfabric_hybrid-1.2.0_linux_aarch64.run ***//BeiMing_output/develop/\n[2026/06/23 17:54:45.137 GMT+08:00] + find output/ -name '*.whl'",
+      "log_stats": {
+        "total_timestamped_lines": 2658,
+        "sample_lines": 400,
+        "raw_chars": 303331
+      },
+      "timestamp_summary": {
+        "first": "2026-06-23T17:46:06.900000+08:00",
+        "last": "2026-06-23T17:55:00.400000+08:00",
+        "duration_seconds": 533.5,
+        "total_timestamped_lines": 2658,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 10,
+          "gap_seconds": 16.115,
+          "before_ts": "2026-06-23T17:46:08.058000+08:00",
+          "after_ts": "2026-06-23T17:46:24.173000+08:00",
+          "sample_before": "[2026/06/23 17:46:08.058 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_mIGrzDZg, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf003-R46RZ73zs8",
+          "sample_after": "[2026/06/23 17:46:24.173 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_1762306282218-QRmJthyvHT"
+        },
+        {
+          "after_line": 159,
+          "gap_seconds": 13.197,
+          "before_ts": "2026-06-23T17:46:58.566000+08:00",
+          "after_ts": "2026-06-23T17:47:11.763000+08:00",
+          "sample_before": "[2026/06/23 17:46:58.566 GMT+08:00] AlmaLinux 8 - BaseOS                             41 MB/s |  59 MB     00:01    ",
+          "sample_after": "[2026/06/23 17:47:11.763 GMT+08:00] AlmaLinux 8 - AppStream                         6.2 kB/s | 4.3 kB     00:00    "
+        },
+        {
+          "after_line": 161,
+          "gap_seconds": 7.694,
+          "before_ts": "2026-06-23T17:47:12.868000+08:00",
+          "after_ts": "2026-06-23T17:47:20.562000+08:00",
+          "sample_before": "[2026/06/23 17:47:12.868 GMT+08:00] AlmaLinux 8 - AppStream                          24 MB/s |  26 MB     00:01    ",
+          "sample_after": "[2026/06/23 17:47:20.562 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    "
+        },
+        {
+          "after_line": 166,
+          "gap_seconds": 270.99,
+          "before_ts": "2026-06-23T17:47:24.462000+08:00",
+          "after_ts": "2026-06-23T17:51:55.452000+08:00",
+          "sample_before": "[2026/06/23 17:47:24.462 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  10 kB/s | 7.7 kB     00:00    ",
+          "sample_after": "[2026/06/23 17:51:55.452 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  55 kB/s |  14 MB     04:28    "
+        },
+        {
+          "after_line": 167,
+          "gap_seconds": 9.3,
+          "before_ts": "2026-06-23T17:51:55.452000+08:00",
+          "after_ts": "2026-06-23T17:52:04.752000+08:00",
+          "sample_before": "[2026/06/23 17:51:55.452 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64  55 kB/s |  14 MB     04:28    ",
+          "sample_after": "[2026/06/23 17:52:04.752 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed."
+        },
+        {
+          "after_line": 284,
+          "gap_seconds": 5.324,
+          "before_ts": "2026-06-23T17:52:14.750000+08:00",
+          "after_ts": "2026-06-23T17:52:20.074000+08:00",
+          "sample_before": "[2026/06/23 17:52:14.750 GMT+08:00] -- Configuring hcom with CMAKE_INSTALL_PREFIX=***//memfabric_hybrid/output/3rdparty/hcom, options: BUILD_WITH_RDMA:ON BUILD_WITH_UB:OFF",
+          "sample_after": "[2026/06/23 17:52:20.074 GMT+08:00] -- CMAKE_BUILD_TYPE: RELEASE"
+        },
+        {
+          "after_line": 681,
+          "gap_seconds": 9.36,
+          "before_ts": "2026-06-23T17:54:04.397000+08:00",
+          "after_ts": "2026-06-23T17:54:13.757000+08:00",
+          "sample_before": "[2026/06/23 17:54:04.397 GMT+08:00] [ 95%] Building CXX object src/hybm/csrc/CMakeFiles/hybmm_objects.dir/__/__/util/csrc/mf_fault_injection_point_registry.cpp.o",
+          "sample_after": "[2026/06/23 17:54:13.757 GMT+08:00] make[2]: Leaving directory '***//memfabric_hybrid/build'"
+        },
+        {
+          "after_line": 735,
+          "gap_seconds": 9.324,
+          "before_ts": "2026-06-23T17:54:26.330000+08:00",
+          "after_ts": "2026-06-23T17:54:35.654000+08:00",
+          "sample_before": "[2026/06/23 17:54:26.330 GMT+08:00] [100%] Built target hcom_static",
+          "sample_after": "[2026/06/23 17:54:35.654 GMT+08:00] [100%] Linking CXX shared module _pymf_transfer.cpython-311-aarch64-linux-gnu.so"
+        },
+        {
+          "after_line": 2657,
+          "gap_seconds": 8.017,
+          "before_ts": "2026-06-23T17:54:52.383000+08:00",
+          "after_ts": "2026-06-23T17:55:00.400000+08:00",
+          "sample_before": "[2026/06/23 17:54:52.383 GMT+08:00] Flag --time has been deprecated, use --timeout instead",
+          "sample_after": "[2026/06/23 17:55:00.400 GMT+08:00] Finished: SUCCESS"
+        }
+      ],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "cache_check",
+            "name": "缓存检查",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "network_retry",
+            "name": "网络重试等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "workspace_prep",
+            "name": "工作目录准备",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pre_submit_validation",
+            "name": "前置校验",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "conda_install",
+            "name": "Conda 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apt_install",
+            "name": "系统包安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0
+          },
+          {
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 0
+          },
+          {
+            "key": "packaging",
+            "name": "打包与上传",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    },
+    {
+      "task_name": "Build_memfabric-hybrid-bazel",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=3f520ea9e7d04fac8817c540cd4b5220&stepId=a80ed0f715c74fc89d58f41ab434bd58&jobRunId=073ddf9670694003ab333d7770a50dfb&stepRunId=be77c96a6c55412dac10c2ac028d5f00&codeHostingPlatformFlag=gitcode",
+      "time": {
+        "start": "2026-06-23T17:49:39.337000+08:00",
+        "end": "2026-06-23T17:53:40.292000+08:00",
+        "duration_seconds": 240.955
+      },
+      "log_sample": "[2026/06/23 17:49:39.337 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_QF3F3DED #1\n[2026/06/23 17:49:39.339 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/23 17:49:39.445 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/23 17:49:39.447 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: bf7460429af54b92b0e3825f74b8b8fd\n[2026/06/23 17:49:39.449 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/23 17:49:39.449 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/23 17:49:40.450 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/23 17:49:40.508 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_iS17lEDz, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_mf002-8OFXgzZGHa\n[2026/06/23 17:49:40.508 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_di53PvUX, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_1762306282218-QRmJthyvHT\n[2026/06/23 17:50:09.591 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_mf004-ggRVyhoiKa\n[2026/06/23 17:50:09.636 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/23 17:50:10.581 GMT+08:00] starting check in ***/@tmp/durable-e3d40b72\n[2026/06/23 17:50:10.964 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 17:50:10.964 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/23 17:50:10.964 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 17:50:10.964 GMT+08:00]************\n[2026/06/23 17:50:13.775 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/23 17:50:13.776 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/23 17:50:13.825 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/23 17:50:14.085 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/23 17:50:14.085 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/23 17:50:14.085 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/23 17:50:14.239 GMT+08:00] No credentials specified\n[2026/06/23 17:50:14.239 GMT+08:00] set customize username password****           \n[2026/06/23 17:50:14.285 GMT+08:00] addDefaultCredentials\n[2026/06/23 17:50:14.330 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/23 17:50:14.375 GMT+08:00] Cloning the remote Git repository\n[2026/06/23 17:50:14.376 GMT+08:00] Avoid fetching tags\n[2026/06/23 17:50:14.376 GMT+08:00] Honoring refspec on initial clone\n[2026/06/23 17:50:14.401 GMT+08:00] Cloning repository https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:50:14.402 GMT+08:00]  > git init /opt/agent_mf004/workspace/j_QF3F3DED # timeout=10\n[2026/06/23 17:50:14.407 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:50:14.407 GMT+08:00]  > git --version # timeout=10\n[2026/06/23 17:50:14.410 GMT+08:00]  > git --version # 'git version 2.34.1'\n[2026/06/23 17:50:14.410 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:50:14.411 GMT+08:00] scmType is gitcode\n[2026/06/23 17:50:14.412 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/memfabric_hybrid.git +6748808d02f789c56440a569c68445f250021ede:refs/remotes/fork/fm_a5_register # timeout=120\n[2026/06/23 17:50:16.191 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/memfabric_hybrid.git # timeout=10\n[2026/06/23 17:50:16.194 GMT+08:00]  > git config --add remote.fork.fetch +6748808d02f789c56440a569c68445f250021ede:refs/remotes/fork/fm_a5_register # timeout=10\n[2026/06/23 17:50:16.525 GMT+08:00] fork MR gitcode from fm_a5_register(6748808d02f789c56440a569c68445f250021ede) to develop(6e26bb1eb4eecf6715853359a1adf64ac7854749).\n[2026/06/23 17:50:16.525 GMT+08:00] Merging Revision 6748808d02f789c56440a569c68445f250021ede (fork/fm_a5_register) to origin/develop, UserMergeOptions{mergeRemote='origin', mergeTarget='develop', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/23 17:50:16.573 GMT+08:00] Disable Git LFS pull\n[2026/06/23 17:50:17.134 GMT+08:00] Checking out Revision c8e4ae26c1bf32085f2208dfa24406716ae72ee6 (origin/develop)\n[2026/06/23 17:50:17.134 GMT+08:00] Disable Git LFS pull\n[2026/06/23 17:50:16.243 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/memfabric_hybrid.git # timeout=10\n[2026/06/23 17:50:16.292 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:50:16.292 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:50:16.293 GMT+08:00] scmType is gitcode\n[2026/06/23 17:50:16.293 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/memfabric_hybrid.git +6748808d02f789c56440a569c68445f250021ede:refs/remotes/fork/fm_a5_register # timeout=120\n[2026/06/23 17:50:16.346 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/memfabric_hybrid.git # timeout=10\n[2026/06/23 17:50:16.394 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/memfabric_hybrid.git\n[2026/06/23 17:50:16.394 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:50:16.395 GMT+08:00] scmType is gitcode\n[2026/06/23 17:50:16.395 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/memfabric_hybrid.git +6e26bb1eb4eecf6715853359a1adf64ac7854749:refs/remotes/origin/develop # timeout=120\n[2026/06/23 17:50:16.449 GMT+08:00]  > git rev-parse fork/fm_a5_register^{commit} # timeout=10\n[2026/06/23 17:50:16.498 GMT+08:00]  > git rev-parse origin/fm_a5_register^{commit} # timeout=10\n[2026/06/23 17:50:16.549 GMT+08:00]  > git rev-parse origin/develop^{commit} # timeout=10\n[2026/06/23 17:50:16.598 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/23 17:50:16.601 GMT+08:00]  > git checkout -f origin/develop # timeout=120\n[2026/06/23 17:50:16.708 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/23 17:50:16.712 GMT+08:00]  > git checkout -b fm_a5_register origin/develop # timeout=120\n[2026/06/23 17:50:16.902 GMT+08:00]  > git remote # timeout=10\n[2026/06/23 17:50:16.905 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/23 17:50:16.908 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/23 17:50:16.908 GMT+08:00] scmType is gitcode\n[2026/06/23 17:50:16.909 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/23 17:50:17.011 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/23 17:50:17.064 GMT+08:00] Seen branch in repository fork/fm_a5_register\n[2026/06/23 17:50:17.064 GMT+08:00] Seen branch in repository origin/develop\n[2026/06/23 17:50:17.064 GMT+08:00] Seen 2 remote branches\n[2026/06/23 17:50:17.109 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/23 17:50:17.158 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/23 17:50:17.161 GMT+08:00]  > git checkout -f c8e4ae26c1bf32085f2208dfa24406716ae72ee6 # timeout=120\n[2026/06/23 17:50:17.257 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/23 17:50:17.262 GMT+08:00]  > git branch -D fm_a5_register # timeout=10\n[2026/06/23 17:50:17.266 GMT+08:00]  > git checkout -b fm_a5_register c8e4ae26c1bf32085f2208dfa24406716ae72ee6 # timeout=120\n[2026/06/23 17:50:17.348 GMT+08:00] Commit message: \"Merge commit '6748808d02f789c56440a569c68445f250021ede' into fm_a5_register\"\n[2026/06/23 17:50:17.349 GMT+08:00] First time build. Skipping changelog.\n[2026/06/23 17:50:17.380 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/23 17:50:17.482 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/23 17:50:20.215 GMT+08:00] starting check in ***/@tmp/durable-1d638fb1\n[2026/06/23 17:50:20.600 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/23 17:50:20.600 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/23 17:50:20.600 GMT+08:00] Status: Image is up to date for************\n[2026/06/23 17:50:20.600 GMT+08:00]************\n[2026/06/23 17:50:24.319 GMT+08:00] + echo 'memfabric_hybrid Start....'\n[2026/06/23 17:50:24.319 GMT+08:00] memfabric_hybrid Start....\n[2026/06/23 17:50:24.319 GMT+08:00] + rm -rf ./app ./bazel ./benchmark ./BUILD.bazel ./cmake ./CMakeLists.txt ./doc ./examples ./LICENSE ./patches ./pre-commit ./README.md ./script ./src ./test ./VERSION ./WORKSPACE .git\n[2026/06/23 17:50:24.319 GMT+08:00] + git config --global user.email AtlasAccount@noreply.gitcode.com\n[2026/06/23 17:50:24.319 GMT+08:00] + git config --global user.name AtlasAccount\n[2026/06/23 17:50:24.319 GMT+08:00] + git clone -b develop https://gitcode.com/Ascend/memfabric_hybrid.git memfabric_hybrid\n[2026/06/23 17:50:24.319 GMT+08:00] Cloning into 'memfabric_hybrid'...\n[2026/06/23 17:50:24.454 GMT+08:00] starting check in ***/@tmp/durable-dde972b9\n[2026/06/23 17:50:26.802 GMT+08:00] + cd memfabric_hybrid\n[2026/06/23 17:50:26.802 GMT+08:00] + git fetch origin\n[2026/06/23 17:50:27.320 GMT+08:00] + git fetch origin refs/merge-requests/875/head\n[2026/06/23 17:50:28.407 GMT+08:00] From https://gitcode.com/Ascend/memfabric_hybrid\n[2026/06/23 17:50:28.407 GMT+08:00]  * branch              refs/merge-requests/875/head -> FETCH_HEAD\n[2026/06/23 17:50:28.407 GMT+08:00] + git merge --no-edit FETCH_HEAD\n[2026/06/23 17:50:28.407 GMT+08:00] Updating 6e26bb1e..6748808d\n[2026/06/23 17:50:28.407 GMT+08:00] Fast-forward\n[2026/06/23 17:50:28.407 GMT+08:00]  src/hybm/csrc/mm/hybm_dev_user_legacy_segment.cpp | 2 +-\n[2026/06/23 17:50:28.407 GMT+08:00]  src/hybm/csrc/mm/hybm_mem_segment.cpp             | 4 ++--\n[2026/06/23 17:50:28.407 GMT+08:00]  2 files changed, 3 insertions(+), 3 deletions(-)\n[2026/06/23 17:50:28.407 GMT+08:00] + git submodule init\n[2026/06/23 17:50:28.407 GMT+08:00] Submodule 'test/3rdparty/googletest' (https://github.com/google/googletest.git) registered for path 'test/3rdparty/googletest'\n[2026/06/23 17:50:28.407 GMT+08:00] Submodule 'test/3rdparty/mockcpp' (https://github.com/sinojelly/mockcpp.git) registered for path 'test/3rdparty/mockcpp'\n[2026/06/23 17:50:28.407 GMT+08:00] + git submodule update --init\n[2026/06/23 17:50:28.407 GMT+08:00] Cloning into '***//memfabric_hybrid/test/3rdparty/googletest'...\n[2026/06/23 17:50:31.610 GMT+08:00] Cloning into '***//memfabric_hybrid/test/3rdparty/mockcpp'...\n[2026/06/23 17:50:32.697 GMT+08:00] Submodule path 'test/3rdparty/googletest': checked out '15460959cbbfa20e66ef0b5ab497367e47fc0a04'\n[2026/06/23 17:50:32.697 GMT+08:00] Submodule path 'test/3rdparty/mockcpp': checked out 'e8d8b8fa25830b7f6b94281c5c5aee67ee87836f'\n[2026/06/23 17:50:32.697 GMT+08:00] + ls -la ./\n[2026/06/23 17:50:32.697 GMT+08:00] total 124\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x 15 root root  4096 Jun 23 17:50 .\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:50 ..\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:50 app\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  2 root root  4096 Jun 23 17:50 bazel\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root   792 Jun 23 17:50 .bazelrc\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:50 benchmark\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root   798 Jun 23 17:50 BUILD.bazel\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root  3095 Jun 23 17:50 .clang-format\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  3 root root  4096 Jun 23 17:50 cmake\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root  7336 Jun 23 17:50 CMakeLists.txt\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:50 doc\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  5 root root  4096 Jun 23 17:50 examples\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  9 root root  4096 Jun 23 17:50 .git\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  2 root root  4096 Jun 23 17:50 .gitcode\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root   212 Jun 23 17:50 .gitignore\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root   277 Jun 23 17:50 .gitmodules\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root  9490 Jun 23 17:50 LICENSE\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  3 root root  4096 Jun 23 17:50 patches\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  2 root root  4096 Jun 23 17:50 pre-commit\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root  2940 Jun 23 17:50 .pre-commit-config.yaml\n[2026/06/23 17:50:32.697 GMT+08:00] -rw-r--r--  1 root root 11765 Jun 23 17:50 README.md\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  4 root root  4096 Jun 23 17:50 script\n[2026/06/23 17:50:32.697 GMT+08:00] drwxr-xr-x  6 root root  4096 Jun 23 17:50 src\n[2026/06/23 17:50:32.698 GMT+08:00] drwxr-xr-x  7 root root  4096 Jun 23 17:50 test\n[2026/06/23 17:50:32.698 GMT+08:00] -rw-r--r--  1 root root     5 Jun 23 17:50 VERSION\n[2026/06/23 17:50:32.698 GMT+08:00] -rw-r--r--  1 root root  1575 Jun 23 17:50 WORKSPACE\n[2026/06/23 17:50:35.667 GMT+08:00] starting check in ***/@tmp/durable-788b0013\n[2026/06/23 17:50:36.052 GMT+08:00] v30: Pulling from memfabric-hybrid/memfabric-hybrid_arm\n[2026/06/23 17:50:36.052 GMT+08:00] Digest: sha256:070a5d4080b4e8c0767847dcfdb1c50331e744a597226430c1ec4ff60da720cc\n[2026/06/23 17:50:36.052 GMT+08:00] Status: Image is up to date for swr.cn-north-4.myhuaweicloud.com/memfabric-hybrid/memfabric-hybrid_arm:v30\n[2026/06/23 17:50:36.052 GMT+08:00] swr.cn-north-4.myhuaweicloud.com/memfabric-hybrid/memfabric-hybrid_arm:v30\n[2026/06/23 17:50:39.608 GMT+08:00] + echo hello\n[2026/06/23 17:50:39.609 GMT+08:00] hello\n[2026/06/23 17:50:39.609 GMT+08:00] + set -eux\n[2026/06/23 17:50:39.609 GMT+08:00] +++ dirname ***/@tmp/durable-831d8b82/script.sh\n[2026/06/23 17:50:39.609 GMT+08:00] ++ cd ***/@tmp/durable-831d8b82\n[2026/06/23 17:50:39.609 GMT+08:00] ++ pwd\n[2026/06/23 17:50:39.609 GMT+08:00] + readonly CURRENT_PATH=***/@tmp/durable-831d8b82\n[2026/06/23 17:50:39.609 GMT+08:00] + CURRENT_PATH=***/@tmp/durable-831d8b82\n[2026/06/23 17:50:39.609 GMT+08:00] + mkdir -p ***//BeiMing_output/develop\n[2026/06/23 17:50:39.609 GMT+08:00] + cd ***/\n[2026/06/23 17:50:39.609 GMT+08:00] + yum install -y rdma-core-devel\n[2026/06/23 17:50:39.743 GMT+08:00] starting check in ***/@tmp/durable-831d8b82\n[2026/06/23 17:50:41.325 GMT+08:00] AlmaLinux 8 - BaseOS                            3.9 kB/s | 3.8 kB     00:00    \n[2026/06/23 17:50:43.739 GMT+08:00] AlmaLinux 8 - BaseOS                             28 MB/s |  59 MB     00:02    \n[2026/06/23 17:50:56.831 GMT+08:00] AlmaLinux 8 - AppStream                         6.2 kB/s | 4.3 kB     00:00    \n[2026/06/23 17:50:57.349 GMT+08:00] AlmaLinux 8 - AppStream                          25 MB/s |  26 MB     00:01    \n[2026/06/23 17:51:05.838 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    \n[2026/06/23 17:51:05.838 GMT+08:00] AlmaLinux 8 - Extras                             17 kB/s |  12 kB     00:00    \n[2026/06/23 17:51:06.790 GMT+08:00] AlmaLinux 8 - PowerTools                        6.2 kB/s | 4.2 kB     00:00    \n[2026/06/23 17:51:07.513 GMT+08:00] AlmaLinux 8 - PowerTools                        4.8 MB/s | 3.8 MB     00:00    \n[2026/06/23 17:51:10.713 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64 4.5 kB/s | 7.7 kB     00:01    \n[2026/06/23 17:51:13.130 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64 4.9 MB/s |  14 MB     00:02    \n[2026/06/23 17:51:24.101 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed.\n[2026/06/23 17:51:24.101 GMT+08:00] Dependencies resolved.\n[2026/06/23 17:51:24.101 GMT+08:00] Nothing to do.\n[2026/06/23 17:51:24.101 GMT+08:00] Complete!\n[2026/06/23 17:51:24.101 GMT+08:00] + cd memfabric_hybrid\n[2026/06/23 17:51:24.101 GMT+08:00] + mv /usr/bin/patchelf /usr/bin/patchelf.bak\n[2026/06/23 17:51:24.101 GMT+08:00] + export PYTHON_HOME=/opt/python/cp311-cp311\n[2026/06/23 17:51:24.101 GMT+08:00] + PYTHON_HOME=/opt/python/cp311-cp311\n[2026/06/23 17:51:24.101 GMT+08:00] + export PATH=/opt/python/cp311-cp311/bin:/usr/bin:/opt/rh/gcc-toolset-14/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\n[2026/06/23 17:51:24.101 GMT+08:00] + PATH=/opt/python/cp311-cp311/bin:/usr/bin:/opt/rh/gcc-toolset-14/root/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\n[2026/06/23 17:51:24.101 GMT+08:00] + gcc --version\n[2026/06/23 17:51:24.101 GMT+08:00] gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28)\n[2026/06/23 17:51:24.101 GMT+08:00] Copyright (C) 2018 Free Software Foundation, Inc.\n[2026/06/23 17:51:24.101 GMT+08:00] This is free software; see the source for copying conditions.  There is NO\n[2026/06/23 17:51:24.101 GMT+08:00] warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n[2026/06/23 17:51:24.101 GMT+08:00] \n[2026/06/23 17:51:24.101 GMT+08:00] + g++ --version\n[2026/06/23 17:51:24.101 GMT+08:00] g++ (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28)\n[2026/06/23 17:51:24.101 GMT+08:00] Copyright (C) 2018 Free Software Foundation, Inc.\n[2026/06/23 17:51:24.101 GMT+08:00] This is free software; see the source for copying conditions.  There is NO\n... [skipped 8 lines] ...\n[2026/06/23 17:51:24.101 GMT+08:00] + cmake --version\n[2026/06/23 17:51:24.101 GMT+08:00] cmake version 3.26.5\n[2026/06/23 17:51:24.101 GMT+08:00] CMake suite maintained and supported by Kitware (kitware.com/cmake).\n[2026/06/23 17:51:24.101 GMT+08:00] + pip3 install --upgrade pip\n... [skipped 10 lines] ...\n[2026/06/23 17:51:28.638 GMT+08:00] Successfully installed pip-26.1.2\n[2026/06/23 17:51:28.638 GMT+08:00] + pip3 install --upgrade setuptools wheel\n... [skipped 10 lines] ...\n[2026/06/23 17:51:31.330 GMT+08:00] Successfully installed setuptools-82.0.1 wheel-0.47.0\n[2026/06/23 17:51:31.330 GMT+08:00] + pip3 install pybind11==3.0.1\n[2026/06/23 17:51:32.366 GMT+08:00] Downloading pybind11-3.0.1-py3-none-any.whl (293 kB)\n[2026/06/23 17:51:32.366 GMT+08:00] Installing collected packages: pybind11\n[2026/06/23 17:51:32.366 GMT+08:00] Successfully installed pybind11-3.0.1\n[2026/06/23 17:51:32.366 GMT+08:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n[2026/06/23 17:51:32.366 GMT+08:00] + export CMAKE_PREFIX_PATH=/root/.local/lib/python3.11/site-packages/pybind11/share/camke/pybind11\n[2026/06/23 17:51:32.366 GMT+08:00] + CMAKE_PREFIX_PATH=/root/.local/lib/python3.11/site-packages/pybind11/share/camke/pybind11\n[2026/06/23 17:51:32.366 GMT+08:00] + '[' develop '!=' v1.0.0 ']'\n[2026/06/23 17:51:32.366 GMT+08:00] + bash script/build_and_pack_run.sh --build_mode RELEASE --build_python ON --xpu_type NPU --build_test OFF --build_hcom ON --build_tool bazel\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_MODE: RELEASE\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_PYTHON: ON\n[2026/06/23 17:51:32.366 GMT+08:00] XPU_TYPE: NPU\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_TEST: OFF\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_HCOM: ON\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_HCOM_RDMA: ON\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_HCOM_WITH_UB: OFF\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_ETCD_BACKEND: OFF\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_TOOL: bazel\n[2026/06/23 17:51:32.366 GMT+08:00] BUILD_AICPU_KERNEL_RUN: OFF\n[2026/06/23 17:51:32.366 GMT+08:00] bazel clean --async\n[2026/06/23 17:51:32.366 GMT+08:00] Extracting Bazel installation...\n[2026/06/23 17:51:36.458 GMT+08:00] Starting local Bazel server and connecting to it...\n[2026/06/23 17:51:38.175 GMT+08:00] INFO: Starting clean.\n[2026/06/23 17:51:38.175 GMT+08:00] INFO: Output tree moved to /root/.cache/bazel/_bazel_root/9997bb988706fc8fd37d5e13363459f6/execroot_tmp_131_2f7dd13a-4abb-4c17-935a-97078e4a3edc for deletion\n[2026/06/23 17:51:38.175 GMT+08:00] bazel build arguments: --compilation_mode=opt --copt=-D_GLIBCXX_USE_CXX11_ABI=0 --copt=-DENABLE_PTRACER --copt=-DASCEND_NPU --define=build_with_hcom=1 --build_tag_filters=-enable_etcd_client --explain=explain.log --verbose_explanations\n[2026/06/23 17:51:38.693 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:38.694 GMT+08:00] WARNING: --enable_bzlmod is set, but no MODULE.bazel file was found at the workspace root. Bazel will create an empty MODULE.bazel file. Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel. For more details, please refer to https://github.com/bazelbuild/bazel/issues/18958.\n[2026/06/23 17:51:39.212 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:40.928 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:41.446 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:43.166 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:44.253 GMT+08:00] DEBUG: Rule 'pybind11_bazel' indicated that a canonical reproducible form can be obtained by modifying arguments integrity = \"sha256-6DVe5Wwv93IzS0v6Ir4XxwnlVz9tHVYccXYxIVbCe9Q=\"\n[2026/06/23 17:51:44.253 GMT+08:00] DEBUG: Repository pybind11_bazel instantiated at:\n[2026/06/23 17:51:44.253 GMT+08:00]   ***//memfabric_hybrid/WORKSPACE:25:13: in <toplevel>\n[2026/06/23 17:51:44.253 GMT+08:00] Repository rule http_archive defined at:\n[2026/06/23 17:51:44.253 GMT+08:00]   /root/.cache/bazel/_bazel_root/9997bb988706fc8fd37d5e13363459f6/external/bazel_tools/tools/build_defs/repo/http.bzl:369:31: in <toplevel>\n[2026/06/23 17:51:44.253 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:45.339 GMT+08:00] Computing main repo mapping: \n[2026/06/23 17:51:45.857 GMT+08:00] DEBUG: Rule 'hcom' indicated that a canonical reproducible form can be obtained by modifying arguments commit = \"c22937e7aa4522b4586f1d3b590b768bdd821cb9\" and dropping [\"branch\"]\n[2026/06/23 17:51:45.857 GMT+08:00] DEBUG: Repository hcom instantiated at:\n[2026/06/23 17:51:45.857 GMT+08:00]   ***//memfabric_hybrid/WORKSPACE:34:15: in <toplevel>\n... [skipped 56 lines] ...\n[2026/06/23 17:52:20.451 GMT+08:00] [192 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 16s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:21.554 GMT+08:00] [198 / 262] Compiling src/hcom/transport/sock/net_sock_sync_endpoint.cpp; 7s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:22.683 GMT+08:00] [200 / 262] Compiling src/hcom/transport/sock/net_sock_sync_endpoint.cpp; 8s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:23.775 GMT+08:00] [201 / 262] Compiling src/hcom/transport/sock/net_sock_sync_endpoint.cpp; 9s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:24.869 GMT+08:00] [204 / 262] Compiling src/hcom/transport/sock/net_sock_sync_endpoint.cpp; 10s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:25.963 GMT+08:00] [210 / 262] Compiling src/hcom/hcom.cpp; 8s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:27.701 GMT+08:00] [212 / 262] Compiling src/hcom/hcom.cpp; 9s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:28.793 GMT+08:00] [214 / 262] Compiling src/hcom/hcom.cpp; 10s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:29.315 GMT+08:00] [216 / 262] Compiling src/hcom/hcom.cpp; 11s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:30.410 GMT+08:00] [217 / 262] Compiling src/hcom/hcom.cpp; 12s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:31.504 GMT+08:00] [218 / 262] Compiling src/hcom/hcom.cpp; 13s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:32.596 GMT+08:00] [221 / 262] Compiling src/hcom/service_v2/service_channel_imp.cpp; 12s processwrapper-sandbox ... (17 actions, 15 running)\n[2026/06/23 17:52:34.320 GMT+08:00] [222 / 262] Compiling src/hcom/service_v2/service_channel_imp.cpp; 14s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:36.047 GMT+08:00] [223 / 262] Compiling src/hcom/service_v2/service_channel_imp.cpp; 15s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:37.214 GMT+08:00] [225 / 262] Compiling src/hcom/service_v2/service_channel_imp.cpp; 16s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:38.307 GMT+08:00] [228 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 17s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:39.399 GMT+08:00] [228 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 19s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:40.492 GMT+08:00] [229 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 20s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:41.585 GMT+08:00] [230 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 21s processwrapper-sandbox ... (17 actions, 15 running)\n[2026/06/23 17:52:43.309 GMT+08:00] [232 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 23s processwrapper-sandbox ... (16 actions running)\n[2026/06/23 17:52:46.528 GMT+08:00] [233 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 25s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:47.622 GMT+08:00] [238 / 262] Compiling src/hcom/service_v2/service_imp.cpp; 26s processwrapper-sandbox ... (16 actions, 15 running)\n[2026/06/23 17:52:48.715 GMT+08:00] [240 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 23s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:49.809 GMT+08:00] [241 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 24s processwrapper-sandbox ... (17 actions, 16 running)\n[2026/06/23 17:52:52.235 GMT+08:00] [242 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 27s processwrapper-sandbox ... (17 actions, 15 running)\n[2026/06/23 17:52:53.961 GMT+08:00] [245 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 28s processwrapper-sandbox ... (14 actions running)\n[2026/06/23 17:52:55.686 GMT+08:00] [247 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 30s processwrapper-sandbox ... (12 actions running)\n[2026/06/23 17:52:59.801 GMT+08:00] [249 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 34s processwrapper-sandbox ... (10 actions running)\n[2026/06/23 17:53:00.895 GMT+08:00] [250 / 262] Compiling src/smem/csrc/python_wrapper/mk_transfer_adapter/csrc/pytransfer.cpp; 35s processwrapper-sandbox ... (9 actions running)\n[2026/06/23 17:53:01.416 GMT+08:00] [254 / 262] Compiling src/smem/csrc/python_wrapper/memfabric_hybrid/pymf_hybrid.cpp; 30s processwrapper-sandbox ... (6 actions running)\n[2026/06/23 17:53:02.509 GMT+08:00] [256 / 262] Compiling src/smem/csrc/python_wrapper/memfabric_hybrid/pymf_hybrid.cpp; 31s processwrapper-sandbox ... (4 actions running)\n[2026/06/23 17:53:03.602 GMT+08:00] [257 / 262] Compiling src/smem/csrc/python_wrapper/memfabric_hybrid/pymf_hybrid.cpp; 32s processwrapper-sandbox ... (3 actions running)\n[2026/06/23 17:53:04.695 GMT+08:00] [258 / 262] Compiling src/smem/csrc/python_wrapper/memfabric_hybrid/pymf_hybrid.cpp; 33s processwrapper-sandbox ... (2 actions running)\n[2026/06/23 17:53:05.786 GMT+08:00] [259 / 262] Compiling src/smem/csrc/python_wrapper/memfabric_hybrid/pymf_hybrid.cpp; 35s processwrapper-sandbox ... (2 actions, 1 running)\n[2026/06/23 17:53:07.509 GMT+08:00] [260 / 262] Compiling src/smem/csrc/python_wrapper/memfabric_hybrid/pymf_hybrid.cpp; 36s processwrapper-sandbox\n[2026/06/23 17:53:08.601 GMT+08:00] [261 / 262] Linking src/smem/csrc/python_wrapper/memfabric_hybrid/_pymf_hybrid.so; 0s processwrapper-sandbox\n[2026/06/23 17:53:09.122 GMT+08:00] INFO: Elapsed time: 90.557s, Critical Path: 39.06s\n[2026/06/23 17:53:09.122 GMT+08:00] INFO: 262 processes: 33 internal, 1 local, 228 processwrapper-sandbox.\n[2026/06/23 17:53:09.122 GMT+08:00] INFO: Build completed successfully, 262 total actions\n[2026/06/23 17:53:09.645 GMT+08:00] ========= copy bazel artifacts to dist directory=========\n[2026/06/23 17:53:09.645 GMT+08:00] '***//memfabric_hybrid/bazel-bin/src/smem/csrc/libmf_smem.so' -> '***//memfabric_hybrid/output/smem/lib64/libmf_smem.so'\n[2026/06/23 17:53:09.646 GMT+08:00] '***//memfabric_hybrid/bazel-bin/src/hybm/csrc/libmf_hybm_core.so' -> '***//memfabric_hybrid/output/hybm/lib64/libmf_hybm_core.so'\n[2026/06/23 17:53:09.646 GMT+08:00] '***//memfabric_hybrid/src/smem/include/host/smem_bm_def.h' -> '***//memfabric_hybrid/output/smem/include/host/smem_bm_def.h'\n[2026/06/23 17:53:09.646 GMT+08:00] '***//memfabric_hybrid/src/smem/include/host/smem_bm.h' -> '***//memfabric_hybrid/output/smem/include/host/smem_bm.h'\n[2026/06/23 17:53:09.646 GMT+08:00] '***//memfabric_hybrid/src/smem/include/host/smem_def.h' -> '***//memfabric_hybrid/output/smem/include/host/smem_def.h'\n[2026/06/23 17:53:09.646 GMT+08:00] '***//memfabric_hybrid/src/smem/include/host/smem.h' -> '***//memfabric_hybrid/output/smem/include/host/smem.h'\n[2026/06/23 17:53:09.646 GMT+08:00] '***//memfabric_hybrid/src/smem/include/host/smem_shm_def.h' -> '***//memfabric_hybrid/output/smem/include/host/smem_shm_def.h'\n... [skipped 47 lines] ...\n[2026/06/23 17:53:10.210 GMT+08:00] running bdist_wheel\n[2026/06/23 17:53:10.210 GMT+08:00] running build_py\n... [skipped 101 lines] ...\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/_pymf_transfer.so'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/launch_ascend_mf_store.py'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/hybm/hybm.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/hybm/hybm_big_mem.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/hybm/hybm_data_op.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/hybm/hybm_def.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/device/smem_shm_aicore_base_api.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/device/smem_shm_aicore_base_copy.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/device/smem_shm_aicore_base_define.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/device/smem_shm_aicore_base_meta.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/device/smem_shm_aicore_base_rdma.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem.h'\n[2026/06/23 17:53:11.254 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_bm.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_bm_def.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_def.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_shm.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_shm_def.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_trans.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/include/smem/host/smem_trans_def.h'\n[2026/06/23 17:53:11.255 GMT+08:00] adding 'memfabric_hybrid/lib/libboundscheck.so'\n[2026/06/23 17:53:14.471 GMT+08:00] adding 'memfabric_hybrid/lib/libhcom.so'\n[2026/06/23 17:53:14.471 GMT+08:00] adding 'memfabric_hybrid/lib/libmf_hybm_core.so'\n[2026/06/23 17:53:14.992 GMT+08:00] adding 'memfabric_hybrid/lib/libmf_smem.so'\n[2026/06/23 17:53:14.992 GMT+08:00] adding 'memfabric_hybrid-1.2.0.dist-info/METADATA'\n[2026/06/23 17:53:14.992 GMT+08:00] adding 'memfabric_hybrid-1.2.0.dist-info/WHEEL'\n[2026/06/23 17:53:14.992 GMT+08:00] adding 'memfabric_hybrid-1.2.0.dist-info/top_level.txt'\n[2026/06/23 17:53:14.992 GMT+08:00] adding 'memfabric_hybrid-1.2.0.dist-info/RECORD'\n[2026/06/23 17:53:14.992 GMT+08:00] removing build/bdist.linux-aarch64/wheel\n[2026/06/23 17:53:16.718 GMT+08:00] DEBUG:auditwheel.main_repair:The libc could not be deduced from the wheel filename\n[2026/06/23 17:53:16.718 GMT+08:00] INFO:auditwheel.main_repair:Repairing memfabric_hybrid-1.2.0-cp311-cp311-linux_aarch64.whl\n[2026/06/23 17:53:16.718 GMT+08:00] DEBUG:auditwheel.tools:zip2dir from ***//memfabric_hybrid/src/smem/python/memfabric_hybrid/dist/memfabric_hybrid-1.2.0-cp311-cp311-linux_aarch64.whl to /tmp/tmpy2psdgtc takes 0.5806187018752098\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.wheel_abi:processing: memfabric_hybrid/_pymf_hybrid.so\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:ldd(memfabric_hybrid/_pymf_hybrid.so)\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:parse_ld_so_conf(//etc/ld.so.conf)\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:  glob: //etc/ld.so.conf.d/*.conf\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:  parse_ld_so_conf(//etc/ld.so.conf.d/00-manylinux.conf)\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:linker ldpaths: {'conf': ['/usr/local/lib', '/usr/local/lib64', '/lib', '/lib64/', '/usr/lib', '/usr/lib64'], 'env': ['***//memfabric_hybrid/src/smem/python/memfabric_hybrid/memfabric_hybrid/lib', '/opt/python/cp311-cp311/lib', '/opt/rh/gcc-toolset-14/root/usr/lib64', '/opt/rh/gcc-toolset-14/root/usr/lib'], 'interp': []}\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:  ldpaths[rpath]   = []\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:  ldpaths[runpath] = []\n[2026/06/23 17:53:17.239 GMT+08:00] DEBUG:auditwheel.lddtree:ldd(/lib64/librt-2.28.so)\n... [skipped 1650 lines] ...\n[2026/06/23 17:53:20.014 GMT+08:00] DEBUG:auditwheel.policy:Package requires GLIBC_2.25, incompatible with policy manylinux_2_17_aarch64 which requires {'GLIBC_2.17', 'GLIBC_2.18', 'GLIBC_2.0'}\n[2026/06/23 17:53:20.014 GMT+08:00] DEBUG:auditwheel.policy:Package requires CXXABI_1.3.9, incompatible with policy manylinux_2_17_aarch64 which requires {'CXXABI_1.3.4', 'CXXABI_1.3.1', 'CXXABI_1.3.5', 'CXXABI_TM_1', 'CXXABI_1.3.3', 'CXXABI_1.3.7', 'CXXABI_1.3.2', 'CXXABI_1.3.6', 'CXXABI_1.3'}\n[2026/06/23 17:53:20.014 GMT+08:00] DEBUG:auditwheel.policy:Package requires CXXABI_1.3.8, incompatible with policy manylinux_2_17_aarch64 which requires {'CXXABI_1.3.4', 'CXXABI_1.3.1', 'CXXABI_1.3.5', 'CXXABI_TM_1', 'CXXABI_1.3.3', 'CXXABI_1.3.7', 'CXXABI_1.3.2', 'CXXABI_1.3.6', 'CXXABI_1.3'}\n[2026/06/23 17:53:20.014 GMT+08:00] DEBUG:auditwheel.policy:Package requires CXXABI_1.3.11, incompatible with policy manylinux_2_17_aarch64 which requires {'CXXABI_1.3.4', 'CXXABI_1.3.1', 'CXXABI_1.3.5', 'CXXABI_TM_1', 'CXXABI_1.3.3', 'CXXABI_1.3.7', 'CXXABI_1.3.2', 'CXXABI_1.3.6', 'CXXABI_1.3'}\n[2026/06/23 17:53:20.015 GMT+08:00] DEBUG:auditwheel.policy:Package requires GLIBCXX_3.4.20, incompatible with policy manylinux_2_17_aarch64 which requires {'GLIBCXX_3.4.10', 'GLIBCXX_3.4.15', 'GLIBCXX_3.4.18', 'GLIBCXX_3.4.17', 'GLIBCXX_3.4.3', 'GLIBCXX_3.4.14', 'GLIBCXX_3.4', 'GLIBCXX_3.4.13', 'GLIBCXX_3.4.7', 'GLIBCXX_3.4.4', 'GLIBCXX_3.4.9', 'GLIBCXX_3.4.12', 'GLIBCXX_3.4.1', 'GLIBCXX_3.4.19', 'GLIBCXX_3.4.2', 'GLIBCXX_3.4.8', 'GLIBCXX_3.4.6', 'GLIBCXX_3.4.16', 'GLIBCXX_3.4.5', 'GLIBCXX_3.4.11'}\n[2026/06/23 17:53:20.015 GMT+08:00] DEBUG:auditwheel.policy:Package requires GLIBCXX_3.4.21, incompatible with policy manylinux_2_17_aarch64 which requires {'GLIBCXX_3.4.10', 'GLIBCXX_3.4.15', 'GLIBCXX_3.4.18', 'GLIBCXX_3.4.17', 'GLIBCXX_3.4.3', 'GLIBCXX_3.4.14', 'GLIBCXX_3.4', 'GLIBCXX_3.4.13', 'GLIBCXX_3.4.7', 'GLIBCXX_3.4.4', 'GLIBCXX_3.4.9', 'GLIBCXX_3.4.12', 'GLIBCXX_3.4.1', 'GLIBCXX_3.4.19', 'GLIBCXX_3.4.2', 'GLIBCXX_3.4.8', 'GLIBCXX_3.4.6', 'GLIBCXX_3.4.16', 'GLIBCXX_3.4.5', 'GLIBCXX_3.4.11'}\n[2026/06/23 17:53:20.015 GMT+08:00] DEBUG:auditwheel.policy:Package requires GLIBCXX_3.4.22, incompatible with policy manylinux_2_17_aarch64 which requires {'GLIBCXX_3.4.10', 'GLIBCXX_3.4.15', 'GLIBCXX_3.4.18', 'GLIBCXX_3.4.17', 'GLIBCXX_3.4.3', 'GLIBCXX_3.4.14', 'GLIBCXX_3.4', 'GLIBCXX_3.4.13', 'GLIBCXX_3.4.7', 'GLIBCXX_3.4.4', 'GLIBCXX_3.4.9', 'GLIBCXX_3.4.12', 'GLIBCXX_3.4.1', 'GLIBCXX_3.4.19', 'GLIBCXX_3.4.2', 'GLIBCXX_3.4.8', 'GLIBCXX_3.4.6', 'GLIBCXX_3.4.16', 'GLIBCXX_3.4.5', 'GLIBCXX_3.4.11'}\n[2026/06/23 17:53:20.015 GMT+08:00] DEBUG:auditwheel.policy:Package requires GLIBC_2.25, incompatible with policy manylinux_2_24_aarch64 which requires {'GLIBC_2.18', 'GLIBC_2.23', 'GLIBC_2.22', 'GLIBC_2.17', 'GLIBC_2.24', 'GLIBC_2.0'}\n[2026/06/23 17:53:20.015 GMT+08:00] DEBUG:auditwheel.policy:Package requires CXXABI_1.3.11, incompatible with policy manylinux_2_24_aarch64 which requires {'CXXABI_1.3.4', 'CXXABI_1.3.1', 'CXXABI_1.3.5', 'CXXABI_1.3.3', 'CXXABI_TM_1', 'CXXABI_1.3.7', 'CXXABI_1.3.2', 'CXXABI_1.3.6', 'CXXABI_1.3.8', 'CXXABI_1.3', 'CXXABI_1.3.9', 'CXXABI_1.3.10'}\n[2026/06/23 17:53:20.015 GMT+08:00] INFO:auditwheel.main_repair:Wheel is eligible for a higher priority tag. You requested manylinux_2_28_aarch64 but I have found this wheel is eligible for manylinux_2_26_aarch64.\n[2026/06/23 17:53:20.536 GMT+08:00] DEBUG:auditwheel.tools:zip2dir from ***//memfabric_hybrid/src/smem/python/memfabric_hybrid/dist/memfabric_hybrid-1.2.0-cp311-cp311-linux_aarch64.whl to /tmp/tmpv580xtsf takes 0.5807293839752674\n[2026/06/23 17:53:20.536 GMT+08:00] DEBUG:auditwheel.repair:Grafting: ***//memfabric_hybrid/src/smem/python/memfabric_hybrid/memfabric_hybrid/lib/libboundscheck.so -> memfabric_hybrid.libs/libboundscheck-90979fa9.so\n[2026/06/23 17:53:20.536 GMT+08:00] DEBUG:auditwheel.repair:rpath entry $ORIGIN/../../../../_solib_aarch64/_U@@hcom_S_Ssrc_Clibboundscheck___Uexternal_Shcom_Ssrc points outside the wheel -- discarding it.\n[2026/06/23 17:53:20.536 GMT+08:00] DEBUG:auditwheel.repair:Preserved rpath entry $ORIGIN/libhcom.so.runfiles/_main/_solib_aarch64/_U@@hcom_S_Ssrc_Clibboundscheck___Uexternal_Shcom_Ssrc\n[2026/06/23 17:53:21.057 GMT+08:00] DEBUG:auditwheel.repair:rpath entry $ORIGIN/../../../_main/_solib_aarch64/_U@@hcom_S_Ssrc_Clibboundscheck___Uexternal_Shcom_Ssrc points outside the wheel -- discarding it.\n[2026/06/23 17:53:21.057 GMT+08:00] INFO:auditwheel.wheeltools:Previous filename tags: linux_aarch64\n[2026/06/23 17:53:21.057 GMT+08:00] INFO:auditwheel.wheeltools:New filename tags: manylinux_2_26_aarch64, manylinux_2_28_aarch64\n[2026/06/23 17:53:21.057 GMT+08:00] INFO:auditwheel.wheeltools:Previous WHEEL info tags: cp311-cp311-linux_aarch64\n[2026/06/23 17:53:21.057 GMT+08:00] INFO:auditwheel.wheeltools:New WHEEL info tags: cp311-cp311-manylinux_2_26_aarch64, cp311-cp311-manylinux_2_28_aarch64\n[2026/06/23 17:53:21.578 GMT+08:00] WARNING:auditwheel.tools:dir2zip, clipping timestamp to 1980-01-01\n[2026/06/23 17:53:25.687 GMT+08:00] DEBUG:auditwheel.tools:dir2zip from /tmp/tmpv580xtsf to ***//memfabric_hybrid/src/smem/python/memfabric_hybrid/dist/memfabric_hybrid-1.2.0-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl takes 4.447904855012894\n[2026/06/23 17:53:25.687 GMT+08:00] INFO:auditwheel.main_repair:\n[2026/06/23 17:53:25.687 GMT+08:00] Fixed-up wheel written to ***//memfabric_hybrid/src/smem/python/memfabric_hybrid/dist/memfabric_hybrid-1.2.0-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl\n[2026/06/23 17:53:26.207 GMT+08:00] BUILD_TEST is OFF\n[2026/06/23 17:53:26.207 GMT+08:00] XPU_TYPE is NPU\n[2026/06/23 17:53:26.207 GMT+08:00] BUILD_PYTHON is ON\n[2026/06/23 17:53:26.207 GMT+08:00] BUILD_HCOM is ON\n[2026/06/23 17:53:26.207 GMT+08:00] BUILD_ETCD_BACKEND is OFF\n[2026/06/23 17:53:26.207 GMT+08:00] it is system of aarch64\n[2026/06/23 17:53:26.207 GMT+08:00] '***//memfabric_hybrid/script/run_pkg_maker/../../build/_deps/hcom-src/dist/hcom_3rdparty/libboundscheck/lib/libboundscheck.so' -> 'memfabric_hybrid/aarch64-linux/lib64/libboundscheck.so'\n[2026/06/23 17:53:26.207 GMT+08:00] in make_run.sh, XPU_TYPE is NPU\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/hcom/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/hybm/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/hybm/hybm_def.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/hybm/hybm_big_mem.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/hybm/hybm_data_op.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/hybm/hybm.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/device/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_api.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_copy.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_rdma.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_define.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/device/smem_shm_aicore_base_meta.h\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/host/\n[2026/06/23 17:53:26.207 GMT+08:00] memfabric_hybrid/include/smem/host/smem_bm.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem_bm_def.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem_trans.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem_def.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem_shm.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem_shm_def.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/include/smem/host/smem_trans_def.h\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/aarch64-linux/\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/aarch64-linux/wheel/\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/aarch64-linux/wheel/memfabric_hybrid-1.2.0-cp311-cp311-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/\n[2026/06/23 17:53:26.208 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libhcom.so\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libmf_hybm_core.so\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libmf_smem.so\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/aarch64-linux/lib64/libboundscheck.so\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/script/\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/script/uninstall.sh\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/script/install.sh\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/copy_extend/\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/copy_extend/hybm_copy_kernel.cpp\n[2026/06/23 17:53:26.731 GMT+08:00] memfabric_hybrid/version.info\n[2026/06/23 17:53:26.732 GMT+08:00] + cp -rf output/memfabric_hybrid-1.2.0_linux_aarch64.run ***//BeiMing_output/develop/\n[2026/06/23 17:53:26.732 GMT+08:00] + find output/ -name '*.whl'\n[2026/06/23 17:53:26.732 GMT+08:00] + xargs -i cp -rf '{}' ***//BeiMing_output/develop/\n[2026/06/23 17:53:26.977 GMT+08:00] [INFO] [使用SWR公共镜像:user_properties] : 该步骤开始执行\n[2026/06/23 17:53:27.053 GMT+08:00] [INFO] [使用SWR公共镜像:user_properties] : 该步骤执行完成\n[2026/06/23 17:53:30.604 GMT+08:00] [INFO]  : find empty location by state: sBV9sngn\n[2026/06/23 17:53:30.644 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_QF3F3DED #1\n[2026/06/23 17:53:31.717 GMT+08:00] Flag --time has been deprecated, use --timeout instead\n[2026/06/23 17:53:33.138 GMT+08:00] Flag --time has been deprecated, use --timeout instead\n[2026/06/23 17:53:34.552 GMT+08:00] Flag --time has been deprecated, use --timeout instead\n[2026/06/23 17:53:40.292 GMT+08:00] Finished: SUCCESS",
+      "log_stats": {
+        "total_timestamped_lines": 2290,
+        "sample_lines": 400,
+        "raw_chars": 234953
+      },
+      "timestamp_summary": {
+        "first": "2026-06-23T17:49:39.337000+08:00",
+        "last": "2026-06-23T17:53:40.292000+08:00",
+        "duration_seconds": 240.955,
+        "total_timestamped_lines": 2290,
+        "sample_lines_included": 400
+      },
+      "significant_gaps": [
+        {
+          "after_line": 9,
+          "gap_seconds": 29.083,
+          "before_ts": "2026-06-23T17:49:40.508000+08:00",
+          "after_ts": "2026-06-23T17:50:09.591000+08:00",
+          "sample_before": "[2026/06/23 17:49:40.508 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] jobName: j_di53PvUX, status: running, userId: 5bcc935f2d9248388c6a5e1bcf9e0222, slaveName: agent_1762306282218-QRmJthyvHT",
+          "sample_after": "[2026/06/23 17:50:09.591 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_mf004-ggRVyhoiKa"
+        },
+        {
+          "after_line": 155,
+          "gap_seconds": 13.092,
+          "before_ts": "2026-06-23T17:50:43.739000+08:00",
+          "after_ts": "2026-06-23T17:50:56.831000+08:00",
+          "sample_before": "[2026/06/23 17:50:43.739 GMT+08:00] AlmaLinux 8 - BaseOS                             28 MB/s |  59 MB     00:02    ",
+          "sample_after": "[2026/06/23 17:50:56.831 GMT+08:00] AlmaLinux 8 - AppStream                         6.2 kB/s | 4.3 kB     00:00    "
+        },
+        {
+          "after_line": 157,
+          "gap_seconds": 8.489,
+          "before_ts": "2026-06-23T17:50:57.349000+08:00",
+          "after_ts": "2026-06-23T17:51:05.838000+08:00",
+          "sample_before": "[2026/06/23 17:50:57.349 GMT+08:00] AlmaLinux 8 - AppStream                          25 MB/s |  26 MB     00:01    ",
+          "sample_after": "[2026/06/23 17:51:05.838 GMT+08:00] AlmaLinux 8 - Extras                            4.8 kB/s | 3.3 kB     00:00    "
+        },
+        {
+          "after_line": 163,
+          "gap_seconds": 10.971,
+          "before_ts": "2026-06-23T17:51:13.130000+08:00",
+          "after_ts": "2026-06-23T17:51:24.101000+08:00",
+          "sample_before": "[2026/06/23 17:51:13.130 GMT+08:00] Extra Packages for Enterprise Linux 8 - aarch64 4.9 MB/s |  14 MB     00:02    ",
+          "sample_after": "[2026/06/23 17:51:24.101 GMT+08:00] Package rdma-core-devel-48.0-1.el8.aarch64 is already installed."
+        },
+        {
+          "after_line": 2289,
+          "gap_seconds": 5.74,
+          "before_ts": "2026-06-23T17:53:34.552000+08:00",
+          "after_ts": "2026-06-23T17:53:40.292000+08:00",
+          "sample_before": "[2026/06/23 17:53:34.552 GMT+08:00] Flag --time has been deprecated, use --timeout instead",
+          "sample_after": "[2026/06/23 17:53:40.292 GMT+08:00] Finished: SUCCESS"
+        }
+      ],
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "执行节点分配",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "docker_pull",
+            "name": "Docker 镜像拉取",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "cache_check",
+            "name": "缓存检查",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "network_retry",
+            "name": "网络重试等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "workspace_prep",
+            "name": "工作目录准备",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pre_submit_validation",
+            "name": "前置校验",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "orchestrator_submit",
+            "name": "编排器任务提交",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pod_scheduling",
+            "name": "Pod 调度等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "pip_install",
+            "name": "Python 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "conda_install",
+            "name": "Conda 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apt_install",
+            "name": "系统包安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": [
+          {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0
+          },
+          {
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 0
+          },
+          {
+            "key": "packaging",
+            "name": "打包与上传",
+            "duration_seconds": 0
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      }
+    }
+  ]
+}

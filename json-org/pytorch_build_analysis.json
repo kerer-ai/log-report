@@ -111,9 +111,17 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆",
             "start": "2026-06-23T09:08:36.113000+08:00",
+            "end": "2026-06-23T09:08:48.972000+08:00",
+            "duration_seconds": 12.859,
+            "evidence": "Pod Running -> kubectl logs connection (09:08:36.113) -> Cloning into '/workspace' (09:08:36.687)... git-cache fetch pr... Merge... Cloning into 'cie'... Cloning into 'CODE'... Command executed... fetch new_38961... Switch branch... Merge"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量初始化",
+            "start": "2026-06-23T09:08:48.972000+08:00",
             "end": "2026-06-23T09:08:50.472000+08:00",
-            "duration_seconds": 14.359,
-            "evidence": "Pod Running -> kubectl logs connection (09:08:36.113) -> Cloning into '/workspace' (09:08:36.687)... git-cache fetch pr... Merge... Cloning into 'cie'... Cloning into 'CODE'... Command executed... fetch new_38961... Switch branch... Merge... ccache setup..."
+            "duration_seconds": 1.5,
+            "evidence": "source env.sh + ccache init (statistics zeroed, cache_dir set, ccache v4.10)"
           },
           {
             "key": "artifact_download",
@@ -199,7 +207,7 @@
       },
       "pre_build": {
         "total_seconds": 189.903,
-        "pct_of_total": 55.64,
+        "pct_of_total": 55.6,
         "orchestrator": "volcano",
         "actions": [
           {
@@ -286,9 +294,17 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆",
             "start": "2026-06-23T09:08:35.202000+08:00",
+            "end": "2026-06-23T09:08:50.816000+08:00",
+            "duration_seconds": 15.614,
+            "evidence": "Pod Running -> kubectl logs connection (09:08:35.202) -> Cloning into '/workspace' (09:08:35.467)... git-cache fetch pr... Merge... Cloning into 'cie'... Cloning into 'CODE'... Command executed... fetch new_38961... Switch branch... Merge"
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量初始化",
+            "start": "2026-06-23T09:08:50.816000+08:00",
             "end": "2026-06-23T09:08:52.316000+08:00",
-            "duration_seconds": 17.114,
-            "evidence": "Pod Running -> kubectl logs connection (09:08:35.202) -> Cloning into '/workspace' (09:08:35.467)... git-cache fetch pr... Merge... Cloning into 'cie'... Cloning into 'CODE'... Command executed... fetch new_38961... Switch branch... Merge... ccache setup..."
+            "duration_seconds": 1.5,
+            "evidence": "source env.sh + ccache init (statistics zeroed, cache_dir set, ccache v4.10)"
           },
           {
             "key": "artifact_download",
@@ -326,7 +342,7 @@
       },
       "build_phases": {
         "total_seconds": 151.402,
-        "pct_of_total": 44.36,
+        "pct_of_total": 44.4,
         "actions": [
           {
             "key": "compilation",
@@ -374,7 +390,7 @@
       },
       "pre_build": {
         "total_seconds": 187.311,
-        "pct_of_total": 78.77,
+        "pct_of_total": 78.8,
         "orchestrator": "volcano",
         "actions": [
           {
@@ -461,9 +477,17 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆",
             "start": "2026-06-23T09:08:37.394000+08:00",
+            "end": "2026-06-23T09:09:03.289000+08:00",
+            "duration_seconds": 25.895,
+            "evidence": "Pod Running -> kubectl logs connection (09:08:37.394) -> Cloning into '/workspace' (09:08:37.394)... git-cache fetch... Merge... Cloning into 'cie'... Cloning into 'CODE'... Command executed (09:08:46)... fetch new_38961 (09:09:04)... Switch branch... Merge..."
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量初始化",
+            "start": "2026-06-23T09:09:03.289000+08:00",
             "end": "2026-06-23T09:09:04.789000+08:00",
-            "duration_seconds": 27.395,
-            "evidence": "Pod Running -> kubectl logs connection (09:08:37.394) -> Cloning into '/workspace' (09:08:37.394)... git-cache fetch... Merge... Cloning into 'cie'... Cloning into 'CODE'... Command executed (09:08:46)... fetch new_38961 (09:09:04)... Switch branch... Merge... ccache..."
+            "duration_seconds": 1.5,
+            "evidence": "source env.sh + ccache init (statistics zeroed, cache_dir set, ccache v4.10)"
           },
           {
             "key": "artifact_download",
@@ -501,7 +525,7 @@
       },
       "build_phases": {
         "total_seconds": 50.486,
-        "pct_of_total": 21.23,
+        "pct_of_total": 21.2,
         "actions": [
           {
             "key": "compilation",
@@ -549,7 +573,7 @@
       },
       "pre_build": {
         "total_seconds": 194.307,
-        "pct_of_total": 76.44,
+        "pct_of_total": 76.4,
         "orchestrator": "volcano",
         "actions": [
           {
@@ -636,9 +660,17 @@
             "key": "pod_git_clone",
             "name": "Pod内Git克隆",
             "start": "2026-06-23T09:08:47.418000+08:00",
+            "end": "2026-06-23T09:09:02.481000+08:00",
+            "duration_seconds": 15.063,
+            "evidence": "Pod Running -> kubectl logs connection (09:08:47.418) -> Cloning into '/workspace' (09:08:47.418)... git-cache fetch (09:08:52)... Merge... Cloning into 'cie'... Cloning into 'CODE'... Pod已启动... Command executed (09:09:00)... fetch new_38961... Switch branch... Merge..."
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量初始化",
+            "start": "2026-06-23T09:09:02.481000+08:00",
             "end": "2026-06-23T09:09:03.981000+08:00",
-            "duration_seconds": 16.563,
-            "evidence": "Pod Running -> kubectl logs connection (09:08:47.418) -> Cloning into '/workspace' (09:08:47.418)... git-cache fetch (09:08:52)... Merge... Cloning into 'cie'... Cloning into 'CODE'... Pod已启动... Command executed (09:09:00)... fetch new_38961... Switch branch... Merge... ccache..."
+            "duration_seconds": 1.5,
+            "evidence": "source env.sh + ccache init (statistics zeroed, cache_dir set, ccache v4.10)"
           },
           {
             "key": "artifact_download",
@@ -676,7 +708,7 @@
       },
       "build_phases": {
         "total_seconds": 59.9,
-        "pct_of_total": 23.56,
+        "pct_of_total": 23.6,
         "actions": [
           {
             "key": "compilation",

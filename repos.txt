@@ -20,3 +20,7 @@ https://gitcode.com/kunpengcompute/hucx
 https://gitcode.com/kunpengcompute/xucg
 # CI_BACKEND:jenkins
 https://gitcode.com/openeuler/kernel
+# CI_BACKEND:jenkins
+https://gitcode.com/openeuler/bishengjdk-8
+https://gitcode.com/Ascend/memfabric_hybrid
+https://gitcode.com/Ascend/memcache
