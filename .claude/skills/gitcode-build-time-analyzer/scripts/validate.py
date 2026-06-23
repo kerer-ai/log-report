@@ -45,7 +45,7 @@ def validate_build(b, idx):
         errors.append(f'{name}: SCHEMA FAIL — pre_build uses "seconds"')
     if not pb.get("pct_of_total"):
         errors.append(f"{name}: SCHEMA FAIL — pre_build missing pct_of_total")
-    if pb.get("orchestrator", "") not in ("argo", "volcano", "docker"):
+    if pb.get("orchestrator", "") not in ("argo", "volcano", "docker", "jenkins"):
         errors.append(f"{name}: SCHEMA FAIL — orchestrator={pb.get('orchestrator')}")
 
     # Timestamp check
@@ -97,7 +97,7 @@ def validate_build(b, idx):
         )
 
     # pod_scheduling check (non-Docker)
-    if pb.get("orchestrator", "") != "docker":
+    if pb.get("orchestrator", "") not in ("docker", "jenkins"):
         pod_sched = next((a for a in pb.get("actions", []) if a["key"] == "pod_scheduling"), None)
         if pod_sched and pod_sched.get("duration_seconds", 0) < 1:
             errors.append(

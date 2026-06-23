@@ -18,3 +18,5 @@ https://gitcode.com/kunpengcompute/hmpi
 https://gitcode.com/kunpengcompute/kuqcd
 https://gitcode.com/kunpengcompute/hucx
 https://gitcode.com/kunpengcompute/xucg
+# CI_BACKEND:jenkins
+https://gitcode.com/openeuler/kernel

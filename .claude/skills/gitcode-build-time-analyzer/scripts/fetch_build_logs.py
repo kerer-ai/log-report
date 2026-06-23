@@ -37,6 +37,69 @@ TEXT_STATUS_MAP = {
     "UNSELECTED": "unselected",
 }
 
+# ── Jenkins-specific constants ─────────────────────────────────────────
+
+JENKINS_STATUS_MAP = {
+    "9989": "passed",   # &#9989; = ✅ SUCCESS
+    "10060": "failed",  # &#10060; = ❌ FAILED
+    "9888": "warning",  # &#9888; = ⚠️ WARNING
+}
+
+# Jenkins console log timestamp: [2026-06-22 10:35:24]
+JENKINS_TS_RE = re.compile(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]")
+
+# Jenkins PR identification in log: "PR 24093 [user:branch -> target_branch]"
+JENKINS_PR_RE = re.compile(r"PR (\d+) \[([^:]+):([^\]]+)\s*->\s*([^\]]+)\]")
+
+# openEuler Jenkins URL pattern
+JENKINS_URL_RE = re.compile(
+    r"https://ci\.openeuler\.openatom\.cn/job/multiarch/job/openeuler/job/"
+    r"([a-z_0-9]+)/job/kernel/(\d+)/?console"
+)
+
+# Jenkins build phases to identify in logs (for sampling)
+JENKINS_MARKERS = [
+    r"\*\*\*\*\* clone check scripts \*\*\*\*\*",
+    r"\*\*\*\*\* Start to download kernel of openeuler \*\*\*\*\*",
+    r"\*\*\*\*\* Start to install build tools \*\*\*\*\*",
+    r"\*\*\*\*\* Download and Apply PR \*\*\*\*\*",
+    r"\*\*\*\*\* Build kernel with allmodconfig \*\*\*\*\*",
+    r"\*\*\*\*\* Build kernel with openeuler_defconfig \*\*\*\*\*",
+    r"\*\*\*\*\* Check kabi compatibility \*\*\*\*\*",
+    r"\*\*\*\*\* Check openeuler_defconfig \*\*\*\*\*",
+    r"\[  INFO \] .* pass\b",
+    r"Finished: (?:SUCCESS|FAILURE)",
+    r"PR \d+ ",
+    r"make\[",
+    r"(?:error|Error|ERROR):",
+    r"CC\s+",
+    r"HOSTCC\s+",
+    r"LD\s+",
+]
+
+# Jenkins pre_build action template
+JENKINS_PRE_BUILD_ACTIONS = [
+    {"key": "clone_check_scripts",  "name": "Clone 检查脚本",       "start": None, "end": None, "duration_seconds": 0, "evidence": ""},
+    {"key": "clone_kernel_repo",    "name": "Clone 内核仓库",        "start": None, "end": None, "duration_seconds": 0, "evidence": ""},
+    {"key": "install_build_tools",  "name": "安装构建工具",          "start": None, "end": None, "duration_seconds": 0, "evidence": ""},
+    {"key": "apply_pr_patch",       "name": "应用 PR 补丁",          "start": None, "end": None, "duration_seconds": 0, "evidence": ""},
+]
+
+# Jenkins build_phases action template
+JENKINS_BUILD_PHASES_ACTIONS = [
+    {"key": "allmodconfig_build",  "name": "Allmodconfig 构建",     "duration_seconds": 0},
+    {"key": "defconfig_build",     "name": "Defconfig 构建",         "duration_seconds": 0},
+    {"key": "kabi_check",          "name": "KABI 兼容性检查",         "duration_seconds": 0},
+    {"key": "defconfig_check",     "name": "Defconfig 一致性检查",    "duration_seconds": 0},
+]
+
+# Architecture display names
+JENKINS_ARCH_NAMES = {
+    "aarch64": "ARM64", "x86_64": "x86_64", "ppc": "PPC",
+    "ppc64": "PPC64", "loongarch": "LoongArch", "arm": "ARM",
+    "riscv64": "RISC-V 64",
+}
+
 
 # ── Helpers ───────────────────────────────────────────────────────────
 
@@ -110,7 +173,7 @@ def parse_table_rows(table_html):
     return rows
 
 
-def parse_pipeline_comments(comments_text):
+def parse_openlibing_comments(comments_text):
     blocks = []
     for comment in _split_comments(comments_text):
         if "流水线任务触发成功" in comment:
@@ -160,6 +223,14 @@ def _split_comments(text):
     if current:
         blocks.append("\n".join(current))
     return blocks
+
+
+def parse_pipeline_comments(comments_text, ci_backend="openlibing"):
+    """Dispatch to backend-specific comment parser."""
+    if ci_backend == "jenkins":
+        return parse_jenkins_comments(comments_text)
+    else:
+        return parse_openlibing_comments(comments_text)
 
 
 def choose_latest_block(blocks):
@@ -298,7 +369,9 @@ def sample_log_for_ai(full_log, max_sample_lines=400):
             entries.append((ts, line))
 
     if not entries:
-        return {"sample_log": "", "sample_line_count": 0, "total_lines": len(lines)}
+        return {"sample_log": "", "sample_line_count": 0, "total_lines_in_log": len(lines),
+                "raw_log_total_chars": len(full_log), "timestamp_summary": {},
+                "significant_gaps": []}
 
     total = len(entries)
     first_ts = entries[0][0]
@@ -410,6 +483,286 @@ def sample_log_for_ai(full_log, max_sample_lines=400):
     }
 
 
+# ── Jenkins backend ────────────────────────────────────────────────────
+
+
+def parse_jenkins_timestamp(line):
+    """Parse Jenkins console timestamp: [2026-06-22 10:35:24] → datetime (CST)."""
+    m = JENKINS_TS_RE.search(line)
+    if not m:
+        return None
+    try:
+        dt = datetime.strptime(m.group(1), "%Y-%m-%d %H:%M:%S")
+        return dt.replace(tzinfo=CST)
+    except ValueError:
+        return None
+
+
+def jenkins_sample_log(full_log, max_sample_lines=400):
+    """Extract a representative log sample from Jenkins console text.
+
+    Same strategy as sample_log_for_ai(): head + tail + gap boundaries + markers.
+    """
+    lines = full_log.split("\n")
+    entries = []
+    for line in lines:
+        ts = parse_jenkins_timestamp(line)
+        if ts:
+            entries.append((ts, line))
+
+    if not entries:
+        return {"sample_log": "", "sample_line_count": 0, "total_lines_in_log": len(lines),
+                "raw_log_total_chars": len(full_log), "timestamp_summary": {},
+                "significant_gaps": []}
+
+    total = len(entries)
+    first_ts = entries[0][0]
+    last_ts = entries[-1][0]
+
+    head_count = min(100, total)
+    tail_count = min(50, total - head_count)
+
+    # Detect gaps >3s
+    gap_boundaries = set()
+    for i in range(1, len(entries)):
+        gap_s = (entries[i][0] - entries[i - 1][0]).total_seconds()
+        if gap_s > 3.0:
+            gap_boundaries.update(range(max(0, i - 20), i))
+            gap_boundaries.update(range(i, min(len(entries), i + 20)))
+
+    # Marker lines
+    marker_indices = set()
+    for i, (ts, line) in enumerate(entries):
+        for pat in JENKINS_MARKERS:
+            if re.search(pat, line, re.I):
+                marker_indices.add(i)
+                break
+
+    sample_indices = set(range(head_count))
+    if tail_count > 0:
+        sample_indices.update(range(total - tail_count, total))
+    sample_indices.update(gap_boundaries)
+    sample_indices.update(marker_indices)
+
+    if len(sample_indices) > max_sample_lines:
+        priority = set(range(head_count)) | set(range(total - tail_count, total)) | gap_boundaries
+        remaining = max_sample_lines - len(priority)
+        extra_markers = sorted(marker_indices - priority)[:max(0, remaining)]
+        sample_indices = priority | set(extra_markers)
+
+    sample_indices = sorted(sample_indices)[:max_sample_lines]
+
+    sample_lines = []
+    prev_idx = -2
+    for idx in sample_indices:
+        if idx < len(entries):
+            ts, line = entries[idx]
+            if prev_idx >= 0 and idx - prev_idx > 5:
+                sample_lines.append(f"... [skipped {idx - prev_idx - 1} lines] ...")
+            sample_lines.append(redact(line))
+            prev_idx = idx
+
+    sample = "\n".join(sample_lines)
+
+    ts_summary = {
+        "first": entries[0][0].isoformat(),
+        "last": entries[-1][0].isoformat(),
+        "duration_seconds": round((last_ts - first_ts).total_seconds(), 3),
+        "total_timestamped_lines": total,
+        "sample_lines_included": len(sample_indices),
+    }
+
+    significant_gaps = []
+    for i in range(1, len(entries)):
+        gap_s = (entries[i][0] - entries[i - 1][0]).total_seconds()
+        if gap_s > 5.0:
+            significant_gaps.append({
+                "after_line": i,
+                "gap_seconds": round(gap_s, 3),
+                "before_ts": entries[i - 1][0].isoformat(),
+                "after_ts": entries[i][0].isoformat(),
+                "sample_before": redact(entries[i - 1][1][:200]),
+                "sample_after": redact(entries[i][1][:200]),
+            })
+
+    return {
+        "sample_log": sample,
+        "sample_line_count": len(sample_indices),
+        "total_lines_in_log": total,
+        "raw_log_total_chars": len(full_log),
+        "timestamp_summary": ts_summary,
+        "significant_gaps": significant_gaps[:30],
+    }
+
+
+def parse_jenkins_table_rows(table_html):
+    """Parse openeuler-ci-bot HTML table rows for Jenkins build/check results.
+
+    Handles two table formats:
+    - Static checks: Check Name | Check Result | Check Details (6 checks sharing one link)
+    - Multi-arch builds: Check Name (colspan=2) | Build Result | Build Details
+    """
+    rows = []
+    if not table_html:
+        return rows
+
+    tr_matches = re.findall(r"<tr[^>]*>(.*?)</tr>", table_html, re.S)
+    # Skip header row
+    for tr in tr_matches[1:]:
+        cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)
+        if not cells:
+            continue
+
+        links = re.findall(r'href=["\']?([^"\' >]+)', tr)
+
+        # Check for entity status codes (&#9989; etc.)
+        status_raw = ""
+        has_entity = False
+        for cell in cells:
+            m = re.search(r'&#(\d+);', cell)
+            if m:
+                has_entity = True
+                status_raw = cell
+                break
+
+        if has_entity:
+            status_code = (re.search(r'&#(\d+);', status_raw) or [None, ""])[1]
+            status = JENKINS_STATUS_MAP.get(status_code, "unknown")
+
+            cleaned = [re.sub(r"<.*?>", "", c or "").strip() for c in cells]
+
+            if len(cleaned) == 4:
+                # Format: stage | task | status | detail (4-column table)
+                stage = cleaned[0]
+                task_name = cleaned[1]
+                detail_link = links[0] if links else ""
+            elif len(cleaned) == 3:
+                # Format: task | status | detail (3-column table)
+                stage = ""
+                task_name = cleaned[0]
+                detail_link = links[0] if links else ""
+            elif len(cleaned) == 2:
+                # Format: task | status (no link — static checks share a link via rowspan)
+                stage = ""
+                task_name = cleaned[0]
+                detail_link = links[0] if links else ""
+            else:
+                continue
+
+            # Filter out non-build checks
+            _tl = task_name.lower()
+            if _tl in ("check_package_license", "checkpatch", "checkformat",
+                        "checkdepend", "checkkabi", "checkconflict", "checkbinary",
+                        "antipoison", "codecheck", "sca"):
+                # Skip static analysis / license checks — not build tasks
+                continue
+
+            # Only keep check_build tasks — use arch name as task name
+            if "check_build" in _tl or task_name in JENKINS_ARCH_NAMES:
+                # For 4-column tables, stage is the arch name (e.g., "aarch64")
+                # For 3-column tables, task_name is the arch
+                arch = stage if stage not in ("", "编译构建") else task_name
+                display_name = JENKINS_ARCH_NAMES.get(arch, arch)
+                rows.append({
+                    "stage": "编译构建",
+                    "task": f"{display_name} (check_build)",
+                    "status": status,
+                    "link": detail_link,
+                })
+        else:
+            # Text status format (backup path)
+            cleaned = [re.sub(r"<.*?>", "", c or "").strip() for c in cells]
+            if len(cleaned) >= 2 and cleaned[0]:
+                status_text = re.sub(r"&#\d+;", "", cleaned[1]).strip().upper()
+                task_name = cleaned[0].lower()
+                if task_name in ("check_package_license", "checkpatch", "checkformat",
+                                 "checkdepend", "checkkabi", "checkconflict", "checkbinary"):
+                    continue
+                rows.append({
+                    "stage": "",
+                    "task": cleaned[0],
+                    "status": TEXT_STATUS_MAP.get(status_text, status_text.lower()),
+                    "link": links[0] if links else "",
+                })
+
+    return rows
+
+
+def parse_jenkins_comments(comments_text):
+    """Parse openeuler-ci-bot Jenkins CI comments from a GitCode PR.
+
+    Extracts multi-architecture build results (Type C comments).
+    Filters out static check comments (Type B) and trigger comments (Type A).
+    """
+    blocks = []
+    for comment in _split_comments(comments_text):
+        if "ci.openeuler.openatom.cn" not in comment:
+            continue
+
+        table_match = re.search(r"(<table.*?</table>)", comment, re.S)
+        if not table_match:
+            continue
+
+        table_html = table_match.group(1)
+        rows = parse_jenkins_table_rows(table_html)
+        if not rows:
+            continue
+
+        # Extract console links
+        links = re.findall(
+            r'https://ci\.openeuler\.openatom\.cn/job/multiarch/job/openeuler/job/'
+            r'(?:aarch64|x86_64|ppc|ppc64|loongarch|arm|riscv64)/'
+            r'job/kernel/\d+/?console',
+            comment
+        )
+        ts_match = re.search(r"Author: .* at (\d{4}-\d{2}-\d{2} \d{2}:\d{2})", comment)
+
+        blocks.append({
+            "name": "jenkins_pipeline",
+            "state": "completed",
+            "link": links[0] if links else "",
+            "rows": rows,
+            "comment_time": ts_match.group(1) if ts_match else "",
+        })
+
+    return blocks
+
+
+def fetch_jenkins_build_info(console_url):
+    """Fetch build metadata from Jenkins /api/json endpoint.
+
+    Returns dict with keys: result, timestamp (ms epoch), duration (ms),
+    estimatedDuration, building, id, url.
+    """
+    api_url = console_url.rstrip("/")
+    if api_url.endswith("/console"):
+        api_url = api_url[:-len("/console")]
+    api_url += "/api/json"
+
+    data = fetch_json(api_url)
+    return data
+
+
+def fetch_jenkins_console_text(console_url):
+    """Fetch raw console text from Jenkins /consoleText endpoint."""
+    text_url = console_url.rstrip("/")
+    if not text_url.endswith("/consoleText"):
+        if text_url.endswith("/console"):
+            text_url = text_url[:-len("/console")] + "/consoleText"
+        else:
+            text_url += "/consoleText"
+
+    req = urllib.request.Request(
+        text_url,
+        headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "text/plain, */*",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return resp.read().decode("utf-8", "ignore")
+
+
 # ── Main ──────────────────────────────────────────────────────────────
 
 
@@ -426,6 +779,9 @@ def main():
                         help="Max log sample lines for AI (default: 400)")
     parser.add_argument("--full-log", action="store_true",
                         help="Output the full raw log (warning: can be very large)")
+    parser.add_argument("--ci-backend", choices=["openlibing", "jenkins"],
+                        default="openlibing",
+                        help="CI backend type (default: openlibing)")
     parser.add_argument("--output", "-o",
                         help="Output JSON file path (default: builds_<repo>_pr<number>.json)")
     args = parser.parse_args()
@@ -441,7 +797,7 @@ def main():
 
     # 1. Fetch and parse PR pipeline comments
     comments = run_gc_pr_comments(args.repo, pr_number)
-    blocks = parse_pipeline_comments(comments)
+    blocks = parse_pipeline_comments(comments, args.ci_backend)
     if not blocks:
         print(json.dumps({"error": "No pipeline table found in PR comments"}, ensure_ascii=False))
         sys.exit(0)
@@ -471,61 +827,107 @@ def main():
         task_name = task["task"]
         print(f"Fetching log for {task_name} ...", file=sys.stderr)
 
-        try:
-            params = extract_params(task["link"])
-        except SystemExit:
-            builds.append({
+        if args.ci_backend == "jenkins":
+            # ── Jenkins path: single HTTP GET to /consoleText + /api/json ──
+            try:
+                build_meta = fetch_jenkins_build_info(task["link"])
+                full_log = fetch_jenkins_console_text(task["link"])
+            except Exception as e:
+                builds.append({
+                    "task_name": task_name,
+                    "error": f"Jenkins fetch failed: {e}",
+                })
+                continue
+
+            build_entry = {
                 "task_name": task_name,
-                "error": "Cannot extract API params from task link",
-            })
-            continue
-
-        try:
-            full_log = fetch_all_logs(params)
-        except Exception as e:
-            builds.append({
-                "task_name": task_name,
-                "error": f"Failed to fetch log: {e}",
-            })
-            continue
-
-        # Parse first/last timestamps
-        lines = full_log.split("\n")
-        first_ts = None
-        last_ts = None
-        for line in lines:
-            ts = parse_timestamp(line)
-            if ts:
-                if first_ts is None:
-                    first_ts = ts
-                last_ts = ts
-
-        build_entry = {
-            "task_name": task_name,
-            "stage": task.get("stage", ""),
-            "status": task["status"],
-            "detail_url": task.get("link", ""),
-        }
-
-        if first_ts:
-            build_entry["time"] = {
-                "start": first_ts.isoformat(),
-                "end": last_ts.isoformat(),
-                "duration_seconds": round((last_ts - first_ts).total_seconds(), 3),
+                "stage": task.get("stage", ""),
+                "status": task["status"],
+                "detail_url": task.get("link", ""),
             }
 
-        if args.full_log:
-            build_entry["full_log"] = redact(full_log[:200000])  # cap at 200k chars
+            # Use API timestamps for time.start/end
+            start_ms = build_meta.get("timestamp")
+            duration_ms = build_meta.get("duration")
+            if start_ms and duration_ms:
+                start_dt = datetime.fromtimestamp(start_ms / 1000, tz=CST)
+                end_dt = datetime.fromtimestamp((start_ms + duration_ms) / 1000, tz=CST)
+                build_entry["time"] = {
+                    "start": start_dt.isoformat(),
+                    "end": end_dt.isoformat(),
+                    "duration_seconds": round(duration_ms / 1000, 3),
+                }
+
+            if args.full_log:
+                build_entry["full_log"] = redact(full_log[:200000])
+            else:
+                sample = jenkins_sample_log(full_log, args.max_sample)
+                build_entry["log_sample"] = sample["sample_log"]
+                build_entry["log_stats"] = {
+                    "total_timestamped_lines": sample["total_lines_in_log"],
+                    "sample_lines": sample["sample_line_count"],
+                    "raw_chars": sample["raw_log_total_chars"],
+                }
+                build_entry["timestamp_summary"] = sample["timestamp_summary"]
+                build_entry["significant_gaps"] = sample["significant_gaps"]
+
         else:
-            sample = sample_log_for_ai(full_log, args.max_sample)
-            build_entry["log_sample"] = sample["sample_log"]
-            build_entry["log_stats"] = {
-                "total_timestamped_lines": sample["total_lines_in_log"],
-                "sample_lines": sample["sample_line_count"],
-                "raw_chars": sample["raw_log_total_chars"],
+            # ── openLiBing path (existing) ──
+            try:
+                params = extract_params(task["link"])
+            except SystemExit:
+                builds.append({
+                    "task_name": task_name,
+                    "error": "Cannot extract API params from task link",
+                })
+                continue
+
+            try:
+                full_log = fetch_all_logs(params)
+            except Exception as e:
+                builds.append({
+                    "task_name": task_name,
+                    "error": f"Failed to fetch log: {e}",
+                })
+                continue
+
+            # Parse first/last timestamps
+            lines = full_log.split("\n")
+            first_ts = None
+            last_ts = None
+            for line in lines:
+                ts = parse_timestamp(line)
+                if ts:
+                    if first_ts is None:
+                        first_ts = ts
+                    last_ts = ts
+
+            build_entry = {
+                "task_name": task_name,
+                "stage": task.get("stage", ""),
+                "status": task["status"],
+                "detail_url": task.get("link", ""),
             }
-            build_entry["timestamp_summary"] = sample["timestamp_summary"]
-            build_entry["significant_gaps"] = sample["significant_gaps"]
+
+            if first_ts:
+                build_entry["time"] = {
+                    "start": first_ts.isoformat(),
+                    "end": last_ts.isoformat(),
+                    "duration_seconds": round((last_ts - first_ts).total_seconds(), 3),
+                }
+
+            if args.full_log:
+                build_entry["full_log"] = redact(full_log[:200000])
+            else:
+                sample = sample_log_for_ai(full_log, args.max_sample)
+                build_entry["log_sample"] = sample["sample_log"]
+                build_entry["log_stats"] = {
+                    "total_timestamped_lines": sample["total_lines_in_log"],
+                    "sample_lines": sample["sample_line_count"],
+                    "raw_chars": sample["raw_log_total_chars"],
+                }
+                build_entry["timestamp_summary"] = sample["timestamp_summary"]
+                build_entry["significant_gaps"] = sample["significant_gaps"]
 
         builds.append(build_entry)
 
@@ -582,9 +984,24 @@ def main():
             b["summary"] = {"pre_build_seconds": 0, "build_seconds": 0, "unattributed_seconds": 0, "key_bottleneck": "", "key_bottleneck_seconds": 0}
         else:
             if "pre_build" not in b:
-                b["pre_build"] = copy.deepcopy(PRE_BUILD_TEMPLATE)
+                if args.ci_backend == "jenkins":
+                    b["pre_build"] = {
+                        "total_seconds": 0,
+                        "pct_of_total": 0,
+                        "orchestrator": "jenkins",
+                        "actions": copy.deepcopy(JENKINS_PRE_BUILD_ACTIONS),
+                    }
+                else:
+                    b["pre_build"] = copy.deepcopy(PRE_BUILD_TEMPLATE)
             if "build_phases" not in b:
-                b["build_phases"] = copy.deepcopy(BUILD_PHASES_TEMPLATE)
+                if args.ci_backend == "jenkins":
+                    b["build_phases"] = {
+                        "total_seconds": 0,
+                        "pct_of_total": 0,
+                        "actions": copy.deepcopy(JENKINS_BUILD_PHASES_ACTIONS),
+                    }
+                else:
+                    b["build_phases"] = copy.deepcopy(BUILD_PHASES_TEMPLATE)
             if "summary" not in b:
                 b["summary"] = {"pre_build_seconds": 0, "build_seconds": 0, "unattributed_seconds": 0, "key_bottleneck": "", "key_bottleneck_seconds": 0}
 

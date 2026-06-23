@@ -69,7 +69,15 @@ declare -A CHANGED_REPOS  # repos that need AI re-analysis
 echo "=== Phase 1: Checking PR changes ==="
 echo ""
 
+CI_BACKEND="openlibing"  # default backend
+
 while IFS= read -r line; do
+  # Detect CI_BACKEND directive before skipping comments
+  if [[ "$line" =~ ^#[[:space:]]*CI_BACKEND:(.*) ]]; then
+    CI_BACKEND="${BASH_REMATCH[1]}"
+    echo "  [CI] Backend set to: $CI_BACKEND"
+    continue
+  fi
   # Skip comments and empty lines
   [[ "$line" =~ ^#.*$ ]] && continue
   [[ -z "$line" ]] && continue
@@ -113,7 +121,7 @@ while IFS= read -r line; do
   # Fetch to temp file first to avoid overwriting with bad data
   TMP_FILE="/tmp/sync_${REPO_NAME}_$$.json"
   RESULT=$(python3 "$FETCH_SCRIPT" \
-    --repo "$REPO_PATH" --latest-merged -o "$TMP_FILE" 2>&1) || true
+    --repo "$REPO_PATH" --latest-merged --ci-backend "$CI_BACKEND" -o "$TMP_FILE" 2>&1) || true
 
   if echo "$RESULT" | grep -q '"status": "ok"'; then
     # Compare PR with existing to decide if re-analysis needed
@@ -148,7 +156,7 @@ while IFS= read -r line; do
     FOUND=false
     for pr_num in $(gc pr list -R "$REPO_PATH" --state merged -L 20 2>/dev/null | grep -oP '#\d+' | tr -d '#'); do
       fb_result=$(python3 "$FETCH_SCRIPT" \
-        --repo "$REPO_PATH" --pr "$pr_num" -o "$TMP_FILE" 2>&1) || true
+        --repo "$REPO_PATH" --pr "$pr_num" --ci-backend "$CI_BACKEND" -o "$TMP_FILE" 2>&1) || true
       if echo "$fb_result" | grep -q '"status": "ok"'; then
         cp "$TMP_FILE" "$OUTPUT_FILE"
         cp "$TMP_FILE" "$WORK_FILE"
@@ -175,6 +183,8 @@ while IFS= read -r line; do
     fi
     FAIL_COUNT=$((FAIL_COUNT + 1))
   fi
+  # Reset CI_BACKEND to default for next repo
+  CI_BACKEND="openlibing"
   echo ""
 done < "$REPOS_FILE"
 

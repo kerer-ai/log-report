@@ -130,6 +130,17 @@ https://gitcode.com/Ascend/MindIE-LLM
 
 新增仓库时直接添加 URL，运行 `/sync-deploy` 即自动纳入（Phase 1 检测到新仓库自动 fetch）。
 
+### CI Backend 指令
+
+对于使用非 openLiBing CI 的仓库，在 URL 前添加 `# CI_BACKEND:<type>` 注释行：
+
+```
+# CI_BACKEND:jenkins
+https://gitcode.com/openeuler/kernel
+```
+
+支持的 backend 类型：`openlibing`（默认）、`jenkins`。指令仅对紧接的下一个 URL 生效，每个 URL 处理完后自动重置为 `openlibing`。
+
 ## 缓存策略
 
 | 场景 | 行为 |

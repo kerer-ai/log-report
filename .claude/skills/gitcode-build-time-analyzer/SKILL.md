@@ -64,7 +64,21 @@ python3 scripts/fetch_build_logs.py --repo cann/ops-nn --pr 6193 --task Compile_
   - Ascend/MindIE-LLM
 ```
 
-选项：`--latest-merged` | `--pr <N>` | `--task <name>` | `--max-sample <N>` | `--full-log`
+选项：`--latest-merged` | `--pr <N>` | `--task <name>` | `--max-sample <N>` | `--full-log` | `--ci-backend <openlibing|jenkins>`
+
+### Jenkins CI 后端
+
+对于使用 openEuler Jenkins CI 的仓库（如 `openeuler/kernel`），使用 `--ci-backend jenkins`：
+
+```bash
+python3 scripts/fetch_build_logs.py --repo openeuler/kernel --latest-merged --ci-backend jenkins -o json-org/kernel_build_analysis.json
+```
+
+Jenkins 后端特点：
+- 从 `ci.openeuler.openatom.cn` 的 `/consoleText` 端点获取日志（公开，无需认证）
+- 从 `/api/json` 获取构建元数据（timestamp + duration）
+- 日志较小（~500 行），一次 HTTP GET 全量获取
+- 时间戳格式：`[YYYY-MM-DD HH:MM:SS]`（无亚秒、无时区后缀）
 
 ### Fetch 缓存策略（避免重复拉取）
 
@@ -422,7 +436,40 @@ setup.py 构建 / CMake 开始 → 进入 build_phases
 | **Volcano Job** | `Job xxx 的主 Pod`, `volcano.sh/job-name`, `[日志] 等待 Pod ... 开始运行` | 5-260s | pytorch, MindIE-LLM, MindIE-SD, torchair |
 | **Docker 原生** | `Pull complete` (多层), 无 Pod 调度日志 | 0s (无调度) | MindSpeed, MindSpeed-MM |
 
-`pre_build.orchestrator` 字段必须设为 `"argo"`、`"volcano"` 或 `"docker"`。
+`pre_build.orchestrator` 字段必须设为 `"argo"`、`"volcano"`、`"docker"` 或 `"jenkins"`。
+
+| **Jenkins (内核构建)** | `***** allmodconfig build *****` 等显式阶段标记, `/api/json` 时间戳 | 0s (无调度) | openeuler/kernel |
+
+### Jenkins 内核构建分析
+
+Jenkins upstream kernel 构建**不是**容器编排模型。它有显式阶段标记和完全不同的动作集。
+
+**构建前 (pre_build)** — 在编译节点上准备环境：
+| 动作 key | 名称 | 日志标志 |
+|---|---|---|
+| `clone_check_scripts` | Clone 检查脚本 | `***** clone check scripts *****` / `***** Get the corresponding check-kabi script *****` |
+| `clone_kernel_repo` | Clone 内核仓库 | `***** Start to download kernel of openeuler *****` |
+| `install_build_tools` | 安装构建工具 | `***** Start to install build tools *****` |
+| `apply_pr_patch` | 应用 PR 补丁 | `***** Download and Apply PR *****` |
+
+**构建中 (build_phases)** — 内核编译 + 检查：
+| 动作 key | 名称 | 日志标志 |
+|---|---|---|
+| `allmodconfig_build` | Allmodconfig 构建 | `***** Build kernel with allmodconfig *****` |
+| `defconfig_build` | Defconfig 构建 | `***** Build kernel with openeuler_defconfig *****` |
+| `kabi_check` | KABI 兼容性检查 | `***** Check kabi compatibility *****` |
+| `defconfig_check` | Defconfig 一致性检查 | `***** Check openeuler_defconfig consistency *****` |
+
+**关键差异**：
+- `orchestrator = "jenkins"` — 无容器编排
+- **无** `pod_scheduling`、`pod_git_clone`、`submodule_init`、`docker_pull`、`image_proxy`、`git_cache_injection`
+- 构建时间占 >95%（内核编译主导），pre_build <5%
+- 日志格式：`[YYYY-MM-DD HH:MM:SS] [  INFO ] ...`（无亚秒、无时区后缀）
+- 成功标志：`[YYYY-MM-DD HH:MM:SS] [  INFO ] <arch> <phase> pass`
+- 最终结果：`Finished: SUCCESS` 或 `Finished: FAILURE`
+- API 时间戳来自 `/api/json` 字段 `timestamp`（ms Unix epoch）+ `duration`（ms）
+- 多架构并行构建：aarch64, x86_64, ppc, ppc64, loongarch, arm, riscv64 — 每个架构作为独立 build
+- 仅分析 `passed` 构建，跳过 `check_package_license` 等非编译任务
 
 ## Pod 内环境准备阶段（重点）
 

@@ -1,14 +1,14 @@
 {
   "meta": {
-    "pr": 309,
+    "pr": 317,
     "repo": "Ascend/MindIE-PyMotor",
-    "pr_url": "https://gitcode.com/Ascend/MindIE-PyMotor/pull/309",
-    "pipeline_name": "PR-pipeline_MindIE-pyMotor_gitcode#1360",
-    "pipeline_state": " [ commitID：eb172dfd ] 已终止运行",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=bab59c875eee4c1cbfcfed6ab6534467&codeHostingPlatformFlag=gitcode",
+    "pr_url": "https://gitcode.com/Ascend/MindIE-PyMotor/pull/317",
+    "pipeline_name": "PR-pipeline_MindIE-pyMotor_gitcode#1372",
+    "pipeline_state": " [ commitID：99ff2051 ] 已终止运行",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=a353218a9e52474caf5c13a188148abd&codeHostingPlatformFlag=gitcode",
     "comment_time": "",
-    "fetched_at": "2026-06-18T12:11:51.628245+08:00",
-    "analyzed_at": "2026-06-18T12:30:00.000000+08:00",
+    "fetched_at": "2026-06-23T15:12:00.725315+08:00",
+    "analyzed_at": null,
     "analysis_method": "ai_semantic"
   },
   "builds": [
@@ -16,218 +16,261 @@
       "task_name": "Build_linux_arm",
       "stage": "编译构建",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=c020a2e6016b4c86965e73f8d72bfe08&stepId=3b7b1c30fa274cd29d26273279c9cbac&jobRunId=f49f831bd3dc4a9c832225674cb785b4&stepRunId=8cee8b42de4e40d8bf42274fe6b2d7ba&codeHostingPlatformFlag=gitcode",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=a0b8c8c7fccd465e9c22eb761ebda66a&stepId=f7ab3eb0f6404a23bee087c64177ee56&jobRunId=eba48636372641c1a629287ec4c36475&stepRunId=6c9e4a5a59ef4560aa9768783966e0f7&codeHostingPlatformFlag=gitcode",
       "time": {
-        "start": "2026-06-18T11:38:31.251000+08:00",
-        "end": "2026-06-18T11:42:52.804000+08:00",
-        "duration_seconds": 261.553
+        "start": "2026-06-18T10:35:05.691000+08:00",
+        "end": "2026-06-18T10:37:13.202000+08:00",
+        "duration_seconds": 127.511
       },
-      "log_sample": "[2026/06/18 11:38:31.251 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_a7PGEZgO #1\n[2026/06/18 11:38:31.253 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 11:38:31.387 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 11:38:31.389 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 11:38:31.391 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 11:38:31.391 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 11:38:32.393 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 11:38:32.477 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-88c172ad4c ok, waiting for connection...\n[2026/06/18 11:38:36.032 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-88c172ad4c\n[2026/06/18 11:38:36.084 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 11:38:37.924 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 11:38:37.924 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 11:38:37.924 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 11:38:41.303 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 11:38:42.087 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 11:38:42.087 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 11:38:42.087 GMT+08:00] \n[2026/06/18 11:38:42.087 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/18 11:38:42.087 GMT+08:00] \n[2026/06/18 11:38:42.087 GMT+08:00] Remove one or more containers\n[2026/06/18 11:38:42.120 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 11:38:43.932 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 11:38:43.932 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 11:38:43.932 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 11:38:44.765 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 11:38:44.767 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/18 11:38:44.808 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/18 11:38:45.117 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/18 11:38:45.117 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/18 11:38:45.141 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 11:38:46.002 GMT+08:00] No credentials specified\n[2026/06/18 11:38:46.002 GMT+08:00] set customize username password****           \n[2026/06/18 11:38:46.046 GMT+08:00] addDefaultCredentials\n[2026/06/18 11:38:46.050 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/18 11:38:46.053 GMT+08:00] Cloning the remote Git repository\n[2026/06/18 11:38:46.053 GMT+08:00] Avoid fetching tags\n[2026/06/18 11:38:46.053 GMT+08:00] Honoring refspec on initial clone\n[2026/06/18 11:38:46.096 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 11:38:46.208 GMT+08:00]  > git init ******/j_a7PGEZgO # timeout=10\n[2026/06/18 11:38:46.237 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 11:38:46.238 GMT+08:00]  > git --version # timeout=10\n[2026/06/18 11:38:46.249 GMT+08:00]  > git --version # 'git version 2.27.0'\n[2026/06/18 11:38:46.249 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 11:38:46.251 GMT+08:00] scmType is gitcode\n[2026/06/18 11:38:46.254 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-PyMotor.git +6c0113bd5711c724fc97777b7d901b7c8e480c42:refs/remotes/fork/fix/deployer-progress-log-throughput # timeout=120\n[2026/06/18 11:38:47.477 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindIE-PyMotor.git # timeout=10\n[2026/06/18 11:38:47.484 GMT+08:00]  > git config --add remote.fork.fetch +6c0113bd5711c724fc97777b7d901b7c8e480c42:refs/remotes/fork/fix/deployer-progress-log-throughput # timeout=10\n[2026/06/18 11:38:47.495 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindIE-PyMotor.git # timeout=10\n[2026/06/18 11:38:47.528 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 11:38:47.529 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 11:38:47.529 GMT+08:00] scmType is gitcode\n[2026/06/18 11:38:47.530 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-PyMotor.git +6c0113bd5711c724fc97777b7d901b7c8e480c42:refs/remotes/fork/fix/deployer-progress-log-throughput # timeout=120\n[2026/06/18 11:38:47.540 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/MindIE-PyMotor.git # timeout=10\n[2026/06/18 11:38:47.546 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 11:38:47.547 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 11:38:47.547 GMT+08:00] scmType is gitcode\n[2026/06/18 11:38:47.548 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-PyMotor.git +5939186d69fc4c93500c809719710a25ebe127c8:refs/remotes/origin/master # timeout=120\n[2026/06/18 11:38:48.493 GMT+08:00] fork MR gitcode from fix/deployer-progress-log-throughput(6c0113bd5711c724fc97777b7d901b7c8e480c42) to master(5939186d69fc4c93500c809719710a25ebe127c8).\n[2026/06/18 11:38:48.493 GMT+08:00] Merging Revision 6c0113bd5711c724fc97777b7d901b7c8e480c42 (refs/remotes/fork/fix/deployer-progress-log-throughput) to origin/master, UserMergeOptions{mergeRemote='origin', mergeTarget='master', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/18 11:38:48.523 GMT+08:00] Disable Git LFS pull\n[2026/06/18 11:38:48.451 GMT+08:00]  > git rev-parse fix/deployer-progress-log-throughput^{commit} # timeout=10\n[2026/06/18 11:38:48.464 GMT+08:00]  > git rev-parse refs/remotes/fork/fix/deployer-progress-log-throughput^{commit} # timeout=10\n[2026/06/18 11:38:48.474 GMT+08:00]  > git rev-parse fix/deployer-progress-log-throughput^{commit} # timeout=10\n[2026/06/18 11:38:48.483 GMT+08:00]  > git rev-parse refs/remotes/origin/fix/deployer-progress-log-throughput^{commit} # timeout=10\n[2026/06/18 11:38:48.494 GMT+08:00]  > git rev-parse origin/master^{commit} # timeout=10\n[2026/06/18 11:38:48.531 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/18 11:38:48.538 GMT+08:00]  > git checkout -f origin/master # timeout=120\n[2026/06/18 11:38:48.599 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/18 11:38:48.605 GMT+08:00]  > git checkout -b fix/deployer-progress-log-throughput origin/master # timeout=120\n[2026/06/18 11:38:48.670 GMT+08:00]  > git remote # timeout=10\n[2026/06/18 11:38:48.678 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/18 11:38:48.687 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 11:38:48.687 GMT+08:00] scmType is gitcode\n[2026/06/18 11:38:48.688 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/18 11:38:48.780 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/18 11:38:52.637 GMT+08:00] Checking out Revision b0785458798b6a8af00fc5fd18c3295224474439 (origin/master)\n[2026/06/18 11:38:52.637 GMT+08:00] Disable Git LFS pull\n[2026/06/18 11:38:53.308 GMT+08:00] Commit message: \"Merge commit '6c0113bd5711c724fc97777b7d901b7c8e480c42' into fix/deployer-progress-log-throughput\"\n[2026/06/18 11:38:53.308 GMT+08:00] First time build. Skipping changelog.\n[2026/06/18 11:38:53.336 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 11:38:53.392 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 11:38:52.572 GMT+08:00] Seen branch in repository fork/fix/deployer-progress-log-throughput\n[2026/06/18 11:38:52.573 GMT+08:00] Seen branch in repository origin/master\n[2026/06/18 11:38:52.575 GMT+08:00] Seen 2 remote branches\n[2026/06/18 11:38:52.627 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/18 11:38:52.638 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/18 11:38:52.647 GMT+08:00]  > git checkout -f b0785458798b6a8af00fc5fd18c3295224474439 # timeout=120\n[2026/06/18 11:38:52.751 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/18 11:38:52.758 GMT+08:00]  > git branch -D fix/deployer-progress-log-throughput # timeout=10\n[2026/06/18 11:38:52.765 GMT+08:00]  > git checkout -b fix/deployer-progress-log-throughput b0785458798b6a8af00fc5fd18c3295224474439 # timeout=120\n[2026/06/18 11:38:55.341 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 11:38:55.341 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 11:38:55.341 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 11:38:56.475 GMT+08:00] + cat\n[2026/06/18 11:38:56.475 GMT+08:00] + cat shell.sh\n[2026/06/18 11:38:56.475 GMT+08:00] #! /bin/bash\n[2026/06/18 11:38:56.475 GMT+08:00] set -e\n[2026/06/18 11:38:56.475 GMT+08:00] git config --global http.lowSpeedLimit 0\n[2026/06/18 11:38:56.475 GMT+08:00] git config --global http.lowSpeedTime 600\n[2026/06/18 11:38:56.475 GMT+08:00] git config --global http.postBuffer 524288000\n[2026/06/18 11:38:56.475 GMT+08:00] git config --global http.timeout 500\n[2026/06/18 11:38:56.475 GMT+08:00] \n[2026/06/18 11:38:56.475 GMT+08:00] [ -f /home/jenkins/.gitconfig ] && cp /home/jenkins/.gitconfig ~/.gitconfig\n[2026/06/18 11:38:56.475 GMT+08:00] [ -f /home/jenkins/.git-credentials ] && cp /home/jenkins/.git-credentials ~/.git-credentials\n... [skipped 10 lines] ...\n[2026/06/18 11:38:56.475 GMT+08:00] # if git clone -b ${branch} ${repo_url} ${local_rep_name}; then\n[2026/06/18 11:38:56.475 GMT+08:00] #   git clone ${repo_url} ${local_rep_name}\n... [skipped 20 lines] ...\n[2026/06/18 11:38:59.755 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : download file result: SUCCESS\n[2026/06/18 11:38:59.756 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/18 11:38:59.753 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : download kubeconfig_karmada.key end.\n[2026/06/18 11:39:01.893 GMT+08:00] latest: Pulling from modelfoundry/karmada\n[2026/06/18 11:39:01.893 GMT+08:00] Digest: sha256:47bcd705e01a305f3998961ce586507385e4fae95b0c978ee78423fa937a979d\n[2026/06/18 11:39:01.893 GMT+08:00] Status: Image is up to date for swr.cn-southwest-2.myhuaweicloud.com/modelfoundry/karmada:latest\n[2026/06/18 11:39:03.080 GMT+08:00] + /workspace/workflowtool/entrypoint.sh\n[2026/06/18 11:39:03.080 GMT+08:00] kebuconfig file: ***//kubeconfig_karmada.key\n[2026/06/18 11:39:03.080 GMT+08:00] 读取 kubeconfig.key 文件...\n[2026/06/18 11:39:03.080 GMT+08:00] 读取 shell.sh: shell.sh\n[2026/06/18 11:39:03.080 GMT+08:00] CP_runs_on: arm64-cpu-16-mem-32G\n[2026/06/18 11:39:03.080 GMT+08:00] CP_docker_image: swr.cn-north-4.myhuaweicloud.com/inference/ascend_mindie_ubuntu_aarch64:20260305_ubuntu24_3.0.0_cann8.5.1_torch2.1.0_py311\n[2026/06/18 11:39:03.080 GMT+08:00] CP_pipeline_run_id: c020a2e6016b4c86965e73f8d72bfe08\n[2026/06/18 11:39:03.080 GMT+08:00] CP_merge_id: 309\n[2026/06/18 11:39:03.080 GMT+08:00] CP_repo_url: https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 11:39:03.080 GMT+08:00] 环境变量数量: 73\n[2026/06/18 11:39:03.092 GMT+08:00] starting check in ***/@tmp/durable-f0c645ac\n[2026/06/18 11:39:03.348 GMT+08:00] 成功生成 YAML 文件: ./workflowtool/workflow.yaml\n[2026/06/18 11:39:03.348 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 11:39:09.974 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 11:39:09.974 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 11:39:16.603 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 11:39:16.603 GMT+08:00] [GIT] Injected git proxy config into main-script\n[2026/06/18 11:39:16.869 GMT+08:00] [OK] Queue 'shared-flexible-queue' exists in cluster\n[2026/06/18 11:39:16.869 GMT+08:00] [INFO] Checking StorageClasses\n[2026/06/18 11:39:17.817 GMT+08:00] [OK] StorageClass 'sfsturbo-subpath-sc' exists\n[2026/06/18 11:39:17.817 GMT+08:00] [SKIP] No chip-specific nodeSelector in workflow\n[2026/06/18 11:39:17.817 GMT+08:00] [SKIP] No PVC mounts in workflow\n[2026/06/18 11:39:17.818 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 11:39:18.393 GMT+08:00] Volcano Job submitted: ascend-mindie-pymotor-bfhwg\n[2026/06/18 11:39:18.393 GMT+08:00] 等待主 Pod (main-script) 出现...\n[2026/06/18 11:39:22.622 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-bfhwg' 的 pod\n[2026/06/18 11:39:31.092 GMT+08:00] Job ascend-mindie-pymotor-bfhwg 的主 Pod: ascend-mindie-pymotor-bfhwg-main-script-0\n[2026/06/18 11:39:31.092 GMT+08:00] 等待 Job ascend-mindie-pymotor-bfhwg 的 Pod 启动...\n[2026/06/18 11:39:36.543 GMT+08:00] [日志] 等待 Pod ascend-mindie-pymotor-bfhwg-main-script-0 开始运行...\n[2026/06/18 11:41:44.107 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 11:41:44.107 GMT+08:00] [日志] 连接 kubectl logs ascend-mindie-pymotor-bfhwg-main-script-0 ...\n[2026/06/18 11:41:44.107 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 11:41:44.107 GMT+08:00] Job ascend-mindie-pymotor-bfhwg 的 Pod 已启动\n[2026/06/18 11:41:44.107 GMT+08:00] 等待 Job ascend-mindie-pymotor-bfhwg 的主容器 (ascend) 完成...\n[2026/06/18 11:41:44.682 GMT+08:00] From http://git-cache-http-server.git-cache.svc.cluster.local:8080/Ascend/MindIE-PyMotor\n[2026/06/18 11:41:44.682 GMT+08:00]  * [new ref]         refs/merge-requests/309/head -> pr\n[2026/06/18 11:41:44.682 GMT+08:00] Merge made by the 'ort' strategy.\n[2026/06/18 11:41:44.682 GMT+08:00] torch                     2.1.0\n[2026/06/18 11:41:44.682 GMT+08:00] torch-npu                 2.1.0.post18.dev20251112\n[2026/06/18 11:41:44.682 GMT+08:00] --2026-06-18 11:41:43--  https://mindie-pr.obs.cn-north-4.myhuaweicloud.com/Private_repository/MindIE-PyMotor/309/ci_target/cie.zip\n[2026/06/18 11:41:44.682 GMT+08:00] Resolving mindie-pr.obs.cn-north-4.myhuaweicloud.com (mindie-pr.obs.cn-north-4.myhuaweicloud.com)... ***.***.***.82\n[2026/06/18 11:41:44.682 GMT+08:00] Connecting to mindie-pr.obs.cn-north-4.myhuaweicloud.com (mindie-pr.obs.cn-north-4.myhuaweicloud.com)|***.***.***.82|:443... connected.\n[2026/06/18 11:41:44.682 GMT+08:00] HTTP request sent, awaiting response... 200 OK\n[2026/06/18 11:41:44.682 GMT+08:00] Length: 554537 (542K) [application/zip]\n[2026/06/18 11:41:44.682 GMT+08:00] Saving to: 'cie.zip'\n[2026/06/18 11:41:44.682 GMT+08:00] \n[2026/06/18 11:41:44.682 GMT+08:00]      0K .......... .......... .......... .......... ..........  9%  666K 1s\n[2026/06/18 11:41:44.682 GMT+08:00]     50K .......... .......... .......... .......... .......... 18% 1.65M 0s\n[2026/06/18 11:41:44.682 GMT+08:00]    100K .......... .......... .......... .......... .......... 27% 2.81M 0s\n... [skipped 183 lines] ...\n[2026/06/18 11:41:44.687 GMT+08:00] + bash //cie/build/retry_command.sh 'rm -rf MindIE-PyMotor && git clone --no-tags --single-branch -b master https://gitcode.com/Ascend/MindIE-PyMotor.git MindIE-PyMotor'\n... [skipped 6 lines] ...\n[2026/06/18 11:41:45.634 GMT+08:00] + git fetch origin master\n[2026/06/18 11:41:46.585 GMT+08:00] + git fetch --no-tags origin refs/merge-requests/309/head:pr_309\n[2026/06/18 11:41:46.585 GMT+08:00] + git checkout -b new_master\n... [skipped 64 lines] ...\n[2026/06/18 11:41:46.587 GMT+08:00] + pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple -r requirements.txt\n... [skipped 185 lines] ...\n[2026/06/18 11:42:13.730 GMT+08:00]   Attempting uninstall: pydantic\n[2026/06/18 11:42:13.730 GMT+08:00]     Found existing installation: pydantic 2.6.4\n[2026/06/18 11:42:13.730 GMT+08:00]     Uninstalling pydantic-2.6.4:\n[2026/06/18 11:42:13.730 GMT+08:00]       Successfully uninstalled pydantic-2.6.4\n[2026/06/18 11:42:14.681 GMT+08:00]   Attempting uninstall: cryptography\n[2026/06/18 11:42:14.681 GMT+08:00]     Found existing installation: cryptography 46.0.5\n[2026/06/18 11:42:14.681 GMT+08:00]     Uninstalling cryptography-46.0.5:\n[2026/06/18 11:42:14.681 GMT+08:00]       Successfully uninstalled cryptography-46.0.5\n[2026/06/18 11:42:16.607 GMT+08:00]   Attempting uninstall: huggingface-hub\n[2026/06/18 11:42:16.607 GMT+08:00]     Found existing installation: huggingface_hub 0.36.2\n[2026/06/18 11:42:16.607 GMT+08:00]     Uninstalling huggingface_hub-0.36.2:\n[2026/06/18 11:42:16.607 GMT+08:00]       Successfully uninstalled huggingface_hub-0.36.2\n[2026/06/18 11:42:17.552 GMT+08:00]   Attempting uninstall: tokenizers\n[2026/06/18 11:42:17.552 GMT+08:00]     Found existing installation: tokenizers 0.13.3\n[2026/06/18 11:42:17.552 GMT+08:00]     Uninstalling tokenizers-0.13.3:\n[2026/06/18 11:42:17.552 GMT+08:00]       Successfully uninstalled tokenizers-0.13.3\n[2026/06/18 11:42:17.552 GMT+08:00]   Attempting uninstall: transformers\n[2026/06/18 11:42:17.552 GMT+08:00]     Found existing installation: transformers 4.30.2\n[2026/06/18 11:42:17.552 GMT+08:00]     Uninstalling transformers-4.30.2:\n[2026/06/18 11:42:17.552 GMT+08:00]       Successfully uninstalled transformers-4.30.2\n[2026/06/18 11:42:25.722 GMT+08:00] \n[2026/06/18 11:42:25.722 GMT+08:00] Successfully installed Pillow-12.2.0 annotated-doc-0.0.4 anyio-4.14.0 click-8.4.1 confluent_kafka-2.14.2 cryptography-49.0.0 durationpy-0.10 fastapi-0.137.1 googleapis-common-protos-1.75.0 grpcio-1.81.1 grpcio-tools-1.81.1 h11-0.16.0 hf-xet-1.5.1 httpcore-1.0.9 httpcore2-2.4.0 httptools-0.8.0 httpx-0.28.1 httpx2-2.4.0 huggingface-hub-1.19.0 idna-3.18 iniconfig-2.3.0 kubernetes-35.0.0 msgspec-0.21.1 oauthlib-3.3.1 opentelemetry-api-1.42.1 opentelemetry-exporter-otlp-proto-common-1.42.1 opentelemetry-exporter-otlp-proto-grpc-1.42.1 opentelemetry-exporter-otlp-proto-http-1.42.1 opentelemetry-proto-1.42.1 opentelemetry-sdk-1.42.1 opentelemetry-semantic-conventions-0.63b1 pluggy-1.6.0 protobuf-6.33.6 pyOpenSSL-26.3.0 pydantic-2.13.4 pydantic-core-2.46.4 pytest-9.1.0 pytest-asyncio-1.4.0 python-dotenv-1.2.2 pyzmq-27.1.0 requests-oauthlib-2.0.0 setproctitle-1.3.7 setuptools-82.0.1 shellingham-1.5.4 starlette-1.3.1 tokenizers-0.22.2 transformers-5.12.1 truststore-0.10.4 typer-0.25.1 typing-inspection-0.4.2 uvicorn-0.49.0 uvloop-0.22.1 watchdog-6.0.0 watchfiles-1.2.0 websocket-client-1.9.0 websockets-16.0\n[2026/06/18 11:42:25.722 GMT+08:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n[2026/06/18 11:42:25.722 GMT+08:00] \n[2026/06/18 11:42:25.722 GMT+08:00] [notice] A new release of pip is available: 26.0.1 -> 26.1.2\n[2026/06/18 11:42:25.722 GMT+08:00] [notice] To update, run: pip install --upgrade pip\n[2026/06/18 11:42:26.671 GMT+08:00] + cd /MindIE-PyMotor\n[2026/06/18 11:42:26.671 GMT+08:00] + sh build.sh\n[2026/06/18 11:42:26.671 GMT+08:00] Generating protobuf files...\n[2026/06/18 11:42:26.671 GMT+08:00] Generating code from ./motor/common/etcd/proto/kv.proto...\n[2026/06/18 11:42:26.671 GMT+08:00] ✓ Successfully generated code from ./motor/common/etcd/proto/kv.proto\n[2026/06/18 11:42:26.671 GMT+08:00]   Fixed import paths in kv_pb2_grpc.py\n[2026/06/18 11:42:26.671 GMT+08:00]   Fixed import paths in kv_pb2.py\n[2026/06/18 11:42:26.671 GMT+08:00] Generating code from ./motor/common/etcd/proto/rpc.proto...\n[2026/06/18 11:42:26.671 GMT+08:00] ✓ Successfully generated code from ./motor/common/etcd/proto/rpc.proto\n[2026/06/18 11:42:26.671 GMT+08:00]   Fixed import paths in rpc_pb2_grpc.py\n[2026/06/18 11:42:26.671 GMT+08:00]   Fixed import paths in rpc_pb2.py\n[2026/06/18 11:42:26.671 GMT+08:00] Generating code from ./motor/common/etcd/proto/auth.proto...\n[2026/06/18 11:42:26.671 GMT+08:00] ✓ Successfully generated code from ./motor/common/etcd/proto/auth.proto\n[2026/06/18 11:42:26.671 GMT+08:00]   Fixed import paths in auth_pb2_grpc.py\n[2026/06/18 11:42:26.671 GMT+08:00]   Fixed import paths in auth_pb2.py\n[2026/06/18 11:42:26.671 GMT+08:00] All protobuf files generated successfully.\n[2026/06/18 11:42:26.671 GMT+08:00] Building wheel package with pip wheel (PEP517)... (VERBOSE=0)\n[2026/06/18 11:42:29.994 GMT+08:00] \n[2026/06/18 11:42:29.994 GMT+08:00] [notice] A new release of pip is available: 26.0.1 -> 26.1.2\n[2026/06/18 11:42:29.994 GMT+08:00] [notice] To update, run: pip install --upgrade pip\n[2026/06/18 11:42:29.994 GMT+08:00] + cd ./examples/features/observability\n[2026/06/18 11:42:29.994 GMT+08:00] + bash -x build.sh\n[2026/06/18 11:42:29.994 GMT+08:00] + set -euo pipefail\n[2026/06/18 11:42:29.994 GMT+08:00] + VERBOSE=0\n[2026/06/18 11:42:29.994 GMT+08:00] + rm -rf build/\n[2026/06/18 11:42:29.994 GMT+08:00] + rm -rf dist/\n[2026/06/18 11:42:29.994 GMT+08:00] + echo 'Building wheel package with pip wheel (PEP517)... (VERBOSE=0)'\n[2026/06/18 11:42:29.994 GMT+08:00] + cmd=(python setup.py sdist bdist_wheel)\n[2026/06/18 11:42:29.994 GMT+08:00] Building wheel package with pip wheel (PEP517)... (VERBOSE=0)\n[2026/06/18 11:42:29.994 GMT+08:00] + [[ 0 -eq 0 ]]\n[2026/06/18 11:42:29.994 GMT+08:00] + cmd+=(-q)\n[2026/06/18 11:42:29.994 GMT+08:00] + python setup.py sdist bdist_wheel -q\n[2026/06/18 11:42:29.994 GMT+08:00] running sdist\n[2026/06/18 11:42:29.994 GMT+08:00] running egg_info\n[2026/06/18 11:42:29.994 GMT+08:00] creating ccae_reporter.egg-info\n[2026/06/18 11:42:29.994 GMT+08:00] writing ccae_reporter.egg-info/PKG-INFO\n[2026/06/18 11:42:29.994 GMT+08:00] writing dependency_links to ccae_reporter.egg-info/dependency_links.txt\n... [skipped 48 lines] ...\n[2026/06/18 11:42:29.996 GMT+08:00] running bdist_wheel\n[2026/06/18 11:42:29.996 GMT+08:00] running build_py\n... [skipped 26 lines] ...\n[2026/06/18 11:42:29.996 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/setuptools/_distutils/cmd.py:90: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n... [skipped 75 lines] ...\n[2026/06/18 11:42:29.998 GMT+08:00] removing build/bdist.linux-aarch64/wheel\n[2026/06/18 11:42:29.998 GMT+08:00] + archive_package\n[2026/06/18 11:42:29.998 GMT+08:00] ++ uname -i\n[2026/06/18 11:42:29.998 GMT+08:00] + relative_path=309/aarch64/\n[2026/06/18 11:42:29.998 GMT+08:00] + mkdir -p /MindIE-PyMotor/aarch64\n[2026/06/18 11:42:29.998 GMT+08:00] + mkdir -p /MindIE-PyMotor/x86_64\n[2026/06/18 11:42:29.999 GMT+08:00] + touch /MindIE-PyMotor/aarch64/dummy_aarch64.whl\n[2026/06/18 11:42:29.999 GMT+08:00] + touch /MindIE-PyMotor/x86_64/dummy_x86_64.whl\n[2026/06/18 11:42:29.999 GMT+08:00] + ls /MindIE-PyMotor/dist/motor-0.1.0-py3-none-any.whl\n[2026/06/18 11:42:29.999 GMT+08:00] ++ uname -i\n[2026/06/18 11:42:29.999 GMT+08:00] + '[' aarch64 = aarch64 ']'\n[2026/06/18 11:42:29.999 GMT+08:00] + cp /MindIE-PyMotor/dist/motor-0.1.0-py3-none-any.whl /MindIE-PyMotor/aarch64\n[2026/06/18 11:42:29.999 GMT+08:00] ++ uname -i\n[2026/06/18 11:42:29.999 GMT+08:00] + '[' aarch64 = x86_64 ']'\n[2026/06/18 11:42:29.999 GMT+08:00] + ls /MindIE-PyMotor/examples/features/observability/dist/ccae_reporter-1.0.0-py3-none-any.whl\n[2026/06/18 11:42:29.999 GMT+08:00] ++ uname -i\n[2026/06/18 11:42:29.999 GMT+08:00] + '[' aarch64 = aarch64 ']'\n[2026/06/18 11:42:29.999 GMT+08:00] + cp /MindIE-PyMotor/examples/features/observability/dist/ccae_reporter-1.0.0-py3-none-any.whl /MindIE-PyMotor/aarch64\n[2026/06/18 11:42:29.999 GMT+08:00] ++ uname -i\n[2026/06/18 11:42:29.999 GMT+08:00] + '[' aarch64 = x86_64 ']'\n[2026/06/18 11:42:35.336 GMT+08:00] 检测到 artifact Volcano Job，准备从 copy-artifact 容器提取 artifacts...\n[2026/06/18 11:42:35.336 GMT+08:00] 开始提取 artifacts 到 ***/ ...\n[2026/06/18 11:42:35.336 GMT+08:00] 使用 kubectl cp 从 copy-artifact 容器提取 artifacts...\n[2026/06/18 11:42:35.336 GMT+08:00] [日志] tail 错误: signal: killed\n[2026/06/18 11:42:35.600 GMT+08:00] Artifacts 提取成功\n[2026/06/18 11:42:35.600 GMT+08:00] Job ascend-mindie-pymotor-bfhwg 成功完成\n[2026/06/18 11:42:41.023 GMT+08:00] 清理 copy-artifact 容器...\n[2026/06/18 11:42:41.023 GMT+08:00] 工作流处理完成\n[2026/06/18 11:42:42.606 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 11:42:42.606 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 11:42:42.606 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 11:42:43.425 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤开始执行\n[2026/06/18 11:42:43.427 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 获取上传OBS所需临时凭证。\n[2026/06/18 11:42:43.560 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 解析构建产物路径：x86_64/*whl\n[2026/06/18 11:42:43.561 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 待上传的文件列表：\n[2026/06/18 11:42:43.679 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_a7PGEZgO/x86_64/dummy_x86_64.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/309/abi0/x86_64/dummy_x86_64.whl\n[2026/06/18 11:42:43.679 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 初始化OBS客户端\n[2026/06/18 11:42:45.320 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : resolve package info...\n[2026/06/18 11:42:45.320 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : outputs {\"dummy_x86_64.whl\":{\"name\":\"dummy_x86_64.whl\",\"version\":\"20260618.9\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/309/abi0/x86_64/dummy_x86_64.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"0.00KB\"}}\n[2026/06/18 11:42:45.345 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤执行完成\n[2026/06/18 11:42:45.403 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤开始执行\n[2026/06/18 11:42:45.406 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 获取上传OBS所需临时凭证。\n[2026/06/18 11:42:45.598 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : resolve package info...\n[2026/06/18 11:42:45.599 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : outputs {\"dummy_aarch64.whl\":{\"name\":\"dummy_aarch64.whl\",\"version\":\"20260618.9\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/309/abi0/aarch64/dummy_aarch64.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"0.00KB\"},\"ccae_reporter-1.0.0-py3-none-any.whl\":{\"name\":\"ccae_reporter-1.0.0-py3-none-any.whl\",\"version\":\"20260618.9\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"cf491a1a7e44000cc3810e622ba19a24df533b82f2f7387fdca78b6b18d24fb4\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/309/abi0/aarch64/ccae_reporter-1.0.0-py3-none-any.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"31.65KB\"},\"motor-0.1.0-py3-none-any.whl\":{\"name\":\"motor-0.1.0-py3-none-any.whl\",\"version\":\"20260618.9\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"6c92ecfab4ba86db5c39be1bbd1df1c894b200e81bca4a0f39f36a1c981bf684\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/309/abi0/aarch64/motor-0.1.0-py3-none-any.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"715.38KB\"}}\n[2026/06/18 11:42:44.831 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 上传文件到OBS....\n[2026/06/18 11:42:45.318 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 成功上传文件到OBS\n[2026/06/18 11:42:45.635 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤执行完成\n[2026/06/18 11:42:45.659 GMT+08:00] [INFO] [上传archive文件到OBS:user_properties] : 该步骤开始执行\n[2026/06/18 11:42:45.685 GMT+08:00] [INFO] [上传archive文件到OBS:user_properties] : 该步骤执行完成\n[2026/06/18 11:42:45.438 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 解析构建产物路径：aarch64/*whl\n[2026/06/18 11:42:45.438 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 待上传的文件列表：\n[2026/06/18 11:42:45.441 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_a7PGEZgO/aarch64/dummy_aarch64.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/309/abi0/aarch64/dummy_aarch64.whl\n[2026/06/18 11:42:45.448 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_a7PGEZgO/aarch64/ccae_reporter-1.0.0-py3-none-any.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/309/abi0/aarch64/ccae_reporter-1.0.0-py3-none-any.whl\n[2026/06/18 11:42:45.449 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_a7PGEZgO/aarch64/motor-0.1.0-py3-none-any.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/309/abi0/aarch64/motor-0.1.0-py3-none-any.whl\n[2026/06/18 11:42:45.449 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 初始化OBS客户端\n[2026/06/18 11:42:45.451 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 上传文件到OBS....\n[2026/06/18 11:42:45.597 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 成功上传文件到OBS\n[2026/06/18 11:42:46.963 GMT+08:00] [INFO]  : find empty location by state: 8fXVdX75\n[2026/06/18 11:42:47.006 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_a7PGEZgO #1\n[2026/06/18 11:42:52.672 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker\n[2026/06/18 11:42:52.804 GMT+08:00] Finished: SUCCESS",
+      "log_sample": "[2026/06/18 10:35:05.691 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_PAXJpoto #1\n[2026/06/18 10:35:05.693 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/18 10:35:05.968 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/18 10:35:05.970 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: default-x86-2u8g_suffix\n[2026/06/18 10:35:05.972 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/18 10:35:05.972 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/18 10:35:07.094 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/18 10:35:07.236 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] create execution node cce-codeci-72e678b1c7 ok, waiting for connection...\n[2026/06/18 10:35:10.974 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:cce-codeci-72e678b1c7\n[2026/06/18 10:35:11.026 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/18 10:35:13.039 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 10:35:13.039 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 10:35:13.039 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 10:35:16.700 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤开始执行\n[2026/06/18 10:35:17.479 GMT+08:00] \"docker rm\" requires at least 1 argument.\n[2026/06/18 10:35:17.479 GMT+08:00] See 'docker rm --help'.\n[2026/06/18 10:35:17.479 GMT+08:00] \n[2026/06/18 10:35:17.479 GMT+08:00] Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]\n[2026/06/18 10:35:17.479 GMT+08:00] \n[2026/06/18 10:35:17.479 GMT+08:00] Remove one or more containers\n[2026/06/18 10:35:17.518 GMT+08:00] [INFO] [Cache Check:external_cache_check] : 该步骤执行完成\n[2026/06/18 10:35:19.106 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 10:35:19.106 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 10:35:19.107 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 10:35:20.461 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/18 10:35:20.463 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/18 10:35:20.517 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/18 10:35:20.693 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/18 10:35:20.693 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/18 10:35:20.693 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/18 10:35:21.142 GMT+08:00] No credentials specified\n[2026/06/18 10:35:21.142 GMT+08:00] set customize username password****           \n[2026/06/18 10:35:21.185 GMT+08:00] addDefaultCredentials\n[2026/06/18 10:35:21.188 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/18 10:35:21.191 GMT+08:00] Cloning the remote Git repository\n[2026/06/18 10:35:21.191 GMT+08:00] Avoid fetching tags\n[2026/06/18 10:35:21.191 GMT+08:00] Honoring refspec on initial clone\n[2026/06/18 10:35:21.217 GMT+08:00] Cloning repository https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 10:35:21.255 GMT+08:00]  > git init ******/j_PAXJpoto # timeout=10\n[2026/06/18 10:35:21.285 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 10:35:21.286 GMT+08:00]  > git --version # timeout=10\n[2026/06/18 10:35:21.306 GMT+08:00]  > git --version # 'git version 2.27.0'\n[2026/06/18 10:35:21.307 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 10:35:21.309 GMT+08:00] scmType is gitcode\n[2026/06/18 10:35:21.313 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-PyMotor.git +99ff20514b5759cb80d613103ee7e40647ea5ac1:refs/remotes/fork/error_add # timeout=120\n[2026/06/18 10:35:22.738 GMT+08:00] fork MR gitcode from error_add(99ff20514b5759cb80d613103ee7e40647ea5ac1) to master(0b822d6f1ed12fba5110dd3f9aa4caf20e1c8b0f).\n[2026/06/18 10:35:22.738 GMT+08:00] Merging Revision 99ff20514b5759cb80d613103ee7e40647ea5ac1 (fork/error_add) to origin/master, UserMergeOptions{mergeRemote='origin', mergeTarget='master', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/18 10:35:22.748 GMT+08:00] Disable Git LFS pull\n[2026/06/18 10:35:22.600 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindIE-PyMotor.git # timeout=10\n[2026/06/18 10:35:22.610 GMT+08:00]  > git config --add remote.fork.fetch +99ff20514b5759cb80d613103ee7e40647ea5ac1:refs/remotes/fork/error_add # timeout=10\n[2026/06/18 10:35:22.643 GMT+08:00]  > git config remote.fork.url https://gitcode.com/Ascend/MindIE-PyMotor.git # timeout=10\n[2026/06/18 10:35:22.652 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 10:35:22.652 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 10:35:22.653 GMT+08:00] scmType is gitcode\n[2026/06/18 10:35:22.653 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-PyMotor.git +99ff20514b5759cb80d613103ee7e40647ea5ac1:refs/remotes/fork/error_add # timeout=120\n[2026/06/18 10:35:22.679 GMT+08:00]  > git config remote.origin.url https://gitcode.com/Ascend/MindIE-PyMotor.git # timeout=10\n[2026/06/18 10:35:22.687 GMT+08:00] Fetching upstream changes from https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 10:35:22.687 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 10:35:22.688 GMT+08:00] scmType is gitcode\n[2026/06/18 10:35:22.688 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/Ascend/MindIE-PyMotor.git +0b822d6f1ed12fba5110dd3f9aa4caf20e1c8b0f:refs/remotes/origin/master # timeout=120\n[2026/06/18 10:35:22.705 GMT+08:00]  > git rev-parse fork/error_add^{commit} # timeout=10\n[2026/06/18 10:35:22.718 GMT+08:00]  > git rev-parse origin/error_add^{commit} # timeout=10\n[2026/06/18 10:35:22.739 GMT+08:00]  > git rev-parse origin/master^{commit} # timeout=10\n[2026/06/18 10:35:22.754 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/18 10:35:22.763 GMT+08:00]  > git checkout -f origin/master # timeout=120\n[2026/06/18 10:35:22.823 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/18 10:35:22.836 GMT+08:00]  > git checkout -b error_add origin/master # timeout=120\n[2026/06/18 10:35:22.903 GMT+08:00]  > git remote # timeout=10\n[2026/06/18 10:35:22.912 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/18 10:35:22.917 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/18 10:35:22.918 GMT+08:00] scmType is gitcode\n[2026/06/18 10:35:22.919 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/18 10:35:23.023 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/18 10:35:27.039 GMT+08:00] Checking out Revision 6c517f9def4a087e245f3f98eb8ad5fd253a7aec (origin/master)\n[2026/06/18 10:35:27.039 GMT+08:00] Disable Git LFS pull\n[2026/06/18 10:35:26.945 GMT+08:00] Seen branch in repository fork/error_add\n[2026/06/18 10:35:26.945 GMT+08:00] Seen branch in repository origin/master\n[2026/06/18 10:35:26.945 GMT+08:00] Seen 2 remote branches\n[2026/06/18 10:35:27.020 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/18 10:35:27.044 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/18 10:35:27.054 GMT+08:00]  > git checkout -f 6c517f9def4a087e245f3f98eb8ad5fd253a7aec # timeout=120\n[2026/06/18 10:35:27.069 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/18 10:35:27.081 GMT+08:00]  > git branch -D error_add # timeout=10\n[2026/06/18 10:35:27.089 GMT+08:00]  > git checkout -b error_add 6c517f9def4a087e245f3f98eb8ad5fd253a7aec # timeout=120\n[2026/06/18 10:35:27.789 GMT+08:00] Commit message: \"Merge commit '99ff20514b5759cb80d613103ee7e40647ea5ac1' into error_add\"\n[2026/06/18 10:35:27.789 GMT+08:00] First time build. Skipping changelog.\n[2026/06/18 10:35:27.818 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/18 10:35:27.877 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/18 10:35:29.465 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 10:35:29.465 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 10:35:29.465 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 10:35:30.851 GMT+08:00] + cat\n[2026/06/18 10:35:30.851 GMT+08:00] + cat shell.sh\n[2026/06/18 10:35:30.851 GMT+08:00] #! /bin/bash\n[2026/06/18 10:35:30.851 GMT+08:00] set -e\n[2026/06/18 10:35:30.851 GMT+08:00] git config --global http.lowSpeedLimit 0\n[2026/06/18 10:35:30.851 GMT+08:00] git config --global http.lowSpeedTime 600\n[2026/06/18 10:35:30.851 GMT+08:00] git config --global http.postBuffer 524288000\n[2026/06/18 10:35:30.851 GMT+08:00] git config --global http.timeout 500\n[2026/06/18 10:35:30.851 GMT+08:00] \n[2026/06/18 10:35:30.851 GMT+08:00] [ -f /home/jenkins/.gitconfig ] && cp /home/jenkins/.gitconfig ~/.gitconfig\n[2026/06/18 10:35:30.851 GMT+08:00] [ -f /home/jenkins/.git-credentials ] && cp /home/jenkins/.git-credentials ~/.git-credentials\n[2026/06/18 10:35:30.851 GMT+08:00] \n[2026/06/18 10:35:30.851 GMT+08:00] pip list |grep torch\n... [skipped 8 lines] ...\n[2026/06/18 10:35:30.851 GMT+08:00] # if git clone -b ${branch} ${repo_url} ${local_rep_name}; then\n[2026/06/18 10:35:30.851 GMT+08:00] #   git clone ${repo_url} ${local_rep_name}\n... [skipped 20 lines] ...\n[2026/06/18 10:35:34.343 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : download file result: SUCCESS\n[2026/06/18 10:35:34.344 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : 该步骤执行完成\n[2026/06/18 10:35:34.341 GMT+08:00] [INFO] [下载文件管理的文件:external_download_file] : download kubeconfig_karmada.key end.\n[2026/06/18 10:35:35.972 GMT+08:00] starting check in ***/@tmp/durable-f4ad5aef\n[2026/06/18 10:35:36.235 GMT+08:00] latest: Pulling from modelfoundry/karmada\n[2026/06/18 10:35:36.235 GMT+08:00] Digest: sha256:47bcd705e01a305f3998961ce586507385e4fae95b0c978ee78423fa937a979d\n[2026/06/18 10:35:36.235 GMT+08:00] Status: Image is up to date for swr.cn-southwest-2.myhuaweicloud.com/modelfoundry/karmada:latest\n[2026/06/18 10:35:37.424 GMT+08:00] + /workspace/workflowtool/entrypoint.sh\n[2026/06/18 10:35:37.424 GMT+08:00] kebuconfig file: ***//kubeconfig_karmada.key\n[2026/06/18 10:35:37.424 GMT+08:00] 读取 kubeconfig.key 文件...\n[2026/06/18 10:35:37.424 GMT+08:00] 读取 shell.sh: shell.sh\n[2026/06/18 10:35:37.424 GMT+08:00] CP_runs_on: arm64-cpu-16-mem-32G\n[2026/06/18 10:35:37.424 GMT+08:00] CP_docker_image: swr.cn-north-4.myhuaweicloud.com/inference/ascend_mindie_ubuntu_aarch64:20260305_ubuntu24_3.0.0_cann8.5.1_torch2.1.0_py311\n[2026/06/18 10:35:37.424 GMT+08:00] CP_pipeline_run_id: a0b8c8c7fccd465e9c22eb761ebda66a\n[2026/06/18 10:35:37.424 GMT+08:00] CP_merge_id: 317\n[2026/06/18 10:35:37.425 GMT+08:00] CP_repo_url: https://gitcode.com/Ascend/MindIE-PyMotor.git\n[2026/06/18 10:35:37.425 GMT+08:00] 环境变量数量: 73\n[2026/06/18 10:35:37.433 GMT+08:00] starting check in ***/@tmp/durable-57a30577\n[2026/06/18 10:35:37.691 GMT+08:00] 成功生成 YAML 文件: ./workflowtool/workflow.yaml\n[2026/06/18 10:35:37.691 GMT+08:00] === Pre-submit validation ===\n[2026/06/18 10:35:43.058 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement\n[2026/06/18 10:35:43.058 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/\n[2026/06/18 10:35:48.400 GMT+08:00] [OK] Git-cache found, injecting git proxy config\n[2026/06/18 10:35:48.400 GMT+08:00] [GIT] Injected git proxy config into main-script\n[2026/06/18 10:35:48.664 GMT+08:00] [OK] Queue 'shared-flexible-queue' exists in cluster\n[2026/06/18 10:35:48.664 GMT+08:00] [INFO] Checking StorageClasses\n[2026/06/18 10:35:49.243 GMT+08:00] [OK] StorageClass 'sfsturbo-subpath-sc' exists\n[2026/06/18 10:35:49.243 GMT+08:00] [SKIP] No chip-specific nodeSelector in workflow\n[2026/06/18 10:35:49.243 GMT+08:00] [SKIP] No PVC mounts in workflow\n[2026/06/18 10:35:49.243 GMT+08:00] [DONE] Created validated workflow: ./workflowtool/workflow.yaml.validated\n[2026/06/18 10:35:50.225 GMT+08:00] Volcano Job submitted: ascend-mindie-pymotor-db8zb\n[2026/06/18 10:35:50.225 GMT+08:00] 等待主 Pod (main-script) 出现...\n[2026/06/18 10:35:54.484 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-db8zb' 的 pod\n[2026/06/18 10:36:01.454 GMT+08:00] Job ascend-mindie-pymotor-db8zb 的主 Pod: ascend-mindie-pymotor-db8zb-main-script-0\n[2026/06/18 10:36:01.454 GMT+08:00] 等待 Job ascend-mindie-pymotor-db8zb 的 Pod 启动...\n[2026/06/18 10:36:06.819 GMT+08:00] [日志] 等待 Pod ascend-mindie-pymotor-db8zb-main-script-0 开始运行...\n[2026/06/18 10:36:06.819 GMT+08:00] [日志] Pod 状态: Running，开始连接日志\n[2026/06/18 10:36:06.819 GMT+08:00] [日志] 连接 kubectl logs ascend-mindie-pymotor-db8zb-main-script-0 ...\n[2026/06/18 10:36:07.780 GMT+08:00] Cloning into '/workspace'...\n[2026/06/18 10:36:07.780 GMT+08:00] From http://git-cache-http-server.git-cache.svc.cluster.local:8080/Ascend/MindIE-PyMotor\n[2026/06/18 10:36:07.780 GMT+08:00]  * [new ref]         refs/merge-requests/317/head -> pr\n[2026/06/18 10:36:07.780 GMT+08:00] Merge made by the 'ort' strategy.\n[2026/06/18 10:36:07.780 GMT+08:00]  motor/version.info | 3 ---\n[2026/06/18 10:36:07.780 GMT+08:00]  1 file changed, 3 deletions(-)\n[2026/06/18 10:36:07.780 GMT+08:00]  delete mode 100644 motor/version.info\n[2026/06/18 10:36:07.780 GMT+08:00] torch                     2.1.0\n[2026/06/18 10:36:07.780 GMT+08:00] torch-npu                 2.1.0.post18.dev20251112\n[2026/06/18 10:36:07.780 GMT+08:00] --2026-06-18 10:36:06--  https://mindie-pr.obs.cn-north-4.myhuaweicloud.com/Private_repository/MindIE-PyMotor/317/ci_target/cie.zip\n[2026/06/18 10:36:07.780 GMT+08:00] Resolving mindie-pr.obs.cn-north-4.myhuaweicloud.com (mindie-pr.obs.cn-north-4.myhuaweicloud.com)... ***.***.***.82\n[2026/06/18 10:36:07.780 GMT+08:00] Connecting to mindie-pr.obs.cn-north-4.myhuaweicloud.com (mindie-pr.obs.cn-north-4.myhuaweicloud.com)|***.***.***.82|:443... connected.\n[2026/06/18 10:36:07.780 GMT+08:00] HTTP request sent, awaiting response... 200 OK\n[2026/06/18 10:36:07.780 GMT+08:00] Length: 552253 (539K) [application/zip]\n[2026/06/18 10:36:07.780 GMT+08:00] Saving to: ‘cie.zip’\n[2026/06/18 10:36:07.780 GMT+08:00] \n[2026/06/18 10:36:07.780 GMT+08:00]      0K .......... .......... .......... .......... ..........  9%  721K 1s\n... [skipped 185 lines] ...\n[2026/06/18 10:36:08.744 GMT+08:00] + bash //cie/build/retry_command.sh 'rm -rf MindIE-PyMotor && git clone --no-tags --single-branch -b master https://gitcode.com/Ascend/MindIE-PyMotor.git MindIE-PyMotor'\n... [skipped 6 lines] ...\n[2026/06/18 10:36:08.745 GMT+08:00] + git fetch origin master\n[2026/06/18 10:36:09.704 GMT+08:00] + git fetch --no-tags origin refs/merge-requests/317/head:pr_317\n[2026/06/18 10:36:09.704 GMT+08:00] + git checkout -b new_master\n... [skipped 68 lines] ...\n[2026/06/18 10:36:09.706 GMT+08:00] + pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple -r requirements.txt\n... [skipped 187 lines] ...\n[2026/06/18 10:36:36.610 GMT+08:00]   Attempting uninstall: pydantic\n[2026/06/18 10:36:36.610 GMT+08:00]     Found existing installation: pydantic 2.6.4\n[2026/06/18 10:36:36.610 GMT+08:00]     Uninstalling pydantic-2.6.4:\n[2026/06/18 10:36:36.610 GMT+08:00]       Successfully uninstalled pydantic-2.6.4\n[2026/06/18 10:36:37.568 GMT+08:00]   Attempting uninstall: cryptography\n[2026/06/18 10:36:37.568 GMT+08:00]     Found existing installation: cryptography 46.0.5\n[2026/06/18 10:36:37.568 GMT+08:00]     Uninstalling cryptography-46.0.5:\n[2026/06/18 10:36:37.569 GMT+08:00]       Successfully uninstalled cryptography-46.0.5\n[2026/06/18 10:36:39.558 GMT+08:00]   Attempting uninstall: huggingface-hub\n[2026/06/18 10:36:39.558 GMT+08:00]     Found existing installation: huggingface_hub 0.36.2\n[2026/06/18 10:36:39.558 GMT+08:00]     Uninstalling huggingface_hub-0.36.2:\n[2026/06/18 10:36:39.558 GMT+08:00]       Successfully uninstalled huggingface_hub-0.36.2\n[2026/06/18 10:36:40.528 GMT+08:00]   Attempting uninstall: tokenizers\n[2026/06/18 10:36:40.528 GMT+08:00]     Found existing installation: tokenizers 0.13.3\n[2026/06/18 10:36:40.528 GMT+08:00]     Uninstalling tokenizers-0.13.3:\n[2026/06/18 10:36:40.528 GMT+08:00]       Successfully uninstalled tokenizers-0.13.3\n[2026/06/18 10:36:40.528 GMT+08:00]   Attempting uninstall: transformers\n[2026/06/18 10:36:40.528 GMT+08:00]     Found existing installation: transformers 4.30.2\n[2026/06/18 10:36:40.528 GMT+08:00]     Uninstalling transformers-4.30.2:\n[2026/06/18 10:36:41.481 GMT+08:00]       Successfully uninstalled transformers-4.30.2\n[2026/06/18 10:36:48.582 GMT+08:00] \n[2026/06/18 10:36:48.583 GMT+08:00] Successfully installed Pillow-12.2.0 annotated-doc-0.0.4 anyio-4.14.0 click-8.4.1 confluent_kafka-2.14.2 cryptography-49.0.0 durationpy-0.10 fastapi-0.137.1 googleapis-common-protos-1.75.0 grpcio-1.81.1 grpcio-tools-1.81.1 h11-0.16.0 hf-xet-1.5.1 httpcore-1.0.9 httpcore2-2.4.0 httptools-0.8.0 httpx-0.28.1 httpx2-2.4.0 huggingface-hub-1.19.0 idna-3.18 iniconfig-2.3.0 kubernetes-35.0.0 msgspec-0.21.1 oauthlib-3.3.1 opentelemetry-api-1.42.1 opentelemetry-exporter-otlp-proto-common-1.42.1 opentelemetry-exporter-otlp-proto-grpc-1.42.1 opentelemetry-exporter-otlp-proto-http-1.42.1 opentelemetry-proto-1.42.1 opentelemetry-sdk-1.42.1 opentelemetry-semantic-conventions-0.63b1 pluggy-1.6.0 protobuf-6.33.6 pyOpenSSL-26.3.0 pydantic-2.13.4 pydantic-core-2.46.4 pytest-9.1.0 pytest-asyncio-1.4.0 python-dotenv-1.2.2 pyzmq-27.1.0 requests-oauthlib-2.0.0 setproctitle-1.3.7 setuptools-82.0.1 shellingham-1.5.4 starlette-1.3.1 tokenizers-0.22.2 transformers-5.12.1 truststore-0.10.4 typer-0.25.1 typing-inspection-0.4.2 uvicorn-0.49.0 uvloop-0.22.1 watchdog-6.0.0 watchfiles-1.2.0 websocket-client-1.9.0 websockets-16.0\n[2026/06/18 10:36:48.583 GMT+08:00] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\n[2026/06/18 10:36:49.539 GMT+08:00] \n[2026/06/18 10:36:49.540 GMT+08:00] [notice] A new release of pip is available: 26.0.1 -> 26.1.2\n[2026/06/18 10:36:49.540 GMT+08:00] [notice] To update, run: pip install --upgrade pip\n[2026/06/18 10:36:50.600 GMT+08:00] + cd /MindIE-PyMotor\n[2026/06/18 10:36:50.600 GMT+08:00] + sh build.sh\n[2026/06/18 10:36:50.600 GMT+08:00] Generating protobuf files...\n[2026/06/18 10:36:50.600 GMT+08:00] Generating code from ./motor/common/etcd/proto/rpc.proto...\n[2026/06/18 10:36:50.600 GMT+08:00] ✓ Successfully generated code from ./motor/common/etcd/proto/rpc.proto\n[2026/06/18 10:36:50.601 GMT+08:00]   Fixed import paths in rpc_pb2_grpc.py\n[2026/06/18 10:36:50.601 GMT+08:00]   Fixed import paths in rpc_pb2.py\n[2026/06/18 10:36:50.601 GMT+08:00] Generating code from ./motor/common/etcd/proto/kv.proto...\n[2026/06/18 10:36:50.601 GMT+08:00] ✓ Successfully generated code from ./motor/common/etcd/proto/kv.proto\n[2026/06/18 10:36:50.601 GMT+08:00]   Fixed import paths in kv_pb2_grpc.py\n[2026/06/18 10:36:50.601 GMT+08:00]   Fixed import paths in kv_pb2.py\n[2026/06/18 10:36:50.601 GMT+08:00] Generating code from ./motor/common/etcd/proto/auth.proto...\n[2026/06/18 10:36:50.601 GMT+08:00] ✓ Successfully generated code from ./motor/common/etcd/proto/auth.proto\n[2026/06/18 10:36:50.601 GMT+08:00]   Fixed import paths in auth_pb2_grpc.py\n[2026/06/18 10:36:50.601 GMT+08:00]   Fixed import paths in auth_pb2.py\n[2026/06/18 10:36:50.601 GMT+08:00] All protobuf files generated successfully.\n[2026/06/18 10:36:50.601 GMT+08:00] Building wheel package with pip wheel (PEP517)... (VERBOSE=0)\n[2026/06/18 10:36:53.928 GMT+08:00] \n[2026/06/18 10:36:53.929 GMT+08:00] [notice] A new release of pip is available: 26.0.1 -> 26.1.2\n[2026/06/18 10:36:53.929 GMT+08:00] [notice] To update, run: pip install --upgrade pip\n[2026/06/18 10:36:53.929 GMT+08:00] + cd ./examples/features/observability\n[2026/06/18 10:36:53.929 GMT+08:00] + bash -x build.sh\n[2026/06/18 10:36:53.929 GMT+08:00] + set -euo pipefail\n[2026/06/18 10:36:53.929 GMT+08:00] + VERBOSE=0\n[2026/06/18 10:36:53.929 GMT+08:00] + rm -rf build/\n[2026/06/18 10:36:53.929 GMT+08:00] + rm -rf dist/\n[2026/06/18 10:36:53.929 GMT+08:00] + echo 'Building wheel package with pip wheel (PEP517)... (VERBOSE=0)'\n[2026/06/18 10:36:53.929 GMT+08:00] Building wheel package with pip wheel (PEP517)... (VERBOSE=0)\n[2026/06/18 10:36:53.929 GMT+08:00] + cmd=(python setup.py sdist bdist_wheel)\n[2026/06/18 10:36:53.929 GMT+08:00] + [[ 0 -eq 0 ]]\n[2026/06/18 10:36:53.929 GMT+08:00] + cmd+=(-q)\n[2026/06/18 10:36:53.929 GMT+08:00] + python setup.py sdist bdist_wheel -q\n[2026/06/18 10:36:53.929 GMT+08:00] running sdist\n[2026/06/18 10:36:53.929 GMT+08:00] running egg_info\n[2026/06/18 10:36:53.929 GMT+08:00] creating ccae_reporter.egg-info\n[2026/06/18 10:36:53.929 GMT+08:00] writing ccae_reporter.egg-info/PKG-INFO\n[2026/06/18 10:36:53.929 GMT+08:00] writing dependency_links to ccae_reporter.egg-info/dependency_links.txt\n... [skipped 48 lines] ...\n[2026/06/18 10:36:53.930 GMT+08:00] running bdist_wheel\n[2026/06/18 10:36:53.930 GMT+08:00] running build_py\n... [skipped 26 lines] ...\n[2026/06/18 10:36:53.931 GMT+08:00] /opt/buildtools/python-3.11.4/lib/python3.11/site-packages/setuptools/_distutils/cmd.py:90: SetuptoolsDeprecationWarning: setup.py install is deprecated.\n... [skipped 80 lines] ...\n[2026/06/18 10:36:53.933 GMT+08:00] + mkdir -p /MindIE-PyMotor/x86_64\n[2026/06/18 10:36:53.933 GMT+08:00] + touch /MindIE-PyMotor/aarch64/dummy_aarch64.whl\n[2026/06/18 10:36:53.933 GMT+08:00] + touch /MindIE-PyMotor/x86_64/dummy_x86_64.whl\n[2026/06/18 10:36:53.933 GMT+08:00] + ls /MindIE-PyMotor/dist/motor-0.1.0-py3-none-any.whl\n[2026/06/18 10:36:53.933 GMT+08:00] ++ uname -i\n[2026/06/18 10:36:53.933 GMT+08:00] + '[' aarch64 = aarch64 ']'\n[2026/06/18 10:36:53.933 GMT+08:00] + cp /MindIE-PyMotor/dist/motor-0.1.0-py3-none-any.whl /MindIE-PyMotor/aarch64\n[2026/06/18 10:36:53.933 GMT+08:00] ++ uname -i\n[2026/06/18 10:36:53.933 GMT+08:00] + '[' aarch64 = x86_64 ']'\n[2026/06/18 10:36:53.933 GMT+08:00] + ls /MindIE-PyMotor/examples/features/observability/dist/ccae_reporter-1.0.0-py3-none-any.whl\n[2026/06/18 10:36:53.933 GMT+08:00] ++ uname -i\n[2026/06/18 10:36:53.933 GMT+08:00] + '[' aarch64 = aarch64 ']'\n[2026/06/18 10:36:53.933 GMT+08:00] + cp /MindIE-PyMotor/examples/features/observability/dist/ccae_reporter-1.0.0-py3-none-any.whl /MindIE-PyMotor/aarch64\n[2026/06/18 10:36:53.933 GMT+08:00] ++ uname -i\n[2026/06/18 10:36:53.933 GMT+08:00] + '[' aarch64 = x86_64 ']'\n[2026/06/18 10:36:53.933 GMT+08:00] 检测到 artifact Volcano Job，准备从 copy-artifact 容器提取 artifacts...\n[2026/06/18 10:36:53.933 GMT+08:00] 开始提取 artifacts 到 ***/ ...\n[2026/06/18 10:36:53.933 GMT+08:00] 使用 kubectl cp 从 copy-artifact 容器提取 artifacts...\n[2026/06/18 10:36:54.513 GMT+08:00] Artifacts 提取成功\n[2026/06/18 10:36:54.513 GMT+08:00] Job ascend-mindie-pymotor-db8zb 成功完成\n[2026/06/18 10:36:59.855 GMT+08:00] [日志] tail 错误: signal: killed\n[2026/06/18 10:36:59.856 GMT+08:00] 清理 copy-artifact 容器...\n[2026/06/18 10:36:59.856 GMT+08:00] 工作流处理完成\n[2026/06/18 10:37:01.426 GMT+08:00] shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/18 10:37:01.426 GMT+08:00] Digest: sha256:cb2b80ace7897cf5b96f372c7fd4e34c834d5b22b3349018171f5de966334c9e\n[2026/06/18 10:37:01.426 GMT+08:00] Status: Image is up to date for************\n[2026/06/18 10:37:02.608 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤开始执行\n[2026/06/18 10:37:02.611 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 获取上传OBS所需临时凭证。\n[2026/06/18 10:37:02.946 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 解析构建产物路径：x86_64/*whl\n[2026/06/18 10:37:02.947 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 待上传的文件列表：\n[2026/06/18 10:37:03.107 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_PAXJpoto/x86_64/dummy_x86_64.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/317/abi0/x86_64/dummy_x86_64.whl\n[2026/06/18 10:37:03.108 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 初始化OBS客户端\n[2026/06/18 10:37:04.589 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 上传文件到OBS....\n[2026/06/18 10:37:05.208 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : resolve package info...\n[2026/06/18 10:37:05.208 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : outputs {\"dummy_x86_64.whl\":{\"name\":\"dummy_x86_64.whl\",\"version\":\"20260618.6\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/317/abi0/x86_64/dummy_x86_64.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"0.00KB\"}}\n[2026/06/18 10:37:05.228 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤执行完成\n[2026/06/18 10:37:05.296 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤开始执行\n[2026/06/18 10:37:05.297 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 获取上传OBS所需临时凭证。\n[2026/06/18 10:37:05.564 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : resolve package info...\n[2026/06/18 10:37:05.564 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : outputs {\"dummy_aarch64.whl\":{\"name\":\"dummy_aarch64.whl\",\"version\":\"20260618.6\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/317/abi0/aarch64/dummy_aarch64.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"0.00KB\"},\"ccae_reporter-1.0.0-py3-none-any.whl\":{\"name\":\"ccae_reporter-1.0.0-py3-none-any.whl\",\"version\":\"20260618.6\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"cf491a1a7e44000cc3810e622ba19a24df533b82f2f7387fdca78b6b18d24fb4\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/317/abi0/aarch64/ccae_reporter-1.0.0-py3-none-any.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"31.65KB\"},\"motor-0.1.0-py3-none-any.whl\":{\"name\":\"motor-0.1.0-py3-none-any.whl\",\"version\":\"20260618.6\",\"packageType\":\"whl\",\"type\":\"package\",\"uploadTarget\":\"obs\",\"hashCode\":[{\"hash_type\":\"SHA256\",\"hash_value\":\"aeb5aefa4a8daa43ff8b6310f825841d57ebffe024045414a5cd4424f2cdb059\"}],\"obsBucketName\":\"mindie-pr\",\"obsPath\":\"monitor/ascend/MindIE-Pymotor/317/abi0/aarch64/motor-0.1.0-py3-none-any.whl\",\"obsEndPoint\":\"obs.cn-north-4.myhuaweicloud.com\",\"fileSize\":\"715.38KB\"}}\n[2026/06/18 10:37:05.595 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 该步骤执行完成\n[2026/06/18 10:37:05.622 GMT+08:00] [INFO] [上传archive文件到OBS:user_properties] : 该步骤开始执行\n[2026/06/18 10:37:05.647 GMT+08:00] [INFO] [上传archive文件到OBS:user_properties] : 该步骤执行完成\n[2026/06/18 10:37:05.205 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 成功上传文件到OBS\n[2026/06/18 10:37:05.329 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 解析构建产物路径：aarch64/*whl\n[2026/06/18 10:37:05.329 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 待上传的文件列表：\n[2026/06/18 10:37:05.333 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_PAXJpoto/aarch64/dummy_aarch64.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/317/abi0/aarch64/dummy_aarch64.whl\n[2026/06/18 10:37:05.336 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_PAXJpoto/aarch64/ccae_reporter-1.0.0-py3-none-any.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/317/abi0/aarch64/ccae_reporter-1.0.0-py3-none-any.whl\n[2026/06/18 10:37:05.339 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] :     本地文件： ******/j_PAXJpoto/aarch64/motor-0.1.0-py3-none-any.whl， OBS存储路径： monitor/ascend/MindIE-Pymotor/317/abi0/aarch64/motor-0.1.0-py3-none-any.whl\n[2026/06/18 10:37:05.339 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 初始化OBS客户端\n[2026/06/18 10:37:05.344 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 上传文件到OBS....\n[2026/06/18 10:37:05.562 GMT+08:00] [INFO] [上传archive文件到OBS:external_obs_uploader] : 成功上传文件到OBS\n[2026/06/18 10:37:06.967 GMT+08:00] [INFO]  : find empty location by state: mMZAFLtu\n[2026/06/18 10:37:07.002 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_PAXJpoto #1\n[2026/06/18 10:37:12.866 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker\n[2026/06/18 10:37:13.202 GMT+08:00] Finished: SUCCESS",
       "log_stats": {
-        "total_timestamped_lines": 917,
-        "sample_lines": 290,
-        "raw_chars": 101320
+        "total_timestamped_lines": 922,
+        "sample_lines": 284,
+        "raw_chars": 101225
       },
       "timestamp_summary": {
-        "first": "2026-06-18T11:38:31.251000+08:00",
-        "last": "2026-06-18T11:42:52.804000+08:00",
-        "duration_seconds": 261.553,
-        "total_timestamped_lines": 917,
-        "sample_lines_included": 290
+        "first": "2026-06-18T10:35:05.691000+08:00",
+        "last": "2026-06-18T10:37:13.202000+08:00",
+        "duration_seconds": 127.511,
+        "total_timestamped_lines": 922,
+        "sample_lines_included": 284
       },
       "significant_gaps": [
         {
-          "after_line": 155,
-          "gap_seconds": 6.626,
-          "before_ts": "2026-06-18T11:39:03.348000+08:00",
-          "after_ts": "2026-06-18T11:39:09.974000+08:00",
-          "sample_before": "[2026/06/18 11:39:03.348 GMT+08:00] === Pre-submit validation ===",
-          "sample_after": "[2026/06/18 11:39:09.974 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement"
+          "after_line": 153,
+          "gap_seconds": 5.367,
+          "before_ts": "2026-06-18T10:35:37.691000+08:00",
+          "after_ts": "2026-06-18T10:35:43.058000+08:00",
+          "sample_before": "[2026/06/18 10:35:37.691 GMT+08:00] === Pre-submit validation ===",
+          "sample_after": "[2026/06/18 10:35:43.058 GMT+08:00] [OK] Harbor registry found, applying image proxy replacement"
         },
         {
-          "after_line": 157,
-          "gap_seconds": 6.629,
-          "before_ts": "2026-06-18T11:39:09.974000+08:00",
-          "after_ts": "2026-06-18T11:39:16.603000+08:00",
-          "sample_before": "[2026/06/18 11:39:09.974 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
-          "sample_after": "[2026/06/18 11:39:16.603 GMT+08:00] [OK] Git-cache found, injecting git proxy config"
+          "after_line": 155,
+          "gap_seconds": 5.342,
+          "before_ts": "2026-06-18T10:35:43.058000+08:00",
+          "after_ts": "2026-06-18T10:35:48.400000+08:00",
+          "sample_before": "[2026/06/18 10:35:43.058 GMT+08:00] [IMAGE] Replaced: swr.cn-north-4.myhuaweicloud.com/ -> harbor-portal.osinfra.cn/north4-myhuaweicloud/",
+          "sample_after": "[2026/06/18 10:35:48.400 GMT+08:00] [OK] Git-cache found, injecting git proxy config"
+        },
+        {
+          "after_line": 166,
+          "gap_seconds": 6.97,
+          "before_ts": "2026-06-18T10:35:54.484000+08:00",
+          "after_ts": "2026-06-18T10:36:01.454000+08:00",
+          "sample_before": "[2026/06/18 10:35:54.484 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-db8zb' 的 pod",
+          "sample_after": "[2026/06/18 10:36:01.454 GMT+08:00] Job ascend-mindie-pymotor-db8zb 的主 Pod: ascend-mindie-pymotor-db8zb-main-script-0"
         },
         {
           "after_line": 168,
-          "gap_seconds": 8.47,
-          "before_ts": "2026-06-18T11:39:22.622000+08:00",
-          "after_ts": "2026-06-18T11:39:31.092000+08:00",
-          "sample_before": "[2026/06/18 11:39:22.622 GMT+08:00]   未找到任何匹配 label 'volcano.sh/job-name=ascend-mindie-pymotor-bfhwg' 的 pod",
-          "sample_after": "[2026/06/18 11:39:31.092 GMT+08:00] Job ascend-mindie-pymotor-bfhwg 的主 Pod: ascend-mindie-pymotor-bfhwg-main-script-0"
+          "gap_seconds": 5.365,
+          "before_ts": "2026-06-18T10:36:01.454000+08:00",
+          "after_ts": "2026-06-18T10:36:06.819000+08:00",
+          "sample_before": "[2026/06/18 10:36:01.454 GMT+08:00] 等待 Job ascend-mindie-pymotor-db8zb 的 Pod 启动...",
+          "sample_after": "[2026/06/18 10:36:06.819 GMT+08:00] [日志] 等待 Pod ascend-mindie-pymotor-db8zb-main-script-0 开始运行..."
         },
         {
-          "after_line": 170,
-          "gap_seconds": 5.451,
-          "before_ts": "2026-06-18T11:39:31.092000+08:00",
-          "after_ts": "2026-06-18T11:39:36.543000+08:00",
-          "sample_before": "[2026/06/18 11:39:31.092 GMT+08:00] 等待 Job ascend-mindie-pymotor-bfhwg 的 Pod 启动...",
-          "sample_after": "[2026/06/18 11:39:36.543 GMT+08:00] [日志] 等待 Pod ascend-mindie-pymotor-bfhwg-main-script-0 开始运行..."
+          "after_line": 665,
+          "gap_seconds": 7.101,
+          "before_ts": "2026-06-18T10:36:41.481000+08:00",
+          "after_ts": "2026-06-18T10:36:48.582000+08:00",
+          "sample_before": "[2026/06/18 10:36:41.481 GMT+08:00]       Successfully uninstalled transformers-4.30.2",
+          "sample_after": "[2026/06/18 10:36:48.582 GMT+08:00] "
         },
         {
-          "after_line": 171,
-          "gap_seconds": 127.564,
-          "before_ts": "2026-06-18T11:39:36.543000+08:00",
-          "after_ts": "2026-06-18T11:41:44.107000+08:00",
-          "sample_before": "[2026/06/18 11:39:36.543 GMT+08:00] [日志] 等待 Pod ascend-mindie-pymotor-bfhwg-main-script-0 开始运行...",
-          "sample_after": "[2026/06/18 11:41:44.107 GMT+08:00] [日志] Pod 状态: Running，开始连接日志"
+          "after_line": 886,
+          "gap_seconds": 5.342,
+          "before_ts": "2026-06-18T10:36:54.513000+08:00",
+          "after_ts": "2026-06-18T10:36:59.855000+08:00",
+          "sample_before": "[2026/06/18 10:36:54.513 GMT+08:00] Job ascend-mindie-pymotor-db8zb 成功完成",
+          "sample_after": "[2026/06/18 10:36:59.855 GMT+08:00] [日志] tail 错误: signal: killed"
         },
         {
-          "after_line": 660,
-          "gap_seconds": 8.17,
-          "before_ts": "2026-06-18T11:42:17.552000+08:00",
-          "after_ts": "2026-06-18T11:42:25.722000+08:00",
-          "sample_before": "[2026/06/18 11:42:17.552 GMT+08:00]       Successfully uninstalled transformers-4.30.2",
-          "sample_after": "[2026/06/18 11:42:25.722 GMT+08:00] "
-        },
-        {
-          "after_line": 876,
-          "gap_seconds": 5.337,
-          "before_ts": "2026-06-18T11:42:29.999000+08:00",
-          "after_ts": "2026-06-18T11:42:35.336000+08:00",
-          "sample_before": "[2026/06/18 11:42:29.999 GMT+08:00] + '[' aarch64 = x86_64 ']'",
-          "sample_after": "[2026/06/18 11:42:35.336 GMT+08:00] 检测到 artifact Volcano Job，准备从 copy-artifact 容器提取 artifacts..."
-        },
-        {
-          "after_line": 882,
-          "gap_seconds": 5.423,
-          "before_ts": "2026-06-18T11:42:35.600000+08:00",
-          "after_ts": "2026-06-18T11:42:41.023000+08:00",
-          "sample_before": "[2026/06/18 11:42:35.600 GMT+08:00] Job ascend-mindie-pymotor-bfhwg 成功完成",
-          "sample_after": "[2026/06/18 11:42:41.023 GMT+08:00] 清理 copy-artifact 容器..."
-        },
-        {
-          "after_line": 915,
-          "gap_seconds": 5.666,
-          "before_ts": "2026-06-18T11:42:47.006000+08:00",
-          "after_ts": "2026-06-18T11:42:52.672000+08:00",
-          "sample_before": "[2026/06/18 11:42:47.006 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_a7PGEZgO #1",
-          "sample_after": "[2026/06/18 11:42:52.672 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker"
+          "after_line": 920,
+          "gap_seconds": 5.864,
+          "before_ts": "2026-06-18T10:37:07.002000+08:00",
+          "after_ts": "2026-06-18T10:37:12.866000+08:00",
+          "sample_before": "[2026/06/18 10:37:07.002 GMT+08:00] [INFO]  : [JobStatusPlugin] onCompleted: j_PAXJpoto #1",
+          "sample_after": "[2026/06/18 10:37:12.866 GMT+08:00] [INFO]  : [frame] current slave-type: k8sdockerondocker"
         }
       ],
       "pre_build": {
-        "total_seconds": 220.064,
-        "pct_of_total": 84.14,
-        "orchestrator": "volcano",
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-18T11:38:31.387000+08:00",
-            "end": "2026-06-18T11:38:36.084000+08:00",
-            "duration_seconds": 4.697,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 → create execution node cce-codeci-88c172ad4c ok → Find available executor node:cce-codeci-88c172ad4c → 该步骤执行完成"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-18T11:38:37.924000+08:00",
-            "end": "2026-06-18T11:39:01.893000+08:00",
-            "duration_seconds": 0.0,
-            "evidence": "4次容器镜像拉取检查，均命中缓存(Image is up to date): shell4.2.46-git2.23-zip-1.1.0 (11:38:37, 11:38:43, 11:38:55) 和 modelfoundry/karmada:latest (11:39:01)。无实际下载耗时。"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "cache_check",
             "name": "缓存检查",
-            "start": "2026-06-18T11:38:41.303000+08:00",
-            "end": "2026-06-18T11:38:42.120000+08:00",
-            "duration_seconds": 0.817,
-            "evidence": "[Cache Check:external_cache_check] 该步骤开始执行 → docker rm (warning, no container) → 该步骤执行完成"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-18T11:38:44.765000+08:00",
-            "end": "2026-06-18T11:38:53.392000+08:00",
-            "duration_seconds": 8.627,
-            "evidence": "[代码检出:external_pre_checkout] 开始 (git plugin 1.12.5) → git init/fetch/merge/checkout → [代码检出:external_post_checkout] 执行完成。检出fork分支 fix/deployer-progress-log-throughput 合并到 origin/master，commit b0785458798b"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
-            "key": "file_download",
-            "name": "文件下载",
-            "start": "2026-06-18T11:38:56.475000+08:00",
-            "end": "2026-06-18T11:38:59.756000+08:00",
-            "duration_seconds": 3.281,
-            "evidence": "[下载文件管理的文件:external_download_file] download kubeconfig_karmada.key end. → download file result: SUCCESS → 该步骤执行完成。start时间取自触发下载的shell.sh显示时刻，实际开始步在skipped行中。"
+            "key": "git_checkout_pod",
+            "name": "代码检出 (Pod内)",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
-            "key": "env_setup",
-            "name": "环境变量设置",
-            "start": "2026-06-18T11:39:03.080000+08:00",
-            "end": "2026-06-18T11:39:03.348000+08:00",
-            "duration_seconds": 0.268,
-            "evidence": "entrypoint.sh 执行: 读取 kubeconfig.key → 读取 shell.sh → 设置 CP_* 环境变量 (CP_runs_on=arm64-cpu-16-mem-32G, CP_docker_image=ascend_mindie_ubuntu_aarch64, CP_merge_id=309) → 环境变量数量: 73 → 成功生成 YAML 文件: workflow.yaml"
+            "key": "network_retry",
+            "name": "网络重试等待",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "workspace_prep",
+            "name": "工作目录准备",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "pre_submit_validation",
             "name": "前置校验",
-            "start": "2026-06-18T11:39:03.348000+08:00",
-            "end": "2026-06-18T11:39:17.818000+08:00",
-            "duration_seconds": 14.47,
-            "evidence": "=== Pre-submit validation === → [OK] Harbor registry found (image proxy: swr→harbor-portal, 6.63s) → [OK] Git-cache found (git proxy injection, 6.63s) → [OK] Queue shared-flexible-queue exists → [OK] StorageClass sfsturbo-subpath-sc exists → [SKIP] chip-specific nodeSelector → [SKIP] PVC mounts → [DONE] Created validated workflow: workflow.yaml.validated"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "image_proxy",
+            "name": "镜像代理替换",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "git_cache_injection",
+            "name": "Git 缓存注入",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "orchestrator_submit",
             "name": "编排器任务提交",
-            "start": "2026-06-18T11:39:17.818000+08:00",
-            "end": "2026-06-18T11:39:18.393000+08:00",
-            "duration_seconds": 0.575,
-            "evidence": "Validated workflow created (11:39:17.818) → Volcano Job submitted: ascend-mindie-pymotor-bfhwg (11:39:18.393) → 等待主 Pod (main-script) 出现..."
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "pod_scheduling",
             "name": "Pod 调度等待",
-            "start": "2026-06-18T11:39:18.393000+08:00",
-            "end": "2026-06-18T11:41:44.107000+08:00",
-            "duration_seconds": 145.714,
-            "evidence": "Volcano Job submitted (11:39:18.393) → 未找到pod (11:39:22.622, +4.23s) → 主Pod出现: ascend-mindie-pymotor-bfhwg-main-script-0 (11:39:31.092, +12.70s) → 等待Pod启动 (11:39:36.543) → Pod状态: Running (11:41:44.107, +127.56s from last check)。完整调度等待: 145.71s。主要耗时在Pod从Pending到Running的Kubernetes调度+容器启动。"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
-            "key": "pod_git_clone",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-06-18T11:41:44.107000+08:00",
-            "end": "2026-06-18T11:41:46.587000+08:00",
-            "duration_seconds": 2.48,
-            "evidence": "Pod Running后: Cloning into '/workspace' from http://git-cache-http-server.git-cache.svc (缓存命中, <1s) → wget cie.zip 542K from OBS → bash retry_command: git clone MindIE-PyMotor from gitcode.com → git fetch origin master → git fetch refs/merge-requests/309/head:pr_309 → git checkout -b new_master。包含 /workspace 克隆(缓存命中)和源码仓库完整检出。"
+            "key": "artifact_download",
+            "name": "制品/依赖包下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "tool_download",
+            "name": "构建工具下载",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           },
           {
             "key": "pip_install",
             "name": "Python 依赖安装",
-            "start": "2026-06-18T11:41:46.587000+08:00",
-            "end": "2026-06-18T11:42:25.722000+08:00",
-            "duration_seconds": 39.135,
-            "evidence": "pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple -r requirements.txt → 卸载旧版pydantic/cryptography/huggingface-hub/tokenizers/transformers → Successfully installed 42 packages (Pillow, fastapi, grpcio, huggingface-hub, transformers, etc.)"
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "conda_install",
+            "name": "Conda 依赖安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "apt_install",
+            "name": "系统包安装",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
+          },
+          {
+            "key": "env_setup",
+            "name": "环境变量设置",
+            "start": null,
+            "end": null,
+            "duration_seconds": 0,
+            "evidence": ""
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 19.015,
-        "pct_of_total": 7.27,
+        "total_seconds": 0,
+        "pct_of_total": 0,
         "actions": [
           {
+            "key": "cmake_configure",
+            "name": "CMake 配置",
+            "duration_seconds": 0
+          },
+          {
             "key": "compilation",
-            "name": "编译构建",
-            "duration_seconds": 3.328,
-            "evidence": "sh build.sh → protobuf 文件生成 (kv.proto, rpc.proto, auth.proto) → Building wheel package with pip wheel (motor) → python setup.py sdist bdist_wheel (observability/ccae_reporter) → archive_package。纯Python构建，无C++编译。"
+            "name": "编译",
+            "duration_seconds": 0
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 15.687,
-            "evidence": "archive_package (cp whl文件到 aarch64/x86_64目录) → 检测artifact Volcano Job → kubectl cp提取artifacts → 清理copy-artifact容器 → shell镜像拉取(缓存命中) → OBS上传 x86_64/*whl 和 aarch64/*whl → user_properties → JobStatusPlugin onCompleted → Finished: SUCCESS"
+            "duration_seconds": 0
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 220.064,
-        "build_seconds": 19.015,
-        "unattributed_seconds": 22.474,
-        "key_bottleneck": "pod_scheduling",
-        "key_bottleneck_seconds": 145.714
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
       }
     }
   ]

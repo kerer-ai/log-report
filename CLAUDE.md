@@ -36,6 +36,13 @@ repos.txt → sync-deploy (全流程编排)
 
 一行一个 GitCode 仓库 URL，`#` 开头为注释。`/sync-deploy` 按顺序读取，PR 号未变则跳过 fetch。
 
+对于使用 Jenkins CI 的仓库（如 openeuler/kernel），在 URL 前加 `# CI_BACKEND:jenkins` 指令：
+
+```
+https://gitcode.com/Ascend/pytorch
+# CI_BACKEND:jenkins
+https://gitcode.com/openeuler/kernel
+
 ```
 https://gitcode.com/Ascend/pytorch
 https://gitcode.com/Ascend/torchair
