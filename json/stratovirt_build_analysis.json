@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "pr": 1963,
+    "repo": "openeuler/stratovirt",
+    "pr_url": "https://gitcode.com/openeuler/stratovirt/merge_requests/1963",
+    "pipeline_name": "multiarch/openeuler/trigger/stratovirt#378",
+    "pipeline_state": "运行成功",
+    "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/stratovirt/378/console",
+    "comment_time": "2026-06-13T19:38:26+08:00",
+    "fetched_at": "2026-06-24T11:50:26.119948+08:00",
+    "analyzed_at": "2026-06-24T11:50:26.119948+08:00",
+    "analysis_method": "jenkins_console_log_parse"
+  },
+  "builds": [
+    {
+      "task_name": "Build_stratovirt",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/stratovirt/378/console",
+      "time": {
+        "start": "2026-06-13T19:35:16+08:00",
+        "end": "2026-06-13T19:38:26+08:00",
+        "duration_seconds": 190.0
+      },
+      "pre_build": {
+        "total_seconds": 171.0,
+        "pct_of_total": 90.0,
+        "orchestrator": "jenkins-k8s",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "K8s Pod调度",
+            "start": "2026-06-13T19:35:16+08:00",
+            "end": "2026-06-13T19:35:33.126000+08:00",
+            "duration_seconds": 17.126,
+            "evidence": "PR #1963 → Jenkins #378"
+          },
+          {
+            "key": "agent_startup",
+            "name": "容器启动",
+            "start": "2026-06-13T19:35:33.126000+08:00",
+            "end": "2026-06-13T19:35:36+08:00",
+            "duration_seconds": 2.874,
+            "evidence": "k8s-x86-oe-20251016-1rcnp"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-06-13T19:35:36+08:00",
+            "end": "2026-06-13T19:35:37+08:00",
+            "duration_seconds": 1.0,
+            "evidence": "clone depth=4"
+          },
+          {
+            "key": "ac_sca_check",
+            "name": "SCA检查",
+            "start": "2026-06-13T19:35:42+08:00",
+            "end": "2026-06-13T19:36:13+08:00",
+            "duration_seconds": 31.0,
+            "evidence": "check stratovirt sca; scanoss"
+          },
+          {
+            "key": "ac_code_check",
+            "name": "Code检查",
+            "start": "2026-06-13T19:36:13+08:00",
+            "end": "2026-06-13T19:37:39+08:00",
+            "duration_seconds": 86.0,
+            "evidence": "check stratovirt code; codecheck"
+          },
+          {
+            "key": "ac_license_check",
+            "name": "License检查",
+            "start": "2026-06-13T19:37:39+08:00",
+            "end": "2026-06-13T19:38:07+08:00",
+            "duration_seconds": 28.0,
+            "evidence": "check stratovirt license; license check"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 19.0,
+        "pct_of_total": 10.0,
+        "actions": [
+          {
+            "key": "arch_builds",
+            "name": "2架构编译",
+            "start": "2026-06-13T19:38:07+08:00",
+            "end": "2026-06-13T19:38:26+08:00",
+            "duration_seconds": 19.0,
+            "evidence": "aarch64=SUCCESS, x86-64=SUCCESS"
+          },
+          {
+            "key": "cleanup",
+            "name": "收尾",
+            "start": "2026-06-13T19:38:26+08:00",
+            "end": "2026-06-13T19:38:26+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "Finished: SUCCESS"
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 171.0,
+        "build_seconds": 19.0,
+        "unattributed_seconds": 0.0,
+        "key_bottleneck": "Code检查",
+        "key_bottleneck_seconds": 86.0,
+        "arch_results": {
+          "x86-64": "SUCCESS",
+          "aarch64": "SUCCESS"
+        },
+        "failed_architectures": []
+      }
+    }
+  ]
+}
