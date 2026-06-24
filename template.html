@@ -557,12 +557,12 @@ function renderRanking(repos) {
     const dur = build.time?.duration_seconds || 0;
     const url = build.detail_url || '';
 
-    // 环境获取 = 节点分配 + Pod调度
+    // 环境获取 = 执行节点分配 + Pod调度等待（含容器就绪）
     const actions = build.pre_build?.actions || [];
     const nodeAssign = actions.find(a => a.key === 'node_assignment')?.duration_seconds || 0;
     const podSched = actions.find(a => a.key === 'pod_scheduling')?.duration_seconds || 0;
     const envAcquire = nodeAssign + podSched;
-    // 其他准备 = Pre-Build 总时间 - 环境获取
+    // 依赖下载 = Pre-Build 总时间 - 环境获取
     const otherPrep = Math.max(0, pre - envAcquire);
 
     return `<tr>
