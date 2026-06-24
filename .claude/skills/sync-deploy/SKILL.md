@@ -18,20 +18,27 @@ repos.txt → [AI] URL发现 → [Script] 日志下载 → [AI] 耗时分析 →
 
 ```
 /sync-deploy                           # 全量模式：检测所有仓库PR变化，增量更新
-/sync-deploy <gitcode-url>             # 单仓模式：检测/更新指定仓库
+/sync-deploy <gitcode-url> [--pr <N>]  # 单仓模式：检测/更新指定仓库，可指定PR
 /sync-deploy --quick                   # 快速模式：只归一化+渲染+推送
 ```
 
 ### 单仓模式
 
-传入单个 GitCode URL，只处理该仓库：
+传入单个 GitCode URL，只处理该仓库。默认自动检测最新 merged PR，也可用 `--pr <N>` 显式指定：
 
 ```
 /sync-deploy https://gitcode.com/Ascend/pytorch
-/sync-deploy # CI_BACKEND:jenkins https://gitcode.com/openeuler/kernel
+/sync-deploy https://gitcode.com/Ascend/pytorch --pr 39080
+/sync-deploy # CI_BACKEND:jenkins https://gitcode.com/openeuler/kernel --pr 24152
 ```
 
 流程：
+1. 确定 PR 号（`--pr` 指定 或 自动检测最新 merged）
+2. 对比 `json-org/<repo>_build_analysis.json` 中 `meta.pr`：
+   - PR 未变 → 跳过，提示无需更新
+   - PR 已变或新仓库 → Stage 1→2→3→4 仅对该仓库执行
+3. 新仓库自动添加到 `repos.txt`
+4. 最终刷新看板
 1. 检测该仓库 PR 是否变化（对比 `json-org/<repo>_build_analysis.json` 中 `meta.pr`）
 2. PR 未变 → 跳过，提示无需更新
 3. PR 已变 → Stage 1→2→3→4 仅对该仓库执行
