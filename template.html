@@ -54,17 +54,6 @@ body {
 .stat-pass { color: var(--green); }
 .stat-fail { color: var(--red); }
 
-.header-controls {
-  display: flex; gap: 10px; flex-wrap: wrap;
-}
-.control-search, .control-select {
-  background: var(--card-bg); color: var(--text-primary);
-  border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 6px 12px; font-size: 0.9rem;
-}
-.control-search { min-width: 180px; }
-.control-search::placeholder { color: var(--text-muted); }
-.control-select { cursor: pointer; }
 
 /* === INSIGHTS === */
 .insights {
@@ -267,7 +256,6 @@ body {
 
 @media (max-width: 480px) {
   .insights { grid-template-columns: 1fr; }
-  .header-controls { flex-direction: column; }
   .ranking-table th:nth-child(3),
   .ranking-table td:nth-child(3) { display: none; }
 }
@@ -282,17 +270,6 @@ body {
     <span class="header-time" id="updateTime">—</span>
   </div>
   <div class="header-stats" id="headerStats"></div>
-  <div class="header-controls">
-    <input type="text" id="searchInput" class="control-search" placeholder="🔍 搜索仓库...">
-    <select id="orchestratorFilter" class="control-select">
-      <option value="all">编排器: 全部</option>
-    </select>
-    <select id="sortSelect" class="control-select">
-      <option value="pre_build_desc">排序: pre_build 耗时 ↓</option>
-      <option value="total_desc">排序: 总耗时 ↓</option>
-      <option value="pre_build_pct_desc">排序: pre_build 占比 ↓</option>
-    </select>
-  </div>
 </header>
 
 <!-- Layer 2: Insight Cards -->
@@ -355,324 +332,7 @@ function validBuilds(repos) {
 
 // ── Filter State ──
 
-let filterState = {
-  search: '',
-  orchestrator: 'all',
-  sort: 'pre_build_desc'
-};
 
-function getFilteredRepos() {
-  let repos = __EMBEDDED_DATA__;
-
-  // Apply orchestrator filter
-  if (filterState.orchestrator !== 'all') {
-    repos = repos.map(repo => {
-      const filteredBuilds = (repo.builds || []).filter(b => {
-        if (b._error) return true; // keep error builds
-        return (b.pre_build?.orchestrator || '') === filterState.orchestrator;
-      });
-      if (filteredBuilds.length === 0) return null;
-      return { ...repo, builds: filteredBuilds, _total_builds: filteredBuilds.length };
-    }).filter(Boolean);
-  }
-
-  // Apply search filter
-  if (filterState.search.trim()) {
-    const q = filterState.search.trim().toLowerCase();
-    repos = repos.filter(repo => {
-      const short = (repo._repo_short || '').toLowerCase();
-      const full = (repo.meta?.repo || '').toLowerCase();
-      return short.includes(q) || full.includes(q) || String(repo.meta?.pr || '').includes(q);
-    });
-  }
-
-  // Apply sort
-  repos = [...repos]; // shallow copy
-  if (filterState.sort === 'total_desc') {
-    repos.sort((a, b) => {
-      const maxA = Math.max(...(a.builds || []).filter(b => b.time).map(b => b.time.duration_seconds || 0));
-      const maxB = Math.max(...(b.builds || []).filter(b => b.time).map(b => b.time.duration_seconds || 0));
-      return maxB - maxA;
-    });
-  } else if (filterState.sort === 'pre_build_pct_desc') {
-    repos.sort((a, b) => {
-      const avgA = avgPreBuildPct(a);
-      const avgB = avgPreBuildPct(b);
-      return avgB - avgA;
-    });
-  } else {
-    // pre_build_desc: sort by max bottleneck seconds
-    repos.sort((a, b) => {
-      const maxA = maxBottleneck(a);
-      const maxB = maxBottleneck(b);
-      return maxB - maxA;
-    });
-  }
-
-  return repos;
-}
-
-function avgPreBuildPct(repo) {
-  const builds = (repo.builds || []).filter(b => b._pre_build_pct != null);
-  if (builds.length === 0) return 0;
-  return builds.reduce((s, b) => s + b._pre_build_pct, 0) / builds.length;
-}
-
-function maxBottleneck(repo) {
-  let max = 0;
-  (repo.builds || []).forEach(b => {
-    const s = b.summary?.key_bottleneck_seconds || 0;
-    if (s > max) max = s;
-  });
-  return max;
-}
-
-// ── Render Layer 1: Header ──
-
-function renderHeader(repos) {
-  const builds = validBuilds(repos);
-  const totalRepos = repos.length;
-  const totalBuilds = builds.length;
-  const failedCount = builds.filter(({build}) => build.status === 'failed').length;
-
-  // Update time
-  const times = repos.map(r => r.meta.fetched_at).filter(Boolean).sort();
-  const latest = times.length > 0 ? times[times.length - 1] : null;
-  document.getElementById('updateTime').textContent = latest
-    ? '更新于 ' + fmtTime(latest)
-    : '';
-
-  // Stats line
-  const passClass = failedCount === 0 ? 'stat-pass' : 'stat-fail';
-  const passText = failedCount === 0 ? '全部通过' : failedCount + ' 失败';
-  document.getElementById('headerStats').innerHTML =
-    `<span><span class="stat-value">${totalRepos}</span><span class="stat-label">仓库</span></span>` +
-    `<span><span class="stat-value">${totalBuilds}</span><span class="stat-label">构建任务</span></span>` +
-    `<span class="${passClass}"><span class="stat-value">${passText}</span></span>`;
-
-  // Orchestrator filter options
-  const orchestrators = new Set();
-  builds.forEach(({build}) => {
-    const o = build.pre_build?.orchestrator;
-    if (o) orchestrators.add(o);
-  });
-  const sel = document.getElementById('orchestratorFilter');
-  Array.from(orchestrators).sort().forEach(o => {
-    const opt = document.createElement('option');
-    opt.value = o;
-    opt.textContent = '编排器: ' + o;
-    sel.appendChild(opt);
-  });
-}
-
-// ── Render Layer 2: Insight Cards ──
-
-function renderInsights(repos) {
-  const builds = validBuilds(repos);
-  if (builds.length === 0) return;
-
-  // Card 2: top bottleneck
-  const bottleneckCounts = {};
-  builds.forEach(({build}) => {
-    const bn = build.summary?.key_bottleneck;
-    if (bn) bottleneckCounts[bn] = (bottleneckCounts[bn] || 0) + 1;
-  });
-  let topBottleneck = '';
-  let topBottleneckCount = 0;
-  let topBottleneckRepos = 0;
-  let topBottleneckMax = 0;
-  let topBottleneckMaxRepo = '';
-  for (const [bn, count] of Object.entries(bottleneckCounts)) {
-    if (count > topBottleneckCount) {
-      topBottleneck = bn;
-      topBottleneckCount = count;
-    }
-  }
-  // Count repos affected and find max
-  const affectedRepos = new Set();
-  builds.forEach(({repo, build}) => {
-    if (build.summary?.key_bottleneck === topBottleneck) {
-      affectedRepos.add(repo._repo_short);
-      const s = build.summary?.key_bottleneck_seconds || 0;
-      if (s > topBottleneckMax) {
-        topBottleneckMax = s;
-        topBottleneckMaxRepo = repo._repo_short;
-      }
-    }
-  });
-  topBottleneckRepos = affectedRepos.size;
-
-  const bnDisplay = topBottleneck.replace(/_/g, ' ');
-
-  // Card 3: Top 3 slowest pre-build actions
-  const allActions = [];
-  builds.forEach(({repo, build}) => {
-    const actions = build.pre_build?.actions || [];
-    actions.forEach(a => {
-      allActions.push({ repo: repo._repo_short, task: build.task_name, action: a.name, seconds: a.duration_seconds });
-    });
-  });
-  allActions.sort((a, b) => b.seconds - a.seconds);
-  const top3 = allActions.slice(0, 3);
-
-  // Card 4: ARM vs x86 comparison
-  const armBuilds = builds.filter(({build}) => build._arch === 'ARM');
-  const x86Builds = builds.filter(({build}) => build._arch === 'x86');
-  const armAvg = armBuilds.length > 0
-    ? Math.round(armBuilds.reduce((s, {build}) => s + (build.pre_build?.total_seconds || 0), 0) / armBuilds.length)
-    : 0;
-  const x86Avg = x86Builds.length > 0
-    ? Math.round(x86Builds.reduce((s, {build}) => s + (build.pre_build?.total_seconds || 0), 0) / x86Builds.length)
-    : 0;
-  const ratio = x86Avg > 0 ? (armAvg / x86Avg).toFixed(1) : '—';
-
-  document.getElementById('insights').innerHTML =
-    `<div class="insight-card">
-      <div class="insight-label">仓库 / 任务</div>
-      <div class="insight-value">${repos.length} <span style="font-size:0.7em;color:var(--text-muted)">/</span> ${builds.length}</div>
-      <div class="insight-sub">${builds.filter(({build}) => build.status === 'failed').length === 0 ? '🟢 全部通过' : '🔴 存在失败'}</div>
-    </div>` +
-    `<div class="insight-card">
-      <div class="insight-label">头号瓶颈</div>
-      <div class="insight-value" style="font-size:1.2rem;">${bnDisplay}</div>
-      <div class="insight-sub">覆盖 ${topBottleneckRepos}/${repos.length} 仓库 · 最长 ${fmtDuration(topBottleneckMax)} (${topBottleneckMaxRepo})</div>
-    </div>` +
-    `<div class="insight-card">
-      <div class="insight-label">最慢 Pre-Build Top 3</div>
-      <div class="insight-sub" style="margin-top:4px;">
-        ${top3.map((a, i) => `<div>${i+1}. ${a.repo} · ${a.action} <b>${fmtDuration(a.seconds)}</b></div>`).join('')}
-      </div>
-    </div>` +
-    `<div class="insight-card">
-      <div class="insight-label">ARM vs x86 Pre-Build</div>
-      <div class="insight-value" style="font-size:1.1rem;">ARM ${fmtDuration(armAvg)} / x86 ${fmtDuration(x86Avg)}</div>
-      <div class="insight-sub">ARM 比 x86 慢 ${ratio}x · ARM ${armBuilds.length}任务 x86 ${x86Builds.length}任务</div>
-    </div>`;
-}
-
-// ── Render Layer 3: Pre-Build Ranking Table ──
-
-let rankingShowAll = false;
-
-function dotClass(build) {
-  const pre = build.pre_build?.total_seconds || 0;
-  const pct = build._pre_build_pct || 0;
-  if (pre > 180 || pct > 50) return 'dot-red';
-  if (pre > 60 || pct > 30) return 'dot-yellow';
-  return 'dot-green';
-}
-
-function bottleneckClass(seconds) {
-  if (seconds > 100) return 'bottleneck-red';
-  if (seconds > 30) return 'bottleneck-amber';
-  return 'bottleneck-gray';
-}
-
-function renderRanking(repos) {
-  let builds = validBuilds(repos);
-  if (builds.length === 0) { document.getElementById('ranking').innerHTML = ''; return; }
-
-  // Filter: only slow ones by default
-  if (!rankingShowAll) {
-    builds = builds.filter(({build}) => {
-      const pre = build.pre_build?.total_seconds || 0;
-      const pct = build._pre_build_pct || 0;
-      return pre > 60 || pct > 30;
-    });
-  }
-
-  // Sort by bottleneck seconds descending
-  builds.sort((a, b) => {
-    const sa = a.build.summary?.key_bottleneck_seconds || 0;
-    const sb = b.build.summary?.key_bottleneck_seconds || 0;
-    if (sb !== sa) return sb - sa;
-    return (b.build._pre_build_pct || 0) - (a.build._pre_build_pct || 0);
-  });
-
-  const rows = builds.map(({repo, build}) => {
-    const dot = dotClass(build);
-    const pre = build.pre_build?.total_seconds || 0;
-    const pct = build._pre_build_pct || 0;
-    const bn = (build.summary?.key_bottleneck || '').replace(/_/g, ' ');
-    const bnSec = build.summary?.key_bottleneck_seconds || 0;
-    const bnCls = bottleneckClass(bnSec);
-    const dur = build.time?.duration_seconds || 0;
-    const url = build.detail_url || '';
-
-    // 环境获取 = 执行节点分配 + Pod调度等待（含容器就绪）
-    const actions = build.pre_build?.actions || [];
-    const nodeAssign = actions.find(a => a.key === 'node_assignment')?.duration_seconds || 0;
-    const podSched = actions.find(a => a.key === 'pod_scheduling')?.duration_seconds || 0;
-    const envAcquire = nodeAssign + podSched;
-    // 依赖下载 = Pre-Build 总时间 - 环境获取
-    const otherPrep = Math.max(0, pre - envAcquire);
-
-    return `<tr>
-      <td><span class="${dot}">●</span></td>
-      <td><span class="repo-link" onclick="openRepoDetail('${repo._repo_short}')" title="点击查看 ${repo._repo_short} 详情">${repo._repo_short}</span></td>
-      <td>${build.task_name}</td>
-      <td>${fmtDuration(dur)}</td>
-      <td>${pct}%</td>
-      <td class="${envAcquire > 60 ? 'bottleneck-red' : envAcquire > 10 ? 'bottleneck-amber' : ''}">${fmtDuration(envAcquire)}</td>
-      <td>${fmtDuration(otherPrep)}</td>
-      <td class="${bnCls}">${bn}</td>
-      <td class="${bnCls}">${fmtDuration(bnSec)}</td>
-      <td>${url ? '<a href="' + url + '" target="_blank" class="detail-arrow" title="跳转流水线">→</a>' : ''}</td>
-    </tr>`;
-  }).join('');
-
-  const totalPre = builds.reduce((s, {build}) => s + (build.pre_build?.total_seconds || 0), 0);
-  const allCount = validBuilds(repos).length;
-  const affectedRepos = new Set(builds.map(({repo}) => repo._repo_short)).size;
-
-  document.getElementById('ranking').innerHTML = `
-    <div class="section-header">
-      <span class="section-title">⏱️ Pre-Build 环境准备耗时排行</span>
-      <button class="section-toggle" onclick="toggleRanking()">${rankingShowAll ? '仅显示慢构建' : '显示全部'}</button>
-    </div>
-    <table class="ranking-table">
-      <thead><tr>
-        <th></th><th>仓库</th><th>任务名</th><th>总耗时</th><th>Pre%</th><th>环境获取</th><th>依赖下载</th><th>瓶颈动作</th><th>耗时</th><th></th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-    <div class="ranking-summary">
-      <span>显示 ${builds.length}/${allCount} 条</span>
-      <span>Pre-Build 合计: ${fmtDuration(totalPre)}</span>
-      <span>瓶颈覆盖: ${affectedRepos}/${repos.length} 仓库</span>
-    </div>`;
-}
-
-function toggleRanking() {
-  rankingShowAll = !rankingShowAll;
-  const repos = getFilteredRepos();
-  renderRanking(repos);
-}
-
-// ── Render Layer 4: Repository Detail Cards ──
-
-function bindControls() {
-  document.getElementById('searchInput').addEventListener('input', (e) => {
-    filterState.search = e.target.value;
-    rerender();
-  });
-
-  document.getElementById('orchestratorFilter').addEventListener('change', (e) => {
-    filterState.orchestrator = e.target.value;
-    rerender();
-  });
-
-  document.getElementById('sortSelect').addEventListener('change', (e) => {
-    filterState.sort = e.target.value;
-    rerender();
-  });
-}
-
-function rerender() {
-  const repos = getFilteredRepos();
-  renderInsights(repos);
-  renderRanking(repos);
-}
 
 // ── Initialization ──
 
@@ -681,11 +341,10 @@ function init() {
     document.body.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-muted)">暂无数据</div>';
     return;
   }
-  const repos = getFilteredRepos();
-  renderHeader(__EMBEDDED_DATA__); // header always shows total
+  const repos = __EMBEDDED_DATA__;
+  renderHeader(repos); // header always shows total
   renderInsights(repos);
   renderRanking(repos);
-  bindControls();
 }
 
 // ── Modal (Repo Detail) ──
