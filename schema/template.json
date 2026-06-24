@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CI/CD Build Analysis Report",
+  "description": "Structured analysis of CI/CD build pre-build environment preparation timing. Single source of truth for all pipeline stages.",
+
+  "meta": {
+    "pr": 0,
+    "repo": "",
+    "pr_url": "",
+    "pipeline_name": "",
+    "pipeline_state": "",
+    "pipeline_url": "",
+    "comment_time": "",
+    "fetched_at": "",
+    "analyzed_at": null,
+    "analysis_method": "ai_semantic"
+  },
+
+  "build_template": {
+    "task_name": "",
+    "stage": "",
+    "status": "passed",
+    "detail_url": "",
+    "log_file": "",
+    "time": {
+      "start": "",
+      "end": "",
+      "duration_seconds": 0
+    },
+    "pre_build": {
+      "total_seconds": 0,
+      "pct_of_total": 0,
+      "orchestrator": "",
+      "actions": []
+    },
+    "build_phases": {
+      "total_seconds": 0,
+      "pct_of_total": 0,
+      "actions": []
+    },
+    "summary": {
+      "pre_build_seconds": 0,
+      "build_seconds": 0,
+      "unattributed_seconds": 0,
+      "key_bottleneck": "",
+      "key_bottleneck_seconds": 0
+    },
+    "_error": null
+  },
+
+  "action_catalog": {
+    "openlibing": {
+      "pre_build": [
+        {"key": "node_assignment",       "name": "执行节点分配",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "docker_pull",           "name": "Docker 镜像拉取",       "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "cache_check",           "name": "缓存检查",              "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "git_checkout",          "name": "代码检出",              "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "git_checkout_pod",      "name": "代码检出 (Pod内)",      "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "network_retry",         "name": "网络重试等待",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "workspace_prep",        "name": "工作目录准备",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "pre_submit_validation", "name": "前置校验",              "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "image_proxy",           "name": "镜像代理替换",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "git_cache_injection",   "name": "Git 缓存注入",         "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "orchestrator_submit",   "name": "编排器任务提交",        "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "pod_scheduling",        "name": "Pod 调度等待",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "artifact_download",     "name": "制品/依赖包下载",       "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "tool_download",         "name": "构建工具下载",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "pip_install",           "name": "Python 依赖安装",       "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "conda_install",         "name": "Conda 依赖安装",        "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "apt_install",           "name": "系统包安装",            "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "env_setup",             "name": "环境变量设置",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""}
+      ],
+      "build_phases": [
+        {"key": "cmake_configure", "name": "CMake 配置",      "duration_seconds": 0},
+        {"key": "compilation",     "name": "编译",            "duration_seconds": 0},
+        {"key": "packaging",       "name": "打包与上传",      "duration_seconds": 0}
+      ]
+    },
+    "jenkins": {
+      "pre_build": [
+        {"key": "clone_check_scripts",  "name": "Clone 检查脚本",       "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "clone_kernel_repo",    "name": "Clone 内核仓库",        "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "install_build_tools",  "name": "安装构建工具",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""},
+        {"key": "apply_pr_patch",       "name": "应用 PR 补丁",          "start": null, "end": null, "duration_seconds": 0, "evidence": ""}
+      ],
+      "build_phases": [
+        {"key": "allmodconfig_build",  "name": "Allmodconfig 构建",     "duration_seconds": 0},
+        {"key": "defconfig_build",     "name": "Defconfig 构建",         "duration_seconds": 0},
+        {"key": "kabi_check",          "name": "KABI 兼容性检查",         "duration_seconds": 0},
+        {"key": "defconfig_check",     "name": "Defconfig 一致性检查",    "duration_seconds": 0}
+      ]
+    }
+  },
+
+  "orchestrators": ["argo", "volcano", "docker", "jenkins"],
+
+  "ci_backends": ["openlibing", "jenkins"],
+
+  "manifest_schema": {
+    "_description": "Stage 1 AI output format — task manifest for download.py",
+    "repo": "",
+    "pr": 0,
+    "pr_url": "",
+    "ci_backend": "openlibing",
+    "pipeline_url": "",
+    "tasks": [
+      {
+        "task_name": "",
+        "status": "passed",
+        "detail_url": ""
+      }
+    ]
+  },
+
+  "validation_rules": {
+    "R1": {"description": "unattributed_seconds >= 0", "check": "unattributed >= 0"},
+    "R5": {"description": "Zero-duration actions must have evidence, or be removed", "check": "duration==0 implies evidence is non-empty"},
+    "R6": {"description": "pre+build+unattributed ≈ total", "check": "abs(pre+build+unatt-total) < 1.0"},
+    "R7": {"description": "pre_build.total_seconds >= sum of action durations", "check": "total >= sum - 1.0"},
+    "R8": {"description": "env_setup must not be a catch-all (>20s + missing pod actions => split)", "check": "env_setup<=20 or has sub-actions"},
+    "R9": {"description": "unattributed < max(10s, total*5%) after seamless splicing", "check": "unattributed <= max(10.0, total*0.05)"}
+  },
+
+  "field_descriptions": {
+    "meta.pr": "PR number (integer)",
+    "meta.repo": "owner/repo (e.g. Ascend/pytorch)",
+    "meta.analyzed_at": "ISO-8601 timestamp set by AI after analysis (null before)",
+    "builds[].log_file": "Relative path to raw log file: logs/<repo>/pr<pr>/<task>-<ts>.log.gz",
+    "builds[]._error": "If set, this build could not be analyzed (string error message)",
+    "pre_build.total_seconds": "Sum of all pre_build action durations (after R9 splicing)",
+    "pre_build.orchestrator": "One of: argo, volcano, docker, jenkins",
+    "pre_build.pct_of_total": "pre_build / time.duration_seconds * 100",
+    "summary.key_bottleneck": "Name of the longest-duration pre_build action",
+    "summary.unattributed_seconds": "Must be >= 0: max(0, total - pre_build - build)"
+  }
+}

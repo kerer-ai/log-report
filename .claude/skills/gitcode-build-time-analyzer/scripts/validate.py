@@ -1,12 +1,29 @@
 #!/usr/bin/env python3
 """Validate build analysis JSON against R1-R9 quality rules.
 
-Usage: python3 validate.py <json-file>
+Reads orchestrator enum and validation rule definitions from schema/template.json
+when available, falling back to hardcoded defaults.
+
+Usage: python3 validate.py <json-file> [--schema schema/template.json]
 Exit code 0 = all checks pass, 1 = issues found.
 """
 
 import json
+import os
 import sys
+
+
+def load_orchestrators(schema_path="schema/template.json"):
+    """Load allowed orchestrator values from schema, or return defaults."""
+    try:
+        with open(schema_path, "r", encoding="utf-8") as f:
+            schema = json.load(f)
+        return tuple(schema.get("orchestrators", ["argo", "volcano", "docker", "jenkins"]))
+    except (FileNotFoundError, json.JSONDecodeError, KeyError):
+        return ("argo", "volcano", "docker", "jenkins")
+
+
+ORCHESTRATORS = None  # lazy-loaded
 
 
 def validate_build(b, idx):
@@ -45,7 +62,7 @@ def validate_build(b, idx):
         errors.append(f'{name}: SCHEMA FAIL — pre_build uses "seconds"')
     if not pb.get("pct_of_total"):
         errors.append(f"{name}: SCHEMA FAIL — pre_build missing pct_of_total")
-    if pb.get("orchestrator", "") not in ("argo", "volcano", "docker", "jenkins"):
+    if pb.get("orchestrator", "") not in ORCHESTRATORS:
         errors.append(f"{name}: SCHEMA FAIL — orchestrator={pb.get('orchestrator')}")
 
     # Timestamp check
@@ -111,11 +128,20 @@ def validate_build(b, idx):
 
 
 def main():
-    if len(sys.argv) < 2:
-        print(f"Usage: python3 {sys.argv[0]} <json-file>")
+    global ORCHESTRATORS
+
+    schema_path = "schema/template.json"
+    args = [a for a in sys.argv[1:] if not a.startswith("--schema")]
+    for a in sys.argv[1:]:
+        if a.startswith("--schema"):
+            schema_path = a.split("=", 1)[1] if "=" in a else "schema/template.json"
+
+    if len(args) < 1:
+        print(f"Usage: python3 {sys.argv[0]} <json-file> [--schema path]")
         sys.exit(1)
 
-    fname = sys.argv[1]
+    fname = args[0]
+    ORCHESTRATORS = load_orchestrators(schema_path)
     d = json.load(open(fname))
     builds = d["builds"]
 

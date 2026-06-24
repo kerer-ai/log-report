@@ -13,26 +13,28 @@ Pod 调度、依赖安装等。构建本身（cmake/编译/打包）仅做概要
 
 ## 架构
 
-单仓库模式：
+4 阶段流水线，AI 与 Script 明确分离：
+
 ```
-Script (fetch_build_logs.py)           AI (Claude)
-─────────────────────────────         ───────────────────────────
-0. 发现最新 merged PR                    ←
-1. 拉取 PR comments (gc CLI)
-2. 解析流水线表格
-3. 找到 passed 构建任务
-4. 从 openLiBing 拉取完整日志             → 读取 log_sample
-5. 提取 log_sample + 时间间隙              → 理解日志语义
-6. 输出 raw JSON 模板                     → 识别每个环境准备动作
-                                           → 填充 pre_build.actions[]
-                                           → 填写完整 JSON，写回同路径
+Stage 1 [AI]:   gc pr comments → 语义识别流水线任务 → manifest JSON
+Stage 2 [Script]: scripts/download.py → logs/<repo>/pr<NNN>/*.log.gz
+Stage 3 [AI]:   读原始日志 + schema/template.json → 填充分析 → json-org/
+Stage 4 [Script]: validate.py → normalize.py → generate.py → git push
 ```
 
-多 Agent 批量模式（≥3 个仓库）：
+单仓库 AI 分析模式：
 ```
-Phase 1: 批量 fetch (串行)              Phase 2: 并行 AI 分析 (Agent per repo)
-──────────────────────                 ──────────────────────────────────────
-for repo in repos:                     Agent("Analyze MindIE-Motor")  ─┐
+AI (Claude)
+───────────────────────────────────────
+1. 读 schema/template.json 了解 JSON 结构
+2. 读 json-org/<repo>_build_analysis.json 了解 build 列表 + 时间信息
+3. 读 logs/<repo>/pr<NNN>/<task>.log.gz 完整原始日志
+4. 语义识别每个环境准备动作及起止时间
+5. 按 action_catalog 选择对应的 action key
+6. 应用 R9 无缝衔接 + R1-R8 质量规则
+7. 填充 pre_build.actions[] + build_phases + summary
+8. Write 完成 JSON 回同一 json-org/ 路径
+```
     fetch_build_logs.py --repo $repo   Agent("Analyze MindIE-SD")     ─┤ 并行
                                       Agent("Analyze MindIE-LLM")    ─┤
                                       Agent("Analyze torchair")      ─┘

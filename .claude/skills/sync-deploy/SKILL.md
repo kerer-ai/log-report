@@ -10,115 +10,60 @@ description: Full pipeline orchestrator for CI/CD build analysis kanban. Reads r
 ## 工作流
 
 ```
-repos.txt → pipeline.sh (fetch+PR检测) → AI分析 (并行Agent) → normalize.py → generate.py → git push → GitHub Pages
+repos.txt → [AI] URL发现 → [Script] 日志下载 → [AI] 耗时分析 → [Script] 渲染发布
+              Stage 1        Stage 2           Stage 3          Stage 4
 ```
 
 ## 使用方式
 
 ```
 /sync-deploy                    # 增量模式：检测PR变化，只更新有变化的仓库
-/sync-deploy --force-fetch      # 强制模式：全量fetch，但PR未变则复用缓存
-/sync-deploy --quick            # 快速模式：只归一化+渲染+推送（跳过fetch+AI分析）
+/sync-deploy --quick            # 快速模式：只归一化+渲染+推送（跳过Stage 1-3）
 ```
 
 ## 执行流程
 
-### Phase 0: 准备
+### Stage 1: AI URL 发现
 
-1. 读取 `repos.txt`，解析仓库列表
-2. 如果是新仓库（不在 `json-org/` 中）：标记为需要 fetch
-3. 如果 `--quick` 模式：直接跳到 Phase 4
+AI 负责从 PR 评论区识别日志下载链接：
 
-### Phase 1: PR 变化检测 + 拉取
+1. 读取 `repos.txt`，解析仓库列表和 `# CI_BACKEND:` 指令
+2. 对每个仓库，通过 `gc pr list` 检测最新 merged PR
+3. 对比 `json-org/<repo>_build_analysis.json` 中 `meta.pr`：
+   - PR 未变 → 跳过
+   - PR 已变或新仓库 → AI 读取 `gc pr comments` 原始文本
+4. AI 从 PR 评论中提取流水线任务信息：
+   - **openlibing**: 识别 HTML 流水线表，提取 task_name / status / detail_url
+   - **Jenkins**: 识别 openeuler-ci-bot 门禁表，提取架构 / check_build 状态 / console_url
+5. AI 输出 manifest 到 `json-org/<repo>_manifest.json`
 
-对 `repos.txt` 中的每个仓库：
-
-1. **检测 PR 变化**：对比 `json-org/<name>_build_analysis.json` 中的 `meta.pr` 与 `gc pr list --state merged -L 1` 的最新 PR 号
-2. **PR 未变** → 跳过 fetch，复用 `json-org/` 中已有的分析数据
-3. **PR 已变** → `fetch_build_logs.py` 拉取完整日志到临时文件
-4. **新仓库** → 直接 fetch
-5. **Fetch 成功后**：比较新旧 PR 号
-   - PR 真的变了 → 覆盖 `json-org/`，标记为需要 AI 分析
-   - PR 相同（--force-fetch 但实际未变）→ **恢复缓存数据**，不标记分析
-6. **Fetch 失败**：回退扫描最近 20 个 PR 找 passed 构建；仍失败则保留现有数据
-7. **所有已分析数据**：确保工作目录有对应的分析后 JSON 文件
-
-**关键原则：fetch 到临时文件 → 比较 PR → 决定覆盖还是恢复缓存。绝不盲目覆盖已有分析数据。**
-
-### Phase 2: 并行 AI 分析
-
-只对 Phase 1 中标记为"需要分析"的仓库启动 Agent：
-
-1. **统计构建数**，按以下规则分组：
-
-| 构建数 | 策略 | 理由 |
-|--------|------|------|
-| >4 builds | 独占 1 个 Agent | 日志量大，需完整上下文 |
-| 2-4 builds | 独占 1 个 Agent | 标准配置 |
-| 1 build | 2 个仓库合并为 1 个 Agent | 降低成本，提高效率 |
-
-2. **并行启动 Agent**（所有 Agent 同时 `run_in_background: true`）：
-
-```
-Agent("Analyze <repo>", prompt=<标准分析prompt>)
-```
-
-3. **标准分析 Prompt 要素**（每个 Agent 必须收到）：
-   - Read `<repo>_build_analysis.json`
-   - 逐行阅读 `log_sample`，按两阶段模型识别动作
-   - 识别编排器类型（Volcano/Argo/Docker）
-   - pod_scheduling MUST be >1s（不是只抓 Running 瞬间）
-   - 仅包含实际发生的动作（跳过未使用的 key）
-   - R1/R5/R6 校验规则
-   - 设置 `meta.analyzed_at` 和 `pre_build.orchestrator`
-   - Write completed JSON 回**同一文件路径**
-
-4. **等待所有 Agent 完成**（自动通知）
-
-### Phase 3: 校验与补漏
-
-每个 Agent 完成后，用 `validate.py` 快速验证：
+### Stage 2: Script 日志下载
 
 ```bash
-python3 .claude/skills/gitcode-build-time-analyzer/scripts/validate.py <repo>_build_analysis.json
+python3 scripts/download.py --manifest json-org/<repo>_manifest.json
 ```
 
-校验规则（R1-R9）：
+下载脚本按 `detail_url` 下载原始日志：
+- **openlibing**: POST REST API，翻页拼接（500行/页，最多60页）
+- **Jenkins**: GET `/consoleText` + GET `/api/json`（元数据）
 
-| 规则 | 检查内容 | 阈值 |
-|------|---------|------|
-| R1 | `unattributed_seconds >= 0` | 不可为负 |
-| R5 | 零耗时动作必须有 evidence | duration==0 且无 evidence → FAIL |
-| R6 | pre+build+unatt 约等于 total | 差异 < 1.0s |
-| R7 | total_seconds >= 各动作时长和 | 允许 1s 误差 |
-| R8 | env_setup 不过度膨胀 | >20s 且缺少 Pod 内子动作 |
-| R9 | unattributed 不过大 | > max(10s, total*5%) |
+保存到 `logs/<repo>/pr<NNN>/<task>-<timestamp>.log.gz`，
+同时生成 `json-org/<repo>_build_analysis.json`（含 `log_file` 路径 + 空模板）。
 
-校验失败的处理：
+### Stage 3: AI 耗时分析
 
-| 症状 | 原因 | 处理 |
-|------|------|------|
-| `empty > 0` 且 `analyzed_at` 有值 | Agent 写了空模板 | **重分析**：重新启动 Agent，prompt 加 "The current data is WRONG" |
-| `analyzed_at` 为 null | Agent 未完成/未写入 | 等待或重启 Agent |
-| `pod_scheduling < 1s`（非Docker） | 只测了 Running 瞬间 | **重分析**：强调 pod_scheduling 修复 |
-| R6 校验失败 | 计算错误 | **重分析**：要求逐项验证 |
-| R9 失败（unattributed 过大） | 日志采样不足/动作遗漏 | 检查 significant_gaps，必要时重分析 |
+AI 读取 `schema/template.json`（了解结构）→ 读取 `json-org/<repo>_build_analysis.json` → 
+读取 `logs/<repo>/pr<NNN>/*.log.gz` 原始日志 → 识别动作耗时 → 
+按 `action_catalog` 选择 action key → 应用 R9+R1-R8 质量规则 →
+写回完成的分析 JSON。
 
-**重分析 Agent prompt 必须包含**：
-> "The current file has [具体问题]. This is WRONG and must be fixed. Re-read the log_sample and fill in EVERY action with actual timing data."
-
-### Phase 4: 归一化 + 渲染 + 发布
+### Stage 4: Script 归一化 + 渲染 + 发布
 
 ```bash
 python3 .claude/skills/build-log-normalizer/scripts/normalize.py
 python3 generate.py
 git add -A && git commit -m "sync: update build analysis ($(date +%Y-%m-%d))" && git push
 ```
-
-推送前确认：
-- `json/` 目录中所有文件均已更新
-- `index.html` 中包含所有仓库
-- DATA_JSON 中的 repo 数量正确
 
 ## repos.txt 格式
 

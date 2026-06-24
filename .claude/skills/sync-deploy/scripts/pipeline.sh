@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../../../.." && pwd)"
 REPOS_FILE="$PROJECT_DIR/repos.txt"
 JSON_ORG="$PROJECT_DIR/json-org"
-FETCH_SCRIPT="$SCRIPT_DIR/../../gitcode-build-time-analyzer/scripts/fetch_build_logs.py"
+DOWNLOAD_SCRIPT="$PROJECT_DIR/scripts/download.py"
 NORMALIZE_SCRIPT="$SCRIPT_DIR/../../build-log-normalizer/scripts/normalize.py"
 
 FORCE_FETCH=false
@@ -115,74 +115,12 @@ while IFS= read -r line; do
     continue
   fi
 
-  # ── Fetch with PR-preserving logic ──
-  echo "  Fetching $REPO_PATH ..."
+  # Mark for Stage 1-3 (AI URL discovery → download → AI analysis)
+  echo "  QUEUED $REPO_PATH — Stage 1-3 needed"
+  CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
+  FETCH_COUNT=$((FETCH_COUNT + 1))
+  continue
 
-  # Fetch to temp file first to avoid overwriting with bad data
-  TMP_FILE="/tmp/sync_${REPO_NAME}_$$.json"
-  RESULT=$(python3 "$FETCH_SCRIPT" \
-    --repo "$REPO_PATH" --latest-merged --ci-backend "$CI_BACKEND" -o "$TMP_FILE" 2>&1) || true
-
-  if echo "$RESULT" | grep -q '"status": "ok"'; then
-    # Compare PR with existing to decide if re-analysis needed
-    NEW_PR=$(python3 -c "import json; print(json.load(open('$TMP_FILE'))['meta']['pr'])" 2>/dev/null || echo "0")
-    OLD_PR=0
-    [ -f "$OUTPUT_FILE" ] && OLD_PR=$(python3 -c "import json; print(json.load(open('$OUTPUT_FILE'))['meta']['pr'])" 2>/dev/null || echo "0")
-
-    if [ "$NEW_PR" != "$OLD_PR" ] || [ ! -f "$OUTPUT_FILE" ]; then
-      # PR changed or new repo — need fresh analysis
-      cp "$TMP_FILE" "$OUTPUT_FILE"
-      cp "$TMP_FILE" "$WORK_FILE"
-      CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
-      echo "    OK: PR #$NEW_PR ($(python3 -c "import json; print(len(json.load(open('$TMP_FILE'))['builds']))" 2>/dev/null || echo "?") builds) — NEEDS ANALYSIS"
-    else
-      # PR unchanged despite force-fetch — restore cached analysis
-      if [ -f "$OUTPUT_FILE" ]; then
-        cp "$OUTPUT_FILE" "$WORK_FILE"
-        echo "    OK: PR #$NEW_PR unchanged — restored from cache"
-      else
-        cp "$TMP_FILE" "$OUTPUT_FILE"
-        cp "$TMP_FILE" "$WORK_FILE"
-        CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
-        echo "    OK: PR #$NEW_PR — no cache, NEEDS ANALYSIS"
-      fi
-    fi
-    FETCH_COUNT=$((FETCH_COUNT + 1))
-    rm -f "$TMP_FILE"
-
-  elif echo "$RESULT" | grep -q "No passed build"; then
-    echo "    WARN: No passed builds in latest PR, scanning fallback..."
-    # PR fallback scan
-    FOUND=false
-    for pr_num in $(gc pr list -R "$REPO_PATH" --state merged -L 20 2>/dev/null | grep -oP '#\d+' | tr -d '#'); do
-      fb_result=$(python3 "$FETCH_SCRIPT" \
-        --repo "$REPO_PATH" --pr "$pr_num" --ci-backend "$CI_BACKEND" -o "$TMP_FILE" 2>&1) || true
-      if echo "$fb_result" | grep -q '"status": "ok"'; then
-        cp "$TMP_FILE" "$OUTPUT_FILE"
-        cp "$TMP_FILE" "$WORK_FILE"
-        CHANGED_REPOS["$REPO_NAME"]="$REPO_PATH"
-        echo "    FOUND: PR #$pr_num — NEEDS ANALYSIS"
-        FETCH_COUNT=$((FETCH_COUNT + 1))
-        FOUND=true
-        break
-      fi
-      rm -f "$TMP_FILE"
-    done
-    if [ "$FOUND" = false ]; then
-      echo "    ERROR: No passed builds in last 20 PRs — keeping existing data"
-      if [ -f "$OUTPUT_FILE" ]; then
-        cp "$OUTPUT_FILE" "$WORK_FILE"
-      fi
-      FAIL_COUNT=$((FAIL_COUNT + 1))
-    fi
-  else
-    echo "    ERROR: fetch failed — $RESULT"
-    if [ -f "$OUTPUT_FILE" ]; then
-      cp "$OUTPUT_FILE" "$WORK_FILE"
-      echo "    Restored existing cache"
-    fi
-    FAIL_COUNT=$((FAIL_COUNT + 1))
-  fi
   # Reset CI_BACKEND to default for next repo
   CI_BACKEND="openlibing"
   echo ""
