@@ -695,7 +695,7 @@ const allRepos = () => __EMBEDDED_DATA__ || [];
 function openRepoDetail(name) {
   const repo = allRepos().find(r => r._repo_short === name);
   if (!repo) return;
-  document.getElementById('modalTitle').textContent = repo.meta.repo + ' (PR #' + repo.meta.pr + ')';
+  document.getElementById('modalTitle').innerHTML = repo.meta.repo + ' (<a href="' + (repo.meta.pr_url || '#') + '" target="_blank" style="color:var(--blue)">PR #' + repo.meta.pr + '</a>)';
   document.getElementById('modalBody').innerHTML = renderRepoDetail(repo);
   document.getElementById('modalOverlay').classList.add('open');
 }
