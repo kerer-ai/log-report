@@ -120,10 +120,53 @@ body {
 .bottleneck-amber { color: var(--amber); font-weight: 600; }
 .bottleneck-gray { color: var(--text-secondary); }
 
-.repo-link { color: var(--blue); text-decoration: none; }
+.repo-link { color: var(--blue); text-decoration: none; cursor: pointer; }
 .repo-link:hover { text-decoration: underline; }
 .detail-arrow { color: var(--text-muted); text-decoration: none; font-size: 1.1rem; }
 .detail-arrow:hover { color: var(--blue); }
+
+/* === MODAL === */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7); z-index: 1000; overflow-y: auto;
+}
+.modal-overlay.open { display: flex; justify-content: center; align-items: flex-start; padding: 40px 20px; }
+.modal-content {
+  background: var(--card-bg); border-radius: var(--radius);
+  max-width: 900px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--card-bg); z-index: 10;
+}
+.modal-title { font-weight: 700; font-size: 1.1rem; }
+.modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+.modal-close:hover { color: var(--text-primary); }
+.modal-body { padding: 16px 20px; }
+
+.build-card {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  margin-bottom: 12px; overflow: hidden;
+}
+.build-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 14px; cursor: pointer; background: rgba(0,0,0,0.15);
+}
+.build-card-header:hover { background: rgba(255,255,255,0.03); }
+.build-card-body { display: none; padding: 10px 14px; }
+.build-card-body.open { display: block; }
+
+.build-bar { display: flex; height: 16px; border-radius: 3px; overflow: hidden; margin: 6px 0; }
+.build-bar-pre { background: var(--blue); }
+.build-bar-build { background: var(--green); }
+.build-bar-unatt { background: var(--border); }
+
+.action-table {
+  width: 100%; border-collapse: collapse; font-size: 0.82rem;
+}
+.action-table th { text-align: left; padding: 3px 8px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.action-table td { padding: 3px 8px; }
 
 .ranking-summary {
   display: flex; gap: 20px; padding: 10px 12px;
@@ -565,7 +608,7 @@ function renderRanking(repos) {
 
     return `<tr>
       <td><span class="${dot}">●</span></td>
-      <td><span title="${repo.meta.repo}">${repo._repo_short}</span></td>
+      <td><span class="repo-link" onclick="openRepoDetail('${repo._repo_short}')" title="点击查看 ${repo._repo_short} 详情">${repo._repo_short}</span></td>
       <td>${build.task_name}</td>
       <td>${fmtDuration(dur)}</td>
       <td>${pct}%</td>
@@ -644,8 +687,78 @@ function init() {
   bindControls();
 }
 
+// ── Modal (Repo Detail) ──
+
+const allRepos = () => __EMBEDDED_DATA__ || [];
+
+function openRepoDetail(name) {
+  const repo = allRepos().find(r => r._repo_short === name);
+  if (!repo) return;
+  document.getElementById('modalTitle').textContent = repo.meta.repo + ' (PR #' + repo.meta.pr + ')';
+  document.getElementById('modalBody').innerHTML = renderRepoDetail(repo);
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function renderRepoDetail(repo) {
+  const builds = repo.builds || [];
+  return builds.map(b => renderBuildCard(b)).join('')
+    + '<div style="padding-top:8px;font-size:0.8rem;color:var(--text-muted)">'
+    + '更新于: ' + (repo.meta.fetched_at || '—').substring(0,16)
+    + ' · 流水线: <a href="' + (repo.meta.pipeline_url || '#') + '" target="_blank" style="color:var(--blue)">→</a>'
+    + '</div>';
+}
+
+function renderBuildCard(build) {
+  if (build._error) {
+    return '<div class="build-card"><div class="build-card-header" style="color:var(--red)">⚠ ' + build.task_name + ': ' + build._error + '</div></div>';
+  }
+  const dur = build.time?.duration_seconds || 0;
+  const pre = build.pre_build?.total_seconds || 0;
+  const bld = build.build_phases?.total_seconds || 0;
+  const unatt = build.summary?.unattributed_seconds || 0;
+  const preW = dur > 0 ? (pre / dur * 100).toFixed(1) : 0;
+  const bldW = dur > 0 ? (bld / dur * 100).toFixed(1) : 0;
+  const unattW = dur > 0 ? (unatt / dur * 100).toFixed(1) : 0;
+  const actions = build.pre_build?.actions?.filter(a => a.duration_seconds > 0) || [];
+  const bpActions = build.build_phases?.actions?.filter(a => a.duration_seconds > 0) || [];
+  const id = 'bc_' + Math.random().toString(36).slice(2,8);
+
+  return '<div class="build-card">'
+    + '<div class="build-card-header" onclick="document.getElementById(\'' + id + '\').classList.toggle(\'open\')">'
+    + '<span><b>' + build.task_name + '</b> <span style="color:var(--text-muted);font-size:0.8rem">' + (build._arch || '') + '</span></span>'
+    + '<span style="font-size:0.8rem">' + fmtDuration(dur) + ' · Pre ' + preW + '% · Build ' + bldW + '%</span>'
+    + '</div>'
+    + '<div class="build-card-body" id="' + id + '">'
+    + '<div class="build-bar"><div class="build-bar-pre" style="width:' + preW + '%"></div><div class="build-bar-build" style="width:' + bldW + '%"></div><div class="build-bar-unatt" style="width:' + unattW + '%"></div></div>'
+    + '<div style="font-weight:600;margin:8px 0 4px;font-size:0.85rem">环境准备: ' + fmtDuration(pre) + ' (' + preW + '%) · orchestrator: ' + (build.pre_build?.orchestrator || '—') + '</div>'
+    + (actions.length ? '<table class="action-table"><tr><th>动作</th><th>开始</th><th>结束</th><th>耗时</th></tr>'
+      + actions.map(a => '<tr><td>' + a.name + '</td><td style="font-size:0.75rem">' + (a.start || '').substring(11,19) + '</td><td style="font-size:0.75rem">' + (a.end || '').substring(11,19) + '</td><td>' + fmtDuration(a.duration_seconds) + '</td></tr>').join('')
+      + '</table>' : '')
+    + (bpActions.length ? '<div style="font-weight:600;margin:10px 0 4px;font-size:0.85rem">构建阶段: ' + fmtDuration(bld) + ' (' + bldW + '%)</div>'
+      + '<table class="action-table"><tr><th>阶段</th><th>耗时</th></tr>'
+      + bpActions.map(a => '<tr><td>' + a.name + '</td><td>' + fmtDuration(a.duration_seconds || 0) + '</td></tr>').join('')
+      + '</table>' : '')
+    + '</div></div>';
+}
+
 document.addEventListener('DOMContentLoaded', init);
 </script>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle"></span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
 
 </body>
 </html>
