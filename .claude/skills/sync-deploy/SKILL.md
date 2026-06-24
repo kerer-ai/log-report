@@ -17,9 +17,26 @@ repos.txt → [AI] URL发现 → [Script] 日志下载 → [AI] 耗时分析 →
 ## 使用方式
 
 ```
-/sync-deploy                    # 增量模式：检测PR变化，只更新有变化的仓库
-/sync-deploy --quick            # 快速模式：只归一化+渲染+推送（跳过Stage 1-3）
+/sync-deploy                           # 全量模式：检测所有仓库PR变化，增量更新
+/sync-deploy <gitcode-url>             # 单仓模式：检测/更新指定仓库
+/sync-deploy --quick                   # 快速模式：只归一化+渲染+推送
 ```
+
+### 单仓模式
+
+传入单个 GitCode URL，只处理该仓库：
+
+```
+/sync-deploy https://gitcode.com/Ascend/pytorch
+/sync-deploy # CI_BACKEND:jenkins https://gitcode.com/openeuler/kernel
+```
+
+流程：
+1. 检测该仓库 PR 是否变化（对比 `json-org/<repo>_build_analysis.json` 中 `meta.pr`）
+2. PR 未变 → 跳过，提示无需更新
+3. PR 已变 → Stage 1→2→3→4 仅对该仓库执行
+4. 新仓库 → 自动添加到 `repos.txt`，然后 Stage 1→2→3→4
+5. 最终只生成该仓库的分析 JSON，刷新看板
 
 ## 执行流程
 
@@ -27,8 +44,8 @@ repos.txt → [AI] URL发现 → [Script] 日志下载 → [AI] 耗时分析 →
 
 AI 负责从 PR 评论区识别日志下载链接：
 
-1. 读取 `repos.txt`，解析仓库列表和 `# CI_BACKEND:` 指令
-2. 对每个仓库，通过 `gc pr list` 检测最新 merged PR
+1. 确定目标仓库（全量模式读 `repos.txt`，单仓模式用传入 URL）
+2. 通过 `gc pr list` 检测最新 merged PR
 3. 对比 `json-org/<repo>_build_analysis.json` 中 `meta.pr`：
    - PR 未变 → 跳过
    - PR 已变或新仓库 → AI 读取 `gc pr comments` 原始文本
