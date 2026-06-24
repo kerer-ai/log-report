@@ -257,8 +257,6 @@ body {
 <!-- Layer 3: Pre-Build Ranking -->
 <section class="ranking" id="ranking"></section>
 
-<!-- Layer 4: Repository Detail Cards -->
-<section class="repo-cards" id="repoCards"></section>
 
 <!-- Embedded Data -->
 <script>
@@ -609,139 +607,6 @@ function toggleRanking() {
 
 // ── Render Layer 4: Repository Detail Cards ──
 
-function renderRepoCards(repos) {
-  const cards = repos.map(repo => renderRepoCard(repo)).join('');
-  document.getElementById('repoCards').innerHTML = cards;
-}
-
-function renderRepoCard(repo) {
-  const builds = repo.builds || [];
-  const shortName = repo._repo_short;
-  const passedCount = repo._passed_builds || 0;
-  const totalCount = repo._total_builds || builds.length;
-  const state = repo.meta.pipeline_state || '';
-  const prUrl = repo.meta.pr_url || '#';
-  const pr = repo.meta.pr;
-
-  const buildItems = builds.map(b => renderBuildItem(b, repo)).join('');
-
-  // Footer summary
-  const validB = builds.filter(b => !b._error && b.time);
-  const totalPre = validB.reduce((s, b) => s + (b.pre_build?.total_seconds || 0), 0);
-  const totalBuild = validB.reduce((s, b) => s + (b.build_phases?.total_seconds || 0), 0);
-  const totalUnattr = validB.reduce((s, b) => s + (b.summary?.unattributed_seconds || 0), 0);
-  const totalAll = totalPre + totalBuild + totalUnattr;
-  const prePct = totalAll > 0 ? Math.round(totalPre / totalAll * 100) : 0;
-  const buildPct = totalAll > 0 ? Math.round(totalBuild / totalAll * 100) : 0;
-  const unattrPct = totalAll > 0 ? Math.round(totalUnattr / totalAll * 100) : 0;
-
-  const repoId = 'repo-' + shortName.replace(/[^a-zA-Z0-9]/g, '_');
-
-  return `<div class="repo-card" id="${repoId}">
-    <div class="repo-card-header" onclick="toggleRepoCard('${repoId}')">
-      <div>
-        <span class="repo-name">
-          <a href="${prUrl}" target="_blank" class="repo-link" onclick="event.stopPropagation()">${shortName} #${pr}</a>
-        </span>
-        <span class="repo-meta"> · ${passedCount}/${totalCount} passed · ${state}</span>
-      </div>
-      <button class="repo-toggle" id="${repoId}-toggle">收起 ▾</button>
-    </div>
-    <div class="repo-card-body" id="${repoId}-body">
-      ${buildItems}
-      ${validB.length > 0 ? `
-      <div class="repo-card-footer">
-        汇总: Pre-Build ${fmtDuration(totalPre)} (${prePct}%) ·
-        Build ${fmtDuration(totalBuild)} (${buildPct}%) ·
-        未归类 ${fmtDuration(totalUnattr)} (${unattrPct}%)
-      </div>` : ''}
-    </div>
-  </div>`;
-}
-
-function renderBuildItem(build, repo) {
-  if (build._error) {
-    return `<div class="build-error">⚠️ ${build.task_name}: ${build._error}</div>`;
-  }
-
-  const dur = build.time?.duration_seconds || 0;
-  const pre = build.pre_build?.total_seconds || 0;
-  const bld = build.build_phases?.total_seconds || 0;
-  const unattr = Math.max(0, dur - pre - bld);
-  const prePct = dur > 0 ? Math.round(pre / dur * 100) : 0;
-  const bldPct = dur > 0 ? Math.round(bld / dur * 100) : 0;
-  const statusCls = build.status === 'passed' ? 'passed' : 'failed';
-  const statusText = build.status === 'passed' ? '通过' : build.status;
-  const timeRange = build.time?.start ? fmtTime(build.time.start) + '~' + fmtTime(build.time.end) : '';
-
-  const buildId = 'build-' + (repo._repo_short + '_' + build.task_name).replace(/[^a-zA-Z0-9]/g, '_');
-
-  // Pre-build actions table (skip zero-duration — they didn't occur)
-  const preActions = (build.pre_build?.actions || [])
-    .filter(a => a.duration_seconds > 0)
-    .map(a => {
-    const isBottleneck = build.summary?.key_bottleneck === a.key;
-    return `<tr>
-      <td>${a.name}</td>
-      <td>${fmtDateTimeShort(a.start)}</td>
-      <td>${fmtDateTimeShort(a.end)}</td>
-      <td class="${isBottleneck ? 'action-warn' : ''}">${fmtDuration(a.duration_seconds)}${isBottleneck ? ' ⚠️' : ''}</td>
-      <td>${dur > 0 ? Math.round(a.duration_seconds / dur * 100) + '%' : '—'}</td>
-    </tr>`;
-  }).join('');
-
-  // Build phases (skip zero-duration)
-  const buildActions = (build.build_phases?.actions || [])
-    .filter(a => a.duration_seconds > 0)
-    .map(a =>
-    `<tr><td>${a.name}</td><td>${fmtDuration(a.duration_seconds)}</td><td>${dur > 0 ? Math.round(a.duration_seconds / dur * 100) + '%' : '—'}</td></tr>`
-  ).join('');
-
-  return `<div class="build-item" onclick="toggleBuildDetail('${buildId}')">
-    <div class="build-summary">
-      <span class="build-status ${statusCls}">${statusText}</span>
-      <span class="build-task-name">${build.task_name}</span>
-      <span class="build-total-time">${fmtDuration(dur)}</span>
-      <div class="build-bar-wrapper">
-        <div class="build-bar">
-          <div class="build-bar-pre" style="width:${prePct}%"></div>
-          <div class="build-bar-build" style="width:${bldPct}%"></div>
-        </div>
-        <span class="build-bar-label">pre ${fmtDuration(pre)} · build ${fmtDuration(bld)}</span>
-      </div>
-      <span style="font-size:0.75rem;color:var(--text-muted)">${timeRange}</span>
-      <span style="color:var(--text-muted)">▸</span>
-    </div>
-    <div class="build-detail" id="${buildId}-detail">
-      <div class="build-detail-inner">
-        ${preActions ? '<div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:6px;">Pre-Build 环境准备动作</div><table class="action-table"><thead><tr><th>动作</th><th>开始</th><th>结束</th><th>耗时</th><th>占比</th></tr></thead><tbody>' + preActions + '</tbody></table>' : ''}
-        ${buildActions ? '<div style="font-size:0.8rem;color:var(--text-muted);margin:10px 0 6px;">Build 构建阶段</div><table class="action-table"><thead><tr><th>阶段</th><th>耗时</th><th>占比</th></tr></thead><tbody>' + buildActions + '</tbody></table>' : ''}
-      </div>
-    </div>
-  </div>`;
-}
-
-// ── Expand/Collapse ──
-
-function toggleBuildDetail(buildId) {
-  const detail = document.getElementById(buildId + '-detail');
-  detail.classList.toggle('open');
-}
-
-function toggleRepoCard(repoId) {
-  const body = document.getElementById(repoId + '-body');
-  const toggle = document.getElementById(repoId + '-toggle');
-  if (body.style.display === 'none') {
-    body.style.display = '';
-    toggle.textContent = '收起 ▾';
-  } else {
-    body.style.display = 'none';
-    toggle.textContent = '展开 ▸';
-  }
-}
-
-// ── Event Binding ──
-
 function bindControls() {
   document.getElementById('searchInput').addEventListener('input', (e) => {
     filterState.search = e.target.value;
@@ -763,7 +628,6 @@ function rerender() {
   const repos = getFilteredRepos();
   renderInsights(repos);
   renderRanking(repos);
-  renderRepoCards(repos);
 }
 
 // ── Initialization ──
@@ -777,7 +641,6 @@ function init() {
   renderHeader(__EMBEDDED_DATA__); // header always shows total
   renderInsights(repos);
   renderRanking(repos);
-  renderRepoCards(repos);
   bindControls();
 }
 
