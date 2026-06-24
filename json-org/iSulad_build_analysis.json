@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "pr": 2640,
+    "repo": "openeuler/iSulad",
+    "pr_url": "https://gitcode.com/openeuler/iSulad/merge_requests/2640",
+    "pipeline_name": "multiarch/openeuler/trigger/iSulad#27",
+    "pipeline_state": "运行成功",
+    "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/iSulad/27/console",
+    "comment_time": "2026-04-20T16:20:26+08:00",
+    "fetched_at": "2026-06-24T11:28:17.664377+08:00",
+    "analyzed_at": "2026-06-24T11:28:17.664377+08:00",
+    "analysis_method": "jenkins_console_log_parse"
+  },
+  "builds": [
+    {
+      "task_name": "Build_iSulad_2Arch",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/iSulad/27/console",
+      "time": {
+        "start": "2026-04-20T16:15:42+08:00",
+        "end": "2026-04-20T16:20:26+08:00",
+        "duration_seconds": 284.0
+      },
+      "pre_build": {
+        "total_seconds": 254.0,
+        "pct_of_total": 89.4,
+        "orchestrator": "jenkins-k8s",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "K8s Pod调度分配",
+            "start": "2026-04-20T16:15:42+08:00",
+            "end": "2026-04-20T16:16:03.918000+08:00",
+            "duration_seconds": 21.918,
+            "evidence": "PR #2640 created → Jenkins trigger #27 start; K8s agent pod assigned"
+          },
+          {
+            "key": "agent_startup",
+            "name": "Agent容器启动",
+            "start": "2026-04-20T16:16:03.918000+08:00",
+            "end": "2026-04-20T16:16:07+08:00",
+            "duration_seconds": 3.082,
+            "evidence": "Running as SYSTEM on K8s pod; [EnvInject] loading node environment"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-04-20T16:16:07+08:00",
+            "end": "2026-04-20T16:16:08+08:00",
+            "duration_seconds": 1.0,
+            "evidence": "cloning repository https://gitcode.com/openeuler/iSulad.git depth=4; fetch finished"
+          },
+          {
+            "key": "ac_sca_check",
+            "name": "SCA检查",
+            "start": "2026-04-20T16:16:12+08:00",
+            "end": "2026-04-20T16:16:57+08:00",
+            "duration_seconds": 45.0,
+            "evidence": "check iSulad sca; scanoss; result: ?"
+          },
+          {
+            "key": "ac_code_check",
+            "name": "Code检查",
+            "start": "2026-04-20T16:16:57+08:00",
+            "end": "2026-04-20T16:19:25+08:00",
+            "duration_seconds": 148.0,
+            "evidence": "check iSulad code; codecheck; result: ?"
+          },
+          {
+            "key": "ac_license_check",
+            "name": "License检查",
+            "start": "2026-04-20T16:19:26+08:00",
+            "end": "2026-04-20T16:19:44+08:00",
+            "duration_seconds": 18.0,
+            "evidence": "check iSulad license; license_in_repo pass; license_in_scope pass; copyright_in_repo warning"
+          },
+          {
+            "key": "ac_antipoison_check",
+            "name": "AntiPoison检查",
+            "start": "2026-04-20T16:19:44+08:00",
+            "end": "2026-04-20T16:19:56+08:00",
+            "duration_seconds": 12.0,
+            "evidence": "check iSulad antipoisoning; result: ?"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 30.0,
+        "pct_of_total": 10.6,
+        "actions": [
+          {
+            "key": "arch_builds_parallel",
+            "name": "2架构并行编译 (2 PASS, 0 FAIL)",
+            "start": "2026-04-20T16:19:56+08:00",
+            "end": "2026-04-20T16:20:26+08:00",
+            "duration_seconds": 30.0,
+            "evidence": "aarch64=SUCCESS, x86-64=SUCCESS"
+          },
+          {
+            "key": "cleanup_and_notify",
+            "name": "收尾与Bot通知",
+            "start": "2026-04-20T16:20:26+08:00",
+            "end": "2026-04-20T16:20:26+08:00",
+            "duration_seconds": 0.0,
+            "evidence": "WS-CLEANUP; Triggering comment build; Finished: SUCCESS"
+          }
+        ]
+      },
+      "summary": {
+        "pre_build_seconds": 254.0,
+        "build_seconds": 30.0,
+        "unattributed_seconds": 0.0,
+        "key_bottleneck": "Code检查",
+        "key_bottleneck_seconds": 148.0,
+        "arch_results": {
+          "x86-64": "SUCCESS",
+          "aarch64": "SUCCESS"
+        },
+        "failed_architectures": [],
+        "acl_results": {
+          "check_check_sca": "SUCCESS",
+          "check_check_code": "SUCCESS",
+          "check_check_package_license": "SUCCESS",
+          "check_check_anti_poisoning": "SUCCESS"
+        }
+      }
+    }
+  ]
+}
