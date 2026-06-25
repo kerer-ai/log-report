@@ -110,16 +110,16 @@
         }
       ],
       "pre_build": {
-        "total_seconds": 108.464,
+        "total_seconds": 360,
         "pct_of_total": 44.7,
         "orchestrator": "argo",
         "actions": [
           {
             "key": "node_assignment",
-            "name": "执行节点分配",
+            "name": "[TEST] 镜像拉取(验证改动)",
             "start": "2026-06-17T09:23:01.182000+08:00",
             "end": "2026-06-17T09:23:08.042000+08:00",
-            "duration_seconds": 6.86,
+            "duration_seconds": 300,
             "evidence": "[PRE_ENV:slave_create] 09:23:01.182 -> 09:23:08.042 (6.86s, R9 spliced)"
           },
           {
@@ -235,8 +235,8 @@
         "pre_build_seconds": 108.5,
         "build_seconds": 134.4,
         "unattributed_seconds": 0.0,
-        "key_bottleneck": "环境变量+ccache+merge",
-        "key_bottleneck_seconds": 45.306
+        "key_bottleneck": "[TEST] 流程验证改动点",
+        "key_bottleneck_seconds": 360
       }
     },
     {
