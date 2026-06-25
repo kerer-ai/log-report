@@ -10,6 +10,52 @@ import glob
 import os
 from datetime import datetime
 
+# Repository → Product mapping (derived from TTFHW repository list)
+# Key: repo short name (last segment of git URL), Value: product name
+PRODUCT_MAP = {
+    # MindIE
+    "MindIE-LLM": "MindIE",
+    "MindIE-Motor": "MindIE",
+    "MindIE-SD": "MindIE",
+    "MindIE-PyMotor": "MindIE",
+    # MindSpeed
+    "MindSpeed": "MindSpeed",
+    "MindSpeed-LLM": "MindSpeed",
+    "MindSpeed-MM": "MindSpeed",
+    # pytorch
+    "pytorch": "pytorch",
+    "op-plugin": "pytorch",
+    "torchair": "pytorch",
+    # openEuler
+    "kernel": "openEuler",
+    "iSulad": "openEuler",
+    "A-Tune": "openEuler",
+    "stratovirt": "openEuler",
+    "bishengjdk-8": "openEuler",
+    "bishengjdk": "openEuler",
+    # ubsCore
+    "memcache": "ubsCore",
+    "memfabric_hybrid": "ubsCore",
+    "ubs-engine": "ubsCore",
+    "ubs-comm": "ubsCore",
+    "ubs-virt": "ubsCore",
+    "ubs-io": "ubsCore",
+    "ubs-mem": "ubsCore",
+    "OmniStateStore": "ubsCore",
+    "ham": "ubsCore",
+    "ubturbo": "ubsCore",
+    # HPCKit
+    "kupl": "HPCKit",
+    "kutacc": "HPCKit",
+    "kudnn": "HPCKit",
+    "kuqcd": "HPCKit",
+    "hmpi": "HPCKit",
+    "hucx": "HPCKit",
+    "xucg": "HPCKit",
+    # cann
+    "ops-nn": "cann",
+}
+
 
 def load_all_data(json_dir="json"):
     """Load and merge all build analysis JSON files.
@@ -52,6 +98,7 @@ def compute_derived_fields(repos):
     for repo in repos:
         builds = repo.get("builds", [])
         repo["_repo_short"] = repo["meta"]["repo"].split("/")[-1]
+        repo["_product"] = PRODUCT_MAP.get(repo["_repo_short"], "other")
         repo["_total_builds"] = len(builds)
         repo["_passed_builds"] = sum(1 for b in builds if b.get("status") == "passed")
         repo["_failed_builds"] = sum(1 for b in builds if b.get("status") == "failed")
