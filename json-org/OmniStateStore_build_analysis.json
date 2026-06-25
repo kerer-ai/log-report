@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "pr": 102,
+    "repo": "openeuler/OmniStateStore",
+    "pr_url": "https://gitcode.com/openeuler/OmniStateStore/merge_requests/102",
+    "pr_created": "2026-06-22T14:48:56+08:00",
+    "pr_merged": "2026-06-23T09:02:01+08:00",
+    "first_ci_processing": "2026-06-22T14:49:17+08:00",
+    "pipeline_name": "multiarch/openeuler/trigger/OmniStateStore#188",
+    "pipeline_state": "运行成功",
+    "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/OmniStateStore/188/console",
+    "comment_time": "2026-06-22T15:01:21+08:00",
+    "fetched_at": "2026-06-24T15:24:07.351+08:00",
+    "analyzed_at": "2026-06-24T15:24:07.351+08:00",
+    "analysis_method": "jenkins_console_log_parse"
+  },
+  "builds": [
+    {
+      "task_name": "Build_OmniStateStore_CI",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/OmniStateStore/188/console",
+      "time": {
+        "start": "2026-06-22T14:49:08.692+08:00",
+        "end": "2026-06-22T15:01:01.258+08:00",
+        "duration_seconds": 712.6
+      },
+      "pre_build": {
+        "total_seconds": 167.4,
+        "pct_of_total": 23.1,
+        "orchestrator": "jenkins-k8s",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "K8s Pod调度分配",
+            "start": "2026-06-22T14:49:08.692+08:00",
+            "end": "2026-06-22T14:49:18.105+08:00",
+            "duration_seconds": 9.4,
+            "evidence": "Jenkins queue: waiting=5470ms buildable=3943ms"
+          },
+          {
+            "key": "agent_startup",
+            "name": "Agent容器启动",
+            "start": "2026-06-22T14:49:08.692+08:00",
+            "end": "2026-06-22T14:49:15.128+08:00",
+            "duration_seconds": 6.4,
+            "evidence": "Running as SYSTEM on K8s pod; [EnvInject]"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-06-22T14:49:15.128+08:00",
+            "end": "2026-06-22T14:49:16.413+08:00",
+            "duration_seconds": 1.3,
+            "evidence": "cloning repository depth=4; fetch finished"
+          },
+          {
+            "key": "ac_sca_check",
+            "name": "SCA检查 (ScanOSS)",
+            "start": "2026-06-22T14:51:08.808+08:00",
+            "end": "2026-06-22T14:51:20.149+08:00",
+            "duration_seconds": 11.3,
+            "evidence": "check sca; scanoss pass; sca check task success"
+          },
+          {
+            "key": "ac_code_check",
+            "name": "Code检查",
+            "start": "2026-06-22T14:49:22.324+08:00",
+            "end": "2026-06-22T14:51:08.806+08:00",
+            "duration_seconds": 106.5,
+            "evidence": "check code; check code pass"
+          },
+          {
+            "key": "ac_license_check",
+            "name": "License检查",
+            "start": "2026-06-22T14:51:20.152+08:00",
+            "end": "2026-06-22T14:51:40.035+08:00",
+            "duration_seconds": 19.9,
+            "evidence": "check license; license_in_repo pass"
+          },
+          {
+            "key": "ac_antipoison_check",
+            "name": "AntiPoison检查",
+            "start": "2026-06-22T14:51:40.038+08:00",
+            "end": "2026-06-22T14:51:52.610+08:00",
+            "duration_seconds": 12.6,
+            "evidence": "check antipoisoning; check anti_poisoning pass"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 568.3,
+        "pct_of_total": 78.3,
+        "actions": [
+          {
+            "key": "arch_builds_parallel",
+            "name": "架构并行编译 + UBSCore检查",
+            "start": "2026-06-22T14:51:52.610+08:00",
+            "end": "2026-06-22T15:01:01.258+08:00",
+            "duration_seconds": 548.6,
+            "evidence": "x86-64#182=SUCCESS; aarch64#183=SUCCESS; UBSCore/pre-commit#54=SUCCESS; UBSCore/DT#173=SUCCESS"
+          },
+          {
+            "key": "cleanup_and_notify",
+            "name": "收尾与Bot通知",
+            "start": "2026-06-22T15:01:01.258+08:00",
+            "end": "2026-06-22T15:01:21.000+08:00",
+            "duration_seconds": 19.7,
+            "evidence": "WS-CLEANUP; Finished: SUCCESS"
+          }
+        ]
+      },
+      "parallel_tasks": [],
+      "summary": {
+        "pre_build_seconds": 167.4,
+        "build_seconds": 548.6,
+        "cleanup_seconds": 19.7,
+        "unattributed_seconds": 0.0,
+        "key_bottleneck": "Code检查",
+        "key_bottleneck_seconds": 106.5,
+        "arch_results": {
+          "x86-64": "SUCCESS",
+          "aarch64": "SUCCESS",
+          "UBSCore/pre-commit": "SUCCESS",
+          "UBSCore/DT": "SUCCESS"
+        },
+        "failed_architectures": [],
+        "canonical_metrics": {
+          "1_env_acquisition_seconds": 21.0,
+          "2_build_prep_seconds": 155.6,
+          "extra_build_execution_seconds": 568.4,
+          "3_pr_e2e_seconds": 724.0
+        },
+        "canonical_metrics_note": "指标1用首次ci_processing; 指标2-3用本build的ci_processing"
+      }
+    }
+  ]
+}

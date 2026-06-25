@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "pr": 66,
+    "repo": "openeuler/ubs-mem",
+    "pr_url": "https://gitcode.com/openeuler/ubs-mem/merge_requests/66",
+    "pr_created": "2026-06-24T10:50:18+08:00",
+    "pr_merged": "2026-06-24T14:11:31+08:00",
+    "first_ci_processing": "2026-06-24T10:50:35+08:00",
+    "pipeline_name": "multiarch/openeuler/trigger/ubs-mem#315",
+    "pipeline_state": "运行成功",
+    "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/ubs-mem/315/console",
+    "comment_time": "2026-06-24T11:22:35+08:00",
+    "fetched_at": "2026-06-24T15:24:07.349+08:00",
+    "analyzed_at": "2026-06-24T15:24:07.349+08:00",
+    "analysis_method": "jenkins_console_log_parse"
+  },
+  "builds": [
+    {
+      "task_name": "Build_ubs_mem_CI",
+      "stage": "编译构建",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/ubs-mem/315/console",
+      "time": {
+        "start": "2026-06-24T11:16:02.561+08:00",
+        "end": "2026-06-24T11:22:15.755+08:00",
+        "duration_seconds": 373.2
+      },
+      "pre_build": {
+        "total_seconds": 142.8,
+        "pct_of_total": 36.7,
+        "orchestrator": "jenkins-k8s",
+        "actions": [
+          {
+            "key": "node_assignment",
+            "name": "K8s Pod调度分配",
+            "start": "2026-06-24T11:16:02.561+08:00",
+            "end": "2026-06-24T11:16:14.133+08:00",
+            "duration_seconds": 11.6,
+            "evidence": "Jenkins queue: waiting=5238ms buildable=6334ms"
+          },
+          {
+            "key": "agent_startup",
+            "name": "Agent容器启动",
+            "start": "2026-06-24T11:16:02.561+08:00",
+            "end": "2026-06-24T11:16:06.114+08:00",
+            "duration_seconds": 3.6,
+            "evidence": "Running as SYSTEM on K8s pod; [EnvInject]"
+          },
+          {
+            "key": "git_checkout",
+            "name": "代码检出",
+            "start": "2026-06-24T11:16:06.114+08:00",
+            "end": "2026-06-24T11:16:06.672+08:00",
+            "duration_seconds": 0.6,
+            "evidence": "cloning repository depth=4; fetch finished"
+          },
+          {
+            "key": "ac_sca_check",
+            "name": "SCA检查 (ScanOSS)",
+            "start": "2026-06-24T11:16:11.561+08:00",
+            "end": "2026-06-24T11:16:34.664+08:00",
+            "duration_seconds": 23.1,
+            "evidence": "check sca; scanoss pass; sca check task success"
+          },
+          {
+            "key": "ac_code_check",
+            "name": "Code检查",
+            "start": "2026-06-24T11:16:34.668+08:00",
+            "end": "2026-06-24T11:17:59.995+08:00",
+            "duration_seconds": 85.3,
+            "evidence": "check code; check code pass"
+          },
+          {
+            "key": "ac_license_check",
+            "name": "License检查",
+            "start": "2026-06-24T11:18:00.000+08:00",
+            "end": "2026-06-24T11:18:18.628+08:00",
+            "duration_seconds": 18.6,
+            "evidence": "check license; license_in_repo pass"
+          }
+        ]
+      },
+      "build_phases": {
+        "total_seconds": 256.3,
+        "pct_of_total": 65.9,
+        "actions": [
+          {
+            "key": "arch_builds_parallel",
+            "name": "架构并行编译 + UBSCore检查",
+            "start": "2026-06-24T11:18:18.630+08:00",
+            "end": "2026-06-24T11:22:15.755+08:00",
+            "duration_seconds": 237.1,
+            "evidence": "x86-64#315=SUCCESS; aarch64#347=SUCCESS; UBSCore/pre-commit#256=SUCCESS; UBSCore/DT#288=SUCCESS; issue-associate-check#5291=SUCCESS"
+          },
+          {
+            "key": "cleanup_and_notify",
+            "name": "收尾与Bot通知",
+            "start": "2026-06-24T11:22:15.755+08:00",
+            "end": "2026-06-24T11:22:35.000+08:00",
+            "duration_seconds": 19.2,
+            "evidence": "WS-CLEANUP; Finished: SUCCESS"
+          }
+        ]
+      },
+      "parallel_tasks": [],
+      "summary": {
+        "pre_build_seconds": 142.8,
+        "build_seconds": 256.3,
+        "cleanup_seconds": 19.2,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "Code检查",
+        "key_bottleneck_seconds": 85.3,
+        "arch_results": {
+          "x86-64": "SUCCESS",
+          "aarch64": "SUCCESS",
+          "UBSCore/pre-commit": "SUCCESS",
+          "UBSCore/DT": "SUCCESS",
+          "issue-associate-check": "SUCCESS"
+        },
+        "failed_architectures": [],
+        "canonical_metrics": {
+          "1_env_acquisition_seconds": 17.0,
+          "2_build_prep_seconds": 132.6,
+          "extra_build_execution_seconds": 256.4,
+          "3_pr_e2e_seconds": 389.0
+        },
+        "canonical_metrics_note": "指标1用首次ci_processing; 指标2-3用本build的ci_processing"
+      }
+    }
+  ],
+  "builds_history": [
+    {
+      "id": 313,
+      "at": "2026-06-24T10:50:35+08:00"
+    },
+    {
+      "id": 314,
+      "at": "2026-06-24T10:56:27+08:00"
+    },
+    {
+      "id": 315,
+      "at": "2026-06-24T11:16:06+08:00",
+      "note": "CLA signed; final build"
+    }
+  ]
+}
