@@ -475,7 +475,7 @@ function renderInsights(repos) {
 
 // ── Render Layer 3: Pre-Build Ranking Table ──
 
-let rankingShowAll = false;
+let rankingProductFilter = 'all';
 
 function dotClass(build) {
   const pre = build.pre_build?.total_seconds || 0;
@@ -495,13 +495,9 @@ function renderRanking(repos) {
   let builds = validBuilds(repos);
   if (builds.length === 0) { document.getElementById('ranking').innerHTML = ''; return; }
 
-  // Filter: only slow ones by default
-  if (!rankingShowAll) {
-    builds = builds.filter(({build}) => {
-      const pre = build.pre_build?.total_seconds || 0;
-      const pct = build._pre_build_pct || 0;
-      return pre > 60 || pct > 30;
-    });
+  // Filter: product
+  if (rankingProductFilter !== 'all') {
+    builds = builds.filter(({repo}) => (repo._product || 'other') === rankingProductFilter);
   }
 
   // Sort by bottleneck seconds descending
@@ -549,10 +545,15 @@ function renderRanking(repos) {
   const allCount = validBuilds(repos).length;
   const affectedRepos = new Set(builds.map(({repo}) => repo._repo_short)).size;
 
+  // Build product filter options
+  const allProducts = [...new Set(repos.map(r => r._product || 'other'))].sort();
+  const productOptions = '<option value="all">全部产品</option>' +
+    allProducts.map(p => `<option value="${p}" ${rankingProductFilter === p ? 'selected' : ''}>${p}</option>`).join('');
+
   document.getElementById('ranking').innerHTML = `
     <div class="section-header">
       <span class="section-title">⏱️ Pre-Build 环境准备耗时排行</span>
-      <button class="section-toggle" onclick="toggleRanking()">${rankingShowAll ? '仅显示慢构建' : '显示全部'}</button>
+      <select class="product-filter" onchange="filterProduct(this.value)" style="background:var(--card-bg);color:var(--text-primary);border:1px solid var(--border);border-radius:4px;padding:3px 8px;font-size:0.8rem;">${productOptions}</select>
     </div>
     <table class="ranking-table">
       <thead><tr>
@@ -567,8 +568,8 @@ function renderRanking(repos) {
     </div>`;
 }
 
-function toggleRanking() {
-  rankingShowAll = !rankingShowAll;
+function filterProduct(value) {
+  rankingProductFilter = value;
   const repos = __EMBEDDED_DATA__;
   renderRanking(repos);
 }
