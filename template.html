@@ -533,8 +533,8 @@ function renderRanking(repos) {
       <td>${build.task_name}</td>
       <td>${fmtDuration(dur)}</td>
       <td>${pct}%</td>
-      <td class="${envAcquire > 60 ? 'bottleneck-red' : envAcquire > 10 ? 'bottleneck-amber' : ''}">${fmtDuration(envAcquire)}</td>
-      <td>${fmtDuration(otherPrep)}</td>
+      <td class="${envAcquire > 300 ? 'bottleneck-red' : ''}">${fmtDuration(envAcquire)}</td>
+      <td class="${otherPrep > 300 ? 'bottleneck-red' : otherPrep > 120 ? 'bottleneck-amber' : ''}">${fmtDuration(otherPrep)}</td>
       <td class="${bnCls}">${bn}</td>
       <td class="${bnCls}">${fmtDuration(bnSec)}</td>
       <td>${url ? '<a href="' + url + '" target="_blank" class="detail-arrow" title="跳转流水线">→</a>' : ''}</td>
