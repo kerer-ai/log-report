@@ -38,9 +38,16 @@ jobs:
         env:
           GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
         run: |
-          # TODO: install gc CLI binary and authenticate
-          # gc auth login --token "$GITCODE_TOKEN"
-          echo "gc CLI setup — configure installation method"
+          # Clone and build gc CLI from source (Go 1.22+)
+          git clone https://gitcode.com/gitcode-cli/cli.git /tmp/gc-cli
+          cd /tmp/gc-cli
+          go build -o gc ./cmd/gc
+          sudo mv gc /usr/local/bin/
+          cd -
+          rm -rf /tmp/gc-cli
+          # Verify installation
+          which gc
+          gc auth status
 
       - name: Run sync-deploy (internal-only)
         env:
@@ -51,6 +58,7 @@ jobs:
           ANTHROPIC_DEFAULT_SONNET_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_SONNET_MODEL }}
           ANTHROPIC_DEFAULT_OPUS_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_OPUS_MODEL }}
           CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS: ${{ secrets.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS }}
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
         run: |
           FORCE_FLAG="${{ inputs.force_fetch == 'true' && ' --force-fetch' || '' }}"
           claude -p "/sync-deploy --internal-only${FORCE_FLAG}" \
