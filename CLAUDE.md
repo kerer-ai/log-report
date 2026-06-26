@@ -34,6 +34,7 @@
 | `ANTHROPIC_DEFAULT_SONNET_MODEL` | Sonnet 模型映射 |
 | `ANTHROPIC_DEFAULT_OPUS_MODEL` | Opus 模型映射 |
 | `GITCODE_TOKEN` | GitCode CLI 认证令牌 |
+| `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` | Agent teams 功能开关 (设为 `1`) |
 
 ## 数据流水线
 

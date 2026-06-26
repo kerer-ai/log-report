@@ -34,6 +34,14 @@ jobs:
       - name: Install Claude CLI
         run: npm install -g @anthropic-ai/claude-code
 
+      - name: Setup GitCode CLI
+        env:
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+        run: |
+          # TODO: install gc CLI binary and authenticate
+          # gc auth login --token "$GITCODE_TOKEN"
+          echo "gc CLI setup — configure installation method"
+
       - name: Run sync-deploy (internal-only)
         env:
           ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
@@ -42,7 +50,7 @@ jobs:
           ANTHROPIC_DEFAULT_HAIKU_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_HAIKU_MODEL }}
           ANTHROPIC_DEFAULT_SONNET_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_SONNET_MODEL }}
           ANTHROPIC_DEFAULT_OPUS_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_OPUS_MODEL }}
-          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+          CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS: ${{ secrets.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS }}
         run: |
           FORCE_FLAG="${{ inputs.force_fetch == 'true' && ' --force-fetch' || '' }}"
           claude -p "/sync-deploy --internal-only${FORCE_FLAG}" \
