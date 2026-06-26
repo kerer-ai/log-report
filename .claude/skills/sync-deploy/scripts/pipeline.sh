@@ -17,12 +17,14 @@ NORMALIZE_SCRIPT="$SCRIPT_DIR/../../build-log-normalizer/scripts/normalize.py"
 FORCE_FETCH=false
 SKIP_PUSH=false
 QUICK_MODE=false
+INTERNAL_ONLY=false
 
 for arg in "$@"; do
   case $arg in
-    --force-fetch) FORCE_FETCH=true ;;
-    --skip-push)   SKIP_PUSH=true ;;
-    --quick)       QUICK_MODE=true ;;
+    --force-fetch)    FORCE_FETCH=true ;;
+    --skip-push)      SKIP_PUSH=true ;;
+    --quick)          QUICK_MODE=true ;;
+    --internal-only)  INTERNAL_ONLY=true ;;
   esac
 done
 
@@ -41,7 +43,7 @@ mkdir -p "$JSON_ORG"
 
 echo "=== Pipeline Start: $(date) ==="
 echo "Repos file: $REPOS_FILE"
-echo "Mode: force_fetch=$FORCE_FETCH quick=$QUICK_MODE skip_push=$SKIP_PUSH"
+echo "Mode: force_fetch=$FORCE_FETCH quick=$QUICK_MODE skip_push=$SKIP_PUSH internal_only=$INTERNAL_ONLY"
 echo ""
 
 # ── Quick mode: skip fetch & AI analysis ──
@@ -87,6 +89,43 @@ while IFS= read -r line; do
   REPO_NAME=$(echo "$REPO_PATH" | cut -d'/' -f2)
   OUTPUT_FILE="$JSON_ORG/${REPO_NAME}_build_analysis.json"
   WORK_FILE="$PROJECT_DIR/${REPO_NAME}_build_analysis.json"
+
+  # ── Internal-only filter: skip externally-archived data ──
+  if [ "$INTERNAL_ONLY" = true ]; then
+    SKIP_EXTERNAL=false
+    # Check json/ for directly-archived external data
+    JSON_FILE="$PROJECT_DIR/json/${REPO_NAME}_build_analysis.json"
+    if [ -f "$JSON_FILE" ]; then
+      JSON_METHOD=$(python3 -c "
+import json
+with open('$JSON_FILE') as f:
+    d = json.load(f)
+print(d.get('meta',{}).get('analysis_method',''))
+" 2>/dev/null)
+      if [ "$JSON_METHOD" = "jenkins_console_log_parse" ]; then
+        echo "  SKIP $REPO_NAME: external data (jenkins_console_log_parse in json/)"
+        SKIP_COUNT=$((SKIP_COUNT + 1))
+        SKIP_EXTERNAL=true
+      fi
+    fi
+    # Check json-org/ for legacy external data
+    if [ "$SKIP_EXTERNAL" = false ] && [ -f "$OUTPUT_FILE" ]; then
+      ORG_METHOD=$(python3 -c "
+import json
+with open('$OUTPUT_FILE') as f:
+    d = json.load(f)
+print(d.get('meta',{}).get('analysis_method',''))
+" 2>/dev/null)
+      if [ "$ORG_METHOD" = "jenkins_console_log_parse" ]; then
+        echo "  SKIP $REPO_NAME: external data (jenkins_console_log_parse in json-org/)"
+        SKIP_COUNT=$((SKIP_COUNT + 1))
+        SKIP_EXTERNAL=true
+      fi
+    fi
+    if [ "$SKIP_EXTERNAL" = true ]; then
+      continue
+    fi
+  fi
 
   # ── Check if PR changed (unless --force-fetch) ──
   NEED_FETCH=true

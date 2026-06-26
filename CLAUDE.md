@@ -8,9 +8,32 @@
 ```bash
 /sync-deploy               # 增量刷新：只更新有变化的仓库，自动发布
 /sync-deploy --force-fetch # 全量刷新：强制重新拉取所有仓库
+/sync-deploy --internal-only # 内部刷新：仅刷新 repos.txt 内部仓库，外部归档数据保持不变
 ```
 
 一条命令串行采集 → AI分析 → 归一化 → 渲染 → 发布全流程。
+
+### 自动化刷新
+
+通过 GitHub Actions `workflow_dispatch` 手动触发，无需本地 Claude Code 会话：
+
+1. 进入仓库 **Actions** → **Data Refresh Pipeline** → **Run workflow**
+2. 可选勾选 `Force re-fetch all repos` 强制全量拉取
+3. Workflow 仅刷新 `repos.txt` 中的内部仓库，外部归档数据（`jenkins_console_log_parse`）保持不变
+
+#### 所需 GitHub Secrets
+
+在仓库 `Settings → Secrets and variables → Actions` 中配置：
+
+| Secret | 说明 |
+|--------|------|
+| `ANTHROPIC_AUTH_TOKEN` | Claude API 认证令牌 |
+| `ANTHROPIC_BASE_URL` | API 端点 (如 `https://api.deepseek.com/anthropic`) |
+| `ANTHROPIC_MODEL` | 默认模型 (如 `deepseek-v4-pro[1m]`) |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | Haiku 模型映射 |
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | Sonnet 模型映射 |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL` | Opus 模型映射 |
+| `GITCODE_TOKEN` | GitCode CLI 认证令牌 |
 
 ## 数据流水线
 

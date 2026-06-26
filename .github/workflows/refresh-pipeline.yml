@@ -1,0 +1,58 @@
+name: Data Refresh Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_fetch:
+        description: 'Force re-fetch all repos (ignore PR cache)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    # Prevent infinite render loop: skip if triggered by [skip ci] commit
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Install Claude CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run sync-deploy (internal-only)
+        env:
+          ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
+          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+          ANTHROPIC_MODEL: ${{ secrets.ANTHROPIC_MODEL }}
+          ANTHROPIC_DEFAULT_HAIKU_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_HAIKU_MODEL }}
+          ANTHROPIC_DEFAULT_SONNET_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_SONNET_MODEL }}
+          ANTHROPIC_DEFAULT_OPUS_MODEL: ${{ secrets.ANTHROPIC_DEFAULT_OPUS_MODEL }}
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+        run: |
+          FORCE_FLAG="${{ inputs.force_fetch == 'true' && ' --force-fetch' || '' }}"
+          claude -p "/sync-deploy --internal-only${FORCE_FLAG}" \
+            --print --max-turns 150
+
+      - name: Commit & push changes
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add json-org/ json/ index.html
+          TZ='Asia/Shanghai' date +'sync: automated refresh (%Y-%m-%d) [skip ci]' | git commit -F - || echo "Nothing to commit"
+          git push

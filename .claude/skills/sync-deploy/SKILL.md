@@ -17,10 +17,29 @@ repos.txt → [AI] URL发现 → [Script] 日志下载 → [AI] 耗时分析 →
 ## 使用方式
 
 ```
-/sync-deploy                           # 全量模式：检测所有仓库PR变化，增量更新
-/sync-deploy <gitcode-url> [--pr <N>]  # 单仓模式：检测/更新指定仓库，可指定PR
-/sync-deploy --quick                   # 快速模式：只归一化+渲染+推送
+/sync-deploy                                    # 全量模式：检测所有仓库PR变化，增量更新
+/sync-deploy --internal-only                    # 内部模式：仅刷新 repos.txt 中的内部仓库，外部归档数据跳过
+/sync-deploy <gitcode-url> [--pr <N>]          # 单仓模式：检测/更新指定仓库，可指定PR
+/sync-deploy --quick                            # 快速模式：只归一化+渲染+推送
 ```
+
+### Flags
+
+| Flag | Description |
+|------|-------------|
+| `--internal-only` | Only process repos from `repos.txt` whose existing data is NOT externally archived (`jenkins_console_log_parse`). Checks both `json/` and `json-org/` directories. External data in `json/` is preserved untouched. |
+| `--force-fetch` | Ignore PR cache, force re-fetch and re-analyze all repos |
+| `--skip-push` | Skip git push (for local testing) |
+| `--quick` | Skip fetch + AI analysis, only normalize + render + push |
+
+### --internal-only 过滤逻辑
+
+当设置 `--internal-only` 时，在处理每个仓库之前增加双重检查：
+
+1. 检查 `json/<repo>_build_analysis.json`：如果 `analysis_method == "jenkins_console_log_parse"` → SKIP（外部直接归档数据）
+2. 检查 `json-org/<repo>_build_analysis.json`：如果 `analysis_method == "jenkins_console_log_parse"` → SKIP（遗留外部数据）
+
+外部归档数据（12 个仓库）均不在 `repos.txt` 中，双重保险确保不会被自动刷新触及。
 
 ### 单仓模式
 
