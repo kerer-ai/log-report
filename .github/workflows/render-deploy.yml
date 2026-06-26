@@ -46,4 +46,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git commit -m "render: auto-regenerate static page [skip ci]"
-          git push
+          git push origin HEAD:master
