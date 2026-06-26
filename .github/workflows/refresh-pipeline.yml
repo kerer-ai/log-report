@@ -38,13 +38,9 @@ jobs:
         env:
           GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
         run: |
-          # Clone and build gc CLI from source (Go 1.22+)
-          git clone https://gitcode.com/gitcode-cli/cli.git /tmp/gc-cli
-          cd /tmp/gc-cli
-          go build -o gc ./cmd/gc
-          sudo mv gc /usr/local/bin/
-          cd -
-          rm -rf /tmp/gc-cli
+          # Download and install gc CLI from Release .deb package
+          wget https://gitcode.com/gitcode-cli/cli/releases/download/v0.6.1/gc_0.6.1_amd64.deb
+          sudo dpkg -i gc_0.6.1_amd64.deb
           # Verify installation
           which gc
           gc auth status
