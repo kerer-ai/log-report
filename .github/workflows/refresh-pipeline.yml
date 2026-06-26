@@ -65,6 +65,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin master
           git add json-org/ json/ index.html
           TZ='Asia/Shanghai' date +'sync: automated refresh (%Y-%m-%d) [skip ci]' | git commit -F - || echo "Nothing to commit"
           git push origin HEAD:master
