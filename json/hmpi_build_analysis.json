@@ -1,457 +1,163 @@
 {
   "meta": {
-    "pr": 90,
+    "pr": 91,
     "repo": "kunpengcompute/hmpi",
-    "pr_url": "https://gitcode.com/kunpengcompute/hmpi/pull/90",
-    "pipeline_name": "PR-pipeline_hmpi#17",
-    "pipeline_state": " [ commitID：d2e7b60f ] 运行中",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=9afc534b0f9e418dacc45164126841f2&pipelineRunId=bee18137ad2c4d569c4255c11da76673&codeHostingPlatformFlag=gitcode",
-    "comment_time": "",
-    "fetched_at": "2026-06-18T11:16:17.250828+08:00",
-    "analyzed_at": "2026-06-18T11:30:00.000000+08:00",
+    "pr_url": "https://gitcode.com/kunpengcompute/hmpi/pull/91",
+    "pipeline_name": "PR-pipeline_hmpi",
+    "pipeline_state": "failed",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=9afc534b0f9e418dacc45164126841f2&pipelineRunId=ec87c48bf9e4438e90e4277692f8b376&codeHostingPlatformFlag=gitcode",
+    "comment_time": "2026-06-26T14:50:00+08:00",
+    "fetched_at": "2026-06-26T16:43:39.494489+08:00",
+    "analyzed_at": "2026-06-26T17:02:53.917354+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
     {
       "task_name": "Build_gcc",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=9afc534b0f9e418dacc45164126841f2&pipelineRunId=bee18137ad2c4d569c4255c11da76673&stepId=eb18e3355ff1424cb158c0581b2c1ec5&jobRunId=2786c3504b42400facf4943a72ed6153&stepRunId=05b703c6657843cf80e117260e5dd88d&codeHostingPlatformFlag=gitcode",
-      "time": {
-        "start": "2026-06-15T17:13:13.147000+08:00",
-        "end": "2026-06-15T17:22:26.096000+08:00",
-        "duration_seconds": 552.949
-      },
-      "log_sample": "[2026/06/15 17:13:13.147 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_TJRh2gux #1\n[2026/06/15 17:13:13.148 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/15 17:13:13.259 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/15 17:13:13.260 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: aace3f859d164f2280bee25b4baa5026\n[2026/06/15 17:13:13.261 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/15 17:13:13.261 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/15 17:13:13.368 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_CI_MR_02-0FVJ0pMjtY\n[2026/06/15 17:13:13.419 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/15 17:13:14.183 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/15 17:13:14.183 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/15 17:13:14.183 GMT+08:00] Status: Image is up to date for************\n[2026/06/15 17:13:16.629 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/15 17:13:16.631 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/15 17:13:16.792 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/15 17:13:17.073 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/15 17:13:17.073 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/15 17:13:17.074 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/15 17:13:17.461 GMT+08:00] No credentials specified\n[2026/06/15 17:13:17.461 GMT+08:00] set customize username password****           \n[2026/06/15 17:13:17.504 GMT+08:00] addDefaultCredentials\n[2026/06/15 17:13:17.508 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/15 17:13:17.512 GMT+08:00] Cloning the remote Git repository\n[2026/06/15 17:13:17.512 GMT+08:00] Avoid fetching tags\n[2026/06/15 17:13:17.512 GMT+08:00] Honoring refspec on initial clone\n[2026/06/15 17:13:17.538 GMT+08:00] Cloning repository https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:17.581 GMT+08:00]  > git init /opt/agent_CI_MR_02/workspace/j_TJRh2gux # timeout=10\n[2026/06/15 17:13:17.592 GMT+08:00] Fetching upstream changes from https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:17.592 GMT+08:00]  > git --version # timeout=10\n[2026/06/15 17:13:17.594 GMT+08:00]  > git --version # 'git version 2.33.0'\n[2026/06/15 17:13:17.594 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:17.597 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:17.602 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/kunpengcompute/hmpi.git +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeout=120\n[2026/06/15 17:13:22.982 GMT+08:00] fork MR gitcode from v26.1.x(d2e7b60fab02e8cec83102478580b45e6a4aab1d) to v26.1.x(662bcdb2dc7b5a2ea33124d27f4b0ac2a8fed1f8).\n[2026/06/15 17:13:22.982 GMT+08:00] Merging Revision d2e7b60fab02e8cec83102478580b45e6a4aab1d (fork/v26.1.x) to origin/v26.1.x, UserMergeOptions{mergeRemote='origin', mergeTarget='v26.1.x', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/15 17:13:22.988 GMT+08:00] Disable Git LFS pull\n[2026/06/15 17:13:22.925 GMT+08:00]  > git config remote.fork.url https://gitcode.com/kunpengcompute/hmpi.git # timeout=10\n[2026/06/15 17:13:22.928 GMT+08:00]  > git config --add remote.fork.fetch +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeout=10\n[2026/06/15 17:13:22.934 GMT+08:00]  > git config remote.fork.url https://gitcode.com/kunpengcompute/hmpi.git # timeout=10\n[2026/06/15 17:13:22.941 GMT+08:00] Fetching upstream changes from https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:22.941 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:22.942 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:22.942 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/kunpengcompute/hmpi.git +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeout=120\n[2026/06/15 17:13:22.953 GMT+08:00]  > git config remote.origin.url https://gitcode.com/kunpengcompute/hmpi.git # timeout=10\n[2026/06/15 17:13:22.959 GMT+08:00] Fetching upstream changes from https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:22.959 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:22.960 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:22.960 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/kunpengcompute/hmpi.git +662bcdb2dc7b5a2ea33124d27f4b0ac2a8fed1f8:refs/remotes/origin/v26.1.x # timeout=120\n[2026/06/15 17:13:22.970 GMT+08:00]  > git rev-parse fork/v26.1.x^{commit} # timeout=10\n[2026/06/15 17:13:22.977 GMT+08:00]  > git rev-parse origin/v26.1.x^{commit} # timeout=10\n[2026/06/15 17:13:22.983 GMT+08:00]  > git rev-parse origin/v26.1.x^{commit} # timeout=10\n[2026/06/15 17:13:22.995 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/15 17:13:22.997 GMT+08:00]  > git checkout -f origin/v26.1.x # timeout=120\n[2026/06/15 17:13:23.434 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/15 17:13:23.438 GMT+08:00]  > git checkout -b v26.1.x origin/v26.1.x # timeout=120\n[2026/06/15 17:13:23.656 GMT+08:00]  > git remote # timeout=10\n[2026/06/15 17:13:23.658 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/15 17:13:23.660 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:23.661 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:23.661 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/15 17:13:24.904 GMT+08:00] Checking out Revision 9960657d63aab7c5f08c98661809cd500ab86b50 (origin/v26.1.x)\n[2026/06/15 17:13:24.904 GMT+08:00] Disable Git LFS pull\n[2026/06/15 17:13:24.033 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/15 17:13:24.840 GMT+08:00] Seen branch in repository fork/v26.1.x\n[2026/06/15 17:13:24.840 GMT+08:00] Seen branch in repository origin/v26.1.x\n[2026/06/15 17:13:24.841 GMT+08:00] Seen 2 remote branches\n[2026/06/15 17:13:24.899 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/15 17:13:24.906 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/15 17:13:24.908 GMT+08:00]  > git checkout -f 9960657d63aab7c5f08c98661809cd500ab86b50 # timeout=120\n[2026/06/15 17:13:24.920 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/15 17:13:24.923 GMT+08:00]  > git branch -D v26.1.x # timeout=10\n[2026/06/15 17:13:24.926 GMT+08:00]  > git checkout -b v26.1.x 9960657d63aab7c5f08c98661809cd500ab86b50 # timeout=120\n[2026/06/15 17:13:25.479 GMT+08:00] Commit message: \"Merge commit 'd2e7b60fab02e8cec83102478580b45e6a4aab1d' into v26.1.x\"\n[2026/06/15 17:13:25.479 GMT+08:00] First time build. Skipping changelog.\n[2026/06/15 17:13:25.507 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/15 17:13:25.560 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/15 17:13:27.215 GMT+08:00] v1.0: Pulling from cloud-hpckit/hpckit_openeuler_22.03_lts_sp2_arm\n[2026/06/15 17:13:27.215 GMT+08:00] Digest: sha256:058f61dea28993a600d62a9402e14352d366ae211ae2b8e9c7b0934bbbc12e62\n[2026/06/15 17:13:27.215 GMT+08:00] Status: Image is up to date for swr.cn-north-4.myhuaweicloud.com/cloud-hpckit/hpckit_openeuler_22.03_lts_sp2_arm:v1.0\n[2026/06/15 17:13:28.354 GMT+08:00] sh: warning: setlocale: LC_ALL: cannot change locale (en_US.utf8)\n[2026/06/15 17:13:28.354 GMT+08:00] + set -ex\n[2026/06/15 17:13:28.355 GMT+08:00] + export LC_ALL=C\n[2026/06/15 17:13:28.355 GMT+08:00] + LC_ALL=C\n[2026/06/15 17:13:28.355 GMT+08:00] + export LANG=C\n[2026/06/15 17:13:28.355 GMT+08:00] + LANG=C\n[2026/06/15 17:13:28.355 GMT+08:00] + yum install -y libibverbs libibverbs-devel\n[2026/06/15 17:13:28.365 GMT+08:00] starting check in ***/@tmp/durable-f167c07b\n[2026/06/15 17:13:28.626 GMT+08:00] OS                                               14 kB/s | 1.9 kB     00:00    \n[2026/06/15 17:13:28.897 GMT+08:00] everything                                       14 kB/s | 2.0 kB     00:00    \n[2026/06/15 17:13:29.564 GMT+08:00] EPOL                                             13 kB/s | 2.0 kB     00:00    \n[2026/06/15 17:13:29.564 GMT+08:00] debuginfo                                       4.5 kB/s | 2.0 kB     00:00    \n[2026/06/15 17:13:31.051 GMT+08:00] source                                          1.5 kB/s | 1.9 kB     00:01    \n[2026/06/15 17:13:31.326 GMT+08:00] update                                           11 kB/s | 2.0 kB     00:00    \n[2026/06/15 17:13:31.326 GMT+08:00] update-source                                    14 kB/s | 2.0 kB     00:00    \n[2026/06/15 17:13:31.326 GMT+08:00] Package rdma-core-41.0-15.oe2203sp2.aarch64 is already installed.\n[2026/06/15 17:13:31.597 GMT+08:00] Dependencies resolved.\n[2026/06/15 17:13:31.597 GMT+08:00] ================================================================================\n[2026/06/15 17:13:31.597 GMT+08:00]  Package               Architecture  Version                 Repository    Size\n[2026/06/15 17:13:31.597 GMT+08:00] ================================================================================\n[2026/06/15 17:13:31.597 GMT+08:00] Installing:\n[2026/06/15 17:13:31.597 GMT+08:00]  rdma-core-devel       aarch64       41.0-15.oe2203sp2       update       561 k\n[2026/06/15 17:13:31.597 GMT+08:00] Installing dependencies:\n[2026/06/15 17:13:31.597 GMT+08:00]  libnl3-devel          aarch64       3.7.0-1.oe2203sp2       OS            70 k\n[2026/06/15 17:13:31.597 GMT+08:00] \n[2026/06/15 17:13:31.597 GMT+08:00] Transaction Summary\n\n[2026/06/15 17:13:32.462 GMT+08:00] ++ export PATH\n[2026/06/15 17:13:32.462 GMT+08:00] ++ _LMFILES_=/usr1/HPCKit/latest/modulefiles/gcc/compiler12.3.1/gccmodule\n[2026/06/15 17:13:32.462 GMT+08:00] ++ export _LMFILES_\n[2026/06/15 17:13:32.462 GMT+08:00] ++ LOADEDMODULES=gcc/compiler12.3.1/gccmodule\n[2026/06/15 17:13:32.462 GMT+08:00] ++ export LOADEDMODULES\n[2026/06/15 17:13:32.462 GMT+08:00] ++ CC=gcc\n[2026/06/15 17:13:32.462 GMT+08:00] ++ export CC\n[2026/06/15 17:13:32.462 GMT+08:00] ++ F90=gfortran\n[2026/06/15 17:13:32.462 GMT+08:00] ++ export F90\n[2026/06/15 17:13:32.462 GMT+08:00] ++ CXX=g++\n[2026/06/15 17:13:32.462 GMT+08:00] ++ export CXX\n[2026/06/15 17:13:32.462 GMT+08:00] ++ test 0\n[2026/06/15 17:13:32.462 GMT+08:00] + _mlstatus=0\n[2026/06/15 17:13:32.462 GMT+08:00] + return 0\n[2026/06/15 17:13:32.462 GMT+08:00] + echo ***/\n[2026/06/15 17:13:32.462 GMT+08:00] ***/\n[2026/06/15 17:13:32.462 GMT+08:00] + mkdir -p ***//install\n[2026/06/15 17:13:32.462 GMT+08:00] + git config --global core.symlinks false\n[2026/06/15 17:13:32.462 GMT+08:00] + git clone https://gitcode.com/kunpengcompute/hucx.git ***//hucx\n[2026/06/15 17:13:32.462 GMT+08:00] Cloning into '***//hucx'...\n[2026/06/15 17:13:35.833 GMT+08:00] + git clone https://gitcode.com/kunpengcompute/xucg.git ***//xucg\n[2026/06/15 17:13:35.833 GMT+08:00] Cloning into '***//xucg'...\n[2026/06/15 17:13:36.425 GMT+08:00] + cd ***//hucx\n[2026/06/15 17:13:36.425 GMT+08:00] + ./autogen.sh",
-      "log_stats": {
-        "total_timestamped_lines": 29207,
-        "sample_lines": 400,
-        "raw_chars": 2704459
-      },
-      "timestamp_summary": {
-        "first": "2026-06-15T17:13:13.147000+08:00",
-        "last": "2026-06-15T17:22:26.096000+08:00",
-        "duration_seconds": 552.949,
-        "total_timestamped_lines": 29207,
-        "sample_lines_included": 400
-      },
-      "significant_gaps": [
-        {
-          "after_line": 31,
-          "gap_seconds": 5.38,
-          "before_ts": "2026-06-15T17:13:17.602000+08:00",
-          "after_ts": "2026-06-15T17:13:22.982000+08:00",
-          "sample_before": "[2026/06/15 17:13:17.602 GMT+08:00]  > git -c *** fetch --no-tags --force --progress -- https://gitcode.com/kunpengcompute/hmpi.git +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x ",
-          "sample_after": "[2026/06/15 17:13:22.982 GMT+08:00] fork MR gitcode from v26.1.x(d2e7b60fab02e8cec83102478580b45e6a4aab1d) to v26.1.x(662bcdb2dc7b5a2ea33124d27f4b0ac2a8fed1f8)."
-        },
-        {
-          "after_line": 898,
-          "gap_seconds": 6.688,
-          "before_ts": "2026-06-15T17:14:07.799000+08:00",
-          "after_ts": "2026-06-15T17:14:14.487000+08:00",
-          "sample_before": "[2026/06/15 17:14:07.799 GMT+08:00]   CC       ud/accel/libuct_ib_la-ud_mlx5.lo",
-          "sample_after": "[2026/06/15 17:14:14.487 GMT+08:00]   CCLD     libuct_ib.la"
-        },
-        {
-          "after_line": 1079,
-          "gap_seconds": 32.307,
-          "before_ts": "2026-06-15T17:14:26.055000+08:00",
-          "after_ts": "2026-06-15T17:14:58.362000+08:00",
-          "sample_before": "[2026/06/15 17:14:26.055 GMT+08:00]   CXX      libucxperf_la-ucp_tests.lo",
-          "sample_after": "[2026/06/15 17:14:58.362 GMT+08:00]   CXXLD    libucxperf.la"
-        },
-        {
-          "after_line": 1121,
-          "gap_seconds": 6.692,
-          "before_ts": "2026-06-15T17:14:58.904000+08:00",
-          "after_ts": "2026-06-15T17:15:05.596000+08:00",
-          "sample_before": "[2026/06/15 17:14:58.904 GMT+08:00]   CXX      io_demo-io_demo.o",
-          "sample_after": "[2026/06/15 17:15:05.596 GMT+08:00]   CXXLD    io_demo"
-        },
-        {
-          "after_line": 4131,
-          "gap_seconds": 12.362,
-          "before_ts": "2026-06-15T17:15:34.344000+08:00",
-          "after_ts": "2026-06-15T17:15:46.706000+08:00",
-          "sample_before": "[2026/06/15 17:15:34.344 GMT+08:00] autoreconf: running: aclocal -I config --force -I config",
-          "sample_after": "[2026/06/15 17:15:46.706 GMT+08:00] autoreconf: configure.ac: tracing"
-        },
-        {
-          "after_line": 4132,
-          "gap_seconds": 5.379,
-          "before_ts": "2026-06-15T17:15:46.706000+08:00",
-          "after_ts": "2026-06-15T17:15:52.085000+08:00",
-          "sample_before": "[2026/06/15 17:15:46.706 GMT+08:00] autoreconf: configure.ac: tracing",
-          "sample_after": "[2026/06/15 17:15:52.085 GMT+08:00] autoreconf: running: libtoolize --copy --force"
-        },
-        {
-          "after_line": 4144,
-          "gap_seconds": 12.362,
-          "before_ts": "2026-06-15T17:15:54.083000+08:00",
-          "after_ts": "2026-06-15T17:16:06.445000+08:00",
-          "sample_before": "[2026/06/15 17:15:54.083 GMT+08:00] autoreconf: running: aclocal -I config --force -I config",
-          "sample_after": "[2026/06/15 17:16:06.445 GMT+08:00] autoreconf: running: /usr/bin/autoconf --include=config --force"
-        },
-        {
-          "after_line": 4145,
-          "gap_seconds": 5.392,
-          "before_ts": "2026-06-15T17:16:06.445000+08:00",
-          "after_ts": "2026-06-15T17:16:11.837000+08:00",
-          "sample_before": "[2026/06/15 17:16:06.445 GMT+08:00] autoreconf: running: /usr/bin/autoconf --include=config --force",
-          "sample_after": "[2026/06/15 17:16:11.837 GMT+08:00] configure.ac:65: warning: The macro `AC_HELP_STRING' is obsolete."
-        },
-        {
-          "after_line": 11162,
-          "gap_seconds": 6.686,
-          "before_ts": "2026-06-15T17:16:15.335000+08:00",
-          "after_ts": "2026-06-15T17:16:22.021000+08:00",
-          "sample_before": "[2026/06/15 17:16:15.335 GMT+08:00] autoreconf: running: /usr/bin/autoheader --include=config --force",
-          "sample_after": "[2026/06/15 17:16:22.021 GMT+08:00] autoreconf: running: automake --add-missing --copy --force-missing"
-        },
-        {
-          "after_line": 11163,
-          "gap_seconds": 6.691,
-          "before_ts": "2026-06-15T17:16:22.021000+08:00",
-          "after_ts": "2026-06-15T17:16:28.712000+08:00",
-          "sample_before": "[2026/06/15 17:16:22.021 GMT+08:00] autoreconf: running: automake --add-missing --copy --force-missing",
-          "sample_after": "[2026/06/15 17:16:28.712 GMT+08:00] configure.ac:94: installing 'config/compile'"
-        },
-        {
-          "after_line": 11170,
-          "gap_seconds": 8.251,
-          "before_ts": "2026-06-15T17:16:28.712000+08:00",
-          "after_ts": "2026-06-15T17:16:36.963000+08:00",
-          "sample_before": "[2026/06/15 17:16:28.712 GMT+08:00] parallel-tests: installing 'config/test-driver'",
-          "sample_after": "[2026/06/15 17:16:36.963 GMT+08:00] ompi/mpi/c/profile/Makefile.am:458: warning: user target 'ID' defined here ..."
-        },
-        {
-          "after_line": 11195,
-          "gap_seconds": 22.124,
-          "before_ts": "2026-06-15T17:16:40.334000+08:00",
-          "after_ts": "2026-06-15T17:17:02.458000+08:00",
-          "sample_before": "[2026/06/15 17:16:40.334 GMT+08:00] configure.ac: installing 'config/ylwrap'",
-          "sample_after": "[2026/06/15 17:17:02.458 GMT+08:00] oshmem/shmem/c/profile/Makefile.am:116: warning: user target 'ID' defined here ..."
-        },
-        {
-          "after_line": 11636,
-          "gap_seconds": 5.511,
-          "before_ts": "2026-06-15T17:17:12.800000+08:00",
-          "after_ts": "2026-06-15T17:17:18.311000+08:00",
-          "sample_before": "[2026/06/15 17:17:12.800 GMT+08:00] configure: WARNING: Open MPI now ignores the F77 and FFLAGS environment variables; only the FC and FCFLAGS environment variables are used.",
-          "sample_after": "[2026/06/15 17:17:18.311 GMT+08:00] checking whether ln -s works... yes"
-        },
-        {
-          "after_line": 15410,
-          "gap_seconds": 12.369,
-          "before_ts": "2026-06-15T17:18:25.518000+08:00",
-          "after_ts": "2026-06-15T17:18:37.887000+08:00",
-          "sample_before": "[2026/06/15 17:18:25.518 GMT+08:00] config.status: executing depfiles commands",
-          "sample_after": "[2026/06/15 17:18:37.887 GMT+08:00] config.status: executing opal/mca/event/libevent2022/libevent/include/event2/event-config.h commands"
-        },
-        {
-          "after_line": 29080,
-          "gap_seconds": 10.135,
-          "before_ts": "2026-06-15T17:22:15.959000+08:00",
-          "after_ts": "2026-06-15T17:22:26.094000+08:00",
-          "sample_before": "[2026/06/15 17:22:15.959 GMT+08:00] make[3]: Entering directory '***/'",
-          "sample_after": "[2026/06/15 17:22:26.094 GMT+08:00] make[3]: Leaving directory '***/'"
-        }
-      ],
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=9afc534b0f9e418dacc45164126841f2&pipelineRunId=ec87c48bf9e4438e90e4277692f8b376&stepId=e092fbe52ba84d51ad77a7102b4971bf&jobRunId=da5b744d441140329ad7839f2516d7c2&stepRunId=e40618abca704056908b925939b9b017&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/hmpi/pr91/Build_gcc-2026-06-26T142838.log.gz",
       "pre_build": {
-        "total_seconds": 52.7,
-        "pct_of_total": 9.5,
+        "total_seconds": 234.745,
+        "pct_of_total": 34.89,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-15T17:13:13.259000+08:00",
-            "end": "2026-06-15T17:13:13.419000+08:00",
-            "duration_seconds": 0.2,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 17:13:13.259 -> Find available executor node:agent_CI_MR_02-0FVJ0pMjtY -> 该步骤执行完成 17:13:13.419"
+            "start": "2026-06-26T14:28:38.551000+08:00",
+            "end": "2026-06-26T14:28:39.054000+08:00",
+            "duration_seconds": 0.503,
+            "evidence": "node_assignment: 14:28:38→14:28:38"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-15T17:13:14.183000+08:00",
-            "end": "2026-06-15T17:13:27.215000+08:00",
-            "duration_seconds": 13.0,
-            "evidence": "arm-shell4.2.46 Pulling from ***** 17:13:14.183 -> Status: Image is up to date (cached) -> hpckit_openeuler_22.03_lts_sp2_arm:v1.0 Pulling -> Status: Image is up to date 17:13:27.215"
+            "start": "2026-06-26T14:28:39.054000+08:00",
+            "end": "2026-06-26T14:28:39.924000+08:00",
+            "duration_seconds": 0.87,
+            "evidence": "docker_pull: 14:28:39→14:28:48"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-15T17:13:16.629000+08:00",
-            "end": "2026-06-15T17:13:25.560000+08:00",
-            "duration_seconds": 8.9,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 17:13:16.629 -> Cloning repository gitcode.com/kunpengcompute/hmpi.git -> git fetch/clone/merge/checkout -> [代码检出:external_post_checkout] 该步骤执行完成 17:13:25.560"
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": "2026-06-15T17:13:28.355000+08:00",
-            "end": "2026-06-15T17:13:32.461000+08:00",
-            "duration_seconds": 4.1,
-            "evidence": "+ yum install -y libibverbs libibverbs-devel 17:13:28.355 -> Package rdma-core already installed -> Dependencies resolved -> rdma-core-devel+libnl3-devel installed 17:13:32.461"
+            "start": "2026-06-26T14:28:39.924000+08:00",
+            "end": "2026-06-26T14:28:47.209000+08:00",
+            "duration_seconds": 7.285,
+            "evidence": "git_checkout: 14:28:39→14:28:47"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置",
-            "start": "2026-06-15T17:13:32.000000+08:00",
-            "end": "2026-06-15T17:13:32.462000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "module use/load gcc/compiler12.3.1 -> export PATH/CC/CXX/F90 17:13:32.462 -> mkdir -p install -> git config --global core.symlinks false"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "依赖仓库克隆",
-            "start": "2026-06-15T17:13:32.462000+08:00",
-            "end": "2026-06-15T17:13:36.425000+08:00",
-            "duration_seconds": 4.0,
-            "evidence": "+ git clone https://gitcode.com/kunpengcompute/hucx.git 17:13:32.462 -> Cloning into '***//hucx'... -> + git clone xucg.git 17:13:35.833 -> + cd ***//hucx 17:13:36.425"
+            "start": "2026-06-26T14:28:47.209000+08:00",
+            "end": "2026-06-26T14:32:33.296000+08:00",
+            "duration_seconds": 226.087,
+            "evidence": "env_setup: 14:28:47→14:32:33"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 500.2,
-        "pct_of_total": 90.5,
+        "total_seconds": 437.987,
+        "pct_of_total": 65.1,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "自动工具配置 (autotools)",
-            "duration_seconds": 226.5
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 268.7
+            "duration_seconds": 306.6
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 5.0
+            "duration_seconds": 131.4
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 52.7,
-        "build_seconds": 500.2,
-        "unattributed_seconds": 0.0,
-        "key_bottleneck": "Docker 镜像拉取",
-        "key_bottleneck_seconds": 13.0
+        "pre_build_seconds": 234.7,
+        "build_seconds": 438.0,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "环境变量设置",
+        "key_bottleneck_seconds": 226.087
+      },
+      "time": {
+        "start": "2026-06-26T14:28:38.445000+08:00",
+        "end": "2026-06-26T14:39:51.283000+08:00",
+        "duration_seconds": 672.838
       }
     },
     {
       "task_name": "Build_bisheng",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=9afc534b0f9e418dacc45164126841f2&pipelineRunId=bee18137ad2c4d569c4255c11da76673&stepId=eb18e3355ff1424cb158c0581b2c1ec5&jobRunId=49689b68dffb49fab1f6ef0f11913fa7&stepRunId=b44b2f6b1ddd47399581b22973a93cf9&codeHostingPlatformFlag=gitcode",
-      "time": {
-        "start": "2026-06-15T17:13:13.246000+08:00",
-        "end": "2026-06-15T17:23:03.094000+08:00",
-        "duration_seconds": 589.848
-      },
-      "log_sample": "[2026/06/15 17:13:13.246 GMT+08:00] [INFO]  : [JobStatusPlugin] onStarted: j_H5u8wGZR #1\n[2026/06/15 17:13:13.247 GMT+08:00] Resume disabled by user, switching to high-performance, low-durability mode.\n[2026/06/15 17:13:13.359 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤开始执行\n[2026/06/15 17:13:13.361 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] resources pool message: aace3f859d164f2280bee25b4baa5026\n[2026/06/15 17:13:13.362 GMT+08:00] [WARNING] [PRE_ENV:slave_create] : [slave] find empty runtime, location: PRE_ENV.slave_create\n[2026/06/15 17:13:13.362 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Fixed content: No\n[2026/06/15 17:13:14.366 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Start to create an executor node...\n[2026/06/15 17:13:15.045 GMT+08:00] [INFO] [PRE_ENV:slave_create] : [slave] Find available executor node:agent_CI_MR_01-JKxrUxntLV\n[2026/06/15 17:13:15.095 GMT+08:00] [INFO] [PRE_ENV:slave_create] : 该步骤执行完成\n[2026/06/15 17:13:15.872 GMT+08:00] arm-shell4.2.46-git2.23-zip-1.1.0: Pulling from *****\n[2026/06/15 17:13:15.872 GMT+08:00] Digest: sha256:d0f5d8ada0e25daa60eabcc3eebe45eee5d7e532d07ff2367c487095356d0e0b\n[2026/06/15 17:13:15.872 GMT+08:00] Status: Image is up to date for************\n[2026/06/15 17:13:18.214 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤开始执行\n[2026/06/15 17:13:18.215 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : git plugin version: 1.12.5\n[2026/06/15 17:13:18.369 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 成功配置文件。\n[2026/06/15 17:13:18.514 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : [WARN]DEV.CB.02101217,用户名或密码为空。\n[2026/06/15 17:13:18.514 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 创建gitcode代码访问凭证成功。\n[2026/06/15 17:13:18.514 GMT+08:00] [INFO] [代码检出:external_pre_checkout] : 该步骤执行完成\n[2026/06/15 17:13:18.926 GMT+08:00] No credentials specified\n[2026/06/15 17:13:18.926 GMT+08:00] set customize username password****           \n[2026/06/15 17:13:18.972 GMT+08:00] addDefaultCredentials\n[2026/06/15 17:13:18.976 GMT+08:00] git plugin version: 3.12.22-h1.cbu.codearts.build.r1\n[2026/06/15 17:13:18.980 GMT+08:00] Cloning the remote Git repository\n[2026/06/15 17:13:18.980 GMT+08:00] Avoid fetching tags\n[2026/06/15 17:13:18.980 GMT+08:00] Honoring refspec on initial clone\n[2026/06/15 17:13:19.016 GMT+08:00] Cloning repository https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:19.066 GMT+08:00]  > git init /opt/agent_CI_MR_01/workspace/j_H5u8wGZR # timeout=10\n[2026/06/15 17:13:19.077 GMT+08:00] Fetching upstream changes from https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:19.077 GMT+08:00]  > git --version # timeout=10\n[2026/06/15 17:13:19.079 GMT+08:00]  > git --version # 'git version 2.9.5'\n[2026/06/15 17:13:19.079 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:19.080 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:19.081 GMT+08:00]  > git -c *** fetch --no-tags --progress -- https://gitcode.com/kunpengcompute/hmpi.git +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeout=120\n[2026/06/15 17:13:25.085 GMT+08:00] fork MR gitcode from v26.1.x(d2e7b60fab02e8cec83102478580b45e6a4aab1d) to v26.1.x(662bcdb2dc7b5a2ea33124d27f4b0ac2a8fed1f8).\n[2026/06/15 17:13:25.086 GMT+08:00] Merging Revision d2e7b60fab02e8cec83102478580b45e6a4aab1d (fork/v26.1.x) to origin/v26.1.x, UserMergeOptions{mergeRemote='origin', mergeTarget='v26.1.x', mergeStrategy='DEFAULT', fastForwardMode='NO_FF'}\n[2026/06/15 17:13:25.092 GMT+08:00] Disable Git LFS pull\n[2026/06/15 17:13:24.549 GMT+08:00]  > git config remote.fork.url https://gitcode.com/kunpengcompute/hmpi.git # timeout=10\n[2026/06/15 17:13:24.552 GMT+08:00]  > git config --add remote.fork.fetch +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeout=10\n[2026/06/15 17:13:24.558 GMT+08:00]  > git config remote.fork.url https://gitcode.com/kunpengcompute/hmpi.git # timeout=10\n[2026/06/15 17:13:24.565 GMT+08:00] Fetching upstream changes from https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:24.565 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:24.566 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:24.566 GMT+08:00]  > git -c *** fetch --no-tags --progress -- https://gitcode.com/kunpengcompute/hmpi.git +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeout=120\n[2026/06/15 17:13:24.819 GMT+08:00]  > git config remote.origin.url https://gitcode.com/kunpengcompute/hmpi.git # timeout=10\n[2026/06/15 17:13:24.825 GMT+08:00] Fetching upstream changes from https://gitcode.com/kunpengcompute/hmpi.git\n[2026/06/15 17:13:24.825 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:24.826 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:24.826 GMT+08:00]  > git -c *** fetch --no-tags --progress -- https://gitcode.com/kunpengcompute/hmpi.git +662bcdb2dc7b5a2ea33124d27f4b0ac2a8fed1f8:refs/remotes/origin/v26.1.x # timeout=120\n[2026/06/15 17:13:25.075 GMT+08:00]  > git rev-parse fork/v26.1.x^{commit} # timeout=10\n[2026/06/15 17:13:25.082 GMT+08:00]  > git rev-parse origin/v26.1.x^{commit} # timeout=10\n[2026/06/15 17:13:25.088 GMT+08:00]  > git rev-parse origin/v26.1.x^{commit} # timeout=10\n[2026/06/15 17:13:25.100 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/15 17:13:25.102 GMT+08:00]  > git checkout -f origin/v26.1.x # timeout=120\n[2026/06/15 17:13:25.532 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/15 17:13:25.535 GMT+08:00]  > git checkout -b v26.1.x origin/v26.1.x # timeout=120\n[2026/06/15 17:13:25.667 GMT+08:00]  > git remote # timeout=10\n[2026/06/15 17:13:25.670 GMT+08:00]  > git config --get remote.origin.url # timeout=10\n[2026/06/15 17:13:25.672 GMT+08:00] using GIT_ASKPASS to set credentials  username and password**** [2026/06/15 17:13:25.672 GMT+08:00] scmType is gitcode\n[2026/06/15 17:13:25.672 GMT+08:00]  > git -c http.extraheader=Authorization:******\n[2026/06/15 17:13:25.927 GMT+08:00]  > git rev-parse HEAD^{commit} # timeout=10\n[2026/06/15 17:13:27.302 GMT+08:00] Checking out Revision f14ba0516f10d0f30cfe1bf2ba0218f31485ce33 (origin/v26.1.x)\n[2026/06/15 17:13:27.302 GMT+08:00] Disable Git LFS pull\n[2026/06/15 17:13:27.199 GMT+08:00] Seen branch in repository fork/v26.1.x\n[2026/06/15 17:13:27.199 GMT+08:00] Seen branch in repository origin/v26.1.x\n[2026/06/15 17:13:27.200 GMT+08:00] Seen 2 remote branches\n[2026/06/15 17:13:27.298 GMT+08:00]  > git show-ref --tags -d # timeout=10\n[2026/06/15 17:13:27.305 GMT+08:00]  > git config core.sparsecheckout # timeout=10\n[2026/06/15 17:13:27.307 GMT+08:00]  > git checkout -f f14ba0516f10d0f30cfe1bf2ba0218f31485ce33 # timeout=120\n[2026/06/15 17:13:27.478 GMT+08:00]  > git branch -a -v --no-abbrev # timeout=10\n[2026/06/15 17:13:27.481 GMT+08:00]  > git branch -D v26.1.x # timeout=10\n[2026/06/15 17:13:27.483 GMT+08:00]  > git checkout -b v26.1.x f14ba0516f10d0f30cfe1bf2ba0218f31485ce33 # timeout=120\n[2026/06/15 17:13:28.412 GMT+08:00] Commit message: \"Merge commit 'd2e7b60fab02e8cec83102478580b45e6a4aab1d' into v26.1.x\"\n[2026/06/15 17:13:28.412 GMT+08:00] First time build. Skipping changelog.\n[2026/06/15 17:13:28.436 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤开始执行\n[2026/06/15 17:13:28.486 GMT+08:00] [INFO] [代码检出:external_post_checkout] : 该步骤执行完成\n[2026/06/15 17:13:30.152 GMT+08:00] v1.0: Pulling from cloud-hpckit/hpckit_openeuler_22.03_lts_sp2_arm\n[2026/06/15 17:13:30.152 GMT+08:00] Digest: sha256:058f61dea28993a600d62a9402e14352d366ae211ae2b8e9c7b0934bbbc12e62\n[2026/06/15 17:13:30.152 GMT+08:00] Status: Image is up to date for swr.cn-north-4.myhuaweicloud.com/cloud-hpckit/hpckit_openeuler_22.03_lts_sp2_arm:v1.0\n[2026/06/15 17:13:31.290 GMT+08:00] sh: warning: setlocale: LC_ALL: cannot change locale (en_US.utf8)\n[2026/06/15 17:13:31.290 GMT+08:00] + set -ex\n[2026/06/15 17:13:31.290 GMT+08:00] + export LC_ALL=C\n[2026/06/15 17:13:31.290 GMT+08:00] + LC_ALL=C\n[2026/06/15 17:13:31.290 GMT+08:00] + export LANG=C\n[2026/06/15 17:13:31.290 GMT+08:00] + LANG=C\n[2026/06/15 17:13:31.290 GMT+08:00] + yum install -y libibverbs libibverbs-devel",
-      "log_stats": {
-        "total_timestamped_lines": 29293,
-        "sample_lines": 400,
-        "raw_chars": 2714669
-      },
-      "timestamp_summary": {
-        "first": "2026-06-15T17:13:13.246000+08:00",
-        "last": "2026-06-15T17:23:03.094000+08:00",
-        "duration_seconds": 589.848,
-        "total_timestamped_lines": 29293,
-        "sample_lines_included": 400
-      },
-      "significant_gaps": [
-        {
-          "after_line": 32,
-          "gap_seconds": 6.004,
-          "before_ts": "2026-06-15T17:13:19.081000+08:00",
-          "after_ts": "2026-06-15T17:13:25.085000+08:00",
-          "sample_before": "[2026/06/15 17:13:19.081 GMT+08:00]  > git -c *** fetch --no-tags --progress -- https://gitcode.com/kunpengcompute/hmpi.git +d2e7b60fab02e8cec83102478580b45e6a4aab1d:refs/remotes/fork/v26.1.x # timeou",
-          "sample_after": "[2026/06/15 17:13:25.085 GMT+08:00] fork MR gitcode from v26.1.x(d2e7b60fab02e8cec83102478580b45e6a4aab1d) to v26.1.x(662bcdb2dc7b5a2ea33124d27f4b0ac2a8fed1f8)."
-        },
-        {
-          "after_line": 900,
-          "gap_seconds": 5.415,
-          "before_ts": "2026-06-15T17:14:15.634000+08:00",
-          "after_ts": "2026-06-15T17:14:21.049000+08:00",
-          "sample_before": "[2026/06/15 17:14:15.634 GMT+08:00]   CC       ud/accel/libuct_ib_la-ud_mlx5.lo",
-          "sample_after": "[2026/06/15 17:14:21.049 GMT+08:00]   CCLD     libuct_ib.la"
-        },
-        {
-          "after_line": 1081,
-          "gap_seconds": 38.966,
-          "before_ts": "2026-06-15T17:14:35.081000+08:00",
-          "after_ts": "2026-06-15T17:15:14.047000+08:00",
-          "sample_before": "[2026/06/15 17:14:35.081 GMT+08:00]   CXX      libucxperf_la-ucp_tests.lo",
-          "sample_after": "[2026/06/15 17:15:14.047 GMT+08:00]   CXXLD    libucxperf.la"
-        },
-        {
-          "after_line": 4137,
-          "gap_seconds": 12.38,
-          "before_ts": "2026-06-15T17:15:45.694000+08:00",
-          "after_ts": "2026-06-15T17:15:58.074000+08:00",
-          "sample_before": "[2026/06/15 17:15:45.694 GMT+08:00] autoreconf: running: aclocal -I config --force -I config",
-          "sample_after": "[2026/06/15 17:15:58.074 GMT+08:00] autoreconf: configure.ac: tracing"
-        },
-        {
-          "after_line": 4138,
-          "gap_seconds": 5.387,
-          "before_ts": "2026-06-15T17:15:58.074000+08:00",
-          "after_ts": "2026-06-15T17:16:03.461000+08:00",
-          "sample_before": "[2026/06/15 17:15:58.074 GMT+08:00] autoreconf: configure.ac: tracing",
-          "sample_after": "[2026/06/15 17:16:03.461 GMT+08:00] autoreconf: running: libtoolize --copy --force"
-        },
-        {
-          "after_line": 4150,
-          "gap_seconds": 12.375,
-          "before_ts": "2026-06-15T17:16:05.415000+08:00",
-          "after_ts": "2026-06-15T17:16:17.790000+08:00",
-          "sample_before": "[2026/06/15 17:16:05.415 GMT+08:00] autoreconf: running: aclocal -I config --force -I config",
-          "sample_after": "[2026/06/15 17:16:17.790 GMT+08:00] autoreconf: running: /usr/bin/autoconf --include=config --force"
-        },
-        {
-          "after_line": 4151,
-          "gap_seconds": 5.415,
-          "before_ts": "2026-06-15T17:16:17.790000+08:00",
-          "after_ts": "2026-06-15T17:16:23.205000+08:00",
-          "sample_before": "[2026/06/15 17:16:17.790 GMT+08:00] autoreconf: running: /usr/bin/autoconf --include=config --force",
-          "sample_after": "[2026/06/15 17:16:23.205 GMT+08:00] configure.ac:65: warning: The macro `AC_HELP_STRING' is obsolete."
-        },
-        {
-          "after_line": 11168,
-          "gap_seconds": 6.697,
-          "before_ts": "2026-06-15T17:16:26.691000+08:00",
-          "after_ts": "2026-06-15T17:16:33.388000+08:00",
-          "sample_before": "[2026/06/15 17:16:26.691 GMT+08:00] autoreconf: running: /usr/bin/autoheader --include=config --force",
-          "sample_after": "[2026/06/15 17:16:33.388 GMT+08:00] autoreconf: running: automake --add-missing --copy --force-missing"
-        },
-        {
-          "after_line": 11169,
-          "gap_seconds": 6.695,
-          "before_ts": "2026-06-15T17:16:33.388000+08:00",
-          "after_ts": "2026-06-15T17:16:40.083000+08:00",
-          "sample_before": "[2026/06/15 17:16:33.388 GMT+08:00] autoreconf: running: automake --add-missing --copy --force-missing",
-          "sample_after": "[2026/06/15 17:16:40.083 GMT+08:00] configure.ac:94: installing 'config/compile'"
-        },
-        {
-          "after_line": 11176,
-          "gap_seconds": 8.261,
-          "before_ts": "2026-06-15T17:16:40.083000+08:00",
-          "after_ts": "2026-06-15T17:16:48.344000+08:00",
-          "sample_before": "[2026/06/15 17:16:40.083 GMT+08:00] parallel-tests: installing 'config/test-driver'",
-          "sample_after": "[2026/06/15 17:16:48.344 GMT+08:00] ompi/mpi/c/profile/Makefile.am:458: warning: user target 'ID' defined here ..."
-        },
-        {
-          "after_line": 11201,
-          "gap_seconds": 22.137,
-          "before_ts": "2026-06-15T17:16:51.720000+08:00",
-          "after_ts": "2026-06-15T17:17:13.857000+08:00",
-          "sample_before": "[2026/06/15 17:16:51.720 GMT+08:00] configure.ac: installing 'config/ylwrap'",
-          "sample_after": "[2026/06/15 17:17:13.857 GMT+08:00] oshmem/shmem/c/profile/Makefile.am:116: warning: user target 'ID' defined here ..."
-        },
-        {
-          "after_line": 11636,
-          "gap_seconds": 5.386,
-          "before_ts": "2026-06-15T17:17:26.148000+08:00",
-          "after_ts": "2026-06-15T17:17:31.534000+08:00",
-          "sample_before": "[2026/06/15 17:17:26.148 GMT+08:00] configure: WARNING: Open MPI now ignores the F77 and FFLAGS environment variables; only the FC and FCFLAGS environment variables are used.",
-          "sample_after": "[2026/06/15 17:17:31.534 GMT+08:00] checking whether ln -s works... yes"
-        },
-        {
-          "after_line": 15407,
-          "gap_seconds": 12.681,
-          "before_ts": "2026-06-15T17:18:47.049000+08:00",
-          "after_ts": "2026-06-15T17:18:59.730000+08:00",
-          "sample_before": "[2026/06/15 17:18:47.049 GMT+08:00] config.status: executing depfiles commands",
-          "sample_after": "[2026/06/15 17:18:59.730 GMT+08:00] config.status: executing opal/mca/event/libevent2022/libevent/include/event2/event-config.h commands"
-        }
-      ],
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=9afc534b0f9e418dacc45164126841f2&pipelineRunId=ec87c48bf9e4438e90e4277692f8b376&stepId=e092fbe52ba84d51ad77a7102b4971bf&jobRunId=48ee64c3709a4abc985ca81953fc8f79&stepRunId=09d9374aacab4d81ba9c94ec387bddad&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/hmpi/pr91/Build_bisheng-2026-06-26T142839.log.gz",
       "pre_build": {
-        "total_seconds": 60.2,
-        "pct_of_total": 10.2,
+        "total_seconds": 801.998,
+        "pct_of_total": 63.25,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-15T17:13:13.359000+08:00",
-            "end": "2026-06-15T17:13:15.095000+08:00",
-            "duration_seconds": 1.7,
-            "evidence": "[PRE_ENV:slave_create] 该步骤开始执行 17:13:13.359 -> Start to create an executor node... -> Find available executor node:agent_CI_MR_01-JKxrUxntLV -> 该步骤执行完成 17:13:15.095"
+            "start": "2026-06-26T14:28:39.982000+08:00",
+            "end": "2026-06-26T14:39:45.016000+08:00",
+            "duration_seconds": 665.034,
+            "evidence": "node_assignment: 14:28:39→14:39:44"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-15T17:13:15.872000+08:00",
-            "end": "2026-06-15T17:13:30.152000+08:00",
-            "duration_seconds": 14.3,
-            "evidence": "arm-shell4.2.46 Pulling 17:13:15.872 -> Status: Image is up to date (cached) -> hpckit_openeuler_22.03_lts_sp2_arm:v1.0 Pulling -> Status: Image is up to date 17:13:30.152"
+            "start": "2026-06-26T14:39:45.016000+08:00",
+            "end": "2026-06-26T14:39:46.959000+08:00",
+            "duration_seconds": 1.943,
+            "evidence": "docker_pull: 14:39:45→14:39:58"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-15T17:13:18.214000+08:00",
-            "end": "2026-06-15T17:13:28.486000+08:00",
-            "duration_seconds": 10.3,
-            "evidence": "[代码检出:external_pre_checkout] 该步骤开始执行 17:13:18.214 -> Cloning repository gitcode.com/kunpengcompute/hmpi.git -> git fetch/clone/merge/checkout -> [代码检出:external_post_checkout] 该步骤执行完成 17:13:28.486"
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": "2026-06-15T17:13:31.290000+08:00",
-            "end": "2026-06-15T17:13:36.289000+08:00",
-            "duration_seconds": 5.0,
-            "evidence": "+ yum install -y libibverbs libibverbs-devel 17:13:31.290 -> Dependencies resolved/Package rdma-core already installed -> 780行后env_setup开始 ~17:13:36.3 (sample截断，基于gcc build同类操作推算)"
+            "start": "2026-06-26T14:39:46.959000+08:00",
+            "end": "2026-06-26T14:39:56.916000+08:00",
+            "duration_seconds": 9.957,
+            "evidence": "git_checkout: 14:39:46→14:39:56"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置",
-            "start": "2026-06-15T17:13:36.300000+08:00",
-            "end": "2026-06-15T17:13:36.800000+08:00",
-            "duration_seconds": 0.5,
-            "evidence": "module use/load bisheng/compiler, export PATH/CC/CXX, mkdir -p install, git config (sample截断，基于gcc build同类操作推算 ~0.5s)"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "依赖仓库克隆",
-            "start": "2026-06-15T17:13:36.800000+08:00",
-            "end": "2026-06-15T17:13:40.800000+08:00",
-            "duration_seconds": 4.0,
-            "evidence": "git clone gitcode.com/kunpengcompute/hucx.git -> Cloning into hucx... -> git clone xucg.git -> cd hucx (sample截断，基于gcc build同类操作推算 ~4.0s)"
+            "start": "2026-06-26T14:39:56.916000+08:00",
+            "end": "2026-06-26T14:42:01.980000+08:00",
+            "duration_seconds": 125.064,
+            "evidence": "env_setup: 14:39:56→14:42:01"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 529.6,
-        "pct_of_total": 89.8,
+        "total_seconds": 465.862,
+        "pct_of_total": 36.74,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "自动工具配置 (autotools)",
-            "duration_seconds": 226.2
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 298.4
+            "duration_seconds": 326.1
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 5.0
+            "duration_seconds": 139.8
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 60.2,
-        "build_seconds": 529.6,
-        "unattributed_seconds": 0.0,
-        "key_bottleneck": "Docker 镜像拉取",
-        "key_bottleneck_seconds": 14.3
+        "pre_build_seconds": 802.0,
+        "build_seconds": 465.9,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "执行节点分配",
+        "key_bottleneck_seconds": 665.034
+      },
+      "time": {
+        "start": "2026-06-26T14:28:39.878000+08:00",
+        "end": "2026-06-26T14:49:47.842000+08:00",
+        "duration_seconds": 1267.964
       }
     }
   ]

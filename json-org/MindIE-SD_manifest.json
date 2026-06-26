@@ -1,0 +1,27 @@
+{
+  "repo": "Ascend/MindIE-SD",
+  "pr": 380,
+  "pr_url": "https://gitcode.com/Ascend/MindIE-SD/pull/380",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_MindIE-SD_gitcode",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=1fb7edac5d0b4cf095f25ebea7376e75&pipelineRunId=2a1a78a244c44486a62b90a334792f0b&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-24T22:48:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_linux_x86_abi1",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=1fb7edac5d0b4cf095f25ebea7376e75&pipelineRunId=2a1a78a244c44486a62b90a334792f0b&stepId=95a6427e514240a5800644368b0d9653&jobRunId=200c1b0f8b22428daa2282ce7fc668f6&stepRunId=a188bfb0b89a4c83b74dc3ac717454c7&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_arm_abi1",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=1fb7edac5d0b4cf095f25ebea7376e75&pipelineRunId=2a1a78a244c44486a62b90a334792f0b&stepId=95a6427e514240a5800644368b0d9653&jobRunId=e1000500092243b6a2c304c837195da1&stepRunId=e950cf61e14e46fcb68c51f960f37bf6&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_arm_abi0",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=1fb7edac5d0b4cf095f25ebea7376e75&pipelineRunId=2a1a78a244c44486a62b90a334792f0b&stepId=95a6427e514240a5800644368b0d9653&jobRunId=2724680c83294987b88b88e719084da6&stepRunId=e5a8ddeadb1143d2ac6be1c09c4c4e37&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

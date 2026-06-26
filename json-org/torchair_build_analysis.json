@@ -1,307 +1,179 @@
 {
   "meta": {
-    "pr": 3234,
+    "pr": 3253,
     "repo": "Ascend/torchair",
-    "pr_url": "https://gitcode.com/Ascend/torchair/pull/3234",
-    "pipeline_name": "",
-    "pipeline_state": "",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=1179118653b249fea7b178769f498cf9",
-    "comment_time": "",
-    "fetched_at": "2026-06-24T18:40:29.753786+08:00",
-    "analyzed_at": "2026-06-24T19:30:00.000000+08:00",
+    "pr_url": "https://gitcode.com/Ascend/torchair/pull/3253",
+    "pipeline_name": "PR-pipeline_torchair",
+    "pipeline_state": "passed",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=c840539a735d46a4a63989b3eeaa550d&codeHostingPlatformFlag=gitcode",
+    "comment_time": "2026-06-24T17:30:00+08:00",
+    "fetched_at": "2026-06-26T16:48:33.007613+08:00",
+    "analyzed_at": "2026-06-26T17:04:23.070621+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
     {
       "task_name": "Build_x86",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=1179118653b249fea7b178769f498cf9&stepId=e133882c8f6d451d82b389e3bef25691&jobRunId=6e7155a91a5d4b5cb4125f1745b11474&stepRunId=5189ba53c8e045c29ddc04a593739744",
-      "log_file": "logs/torchair/pr3234/Build_x86-2026-06-18T101815.log.gz",
-      "time": {
-        "start": "2026-06-18T10:18:15.944+08:00",
-        "end": "2026-06-18T10:21:59.774+08:00",
-        "duration_seconds": 223.83
-      },
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=c840539a735d46a4a63989b3eeaa550d&stepId=1f264454a0da4a4a8aa5dd7c1c2ddece&jobRunId=216a5d42e3964462829a4b8acfd935a4&stepRunId=d7213078156c4933b6df1f5f16c063cd&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/torchair/pr3253/Build_x86-2026-06-24T171655.log.gz",
       "pre_build": {
-        "total_seconds": 119.956,
-        "pct_of_total": 53.6,
+        "total_seconds": 617.792,
+        "pct_of_total": 88.76,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-18T10:18:16.084+08:00",
-            "end": "2026-06-18T10:18:21.369+08:00",
-            "duration_seconds": 5.285,
-            "evidence": "[PRE_ENV:slave_create] start 10:18:16.084 -> end 10:18:21.369"
+            "start": "2026-06-24T17:16:55.828000+08:00",
+            "end": "2026-06-24T17:17:02.578000+08:00",
+            "duration_seconds": 6.75,
+            "evidence": "node_assignment: 17:16:55→17:17:02"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-18T10:18:23.402+08:00",
-            "end": "2026-06-18T10:18:23.402+08:00",
-            "duration_seconds": 0.0,
-            "evidence": "Image is up to date, no pull needed (shell4.2.46-git2.23-zip-1.1.0 already cached)"
-          },
-          {
-            "key": "cache_check",
-            "name": "缓存检查",
-            "start": "2026-06-18T10:18:27.098+08:00",
-            "end": "2026-06-18T10:18:27.910+08:00",
-            "duration_seconds": 0.812,
-            "evidence": "[Cache Check:external_cache_check] start 10:18:27.098 -> end 10:18:27.910"
+            "start": "2026-06-24T17:17:02.578000+08:00",
+            "end": "2026-06-24T17:17:09.484000+08:00",
+            "duration_seconds": 6.906,
+            "evidence": "docker_pull: 17:17:02→17:17:09"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-18T10:18:30.620+08:00",
-            "end": "2026-06-18T10:18:45.353+08:00",
-            "duration_seconds": 14.733,
-            "evidence": "[代码检出:external_pre_checkout] start 10:18:30.620 -> git fetch/checkout -> [代码检出:external_post_checkout] end 10:18:45.353"
-          },
-          {
-            "key": "tool_download",
-            "name": "构建工具下载",
-            "start": "2026-06-18T10:18:51.446+08:00",
-            "end": "2026-06-18T10:18:52.411+08:00",
-            "duration_seconds": 0.965,
-            "evidence": "[下载文件管理的文件:external_download_file] start 10:18:51.446 -> download kubeconfig_karmada.key end 10:18:52.411"
-          },
-          {
-            "key": "pre_submit_validation",
-            "name": "前置校验",
-            "start": "2026-06-18T10:18:58.960+08:00",
-            "end": "2026-06-18T10:19:10.320+08:00",
-            "duration_seconds": 11.360,
-            "evidence": "entrypoint.sh start 10:18:58.960, includes image_proxy (10:19:06.433), git_cache_injection (10:19:09.744), validated workflow DONE 10:19:10.320"
-          },
-          {
-            "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": "2026-06-18T10:19:10.320+08:00",
-            "end": "2026-06-18T10:19:10.893+08:00",
-            "duration_seconds": 0.573,
-            "evidence": "Volcano Job submitted: ascend-torchair-xjgwz at 10:19:10.893, after validated workflow DONE 10:19:10.320"
+            "start": "2026-06-24T17:17:09.484000+08:00",
+            "end": "2026-06-24T17:17:40.721000+08:00",
+            "duration_seconds": 31.237,
+            "evidence": "git_checkout: 17:17:09→17:17:40"
           },
           {
             "key": "pod_scheduling",
-            "name": "Pod 调度等待",
-            "start": "2026-06-18T10:19:10.893+08:00",
-            "end": "2026-06-18T10:19:26.863+08:00",
-            "duration_seconds": 15.970,
-            "evidence": "Volcano Job submitted 10:19:10.893 -> Pod 已启动 10:19:26.863, first label miss at 10:19:13.470, pod found 10:19:16.072, Pod Running 10:19:25.635"
+            "name": "Pod 调度等待(Volcano)",
+            "start": "2026-06-24T17:17:40.721000+08:00",
+            "end": "2026-06-24T17:17:55.832000+08:00",
+            "duration_seconds": 15.111,
+            "evidence": "pod_scheduling: 17:17:40→17:17:55"
           },
           {
-            "key": "pod_git_clone",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-06-18T10:19:26.580+08:00",
-            "end": "2026-06-18T10:19:27.436+08:00",
-            "duration_seconds": 0.856,
-            "evidence": "Cloning into /workspace 10:19:26.580 -> git merge complete 10:19:27.436"
-          },
-          {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "start": "2026-06-18T10:19:28.380+08:00",
-            "end": "2026-06-18T10:20:32.674+08:00",
-            "duration_seconds": 64.294,
-            "evidence": "pip install cmake start 10:19:28.380 -> cmake done 10:19:56.538 (28.2s), pip install torch 10:19:58.454 -> done 10:20:23.646 (25.2s), wget pytorch cache tar 10:20:26->10:20:27.869, pip install torch_npu 10:20:28.442 -> done 10:20:32.674 (4.2s)"
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (torchair仓库)",
-            "start": "2026-06-18T10:20:33.252+08:00",
-            "end": "2026-06-18T10:20:36.408+08:00",
-            "duration_seconds": 3.156,
-            "evidence": "Cloning into torchair 10:20:33.252 -> checkout + merge complete 10:20:36.408"
-          },
-          {
-            "key": "submodule_init",
-            "name": "子模块初始化",
-            "start": "2026-06-18T10:20:38.321+08:00",
-            "end": "2026-06-18T10:20:40.273+08:00",
-            "duration_seconds": 1.952,
-            "evidence": "[INFO] --- Trying to initialize submodules 10:20:38.321 -> cloned googletest (10:20:39.324), secure_c (10:20:39.324), mkdir build 10:20:40.273"
+            "key": "env_setup",
+            "name": "环境变量设置(含Pod内clone/install)",
+            "start": "2026-06-24T17:17:55.832000+08:00",
+            "end": "2026-06-24T17:27:13.620000+08:00",
+            "duration_seconds": 557.788,
+            "evidence": "env_setup: 17:17:55→17:27:13"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 97.523,
-        "pct_of_total": 43.6,
+        "total_seconds": 78.067,
+        "pct_of_total": 11.22,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 0.989,
-            "evidence": "mkdir build 10:20:40.273 -> Build files written 10:20:41.262"
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 55.278,
-            "evidence": "First Built target 10:20:41.262 -> 100% Built target _npu_graph_executor 10:21:36.540"
+            "duration_seconds": 58.6
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 41.256,
-            "evidence": "wheel build start 10:21:36.540 -> [100%] Built target torchair 10:21:36.666, artifact extract 10:21:42.281, OBS upload start 10:21:50.078 -> complete 10:21:52.304, job cleanup 10:21:47.605, Finished SUCCESS 10:21:59.774"
+            "duration_seconds": 19.5
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 119.956,
-        "build_seconds": 97.523,
-        "unattributed_seconds": 6.351,
-        "key_bottleneck": "Python 依赖安装",
-        "key_bottleneck_seconds": 64.294
+        "pre_build_seconds": 617.792,
+        "build_seconds": 78.067,
+        "unattributed_seconds": 0.162,
+        "key_bottleneck": "env_setup",
+        "key_bottleneck_seconds": 557.788
+      },
+      "time": {
+        "start": "2026-06-24T17:16:55.666000+08:00",
+        "end": "2026-06-24T17:28:31.687000+08:00",
+        "duration_seconds": 696.021
       }
     },
     {
       "task_name": "Build_ARM",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=1179118653b249fea7b178769f498cf9&stepId=e133882c8f6d451d82b389e3bef25691&jobRunId=921bfd6f67e348a8ade215a15dd684d1&stepRunId=6fa6ed38943b4ceea4342bbac5ac21d4",
-      "log_file": "logs/torchair/pr3234/Build_ARM-2026-06-18T101815.log.gz",
-      "time": {
-        "start": "2026-06-18T10:18:15.939+08:00",
-        "end": "2026-06-18T10:21:55.205+08:00",
-        "duration_seconds": 219.266
-      },
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=c840539a735d46a4a63989b3eeaa550d&stepId=1f264454a0da4a4a8aa5dd7c1c2ddece&jobRunId=d9bfd1beaa2149c4a74f7d6fcf2afa64&stepRunId=7d906da9b4b14293a2bff836a32587ed&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/torchair/pr3253/Build_ARM-2026-06-24T171703.log.gz",
       "pre_build": {
-        "total_seconds": 126.633,
-        "pct_of_total": 57.8,
+        "total_seconds": 152.048,
+        "pct_of_total": 65.15,
         "orchestrator": "volcano",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-18T10:18:16.057+08:00",
-            "end": "2026-06-18T10:18:21.042+08:00",
-            "duration_seconds": 4.985,
-            "evidence": "[PRE_ENV:slave_create] start 10:18:16.057 -> end 10:18:21.042"
+            "start": "2026-06-24T17:17:04.174000+08:00",
+            "end": "2026-06-24T17:17:11.370000+08:00",
+            "duration_seconds": 7.196,
+            "evidence": "node_assignment: 17:17:04→17:17:11"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-18T10:18:22.524+08:00",
-            "end": "2026-06-18T10:18:22.524+08:00",
-            "duration_seconds": 0.0,
-            "evidence": "Image is up to date, no pull needed (shell4.2.46-git2.23-zip-1.1.0 already cached)"
-          },
-          {
-            "key": "cache_check",
-            "name": "缓存检查",
-            "start": "2026-06-18T10:18:25.721+08:00",
-            "end": "2026-06-18T10:18:26.454+08:00",
-            "duration_seconds": 0.733,
-            "evidence": "[Cache Check:external_cache_check] start 10:18:25.721 -> end 10:18:26.454"
+            "start": "2026-06-24T17:17:11.370000+08:00",
+            "end": "2026-06-24T17:17:19.399000+08:00",
+            "duration_seconds": 8.029,
+            "evidence": "docker_pull: 17:17:11→17:17:19"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-18T10:18:28.941+08:00",
-            "end": "2026-06-18T10:18:41.409+08:00",
-            "duration_seconds": 12.468,
-            "evidence": "[代码检出:external_pre_checkout] start 10:18:28.941 -> git fetch/checkout (e7522837) -> [代码检出:external_post_checkout] end 10:18:41.409"
-          },
-          {
-            "key": "tool_download",
-            "name": "构建工具下载",
-            "start": "2026-06-18T10:18:46.854+08:00",
-            "end": "2026-06-18T10:18:47.689+08:00",
-            "duration_seconds": 0.835,
-            "evidence": "[下载文件管理的文件:external_download_file] start 10:18:46.854 -> download kubeconfig_karmada.key end 10:18:47.689"
-          },
-          {
-            "key": "pre_submit_validation",
-            "name": "前置校验",
-            "start": "2026-06-18T10:18:50.849+08:00",
-            "end": "2026-06-18T10:19:04.888+08:00",
-            "duration_seconds": 14.039,
-            "evidence": "entrypoint.sh start 10:18:50.849, includes image_proxy (10:18:57.485), git_cache_injection (10:19:04.060), validated workflow DONE 10:19:04.888"
-          },
-          {
-            "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": "2026-06-18T10:19:04.888+08:00",
-            "end": "2026-06-18T10:19:05.828+08:00",
-            "duration_seconds": 0.940,
-            "evidence": "Volcano Job submitted: ascend-torchair-d9t7l at 10:19:05.828, after validated workflow DONE 10:19:04.888"
+            "start": "2026-06-24T17:17:19.399000+08:00",
+            "end": "2026-06-24T17:17:52.741000+08:00",
+            "duration_seconds": 33.342,
+            "evidence": "git_checkout: 17:17:19→17:17:52"
           },
           {
             "key": "pod_scheduling",
-            "name": "Pod 调度等待",
-            "start": "2026-06-18T10:19:05.828+08:00",
-            "end": "2026-06-18T10:19:26.863+08:00",
-            "duration_seconds": 21.035,
-            "evidence": "Volcano Job submitted 10:19:05.828 -> Pod 已启动 10:19:26.863, first label miss at 10:19:09.177, pod found 10:19:13.413, Pod Running 10:19:24.132"
+            "name": "Pod 调度等待(Volcano)",
+            "start": "2026-06-24T17:17:52.741000+08:00",
+            "end": "2026-06-24T17:18:33.092000+08:00",
+            "duration_seconds": 40.351,
+            "evidence": "pod_scheduling: 17:17:52→17:18:33"
           },
           {
-            "key": "pod_git_clone",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-06-18T10:19:24.132+08:00",
-            "end": "2026-06-18T10:19:25.108+08:00",
-            "duration_seconds": 0.976,
-            "evidence": "Cloning into /workspace 10:19:24.132 -> git merge complete 10:19:25.108"
-          },
-          {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "start": "2026-06-18T10:19:26.056+08:00",
-            "end": "2026-06-18T10:20:32.282+08:00",
-            "duration_seconds": 66.226,
-            "evidence": "pip install cmake start 10:19:26.056 -> cmake done 10:19:46.269 (20.2s), pip install torch 10:19:46.269 -> done 10:20:23.861 (37.6s), wget pytorch cache tar 10:20:27->10:20:28.059, pip install torch_npu 10:20:28.995 -> done 10:20:32.282 (3.3s)"
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (torchair仓库)",
-            "start": "2026-06-18T10:20:33.988+08:00",
-            "end": "2026-06-18T10:20:36.854+08:00",
-            "duration_seconds": 2.866,
-            "evidence": "Cloning into torchair 10:20:33.988 -> checkout + merge complete 10:20:36.854"
-          },
-          {
-            "key": "submodule_init",
-            "name": "子模块初始化",
-            "start": "2026-06-18T10:20:39.385+08:00",
-            "end": "2026-06-18T10:20:40.915+08:00",
-            "duration_seconds": 1.530,
-            "evidence": "[INFO] --- Trying to initialize submodules 10:20:39.385 -> cloned googletest (10:20:39.969), secure_c (10:20:39.969), mkdir build 10:20:40.914"
+            "key": "env_setup",
+            "name": "环境变量设置(含Pod内clone/install)",
+            "start": "2026-06-24T17:18:33.092000+08:00",
+            "end": "2026-06-24T17:19:36.222000+08:00",
+            "duration_seconds": 63.13,
+            "evidence": "env_setup: 17:18:33→17:19:36"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 87.165,
-        "pct_of_total": 39.8,
+        "total_seconds": 81.151,
+        "pct_of_total": 34.77,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 0.935,
-            "evidence": "mkdir build 10:20:40.914 -> Build files written 10:20:41.849"
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 47.367,
-            "evidence": "First Built target 10:20:41.849 -> 100% Built target _npu_graph_executor 10:21:29.216"
+            "duration_seconds": 60.9
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 38.863,
-            "evidence": "wheel build start 10:21:29.216 -> [100%] Built target torchair 10:21:29.909, artifact extract 10:21:39.014, OBS upload start 10:21:46.896 -> complete 10:21:48.750, job cleanup 10:21:44.287, Finished SUCCESS 10:21:55.205"
+            "duration_seconds": 20.3
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 126.633,
-        "build_seconds": 87.165,
-        "unattributed_seconds": 5.468,
-        "key_bottleneck": "Python 依赖安装",
-        "key_bottleneck_seconds": 66.226
+        "pre_build_seconds": 152.048,
+        "build_seconds": 81.151,
+        "unattributed_seconds": 0.183,
+        "key_bottleneck": "env_setup",
+        "key_bottleneck_seconds": 63.13
+      },
+      "time": {
+        "start": "2026-06-24T17:17:03.991000+08:00",
+        "end": "2026-06-24T17:20:57.373000+08:00",
+        "duration_seconds": 233.382
       }
     }
   ]

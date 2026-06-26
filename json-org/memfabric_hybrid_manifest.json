@@ -1,0 +1,22 @@
+{
+  "repo": "Ascend/memfabric_hybrid",
+  "pr": 883,
+  "pr_url": "https://gitcode.com/Ascend/memfabric_hybrid/pull/883",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_memfabric_hybrid",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=a2be9c02c68c4d42875b346759ed0d4f&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-26T08:00:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_memfabric-hybrid",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=a2be9c02c68c4d42875b346759ed0d4f&stepId=bb235c3b42194a41a7dae6c36805cae2&jobRunId=75fead4ee431461cb8b2ae9377b35bcc&stepRunId=5ca8ee12345e496fa767bb65997a2cae&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_memfabric-hybrid-bazel",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=a2be9c02c68c4d42875b346759ed0d4f&stepId=bb235c3b42194a41a7dae6c36805cae2&jobRunId=813eb87f681241c9b1c05215de1a9247&stepRunId=ed534c875de74bc887db10681a6236cf&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

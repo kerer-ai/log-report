@@ -1,0 +1,47 @@
+{
+  "repo": "openeuler/kernel",
+  "pr": 24242,
+  "pr_url": "https://gitcode.com/openeuler/kernel/pull/24242",
+  "ci_backend": "jenkins",
+  "pipeline_name": "openeuler kernel check_build (multiarch)",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/kernel/10057/console",
+  "comment_time": "2026-06-26T13:05:00+08:00",
+  "tasks": [
+    {
+      "task_name": "aarch64_check_build",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/aarch64/job/kernel/9995/console"
+    },
+    {
+      "task_name": "x86_64_check_build",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/x86-64/job/kernel/9993/console"
+    },
+    {
+      "task_name": "ppc_check_build",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/ppc/job/kernel/10010/console"
+    },
+    {
+      "task_name": "ppc64_check_build",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/ppc64/job/kernel/10014/console"
+    },
+    {
+      "task_name": "loongarch_check_build",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/loongarch/job/kernel/10025/console"
+    },
+    {
+      "task_name": "arm_check_build",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/arm/job/kernel/10026/console"
+    },
+    {
+      "task_name": "riscv64_check_build",
+      "status": "warning",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/riscv64/job/kernel/10025/console"
+    }
+  ]
+}

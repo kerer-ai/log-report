@@ -1,0 +1,17 @@
+{
+  "repo": "Ascend/MindIE-PyMotor",
+  "pr": 351,
+  "pr_url": "https://gitcode.com/Ascend/MindIE-PyMotor/pull/351",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_MindIE-pyMotor_gitcode",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=34aa970006ea47b49ce988c4d60ae4f8&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-25T20:55:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_linux_arm",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=54a49e4bca684766afd90648e71ee6dd&pipelineRunId=34aa970006ea47b49ce988c4d60ae4f8&stepId=c61cf69f726d4aab8bb8b782aef8a158&jobRunId=26732204f13c44a9ae73fc6f66b8543d&stepRunId=cce26939c01c40e4a0eff00d327f872b&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

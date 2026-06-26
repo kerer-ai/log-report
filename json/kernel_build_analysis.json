@@ -1,904 +1,369 @@
 {
   "meta": {
-    "pr": 24152,
+    "pr": 24242,
     "repo": "openeuler/kernel",
-    "pr_url": "https://gitcode.com/openeuler/kernel/pull/24152",
-    "pipeline_name": "jenkins_pipeline",
-    "pipeline_state": "completed",
-    "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/aarch64/job/kernel/9816/console",
-    "comment_time": "2026-06-23 20:36",
-    "fetched_at": "2026-06-23T21:15:10.543661+08:00",
-    "analyzed_at": "2026-06-23T21:21:34+08:00",
+    "pr_url": "https://gitcode.com/openeuler/kernel/pull/24242",
+    "pipeline_name": "openeuler kernel check_build (multiarch)",
+    "pipeline_state": "passed",
+    "pipeline_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/trigger/job/kernel/10057/console",
+    "comment_time": "2026-06-26T13:05:00+08:00",
+    "fetched_at": "2026-06-26T16:57:20.668589+08:00",
+    "analyzed_at": "2026-06-26T17:06:01.228231+08:00",
     "analysis_method": "ai_semantic_marker_phase"
   },
   "builds": [
     {
-      "task_name": "ARM64 (check_build)",
-      "stage": "编译构建",
+      "task_name": "aarch64_check_build",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/aarch64/job/kernel/9817/console",
-      "time": {
-        "start": "2026-06-23T20:25:15.317000+08:00",
-        "end": "2026-06-23T20:42:20.895000+08:00",
-        "duration_seconds": 1025.578
-      },
-      "log_sample": "[2026-06-23 20:25:25] [  INFO ] ***** Get the corresponding check-kabi script *****\n[2026-06-23 20:25:33] [  INFO ] ***** Start to download kernel of openeuler *****\n+ echo '[2026-06-23 20:26:43] [  INFO ] AtomGit PR exists'\n[2026-06-23 20:26:43] [  INFO ] AtomGit PR exists\n[2026-06-23 20:26:43] [  INFO ] ***** End to download kernel of openeuler *****\n[2026-06-23 20:26:43] [  INFO ] ***** Start to install build tools *****\n[2026-06-23 20:30:55] [  INFO ] ***** End to install build tools *****\n[2026-06-23 20:30:55] [  INFO ] ***** Download and Apply PR *****\n[2026-06-23 20:30:55] [  INFO ] ***** Build kernel with allmodconfig *****\n[2026-06-23 20:38:15] [  INFO ] aarch64 allmodconfig build pass\n[2026-06-23 20:38:15] [  INFO ] ***** Build kernel with openeuler_defconfig *****\n[2026-06-23 20:42:10] [  INFO ] aarch64 build pass\n[2026-06-23 20:42:10] [  INFO ] ***** Check kabi compatibility *****\n[2026-06-23 20:42:10] [  INFO ] aarch64 checkkabi pass\n[2026-06-23 20:42:11] [  INFO ] aarch64 ext1 checkkabi pass\n[2026-06-23 20:42:11] [  INFO ] aarch64 ext2 checkkabi pass\n[2026-06-23 20:42:11] [  INFO ] ***** Check openeuler_defconfig consistency *****\n[2026-06-23 20:42:13] [  INFO ] aarch64 checkdefconfig pass",
-      "log_stats": {
-        "total_timestamped_lines": 18,
-        "sample_lines": 18,
-        "raw_chars": 22030
-      },
-      "timestamp_summary": {
-        "first": "2026-06-23T20:25:25+08:00",
-        "last": "2026-06-23T20:42:13+08:00",
-        "duration_seconds": 1008.0,
-        "total_timestamped_lines": 18,
-        "sample_lines_included": 18
-      },
-      "significant_gaps": [
-        {
-          "after_line": 1,
-          "gap_seconds": 8.0,
-          "before_ts": "2026-06-23T20:25:25+08:00",
-          "after_ts": "2026-06-23T20:25:33+08:00",
-          "sample_before": "[2026-06-23 20:25:25] [  INFO ] ***** Get the corresponding check-kabi script *****",
-          "sample_after": "[2026-06-23 20:25:33] [  INFO ] ***** Start to download kernel of openeuler *****"
-        },
-        {
-          "after_line": 2,
-          "gap_seconds": 70.0,
-          "before_ts": "2026-06-23T20:25:33+08:00",
-          "after_ts": "2026-06-23T20:26:43+08:00",
-          "sample_before": "[2026-06-23 20:25:33] [  INFO ] ***** Start to download kernel of openeuler *****",
-          "sample_after": "+ echo '[2026-06-23 20:26:43] [  INFO ] AtomGit PR exists'"
-        },
-        {
-          "after_line": 6,
-          "gap_seconds": 252.0,
-          "before_ts": "2026-06-23T20:26:43+08:00",
-          "after_ts": "2026-06-23T20:30:55+08:00",
-          "sample_before": "[2026-06-23 20:26:43] [  INFO ] ***** Start to install build tools *****",
-          "sample_after": "[2026-06-23 20:30:55] [  INFO ] ***** End to install build tools *****"
-        },
-        {
-          "after_line": 9,
-          "gap_seconds": 440.0,
-          "before_ts": "2026-06-23T20:30:55+08:00",
-          "after_ts": "2026-06-23T20:38:15+08:00",
-          "sample_before": "[2026-06-23 20:30:55] [  INFO ] ***** Build kernel with allmodconfig *****",
-          "sample_after": "[2026-06-23 20:38:15] [  INFO ] aarch64 allmodconfig build pass"
-        },
-        {
-          "after_line": 11,
-          "gap_seconds": 235.0,
-          "before_ts": "2026-06-23T20:38:15+08:00",
-          "after_ts": "2026-06-23T20:42:10+08:00",
-          "sample_before": "[2026-06-23 20:38:15] [  INFO ] ***** Build kernel with openeuler_defconfig *****",
-          "sample_after": "[2026-06-23 20:42:10] [  INFO ] aarch64 build pass"
-        }
-      ],
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/aarch64/job/kernel/9995/console",
+      "log_file": "logs/kernel/pr24242/aarch64_check_build-2026-06-26T124528.log.gz",
       "pre_build": {
-        "total_seconds": 330.0,
-        "pct_of_total": 32.2,
+        "total_seconds": 182.0,
+        "pct_of_total": 20.68,
         "orchestrator": "jenkins",
         "actions": [
           {
             "key": "clone_check_scripts",
             "name": "Clone 检查脚本",
-            "start": "2026-06-23T20:25:25+08:00",
-            "end": "2026-06-23T20:25:33+08:00",
-            "duration_seconds": 8.0,
-            "evidence": "[20:25:25] ***** Get the corresponding check-kabi script ***** -> [20:25:33] ***** Start to download kernel of openeuler *****"
-          },
-          {
-            "key": "clone_kernel_repo",
-            "name": "Clone 内核仓库",
-            "start": "2026-06-23T20:25:33+08:00",
-            "end": "2026-06-23T20:26:43+08:00",
-            "duration_seconds": 70.0,
-            "evidence": "[20:25:33] ***** Start to download kernel of openeuler ***** -> [20:26:43] ***** End to download kernel of openeuler *****"
-          },
-          {
-            "key": "install_build_tools",
-            "name": "安装构建工具",
-            "start": "2026-06-23T20:26:43+08:00",
-            "end": "2026-06-23T20:30:55+08:00",
-            "duration_seconds": 252.0,
-            "evidence": "[20:26:43] ***** Start to install build tools ***** -> [20:30:55] ***** End to install build tools *****"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": "2026-06-23T20:30:55+08:00",
-            "end": "2026-06-23T20:30:55+08:00",
-            "duration_seconds": 0.0,
-            "evidence": "[20:30:55] ***** Download and Apply PR ***** (instant, same timestamp as Build allmodconfig start)"
-          }
-        ]
-      },
-      "build_phases": {
-        "total_seconds": 695.578,
-        "pct_of_total": 67.8,
-        "actions": [
-          {
-            "key": "allmodconfig_build",
-            "name": "Allmodconfig 构建",
-            "duration_seconds": 440.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 235.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 1.0
-          },
-          {
-            "key": "defconfig_check",
-            "name": "Defconfig 一致性检查",
-            "duration_seconds": 19.578
-          }
-        ]
-      },
-      "summary": {
-        "pre_build_seconds": 330.0,
-        "build_seconds": 695.6,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "安装构建工具",
-        "key_bottleneck_seconds": 252.0
-      }
-    },
-    {
-      "task_name": "x86_64 (check_build)",
-      "stage": "编译构建",
-      "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/x86-64/job/kernel/9815/console",
-      "time": {
-        "start": "2026-06-23T20:25:04.531000+08:00",
-        "end": "2026-06-23T20:44:14.272000+08:00",
-        "duration_seconds": 1149.741
-      },
-      "log_sample": "[2026-06-23 20:26:10] [  INFO ] ***** Get the corresponding check-kabi script *****\n[2026-06-23 20:26:16] [  INFO ] ***** Start to download kernel of openeuler *****\n+ echo '[2026-06-23 20:27:38] [  INFO ] AtomGit PR exists'\n[2026-06-23 20:27:38] [  INFO ] AtomGit PR exists\n[2026-06-23 20:27:38] [  INFO ] ***** End to download kernel of openeuler *****\n[2026-06-23 20:27:38] [  INFO ] ***** Start to install build tools *****\n[2026-06-23 20:30:24] [  INFO ] ***** End to install build tools *****\n[2026-06-23 20:30:24] [  INFO ] ***** Download and Apply PR *****\n[2026-06-23 20:30:24] [  INFO ] ***** Build kernel with allmodconfig *****\n[2026-06-23 20:38:49] [  INFO ] x86_64 allmodconfig build pass\n[2026-06-23 20:38:49] [  INFO ] ***** Build kernel with openeuler_defconfig *****\n[2026-06-23 20:44:05] [  INFO ] x86_64 build pass\n[2026-06-23 20:44:05] [  INFO ] ***** Check kabi compatibility *****\n[2026-06-23 20:44:05] [  INFO ] x86_64 checkkabi pass\n[2026-06-23 20:44:05] [  INFO ] x86_64 ext1 checkkabi pass\n[2026-06-23 20:44:06] [  INFO ] x86_64 ext2 checkkabi pass\n[2026-06-23 20:44:06] [  INFO ] ***** Check openeuler_defconfig consistency *****\n[2026-06-23 20:44:07] [  INFO ] x86_64 checkdefconfig pass",
-      "log_stats": {
-        "total_timestamped_lines": 18,
-        "sample_lines": 18,
-        "raw_chars": 22075
-      },
-      "timestamp_summary": {
-        "first": "2026-06-23T20:26:10+08:00",
-        "last": "2026-06-23T20:44:07+08:00",
-        "duration_seconds": 1077.0,
-        "total_timestamped_lines": 18,
-        "sample_lines_included": 18
-      },
-      "significant_gaps": [
-        {
-          "after_line": 1,
-          "gap_seconds": 6.0,
-          "before_ts": "2026-06-23T20:26:10+08:00",
-          "after_ts": "2026-06-23T20:26:16+08:00",
-          "sample_before": "[2026-06-23 20:26:10] [  INFO ] ***** Get the corresponding check-kabi script *****",
-          "sample_after": "[2026-06-23 20:26:16] [  INFO ] ***** Start to download kernel of openeuler *****"
-        },
-        {
-          "after_line": 2,
-          "gap_seconds": 82.0,
-          "before_ts": "2026-06-23T20:26:16+08:00",
-          "after_ts": "2026-06-23T20:27:38+08:00",
-          "sample_before": "[2026-06-23 20:26:16] [  INFO ] ***** Start to download kernel of openeuler *****",
-          "sample_after": "+ echo '[2026-06-23 20:27:38] [  INFO ] AtomGit PR exists'"
-        },
-        {
-          "after_line": 6,
-          "gap_seconds": 166.0,
-          "before_ts": "2026-06-23T20:27:38+08:00",
-          "after_ts": "2026-06-23T20:30:24+08:00",
-          "sample_before": "[2026-06-23 20:27:38] [  INFO ] ***** Start to install build tools *****",
-          "sample_after": "[2026-06-23 20:30:24] [  INFO ] ***** End to install build tools *****"
-        },
-        {
-          "after_line": 9,
-          "gap_seconds": 505.0,
-          "before_ts": "2026-06-23T20:30:24+08:00",
-          "after_ts": "2026-06-23T20:38:49+08:00",
-          "sample_before": "[2026-06-23 20:30:24] [  INFO ] ***** Build kernel with allmodconfig *****",
-          "sample_after": "[2026-06-23 20:38:49] [  INFO ] x86_64 allmodconfig build pass"
-        },
-        {
-          "after_line": 11,
-          "gap_seconds": 316.0,
-          "before_ts": "2026-06-23T20:38:49+08:00",
-          "after_ts": "2026-06-23T20:44:05+08:00",
-          "sample_before": "[2026-06-23 20:38:49] [  INFO ] ***** Build kernel with openeuler_defconfig *****",
-          "sample_after": "[2026-06-23 20:44:05] [  INFO ] x86_64 build pass"
-        }
-      ],
-      "pre_build": {
-        "total_seconds": 254.0,
-        "pct_of_total": 22.1,
-        "orchestrator": "jenkins",
-        "actions": [
-          {
-            "key": "clone_check_scripts",
-            "name": "Clone 检查脚本",
-            "start": "2026-06-23T20:26:10+08:00",
-            "end": "2026-06-23T20:26:16+08:00",
+            "start": "2026-06-26T12:45:39+08:00",
+            "end": "2026-06-26T12:45:45+08:00",
             "duration_seconds": 6.0,
-            "evidence": "[20:26:10] ***** Get the corresponding check-kabi script ***** -> [20:26:16] ***** Start to download kernel of openeuler *****"
+            "evidence": "12:45:39→12:45:45"
           },
           {
             "key": "clone_kernel_repo",
             "name": "Clone 内核仓库",
-            "start": "2026-06-23T20:26:16+08:00",
-            "end": "2026-06-23T20:27:38+08:00",
-            "duration_seconds": 82.0,
-            "evidence": "[20:26:16] ***** Start to download kernel of openeuler ***** -> [20:27:38] ***** End to download kernel of openeuler *****"
-          },
-          {
-            "key": "install_build_tools",
-            "name": "安装构建工具",
-            "start": "2026-06-23T20:27:38+08:00",
-            "end": "2026-06-23T20:30:24+08:00",
-            "duration_seconds": 166.0,
-            "evidence": "[20:27:38] ***** Start to install build tools ***** -> [20:30:24] ***** End to install build tools *****"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": "2026-06-23T20:30:24+08:00",
-            "end": "2026-06-23T20:30:24+08:00",
-            "duration_seconds": 0.0,
-            "evidence": "[20:30:24] ***** Download and Apply PR ***** (instant, same timestamp as Build allmodconfig start)"
-          }
-        ]
-      },
-      "build_phases": {
-        "total_seconds": 895.741,
-        "pct_of_total": 77.9,
-        "actions": [
-          {
-            "key": "allmodconfig_build",
-            "name": "Allmodconfig 构建",
-            "duration_seconds": 505.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 316.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 1.0
-          },
-          {
-            "key": "defconfig_check",
-            "name": "Defconfig 一致性检查",
-            "duration_seconds": 73.741
-          }
-        ]
-      },
-      "summary": {
-        "pre_build_seconds": 254.0,
-        "build_seconds": 895.7,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "安装构建工具",
-        "key_bottleneck_seconds": 166.0
-      }
-    },
-    {
-      "task_name": "PPC (check_build)",
-      "stage": "编译构建",
-      "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/ppc/job/kernel/9832/console",
-      "time": {
-        "start": "2026-06-23T20:25:05.207000+08:00",
-        "end": "2026-06-23T20:45:56.896000+08:00",
-        "duration_seconds": 1251.689
-      },
-      "log_sample": "[2026-06-23 20:26:04] [  INFO ] ***** Setup gcc *****\n[2026-06-23 20:26:05] [  INFO ] ***** Start to install build tools *****\n[2026-06-23 20:29:15] [  INFO ] ***** End to install build tools *****\n[2026-06-23 20:29:15] [  INFO ] ***** Start to download kernel of openeuler *****\n+ echo '[2026-06-23 20:30:51] [  INFO ] AtomGit PR exists'\n[2026-06-23 20:30:51] [  INFO ] AtomGit PR exists\n[2026-06-23 20:30:52] [  INFO ] ***** End to download kernel of openeuler *****\n[2026-06-23 20:44:47] [  INFO ] ***** Download and Apply PR *****\n[2026-06-23 20:45:52] [  INFO ] build success",
-      "log_stats": {
-        "total_timestamped_lines": 9,
-        "sample_lines": 9,
-        "raw_chars": 31302
-      },
-      "timestamp_summary": {
-        "first": "2026-06-23T20:26:04+08:00",
-        "last": "2026-06-23T20:45:52+08:00",
-        "duration_seconds": 1188.0,
-        "total_timestamped_lines": 9,
-        "sample_lines_included": 9
-      },
-      "significant_gaps": [
-        {
-          "after_line": 2,
-          "gap_seconds": 190.0,
-          "before_ts": "2026-06-23T20:26:05+08:00",
-          "after_ts": "2026-06-23T20:29:15+08:00",
-          "sample_before": "[2026-06-23 20:26:05] [  INFO ] ***** Start to install build tools *****",
-          "sample_after": "[2026-06-23 20:29:15] [  INFO ] ***** End to install build tools *****"
-        },
-        {
-          "after_line": 4,
-          "gap_seconds": 96.0,
-          "before_ts": "2026-06-23T20:29:15+08:00",
-          "after_ts": "2026-06-23T20:30:51+08:00",
-          "sample_before": "[2026-06-23 20:29:15] [  INFO ] ***** Start to download kernel of openeuler *****",
-          "sample_after": "+ echo '[2026-06-23 20:30:51] [  INFO ] AtomGit PR exists'"
-        },
-        {
-          "after_line": 7,
-          "gap_seconds": 835.0,
-          "before_ts": "2026-06-23T20:30:52+08:00",
-          "after_ts": "2026-06-23T20:44:47+08:00",
-          "sample_before": "[2026-06-23 20:30:52] [  INFO ] ***** End to download kernel of openeuler *****",
-          "sample_after": "[2026-06-23 20:44:47] [  INFO ] ***** Download and Apply PR *****"
-        },
-        {
-          "after_line": 8,
-          "gap_seconds": 65.0,
-          "before_ts": "2026-06-23T20:44:47+08:00",
-          "after_ts": "2026-06-23T20:45:52+08:00",
-          "sample_before": "[2026-06-23 20:44:47] [  INFO ] ***** Download and Apply PR *****",
-          "sample_after": "[2026-06-23 20:45:52] [  INFO ] build success"
-        }
-      ],
-      "pre_build": {
-        "total_seconds": 352.0,
-        "pct_of_total": 28.1,
-        "orchestrator": "jenkins",
-        "actions": [
-          {
-            "key": "clone_check_scripts",
-            "name": "Clone 检查脚本",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "No clone_check_scripts marker; Setup gcc at 20:26:04 is a 1s warmup not matching this phase"
-          },
-          {
-            "key": "clone_kernel_repo",
-            "name": "Clone 内核仓库",
-            "start": "2026-06-23T20:29:15+08:00",
-            "end": "2026-06-23T20:30:52+08:00",
+            "start": "2026-06-26T12:45:45+08:00",
+            "end": "2026-06-26T12:47:22+08:00",
             "duration_seconds": 97.0,
-            "evidence": "[20:29:15] ***** Start to download kernel of openeuler ***** -> [20:30:52] ***** End to download kernel of openeuler *****"
+            "evidence": "12:45:45→12:47:22"
           },
           {
             "key": "install_build_tools",
             "name": "安装构建工具",
-            "start": "2026-06-23T20:26:05+08:00",
-            "end": "2026-06-23T20:29:15+08:00",
-            "duration_seconds": 190.0,
-            "evidence": "[20:26:05] ***** Start to install build tools ***** -> [20:29:15] ***** End to install build tools *****"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": "2026-06-23T20:44:47+08:00",
-            "end": "2026-06-23T20:45:52+08:00",
-            "duration_seconds": 65.0,
-            "evidence": "[20:44:47] ***** Download and Apply PR ***** -> [20:45:52] build success"
+            "start": "2026-06-26T12:47:22+08:00",
+            "end": "2026-06-26T12:48:41+08:00",
+            "duration_seconds": 79.0,
+            "evidence": "12:47:22→12:48:41"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 899.689,
-        "pct_of_total": 71.9,
+        "total_seconds": 443.0,
+        "pct_of_total": 50.34,
         "actions": [
           {
             "key": "allmodconfig_build",
             "name": "Allmodconfig 构建",
-            "duration_seconds": 835.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 0.0
+            "duration_seconds": 441.0
           },
           {
             "key": "defconfig_check",
             "name": "Defconfig 一致性检查",
-            "duration_seconds": 64.689
+            "duration_seconds": 2.0
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 352.0,
-        "build_seconds": 899.7,
-        "unattributed_seconds": 0.0,
-        "key_bottleneck": "安装构建工具",
-        "key_bottleneck_seconds": 190.0
+        "pre_build_seconds": 182.0,
+        "build_seconds": 443.0,
+        "unattributed_seconds": 254.9,
+        "key_bottleneck": "Clone 内核仓库",
+        "key_bottleneck_seconds": 97.0
+      },
+      "time": {
+        "start": "2026-06-26T12:45:28.336000+08:00",
+        "end": "2026-06-26T13:00:08.282000+08:00",
+        "duration_seconds": 879.946
       }
     },
     {
-      "task_name": "PPC64 (check_build)",
-      "stage": "编译构建",
+      "task_name": "x86_64_check_build",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/ppc64/job/kernel/9836/console",
-      "time": {
-        "start": "2026-06-23T20:25:06.543000+08:00",
-        "end": "2026-06-23T20:40:12.286000+08:00",
-        "duration_seconds": 905.743
-      },
-      "log_sample": "[2026-06-23 20:26:10] [  INFO ] ***** Setup gcc *****\n[2026-06-23 20:26:11] [  INFO ] ***** Start to install build tools *****\n[2026-06-23 20:30:49] [  INFO ] ***** End to install build tools *****\n[2026-06-23 20:30:49] [  INFO ] ***** Start to download kernel of openeuler *****\n+ echo '[2026-06-23 20:31:23] [  INFO ] AtomGit PR exists'\n[2026-06-23 20:31:23] [  INFO ] AtomGit PR exists\n[2026-06-23 20:31:24] [  INFO ] ***** End to download kernel of openeuler *****\n[2026-06-23 20:39:03] [  INFO ] ***** Download and Apply PR *****\n[2026-06-23 20:40:08] [  INFO ] build success",
-      "log_stats": {
-        "total_timestamped_lines": 9,
-        "sample_lines": 9,
-        "raw_chars": 31304
-      },
-      "timestamp_summary": {
-        "first": "2026-06-23T20:26:10+08:00",
-        "last": "2026-06-23T20:40:08+08:00",
-        "duration_seconds": 838.0,
-        "total_timestamped_lines": 9,
-        "sample_lines_included": 9
-      },
-      "significant_gaps": [
-        {
-          "after_line": 2,
-          "gap_seconds": 278.0,
-          "before_ts": "2026-06-23T20:26:11+08:00",
-          "after_ts": "2026-06-23T20:30:49+08:00",
-          "sample_before": "[2026-06-23 20:26:11] [  INFO ] ***** Start to install build tools *****",
-          "sample_after": "[2026-06-23 20:30:49] [  INFO ] ***** End to install build tools *****"
-        },
-        {
-          "after_line": 4,
-          "gap_seconds": 34.0,
-          "before_ts": "2026-06-23T20:30:49+08:00",
-          "after_ts": "2026-06-23T20:31:23+08:00",
-          "sample_before": "[2026-06-23 20:30:49] [  INFO ] ***** Start to download kernel of openeuler *****",
-          "sample_after": "+ echo '[2026-06-23 20:31:23] [  INFO ] AtomGit PR exists'"
-        },
-        {
-          "after_line": 7,
-          "gap_seconds": 459.0,
-          "before_ts": "2026-06-23T20:31:24+08:00",
-          "after_ts": "2026-06-23T20:39:03+08:00",
-          "sample_before": "[2026-06-23 20:31:24] [  INFO ] ***** End to download kernel of openeuler *****",
-          "sample_after": "[2026-06-23 20:39:03] [  INFO ] ***** Download and Apply PR *****"
-        },
-        {
-          "after_line": 8,
-          "gap_seconds": 65.0,
-          "before_ts": "2026-06-23T20:39:03+08:00",
-          "after_ts": "2026-06-23T20:40:08+08:00",
-          "sample_before": "[2026-06-23 20:39:03] [  INFO ] ***** Download and Apply PR *****",
-          "sample_after": "[2026-06-23 20:40:08] [  INFO ] build success"
-        }
-      ],
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/x86-64/job/kernel/9993/console",
+      "log_file": "logs/kernel/pr24242/x86_64_check_build-2026-06-26T124519.log.gz",
       "pre_build": {
-        "total_seconds": 378.0,
-        "pct_of_total": 41.7,
+        "total_seconds": 164.0,
+        "pct_of_total": 13.68,
         "orchestrator": "jenkins",
         "actions": [
           {
             "key": "clone_check_scripts",
             "name": "Clone 检查脚本",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "No clone_check_scripts marker; Setup gcc at 20:26:10 is a 1s warmup not matching this phase"
+            "start": "2026-06-26T12:46:13+08:00",
+            "end": "2026-06-26T12:46:23+08:00",
+            "duration_seconds": 10.0,
+            "evidence": "12:46:13→12:46:23"
           },
           {
             "key": "clone_kernel_repo",
             "name": "Clone 内核仓库",
-            "start": "2026-06-23T20:30:49+08:00",
-            "end": "2026-06-23T20:31:24+08:00",
-            "duration_seconds": 35.0,
-            "evidence": "[20:30:49] ***** Start to download kernel of openeuler ***** -> [20:31:24] ***** End to download kernel of openeuler *****"
+            "start": "2026-06-26T12:46:23+08:00",
+            "end": "2026-06-26T12:47:45+08:00",
+            "duration_seconds": 82.0,
+            "evidence": "12:46:23→12:47:45"
           },
           {
             "key": "install_build_tools",
             "name": "安装构建工具",
-            "start": "2026-06-23T20:26:11+08:00",
-            "end": "2026-06-23T20:30:49+08:00",
-            "duration_seconds": 278.0,
-            "evidence": "[20:26:11] ***** Start to install build tools ***** -> [20:30:49] ***** End to install build tools *****"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": "2026-06-23T20:39:03+08:00",
-            "end": "2026-06-23T20:40:08+08:00",
-            "duration_seconds": 65.0,
-            "evidence": "[20:39:03] ***** Download and Apply PR ***** -> [20:40:08] build success"
+            "start": "2026-06-26T12:47:45+08:00",
+            "end": "2026-06-26T12:48:57+08:00",
+            "duration_seconds": 72.0,
+            "evidence": "12:47:45→12:48:57"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 527.7429999999999,
-        "pct_of_total": 58.3,
+        "total_seconds": 614.0,
+        "pct_of_total": 51.23,
         "actions": [
           {
             "key": "allmodconfig_build",
             "name": "Allmodconfig 构建",
-            "duration_seconds": 459.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 0.0
+            "duration_seconds": 613.0
           },
           {
             "key": "defconfig_check",
             "name": "Defconfig 一致性检查",
-            "duration_seconds": 68.743
+            "duration_seconds": 1.0
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 378.0,
-        "build_seconds": 527.7,
-        "unattributed_seconds": 0.0,
-        "key_bottleneck": "安装构建工具",
-        "key_bottleneck_seconds": 278.0
+        "pre_build_seconds": 164.0,
+        "build_seconds": 614.0,
+        "unattributed_seconds": 420.4,
+        "key_bottleneck": "Clone 内核仓库",
+        "key_bottleneck_seconds": 82.0
+      },
+      "time": {
+        "start": "2026-06-26T12:45:19.833000+08:00",
+        "end": "2026-06-26T13:05:18.251000+08:00",
+        "duration_seconds": 1198.418
       }
     },
     {
-      "task_name": "LoongArch (check_build)",
-      "stage": "编译构建",
+      "task_name": "ppc_check_build",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/loongarch/job/kernel/9847/console",
-      "time": {
-        "start": "2026-06-23T20:25:08.373000+08:00",
-        "end": "2026-06-23T20:26:03.733000+08:00",
-        "duration_seconds": 55.36
-      },
-      "log_sample": "",
-      "log_stats": {
-        "total_timestamped_lines": 14,
-        "sample_lines": 0,
-        "raw_chars": 713
-      },
-      "timestamp_summary": {},
-      "significant_gaps": [],
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/ppc/job/kernel/10010/console",
+      "log_file": "logs/kernel/pr24242/ppc_check_build-2026-06-26T124520.log.gz",
       "pre_build": {
-        "total_seconds": 0.0,
-        "pct_of_total": 0.0,
+        "total_seconds": 612.0,
+        "pct_of_total": 82.14,
         "orchestrator": "jenkins",
         "actions": [
           {
-            "key": "clone_check_scripts",
-            "name": "Clone 检查脚本",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "Log sample empty - no phase markers available"
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": "2026-06-26T12:46:20+08:00",
+            "end": "2026-06-26T12:47:28+08:00",
+            "duration_seconds": 68.0,
+            "evidence": "12:46:20→12:47:28"
           },
           {
             "key": "clone_kernel_repo",
             "name": "Clone 内核仓库",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "Log sample empty - no phase markers available"
-          },
-          {
-            "key": "install_build_tools",
-            "name": "安装构建工具",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "Log sample empty - no phase markers available"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "Log sample empty - no phase markers available"
+            "start": "2026-06-26T12:47:28+08:00",
+            "end": "2026-06-26T12:56:32+08:00",
+            "duration_seconds": 544.0,
+            "evidence": "12:47:28→12:56:32"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 55.36,
-        "pct_of_total": 100.0,
+        "total_seconds": 128.037,
+        "pct_of_total": 17.19,
         "actions": [
           {
-            "key": "allmodconfig_build",
-            "name": "Allmodconfig 构建",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "defconfig_check",
-            "name": "Defconfig 一致性检查",
-            "duration_seconds": 55.36
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 128.0
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 0.0,
-        "build_seconds": 55.36,
-        "unattributed_seconds": 0.0,
-        "key_bottleneck": "日志为空无法分析",
-        "key_bottleneck_seconds": 55.36
+        "pre_build_seconds": 612.0,
+        "build_seconds": 128.0,
+        "unattributed_seconds": 5.0,
+        "key_bottleneck": "Clone 内核仓库",
+        "key_bottleneck_seconds": 544.0
       },
-      "_error": "Empty log: no timestamped sample lines available for phase analysis. Log contains only 713 chars with 14 timestamped lines but 0 extracted samples. The 55.36s duration is entirely unattributed. Full phase analysis is not possible."
+      "time": {
+        "start": "2026-06-26T12:45:20.815000+08:00",
+        "end": "2026-06-26T12:57:45.852000+08:00",
+        "duration_seconds": 745.037
+      }
     },
     {
-      "task_name": "ARM (check_build)",
-      "stage": "编译构建",
+      "task_name": "ppc64_check_build",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/arm/job/kernel/9848/console",
-      "time": {
-        "start": "2026-06-23T20:25:09.612000+08:00",
-        "end": "2026-06-23T20:41:49.309000+08:00",
-        "duration_seconds": 999.697
-      },
-      "log_sample": "[2026-06-23 20:26:05] [  INFO ] ***** Setup gcc *****\n[2026-06-23 20:26:07] [  INFO ] ***** Start to install build tools *****\n[2026-06-23 20:31:46] [  INFO ] ***** End to install build tools *****\n[2026-06-23 20:31:46] [  INFO ] ***** Start to download kernel of openeuler *****\n+ echo '[2026-06-23 20:33:17] [  INFO ] AtomGit PR exists'\n[2026-06-23 20:33:17] [  INFO ] AtomGit PR exists\n[2026-06-23 20:33:18] [  INFO ] ***** End to download kernel of openeuler *****\n[2026-06-23 20:41:15] [  INFO ] ***** Download and Apply PR *****\n[2026-06-23 20:41:43] [  INFO ] build success",
-      "log_stats": {
-        "total_timestamped_lines": 9,
-        "sample_lines": 9,
-        "raw_chars": 20822
-      },
-      "timestamp_summary": {
-        "first": "2026-06-23T20:26:05+08:00",
-        "last": "2026-06-23T20:41:43+08:00",
-        "duration_seconds": 938.0,
-        "total_timestamped_lines": 9,
-        "sample_lines_included": 9
-      },
-      "significant_gaps": [
-        {
-          "after_line": 2,
-          "gap_seconds": 339.0,
-          "before_ts": "2026-06-23T20:26:07+08:00",
-          "after_ts": "2026-06-23T20:31:46+08:00",
-          "sample_before": "[2026-06-23 20:26:07] [  INFO ] ***** Start to install build tools *****",
-          "sample_after": "[2026-06-23 20:31:46] [  INFO ] ***** End to install build tools *****"
-        },
-        {
-          "after_line": 4,
-          "gap_seconds": 91.0,
-          "before_ts": "2026-06-23T20:31:46+08:00",
-          "after_ts": "2026-06-23T20:33:17+08:00",
-          "sample_before": "[2026-06-23 20:31:46] [  INFO ] ***** Start to download kernel of openeuler *****",
-          "sample_after": "+ echo '[2026-06-23 20:33:17] [  INFO ] AtomGit PR exists'"
-        },
-        {
-          "after_line": 7,
-          "gap_seconds": 477.0,
-          "before_ts": "2026-06-23T20:33:18+08:00",
-          "after_ts": "2026-06-23T20:41:15+08:00",
-          "sample_before": "[2026-06-23 20:33:18] [  INFO ] ***** End to download kernel of openeuler *****",
-          "sample_after": "[2026-06-23 20:41:15] [  INFO ] ***** Download and Apply PR *****"
-        },
-        {
-          "after_line": 8,
-          "gap_seconds": 28.0,
-          "before_ts": "2026-06-23T20:41:15+08:00",
-          "after_ts": "2026-06-23T20:41:43+08:00",
-          "sample_before": "[2026-06-23 20:41:15] [  INFO ] ***** Download and Apply PR *****",
-          "sample_after": "[2026-06-23 20:41:43] [  INFO ] build success"
-        }
-      ],
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/ppc64/job/kernel/10014/console",
+      "log_file": "logs/kernel/pr24242/ppc64_check_build-2026-06-26T124520.log.gz",
       "pre_build": {
-        "total_seconds": 459.0,
-        "pct_of_total": 45.9,
+        "total_seconds": 633.0,
+        "pct_of_total": 82.67,
         "orchestrator": "jenkins",
         "actions": [
           {
-            "key": "clone_check_scripts",
-            "name": "Clone 检查脚本",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "No clone_check_scripts marker; Setup gcc at 20:26:05 is a warmup not matching this phase"
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": "2026-06-26T12:46:24+08:00",
+            "end": "2026-06-26T12:47:32+08:00",
+            "duration_seconds": 68.0,
+            "evidence": "12:46:24→12:47:32"
           },
           {
             "key": "clone_kernel_repo",
             "name": "Clone 内核仓库",
-            "start": "2026-06-23T20:31:46+08:00",
-            "end": "2026-06-23T20:33:18+08:00",
-            "duration_seconds": 92.0,
-            "evidence": "[20:31:46] ***** Start to download kernel of openeuler ***** -> [20:33:18] ***** End to download kernel of openeuler *****"
-          },
-          {
-            "key": "install_build_tools",
-            "name": "安装构建工具",
-            "start": "2026-06-23T20:26:07+08:00",
-            "end": "2026-06-23T20:31:46+08:00",
-            "duration_seconds": 339.0,
-            "evidence": "[20:26:07] ***** Start to install build tools ***** -> [20:31:46] ***** End to install build tools *****"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": "2026-06-23T20:41:15+08:00",
-            "end": "2026-06-23T20:41:43+08:00",
-            "duration_seconds": 28.0,
-            "evidence": "[20:41:15] ***** Download and Apply PR ***** -> [20:41:43] build success"
+            "start": "2026-06-26T12:47:32+08:00",
+            "end": "2026-06-26T12:56:57+08:00",
+            "duration_seconds": 565.0,
+            "evidence": "12:47:32→12:56:57"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 540.697,
-        "pct_of_total": 54.1,
+        "total_seconds": 127.701,
+        "pct_of_total": 16.68,
         "actions": [
           {
-            "key": "allmodconfig_build",
-            "name": "Allmodconfig 构建",
-            "duration_seconds": 477.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "defconfig_check",
-            "name": "Defconfig 一致性检查",
-            "duration_seconds": 63.697
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 127.7
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 459.0,
-        "build_seconds": 540.7,
+        "pre_build_seconds": 633.0,
+        "build_seconds": 127.7,
+        "unattributed_seconds": 5.0,
+        "key_bottleneck": "Clone 内核仓库",
+        "key_bottleneck_seconds": 565.0
+      },
+      "time": {
+        "start": "2026-06-26T12:45:20.945000+08:00",
+        "end": "2026-06-26T12:58:06.646000+08:00",
+        "duration_seconds": 765.701
+      }
+    },
+    {
+      "task_name": "loongarch_check_build",
+      "stage": "",
+      "status": "passed",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/loongarch/job/kernel/10025/console",
+      "log_file": "logs/kernel/pr24242/loongarch_check_build-2026-06-26T124522.log.gz",
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": []
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": []
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
         "unattributed_seconds": 0,
-        "key_bottleneck": "安装构建工具",
-        "key_bottleneck_seconds": 339.0
-      }
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      },
+      "time": {
+        "start": "2026-06-26T12:45:22.849000+08:00",
+        "end": "2026-06-26T12:46:26.398000+08:00",
+        "duration_seconds": 63.549
+      },
+      "_error": "Build skipped: loongarch is set to false"
     },
     {
-      "task_name": "RISC-V 64 (check_build)",
-      "stage": "编译构建",
+      "task_name": "arm_check_build",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/riscv64/job/kernel/9847/console",
-      "time": {
-        "start": "2026-06-23T20:25:14.247000+08:00",
-        "end": "2026-06-23T20:43:55.057000+08:00",
-        "duration_seconds": 1120.81
-      },
-      "log_sample": "[2026-06-23 20:26:10] [  INFO ] ***** Setup gcc *****\n[2026-06-23 20:26:11] [  INFO ] ***** Start to install build tools *****\n[2026-06-23 20:30:42] [  INFO ] ***** End to install build tools *****\n[2026-06-23 20:30:42] [  INFO ] ***** Start to download kernel of openeuler *****\n+ echo '[2026-06-23 20:31:18] [  INFO ] AtomGit PR exists'\n[2026-06-23 20:31:18] [  INFO ] AtomGit PR exists\n[2026-06-23 20:31:19] [  INFO ] ***** End to download kernel of openeuler *****\n[2026-06-23 20:43:24] [  INFO ] ***** Download and Apply PR *****\n[2026-06-23 20:43:49] [  INFO ] build success",
-      "log_stats": {
-        "total_timestamped_lines": 9,
-        "sample_lines": 9,
-        "raw_chars": 20592
-      },
-      "timestamp_summary": {
-        "first": "2026-06-23T20:26:10+08:00",
-        "last": "2026-06-23T20:43:49+08:00",
-        "duration_seconds": 1059.0,
-        "total_timestamped_lines": 9,
-        "sample_lines_included": 9
-      },
-      "significant_gaps": [
-        {
-          "after_line": 2,
-          "gap_seconds": 271.0,
-          "before_ts": "2026-06-23T20:26:11+08:00",
-          "after_ts": "2026-06-23T20:30:42+08:00",
-          "sample_before": "[2026-06-23 20:26:11] [  INFO ] ***** Start to install build tools *****",
-          "sample_after": "[2026-06-23 20:30:42] [  INFO ] ***** End to install build tools *****"
-        },
-        {
-          "after_line": 4,
-          "gap_seconds": 36.0,
-          "before_ts": "2026-06-23T20:30:42+08:00",
-          "after_ts": "2026-06-23T20:31:18+08:00",
-          "sample_before": "[2026-06-23 20:30:42] [  INFO ] ***** Start to download kernel of openeuler *****",
-          "sample_after": "+ echo '[2026-06-23 20:31:18] [  INFO ] AtomGit PR exists'"
-        },
-        {
-          "after_line": 7,
-          "gap_seconds": 725.0,
-          "before_ts": "2026-06-23T20:31:19+08:00",
-          "after_ts": "2026-06-23T20:43:24+08:00",
-          "sample_before": "[2026-06-23 20:31:19] [  INFO ] ***** End to download kernel of openeuler *****",
-          "sample_after": "[2026-06-23 20:43:24] [  INFO ] ***** Download and Apply PR *****"
-        },
-        {
-          "after_line": 8,
-          "gap_seconds": 25.0,
-          "before_ts": "2026-06-23T20:43:24+08:00",
-          "after_ts": "2026-06-23T20:43:49+08:00",
-          "sample_before": "[2026-06-23 20:43:24] [  INFO ] ***** Download and Apply PR *****",
-          "sample_after": "[2026-06-23 20:43:49] [  INFO ] build success"
-        }
-      ],
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/arm/job/kernel/10026/console",
+      "log_file": "logs/kernel/pr24242/arm_check_build-2026-06-26T124526.log.gz",
       "pre_build": {
-        "total_seconds": 333.0,
-        "pct_of_total": 29.7,
+        "total_seconds": 557.0,
+        "pct_of_total": 84.97,
         "orchestrator": "jenkins",
         "actions": [
           {
-            "key": "clone_check_scripts",
-            "name": "Clone 检查脚本",
-            "start": null,
-            "end": null,
-            "duration_seconds": 0.0,
-            "evidence": "No clone_check_scripts marker; Setup gcc at 20:26:10 is a warmup not matching this phase"
+            "key": "install_build_tools",
+            "name": "安装构建工具",
+            "start": "2026-06-26T12:46:32+08:00",
+            "end": "2026-06-26T12:47:48+08:00",
+            "duration_seconds": 76.0,
+            "evidence": "12:46:32→12:47:48"
           },
           {
             "key": "clone_kernel_repo",
             "name": "Clone 内核仓库",
-            "start": "2026-06-23T20:30:42+08:00",
-            "end": "2026-06-23T20:31:19+08:00",
-            "duration_seconds": 37.0,
-            "evidence": "[20:30:42] ***** Start to download kernel of openeuler ***** -> [20:31:19] ***** End to download kernel of openeuler *****"
-          },
-          {
-            "key": "install_build_tools",
-            "name": "安装构建工具",
-            "start": "2026-06-23T20:26:11+08:00",
-            "end": "2026-06-23T20:30:42+08:00",
-            "duration_seconds": 271.0,
-            "evidence": "[20:26:11] ***** Start to install build tools ***** -> [20:30:42] ***** End to install build tools *****"
-          },
-          {
-            "key": "apply_pr_patch",
-            "name": "应用 PR 补丁",
-            "start": "2026-06-23T20:43:24+08:00",
-            "end": "2026-06-23T20:43:49+08:00",
-            "duration_seconds": 25.0,
-            "evidence": "[20:43:24] ***** Download and Apply PR ***** -> [20:43:49] build success"
+            "start": "2026-06-26T12:47:48+08:00",
+            "end": "2026-06-26T12:55:49+08:00",
+            "duration_seconds": 481.0,
+            "evidence": "12:47:48→12:55:49"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 787.81,
-        "pct_of_total": 70.3,
+        "total_seconds": 93.56,
+        "pct_of_total": 14.27,
         "actions": [
           {
-            "key": "allmodconfig_build",
-            "name": "Allmodconfig 构建",
-            "duration_seconds": 725.0
-          },
-          {
-            "key": "defconfig_build",
-            "name": "Defconfig 构建",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "kabi_check",
-            "name": "KABI 兼容性检查",
-            "duration_seconds": 0.0
-          },
-          {
-            "key": "defconfig_check",
-            "name": "Defconfig 一致性检查",
-            "duration_seconds": 62.81
+            "key": "compilation",
+            "name": "编译",
+            "duration_seconds": 93.6
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 333.0,
-        "build_seconds": 787.8,
-        "unattributed_seconds": 0,
-        "key_bottleneck": "安装构建工具",
-        "key_bottleneck_seconds": 271.0
+        "pre_build_seconds": 557.0,
+        "build_seconds": 93.6,
+        "unattributed_seconds": 5.0,
+        "key_bottleneck": "Clone 内核仓库",
+        "key_bottleneck_seconds": 481.0
+      },
+      "time": {
+        "start": "2026-06-26T12:45:26.660000+08:00",
+        "end": "2026-06-26T12:56:22.220000+08:00",
+        "duration_seconds": 655.56
       }
+    },
+    {
+      "task_name": "riscv64_check_build",
+      "stage": "",
+      "status": "warning",
+      "detail_url": "https://ci.openeuler.openatom.cn/job/multiarch/job/openeuler/job/riscv64/job/kernel/10025/console",
+      "log_file": "logs/kernel/pr24242/riscv64_check_build-2026-06-26T124532.log.gz",
+      "pre_build": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "orchestrator": "jenkins",
+        "actions": []
+      },
+      "build_phases": {
+        "total_seconds": 0,
+        "pct_of_total": 0,
+        "actions": []
+      },
+      "summary": {
+        "pre_build_seconds": 0,
+        "build_seconds": 0,
+        "unattributed_seconds": 0,
+        "key_bottleneck": "",
+        "key_bottleneck_seconds": 0
+      },
+      "time": {
+        "start": "2026-06-26T12:45:32.907000+08:00",
+        "end": "2026-06-26T12:53:36.550000+08:00",
+        "duration_seconds": 483.643
+      },
+      "_error": "Build warning: riscv64 had WARNING status"
     }
   ]
 }

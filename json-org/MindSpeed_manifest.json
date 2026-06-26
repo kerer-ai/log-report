@@ -1,0 +1,17 @@
+{
+  "repo": "Ascend/MindSpeed",
+  "pr": 3574,
+  "pr_url": "https://gitcode.com/Ascend/MindSpeed/pull/3574",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_MindSpeed",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=baddd3989ead4da4a892aec23193542c&pipelineRunId=ac1a01c78e974130802ff0bfff77c83c&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-26T09:38:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300091&pipelineId=baddd3989ead4da4a892aec23193542c&pipelineRunId=ac1a01c78e974130802ff0bfff77c83c&stepId=5fb65047ab8042d898f739e868986891&jobRunId=73ebfaf9e49a43e3b606d6f10fd98fb7&stepRunId=3b738e07d781453f9a209d6d00ba3d41&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

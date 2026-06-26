@@ -1,0 +1,17 @@
+{
+  "repo": "Ascend/memcache",
+  "pr": 327,
+  "pr_url": "https://gitcode.com/Ascend/memcache/pull/327",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_memcache",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=d33796067f29467b9e00cc14ffcd86eb&pipelineRunId=e223e63460c44c4b9ddf418a13e3f518&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-26T08:00:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_memcache",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=d33796067f29467b9e00cc14ffcd86eb&pipelineRunId=e223e63460c44c4b9ddf418a13e3f518&stepId=0670c86ca83f4a76a4f0cd3a08dd5cc1&jobRunId=fa0dc1ffcc62439b8a8db5e086b0614b&stepRunId=4f1bfa47229e445e831d7eaa3802fe1d&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

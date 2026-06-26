@@ -1,0 +1,22 @@
+{
+  "repo": "Ascend/torchair",
+  "pr": 3253,
+  "pr_url": "https://gitcode.com/Ascend/torchair/pull/3253",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_torchair",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=c840539a735d46a4a63989b3eeaa550d&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-24T17:30:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_x86",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=c840539a735d46a4a63989b3eeaa550d&stepId=1f264454a0da4a4a8aa5dd7c1c2ddece&jobRunId=216a5d42e3964462829a4b8acfd935a4&stepRunId=d7213078156c4933b6df1f5f16c063cd&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_ARM",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=4584af00613748b5854a22a4603c0155&pipelineRunId=c840539a735d46a4a63989b3eeaa550d&stepId=1f264454a0da4a4a8aa5dd7c1c2ddece&jobRunId=d9bfd1beaa2149c4a74f7d6fcf2afa64&stepRunId=7d906da9b4b14293a2bff836a32587ed&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

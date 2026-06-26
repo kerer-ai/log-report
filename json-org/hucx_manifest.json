@@ -1,0 +1,22 @@
+{
+  "repo": "kunpengcompute/hucx",
+  "pr": 49,
+  "pr_url": "https://gitcode.com/kunpengcompute/hucx/pull/49",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_hucx",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=35d2348fee4e406fa17d8ba0e70ddf49&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-25T17:00:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_gcc",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=35d2348fee4e406fa17d8ba0e70ddf49&stepId=edd0149104d54e70ab3a67acee3c4e8d&jobRunId=1003bf68cba945bd8a29da32edf82d1d&stepRunId=dc3b1cb0ce4d483bb69930ca91dc7e63&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_bisheng",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=35d2348fee4e406fa17d8ba0e70ddf49&stepId=edd0149104d54e70ab3a67acee3c4e8d&jobRunId=95e0259ca26648ffa57f10a5929d2a4c&stepRunId=374b73ceda9b48588d3d14b62a321977&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

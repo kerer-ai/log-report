@@ -1,259 +1,163 @@
 {
   "meta": {
-    "pr": 47,
+    "pr": 49,
     "repo": "kunpengcompute/hucx",
-    "pr_url": "https://gitcode.com/kunpengcompute/hucx/pull/47",
-    "pipeline_name": "",
+    "pr_url": "https://gitcode.com/kunpengcompute/hucx/pull/49",
+    "pipeline_name": "PR-pipeline_hucx",
     "pipeline_state": "passed",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=05ccfeda7a6c48308f3bb42f9e4bfddb&codeHostingPlatformFlag=gitcode",
-    "comment_time": "",
-    "fetched_at": "2026-06-24T17:28:18.310180+08:00",
-    "analyzed_at": "2026-06-24T23:50:00+08:00",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=35d2348fee4e406fa17d8ba0e70ddf49&codeHostingPlatformFlag=gitcode",
+    "comment_time": "2026-06-25T17:00:00+08:00",
+    "fetched_at": "2026-06-26T16:52:52.101250+08:00",
+    "analyzed_at": "2026-06-26T17:02:54.534177+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
     {
       "task_name": "Build_gcc",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=05ccfeda7a6c48308f3bb42f9e4bfddb&stepId=823ea6a44db74e12816d47f8e5d31be1&jobRunId=7d659893157c49069a1afd8adf7ab9ac&stepRunId=74472f2b54314e8d9dec2105b3da03d1&codeHostingPlatformFlag=gitcode",
-      "log_file": "logs/hucx/pr47/Build_gcc-2026-05-29T152035.log.gz",
-      "time": {
-        "start": "2026-05-29T15:20:35.331000+08:00",
-        "end": "2026-05-29T15:30:27.006000+08:00",
-        "duration_seconds": 591.675
-      },
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=35d2348fee4e406fa17d8ba0e70ddf49&stepId=edd0149104d54e70ab3a67acee3c4e8d&jobRunId=1003bf68cba945bd8a29da32edf82d1d&stepRunId=dc3b1cb0ce4d483bb69930ca91dc7e63&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/hucx/pr49/Build_gcc-2026-06-26T141602.log.gz",
       "pre_build": {
-        "total_seconds": 75.359,
-        "pct_of_total": 12.74,
-        "orchestrator": "volcano",
+        "total_seconds": 269.315,
+        "pct_of_total": 38.77,
+        "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-05-29T15:20:36.484000+08:00",
-            "end": "2026-05-29T15:20:36.987000+08:00",
-            "duration_seconds": 0.503,
-            "evidence": "[PRE_ENV:slave_create] Find available executor node:agent_CI_MR_02-VnIJl3dkf4"
+            "start": "2026-06-26T14:16:02.892000+08:00",
+            "end": "2026-06-26T14:16:03.415000+08:00",
+            "duration_seconds": 0.523,
+            "evidence": "node_assignment: 14:16:02→14:16:03"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-05-29T15:20:36.987000+08:00",
-            "end": "2026-05-29T15:20:37.789000+08:00",
-            "duration_seconds": 0.802,
-            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date (cached)"
+            "start": "2026-06-26T14:16:03.415000+08:00",
+            "end": "2026-06-26T14:16:04.264000+08:00",
+            "duration_seconds": 0.849,
+            "evidence": "docker_pull: 14:16:03→14:16:09"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-05-29T15:20:37.789000+08:00",
-            "end": "2026-05-29T15:20:38.016000+08:00",
-            "duration_seconds": 0.227,
-            "evidence": "[代码检出:external_pre_checkout] 创建gitcode代码访问凭证成功"
-          },
-          {
-            "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": "2026-05-29T15:20:38.016000+08:00",
-            "end": "2026-05-29T15:20:38.027000+08:00",
-            "duration_seconds": 0.011,
-            "evidence": "[代码检出:external_post_checkout] 执行完成 + credential setup"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-05-29T15:20:38.027000+08:00",
-            "end": "2026-05-29T15:20:41.014000+08:00",
-            "duration_seconds": 2.987,
-            "evidence": "git init /opt/agent_CI_MR_02/workspace/j_0gABsCCC -> git checkout -b compilable 6c25e395"
-          },
-          {
-            "key": "pod_scheduling",
-            "name": "Pod 调度等待",
-            "start": "2026-05-29T15:20:41.014000+08:00",
-            "end": "2026-05-29T15:20:43.782000+08:00",
-            "duration_seconds": 2.768,
-            "evidence": "hpckit_openeuler_22.03_lts_sp2_arm:v1.0_git_2.9.5 Image is up to date + shell start"
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": "2026-05-29T15:20:43.782000+08:00",
-            "end": "2026-05-29T15:21:45.175000+08:00",
-            "duration_seconds": 61.393,
-            "evidence": "yum install -y libibverbs libibverbs-devel + rdma-core-devel libnl3-devel"
+            "start": "2026-06-26T14:16:04.264000+08:00",
+            "end": "2026-06-26T14:16:07.451000+08:00",
+            "duration_seconds": 3.187,
+            "evidence": "git_checkout: 14:16:04→14:16:07"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置",
-            "start": "2026-05-29T15:21:45.175000+08:00",
-            "end": "2026-05-29T15:21:45.176000+08:00",
-            "duration_seconds": 0.001,
-            "evidence": "module load gcc/compiler12.3.1/gccmodule"
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-05-29T15:21:45.176000+08:00",
-            "end": "2026-05-29T15:21:51.843000+08:00",
-            "duration_seconds": 6.667,
-            "evidence": "git clone xucg.git + git clone hmpi.git (submodule deps)"
+            "start": "2026-06-26T14:16:07.451000+08:00",
+            "end": "2026-06-26T14:20:32.207000+08:00",
+            "duration_seconds": 264.756,
+            "evidence": "env_setup: 14:16:07→14:20:32"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 515.163,
-        "pct_of_total": 87.07,
+        "total_seconds": 425.085,
+        "pct_of_total": 61.2,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 20.278,
-            "evidence": "autogen.sh(autoreconf) 15:21:51.843 + ./contrib/configure-opt 15:21:59.584 -> configure end ~15:22:12.121"
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 69.747,
-            "evidence": "make -j16 all-recursive 15:22:12.121 -> 15:23:21.868"
+            "duration_seconds": 297.6
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 425.138,
-            "evidence": "make install-recursive 15:23:21.868 -> log end 15:30:27.005"
+            "duration_seconds": 127.5
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 75.4,
-        "build_seconds": 515.2,
-        "unattributed_seconds": 1.2,
-        "key_bottleneck": "系统包安装",
-        "key_bottleneck_seconds": 61.393
+        "pre_build_seconds": 269.3,
+        "build_seconds": 425.1,
+        "unattributed_seconds": 0.2,
+        "key_bottleneck": "环境变量设置",
+        "key_bottleneck_seconds": 264.756
+      },
+      "time": {
+        "start": "2026-06-26T14:16:02.703000+08:00",
+        "end": "2026-06-26T14:27:37.292000+08:00",
+        "duration_seconds": 694.589
       }
     },
     {
       "task_name": "Build_bisheng",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=05ccfeda7a6c48308f3bb42f9e4bfddb&stepId=823ea6a44db74e12816d47f8e5d31be1&jobRunId=10d010e15e324c83bcf9088d0724d4bc&stepRunId=d36fbf9e09df4dada14db31f97a4c5d9&codeHostingPlatformFlag=gitcode",
-      "log_file": "logs/hucx/pr47/Build_bisheng-2026-05-29T152035.log.gz",
-      "time": {
-        "start": "2026-05-29T15:20:35.353000+08:00",
-        "end": "2026-05-29T15:31:46.653000+08:00",
-        "duration_seconds": 671.3
-      },
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300073&pipelineId=2e418ed0c2e440fd9ffad8083e4bd0a7&pipelineRunId=35d2348fee4e406fa17d8ba0e70ddf49&stepId=edd0149104d54e70ab3a67acee3c4e8d&jobRunId=95e0259ca26648ffa57f10a5929d2a4c&stepRunId=374b73ceda9b48588d3d14b62a321977&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/hucx/pr49/Build_bisheng-2026-06-26T141602.log.gz",
       "pre_build": {
-        "total_seconds": 121.952,
-        "pct_of_total": 18.17,
-        "orchestrator": "volcano",
+        "total_seconds": 261.266,
+        "pct_of_total": 36.71,
+        "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-05-29T15:20:36.486000+08:00",
-            "end": "2026-05-29T15:20:37.024000+08:00",
-            "duration_seconds": 0.538,
-            "evidence": "[PRE_ENV:slave_create] Find available executor node:agent_CI_MR_01-N6dPYO3daA"
+            "start": "2026-06-26T14:16:02.911000+08:00",
+            "end": "2026-06-26T14:16:03.426000+08:00",
+            "duration_seconds": 0.515,
+            "evidence": "node_assignment: 14:16:02→14:16:03"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-05-29T15:20:37.024000+08:00",
-            "end": "2026-05-29T15:20:37.858000+08:00",
-            "duration_seconds": 0.834,
-            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Status: Image is up to date (cached)"
+            "start": "2026-06-26T14:16:03.426000+08:00",
+            "end": "2026-06-26T14:16:04.269000+08:00",
+            "duration_seconds": 0.843,
+            "evidence": "docker_pull: 14:16:03→14:16:09"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-05-29T15:20:37.858000+08:00",
-            "end": "2026-05-29T15:20:38.144000+08:00",
-            "duration_seconds": 0.286,
-            "evidence": "[代码检出:external_pre_checkout] 创建gitcode代码访问凭证成功"
-          },
-          {
-            "key": "orchestrator_submit",
-            "name": "编排器任务提交",
-            "start": "2026-05-29T15:20:38.144000+08:00",
-            "end": "2026-05-29T15:20:38.156000+08:00",
-            "duration_seconds": 0.012,
-            "evidence": "[代码检出:external_post_checkout] 执行完成 + credential setup"
-          },
-          {
-            "key": "pod_git_clone",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-05-29T15:20:38.156000+08:00",
-            "end": "2026-05-29T15:20:41.391000+08:00",
-            "duration_seconds": 3.235,
-            "evidence": "git init /opt/agent_CI_MR_01/workspace/j_MQ6AYugx -> git checkout -b compilable 6c343222"
-          },
-          {
-            "key": "pod_scheduling",
-            "name": "Pod 调度等待",
-            "start": "2026-05-29T15:20:41.391000+08:00",
-            "end": "2026-05-29T15:20:44.184000+08:00",
-            "duration_seconds": 2.793,
-            "evidence": "hpckit_openeuler_22.03_lts_sp2_arm:v1.0 Image is up to date + shell start"
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": "2026-05-29T15:20:44.184000+08:00",
-            "end": "2026-05-29T15:22:35.072000+08:00",
-            "duration_seconds": 110.888,
-            "evidence": "yum install -y libibverbs libibverbs-devel + rdma-core-devel + libnl3-devel (download 38.93s)"
+            "start": "2026-06-26T14:16:04.269000+08:00",
+            "end": "2026-06-26T14:16:07.871000+08:00",
+            "duration_seconds": 3.602,
+            "evidence": "git_checkout: 14:16:04→14:16:07"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置",
-            "start": "2026-05-29T15:22:35.072000+08:00",
-            "end": "2026-05-29T15:22:35.073000+08:00",
-            "duration_seconds": 0.001,
-            "evidence": "module load bisheng/compiler***.***.***.2/bishengmodule"
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-05-29T15:22:35.073000+08:00",
-            "end": "2026-05-29T15:22:38.438000+08:00",
-            "duration_seconds": 3.365,
-            "evidence": "git clone xucg.git + git clone hmpi.git (submodule deps)"
+            "start": "2026-06-26T14:16:07.871000+08:00",
+            "end": "2026-06-26T14:20:24.177000+08:00",
+            "duration_seconds": 256.306,
+            "evidence": "env_setup: 14:16:07→14:20:24"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 548.215,
-        "pct_of_total": 81.66,
+        "total_seconds": 450.219,
+        "pct_of_total": 63.26,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 23.084,
-            "evidence": "autogen.sh(autoreconf) 15:22:38.438 + ./contrib/configure-opt 15:22:45.659 -> configure end ~15:23:01.522"
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 73.564,
-            "evidence": "make -j16 all-recursive 15:23:01.522 -> 15:24:15.086"
+            "duration_seconds": 315.2
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 451.567,
-            "evidence": "make install-recursive 15:24:15.086 -> log end 15:31:46.653 (truncated)"
+            "duration_seconds": 135.1
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 122.0,
-        "build_seconds": 548.2,
-        "unattributed_seconds": 1.1,
-        "key_bottleneck": "系统包安装",
-        "key_bottleneck_seconds": 110.888
+        "pre_build_seconds": 261.3,
+        "build_seconds": 450.2,
+        "unattributed_seconds": 0.2,
+        "key_bottleneck": "环境变量设置",
+        "key_bottleneck_seconds": 256.306
+      },
+      "time": {
+        "start": "2026-06-26T14:16:02.729000+08:00",
+        "end": "2026-06-26T14:27:54.396000+08:00",
+        "duration_seconds": 711.667
       }
     }
   ]

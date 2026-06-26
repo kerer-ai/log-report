@@ -1,0 +1,47 @@
+{
+  "repo": "Ascend/pytorch",
+  "pr": 39391,
+  "pr_url": "https://gitcode.com/Ascend/pytorch/pull/39391",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_pytorch",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-26T15:45:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_X86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=c4971988a9ea47e896c0940d5cdc27cb&stepRunId=411d0ed09d3143c6b799f52bd7bfe626&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=3fdd086c799a443bb9cff06d960bd65c&stepRunId=1512c8de029d45858df0813e9380d243&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_LibTorch_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=3a5ca95ac9f44ad28b996044e6e0f85c&stepRunId=85aaf9056d884fc0ba47c3b24cbb1b39&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_LibTorch_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=f13beacd44824e3fab029bbb0dd7f21a&stepRunId=20706748fba44b8a82695b43e15e60aa&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_X86_torchair",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=371924a86f3f4a3ebec43e8bb6444ac4&stepRunId=8383886198064e38bdf087e1cd7bc4a8&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_ARM_torchair",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=4d0b1fc91a844300bb9e0c620ca70bfd&stepRunId=3eac7a86cf3c4db0b6e1322874746ba5&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "patch_test",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=9ab4a8ad25bd4afeb808647efc5fc2f1&pipelineRunId=62c26e9e50624164a28df9cdd8aa3cf7&stepId=ec47f39e78fa49668b5c945cd0df7449&jobRunId=a10b41bf6f874cabb0ac323e65dd9cfe&stepRunId=b56eed2ea62e4e01a829166ff827bdad&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

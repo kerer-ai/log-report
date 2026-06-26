@@ -1,271 +1,163 @@
 {
   "meta": {
-    "pr": 879,
+    "pr": 883,
     "repo": "Ascend/memfabric_hybrid",
-    "pr_url": "https://gitcode.com/Ascend/memfabric_hybrid/pull/879",
-    "pipeline_name": "",
-    "pipeline_state": "",
-    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=1b7fda1468834b2f8570b5bbaf70d193",
-    "comment_time": "",
-    "fetched_at": "2026-06-24T18:24:43.947324+08:00",
-    "analyzed_at": "2026-06-24T18:50:00+08:00",
+    "pr_url": "https://gitcode.com/Ascend/memfabric_hybrid/pull/883",
+    "pipeline_name": "PR-pipeline_memfabric_hybrid",
+    "pipeline_state": "passed",
+    "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=a2be9c02c68c4d42875b346759ed0d4f&codeHostingPlatformFlag=gitcode",
+    "comment_time": "2026-06-26T08:00:00+08:00",
+    "fetched_at": "2026-06-26T16:58:08.790573+08:00",
+    "analyzed_at": "2026-06-26T17:02:55.222890+08:00",
     "analysis_method": "ai_semantic"
   },
   "builds": [
     {
       "task_name": "Build_memfabric-hybrid",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=1b7fda1468834b2f8570b5bbaf70d193&stepId=9edf84c6b93a4a1fa9c04cb827024d25&jobRunId=777ad41934ac48abba74a85391872c56&stepRunId=3a1cf8c1ab394e78bc521b44afa7471b",
-      "log_file": "logs/memfabric_hybrid/pr879/Build_memfabric-hybrid-2026-06-24T164948.log.gz",
-      "time": {
-        "start": "2026-06-24T16:49:48.441000+08:00",
-        "end": "2026-06-24T16:55:33.776000+08:00",
-        "duration_seconds": 345.335
-      },
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=a2be9c02c68c4d42875b346759ed0d4f&stepId=bb235c3b42194a41a7dae6c36805cae2&jobRunId=75fead4ee431461cb8b2ae9377b35bcc&stepRunId=5ca8ee12345e496fa767bb65997a2cae&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/memfabric_hybrid/pr883/Build_memfabric-hybrid-2026-06-25T184436.log.gz",
       "pre_build": {
-        "total_seconds": 89.272,
-        "pct_of_total": 25.85,
+        "total_seconds": 86.718,
+        "pct_of_total": 25.07,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-24T16:49:48.555000+08:00",
-            "end": "2026-06-24T16:49:49.997000+08:00",
-            "duration_seconds": 1.442,
-            "evidence": "[PRE_ENV:slave_create] executor node:agent_1762306282218-63mxu39LwU"
+            "start": "2026-06-25T18:44:36.491000+08:00",
+            "end": "2026-06-25T18:44:37.970000+08:00",
+            "duration_seconds": 1.479,
+            "evidence": "node_assignment: 18:44:36→18:44:36"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-24T16:49:49.997000+08:00",
-            "end": "2026-06-24T16:49:50.380000+08:00",
-            "duration_seconds": 0.383,
-            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Pulling - Status: Image is up to date"
+            "start": "2026-06-25T18:44:37.970000+08:00",
+            "end": "2026-06-25T18:44:40.694000+08:00",
+            "duration_seconds": 2.724,
+            "evidence": "docker_pull: 18:44:37→18:45:04"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-24T16:49:53.413000+08:00",
-            "end": "2026-06-24T16:49:58.999000+08:00",
-            "duration_seconds": 8.619,
-            "evidence": "[代码检出:external_pre_checkout] -> [external_post_checkout] 完成, merge af43296 (mf_agents_skills) into develop"
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-06-24T16:50:06.709000+08:00",
-            "end": "2026-06-24T16:50:16.172000+08:00",
-            "duration_seconds": 13.976,
-            "evidence": "git clone -b develop + git fetch refs/merge-requests/879/head + git merge + submodule init/update"
-          },
-          {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "start": "2026-06-24T16:51:09.671000+08:00",
-            "end": "2026-06-24T16:51:17.827000+08:00",
-            "duration_seconds": 8.156,
-            "evidence": "pip3 install --upgrade pip setuptools wheel + pip3 install pybind11==3.0.1"
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": "2026-06-24T16:50:27.118000+08:00",
-            "end": "2026-06-24T16:51:09.671000+08:00",
-            "duration_seconds": 42.553,
-            "evidence": "yum install -y rdma-core-devel (AlmaLinux 8 repo init + package check, already installed)"
+            "start": "2026-06-25T18:44:40.694000+08:00",
+            "end": "2026-06-25T18:44:45.091000+08:00",
+            "duration_seconds": 4.397,
+            "evidence": "git_checkout: 18:44:40→18:44:45"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置",
-            "start": "2026-06-24T16:50:26.115000+08:00",
-            "end": "2026-06-24T16:50:27.118000+08:00",
-            "duration_seconds": 7.521,
-            "evidence": "mkdir -p BeiMing_output, git credential config, set -eux"
-          },
-          {
-            "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": "2026-06-24T16:50:01.813000+08:00",
-            "end": "2026-06-24T16:50:02.196000+08:00",
-            "duration_seconds": 3.197,
-            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0 (container stage) - Image is up to date"
-          },
-          {
-            "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": "2026-06-24T16:50:19.214000+08:00",
-            "end": "2026-06-24T16:50:19.597000+08:00",
-            "duration_seconds": 3.425,
-            "evidence": "memfabric-hybrid_arm:v20 from swr.cn-north-4.myhuaweicloud.com - Image is up to date"
+            "start": "2026-06-25T18:44:45.091000+08:00",
+            "end": "2026-06-25T18:46:03.209000+08:00",
+            "duration_seconds": 78.118,
+            "evidence": "env_setup: 18:44:45→18:46:03"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 245.245,
-        "pct_of_total": 71.02,
+        "total_seconds": 259.101,
+        "pct_of_total": 74.9,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 12.85,
-            "start": "2026-06-24T16:51:17.827000+08:00",
-            "end": "2026-06-24T16:51:30.677000+08:00",
-            "evidence": "cmake configure -> Build files have been written to: build"
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 225.934,
-            "start": "2026-06-24T16:51:30.677000+08:00",
-            "end": "2026-06-24T16:55:16.611000+08:00",
-            "evidence": "make: Entering -> make[1]: Leaving directory build"
+            "duration_seconds": 181.4
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 6.461,
-            "start": "2026-06-24T16:55:16.611000+08:00",
-            "end": "2026-06-24T16:55:23.072000+08:00",
-            "evidence": "auditwheel + tar listing + cp -rf memfabric_hybrid-1.2.0_linux_aarch64.run"
+            "duration_seconds": 77.7
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 89.3,
-        "build_seconds": 245.2,
-        "unattributed_seconds": 10.8,
-        "key_bottleneck": "系统包安装",
-        "key_bottleneck_seconds": 42.553
+        "pre_build_seconds": 86.7,
+        "build_seconds": 259.1,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "环境变量设置",
+        "key_bottleneck_seconds": 78.118
+      },
+      "time": {
+        "start": "2026-06-25T18:44:36.375000+08:00",
+        "end": "2026-06-25T18:50:22.310000+08:00",
+        "duration_seconds": 345.935
       }
     },
     {
       "task_name": "Build_memfabric-hybrid-bazel",
-      "stage": "编译构建",
+      "stage": "",
       "status": "passed",
-      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=1b7fda1468834b2f8570b5bbaf70d193&stepId=9edf84c6b93a4a1fa9c04cb827024d25&jobRunId=c6926a0e3e054f218d8bab5ce76daa62&stepRunId=98be25ab5d99475e91ef35bcc13d014f",
-      "log_file": "logs/memfabric_hybrid/pr879/Build_memfabric-hybrid-bazel-2026-06-24T164948.log.gz",
-      "time": {
-        "start": "2026-06-24T16:49:48.207000+08:00",
-        "end": "2026-06-24T16:55:06.958000+08:00",
-        "duration_seconds": 318.751
-      },
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300066&pipelineId=87d48bd7790b4cf7adeca978bdf2ce52&pipelineRunId=a2be9c02c68c4d42875b346759ed0d4f&stepId=bb235c3b42194a41a7dae6c36805cae2&jobRunId=813eb87f681241c9b1c05215de1a9247&stepRunId=ed534c875de74bc887db10681a6236cf&codeHostingPlatformFlag=gitcode",
+      "log_file": "logs/memfabric_hybrid/pr883/Build_memfabric-hybrid-bazel-2026-06-25T184436.log.gz",
       "pre_build": {
-        "total_seconds": 88.962,
-        "pct_of_total": 27.91,
+        "total_seconds": 290.951,
+        "pct_of_total": 90.49,
         "orchestrator": "docker",
         "actions": [
           {
             "key": "node_assignment",
             "name": "执行节点分配",
-            "start": "2026-06-24T16:49:48.318000+08:00",
-            "end": "2026-06-24T16:49:49.750000+08:00",
-            "duration_seconds": 1.432,
-            "evidence": "[PRE_ENV:slave_create] executor node:agent_mf004-ggRVyhoiKa"
+            "start": "2026-06-25T18:44:36.596000+08:00",
+            "end": "2026-06-25T18:44:38.109000+08:00",
+            "duration_seconds": 1.513,
+            "evidence": "node_assignment: 18:44:36→18:44:36"
           },
           {
             "key": "docker_pull",
             "name": "Docker 镜像拉取",
-            "start": "2026-06-24T16:49:49.750000+08:00",
-            "end": "2026-06-24T16:49:50.134000+08:00",
-            "duration_seconds": 0.384,
-            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0: Pulling - Status: Image is up to date"
+            "start": "2026-06-25T18:44:38.109000+08:00",
+            "end": "2026-06-25T18:44:40.944000+08:00",
+            "duration_seconds": 2.835,
+            "evidence": "docker_pull: 18:44:38→18:45:05"
           },
           {
             "key": "git_checkout",
             "name": "代码检出",
-            "start": "2026-06-24T16:49:53.010000+08:00",
-            "end": "2026-06-24T16:49:58.450000+08:00",
-            "duration_seconds": 8.316,
-            "evidence": "[代码检出:external_pre_checkout] -> [external_post_checkout] 完成, merge af43296 (mf_agents_skills) into develop"
-          },
-          {
-            "key": "git_checkout_pod",
-            "name": "代码检出 (Pod内)",
-            "start": "2026-06-24T16:50:06.175000+08:00",
-            "end": "2026-06-24T16:50:14.966000+08:00",
-            "duration_seconds": 13.356,
-            "evidence": "git clone -b develop + git fetch refs/merge-requests/879/head + git merge + submodule init/update"
-          },
-          {
-            "key": "pip_install",
-            "name": "Python 依赖安装",
-            "start": "2026-06-24T16:51:09.193000+08:00",
-            "end": "2026-06-24T16:51:17.280000+08:00",
-            "duration_seconds": 8.087,
-            "evidence": "pip3 install --upgrade pip setuptools wheel + pip3 install pybind11==3.0.1"
-          },
-          {
-            "key": "apt_install",
-            "name": "系统包安装",
-            "start": "2026-06-24T16:50:22.041000+08:00",
-            "end": "2026-06-24T16:51:09.193000+08:00",
-            "duration_seconds": 47.152,
-            "evidence": "yum install -y rdma-core-devel (AlmaLinux 8 repo init + package check, already installed)"
+            "start": "2026-06-25T18:44:40.944000+08:00",
+            "end": "2026-06-25T18:44:45.197000+08:00",
+            "duration_seconds": 4.253,
+            "evidence": "git_checkout: 18:44:40→18:44:45"
           },
           {
             "key": "env_setup",
             "name": "环境变量设置",
-            "start": "2026-06-24T16:50:21.906000+08:00",
-            "end": "2026-06-24T16:50:22.041000+08:00",
-            "duration_seconds": 3.862,
-            "evidence": "mkdir -p BeiMing_output, set -eux"
-          },
-          {
-            "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": "2026-06-24T16:50:01.226000+08:00",
-            "end": "2026-06-24T16:50:01.610000+08:00",
-            "duration_seconds": 3.16,
-            "evidence": "arm-shell4.2.46-git2.23-zip-1.1.0 (container stage) - Image is up to date"
-          },
-          {
-            "key": "docker_pull",
-            "name": "Docker 镜像拉取",
-            "start": "2026-06-24T16:50:18.179000+08:00",
-            "end": "2026-06-24T16:50:18.179000+08:00",
-            "duration_seconds": 3.213,
-            "evidence": "memfabric-hybrid_arm:v30 from swr.cn-north-4.myhuaweicloud.com - Image is up to date (instant, already cached)"
+            "start": "2026-06-25T18:44:45.197000+08:00",
+            "end": "2026-06-25T18:49:27.547000+08:00",
+            "duration_seconds": 282.35,
+            "evidence": "env_setup: 18:44:45→18:49:27"
           }
         ]
       },
       "build_phases": {
-        "total_seconds": 215.202,
-        "pct_of_total": 67.51,
+        "total_seconds": 30.472,
+        "pct_of_total": 9.48,
         "actions": [
-          {
-            "key": "cmake_configure",
-            "name": "CMake 配置",
-            "duration_seconds": 28.186,
-            "start": "2026-06-24T16:51:17.280000+08:00",
-            "end": "2026-06-24T16:51:45.466000+08:00",
-            "evidence": "bazel clean -> Computing main repo mapping -> Analyzed 29 targets"
-          },
           {
             "key": "compilation",
             "name": "编译",
-            "duration_seconds": 169.674,
-            "start": "2026-06-24T16:51:45.466000+08:00",
-            "end": "2026-06-24T16:54:35.140000+08:00",
-            "evidence": "BazelWorkspaceStatusAction -> INFO: Build completed successfully, 262 total actions"
+            "duration_seconds": 21.3
           },
           {
             "key": "packaging",
             "name": "打包与上传",
-            "duration_seconds": 17.342,
-            "start": "2026-06-24T16:54:35.140000+08:00",
-            "end": "2026-06-24T16:54:52.482000+08:00",
-            "evidence": "output symlinks -> .run packaging -> cp -rf memfabric_hybrid-1.2.0_linux_aarch64.run + .whl"
+            "duration_seconds": 9.1
           }
         ]
       },
       "summary": {
-        "pre_build_seconds": 89.0,
-        "build_seconds": 215.2,
-        "unattributed_seconds": 14.6,
-        "key_bottleneck": "系统包安装",
-        "key_bottleneck_seconds": 47.152
+        "pre_build_seconds": 291.0,
+        "build_seconds": 30.5,
+        "unattributed_seconds": 0.1,
+        "key_bottleneck": "环境变量设置",
+        "key_bottleneck_seconds": 282.35
+      },
+      "time": {
+        "start": "2026-06-25T18:44:36.483000+08:00",
+        "end": "2026-06-25T18:49:58.019000+08:00",
+        "duration_seconds": 321.536
       }
     }
   ]

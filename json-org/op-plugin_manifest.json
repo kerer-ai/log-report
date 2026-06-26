@@ -1,0 +1,72 @@
+{
+  "repo": "Ascend/op-plugin",
+  "pr": 5283,
+  "pr_url": "https://gitcode.com/Ascend/op-plugin/pull/5283",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_op-plugin",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-26T15:26:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_master_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=f0abcd0055ac478dab4f37f6b4227795&stepRunId=5b0fd989f96c472d98900778cd452336&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_7_1_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=dcfcd2b448ed45608fe70c5562d9da9e&stepRunId=eb9940097f3845ebaa8697c90c8486ff&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_9_0_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=a95e26685df64a2d9fbd3cb018d761c5&stepRunId=f1d71de240ac44f3929d3d8de4aa960c&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_10_0_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=08f3d5f88e2e481c92f1ceb91eec84bf&stepRunId=feee3fee929d4ec5b67b7c3b2505c13b&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_11_0_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=c3e4f7e1fd8f4e83866898d7c6a6f4d6&stepRunId=77171612ce124effbf663150d1414d80&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_12_0_ARM",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=3e78ac0beb674b4f83a4b7db7e27e432&stepRunId=f70fee30ce6e4e739952be01dc72662d&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_master_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=775d4574ec9b4747b14f589367444dc6&stepRunId=853f3b1826864bf895525004c112e173&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_7_1_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=8d8bfd383ceb4c7a957d58868ef4f7b6&stepRunId=45bc1cd860704ba19b48fff2616a0ba7&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_9_0_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=9385f62abf664fe581b03f2387ad09bf&stepRunId=c583b6403c9841c788e113cc73ba574d&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_10_0_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=fafad40d1ed743c2bbbaa142a814731a&stepRunId=a04ec449c4b64d3580592d3a9c383d6f&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_11_0_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=8a763ad665ef406c97b59f69448a3503&stepRunId=64034c78d6554dcdbf0cd92539745c97&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_v2_12_0_x86",
+      "status": "failed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=4&pipelineId=f2201d0732ac41cb84bf537b9708d2df&pipelineRunId=af3399082923477da09eedc9c08fc6a4&stepId=734a9532a1954b82937cd8a91f369e47&jobRunId=c4e8d495a9484446b54679c9a81f76fa&stepRunId=d3ec647bb6e54c6fa8d75a08aa1b62bf&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}

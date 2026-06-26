@@ -1,0 +1,62 @@
+{
+  "repo": "Ascend/MindIE-LLM",
+  "pr": 1077,
+  "pr_url": "https://gitcode.com/Ascend/MindIE-LLM/pull/1077",
+  "ci_backend": "openlibing",
+  "pipeline_name": "PR-pipeline_MindIE-LLM_gitcode",
+  "pipeline_state": "passed",
+  "pipeline_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&codeHostingPlatformFlag=gitcode",
+  "comment_time": "2026-06-25T11:28:00+08:00",
+  "tasks": [
+    {
+      "task_name": "Build_ops_x86_A3",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1fafa7ecec7f48b185581736faaeb3b3&jobRunId=ce13fffd13834d89a6797a2b0cdcafdc&stepRunId=98700e18ec1f43f0b38c352ea4c088d5&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_ops_arm_A3",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1fafa7ecec7f48b185581736faaeb3b3&jobRunId=ee03de9929be4cd98cce5506a65f1d5b&stepRunId=d467ed1f627841efa82959b059c638b6&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_ops_x86_A2",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1fafa7ecec7f48b185581736faaeb3b3&jobRunId=acd1354f6c8e45a4b923e968db61047a&stepRunId=430fbca6fc7e40af882ae899917c072c&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_ops_arm_A2",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1fafa7ecec7f48b185581736faaeb3b3&jobRunId=25b7bd2bf4f241678239e1c0aab4a93d&stepRunId=99762087ef7a4926a93c6340a9eca51d&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_x86_abi1_atb",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1afcdb5862594e1086b2d89dae881832&jobRunId=eea538987f6a4f2eb120fe6ac228f315&stepRunId=914d28ad28724f19abeb0cc3bf8bc6f2&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_x86_abi1_llm",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1afcdb5862594e1086b2d89dae881832&jobRunId=3b579345e6fd40f9992c3315ccc95265&stepRunId=9060992092cf42a28fb65974b112f8ad&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_arm_abi1_atb",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1afcdb5862594e1086b2d89dae881832&jobRunId=9a6a8443194a46e4a4d398adf080a7a8&stepRunId=d9db917d9ad94ddcbd7d28365f8c2cb0&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_arm_abi1_llm",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1afcdb5862594e1086b2d89dae881832&jobRunId=b8e15ba30db64080819951c358c05f2d&stepRunId=5f6b7343ec26426abd9584246899aaaa&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_arm_abi0_atb",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1afcdb5862594e1086b2d89dae881832&jobRunId=6e9bf6f73ea646ea841f3e557b561b80&stepRunId=eff822f77d664334b9f49929e3fe0720&codeHostingPlatformFlag=gitcode"
+    },
+    {
+      "task_name": "Build_linux_arm_abi0_llm",
+      "status": "passed",
+      "detail_url": "https://www.openlibing.com/apps/pipelineDetail?projectId=300036&pipelineId=9c5f15c87df447d38e536dcb082b7c04&pipelineRunId=667c691cfabc45d68b89bd6c8f6c7f8c&stepId=1afcdb5862594e1086b2d89dae881832&jobRunId=fc647317cdd1442d806a73e4a210b3f8&stepRunId=8d2acfc8e51d4d4c8009557950d63319&codeHostingPlatformFlag=gitcode"
+    }
+  ]
+}
